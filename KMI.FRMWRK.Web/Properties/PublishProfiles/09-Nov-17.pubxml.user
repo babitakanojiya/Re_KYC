@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\PUBLISH_APP\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="About.aspx">
+      <publishTime>04/14/2018 12:29:39</publishTime>
+    </File>
+    <File Include="Account/ForgotPassword.aspx">
+      <publishTime>04/14/2018 12:29:42</publishTime>
+    </File>
+    <File Include="Account/Login.aspx">
+      <publishTime>10/14/2020 11:34:27</publishTime>
+    </File>
+    <File Include="Account/RegisterUser.aspx">
+      <publishTime>09/09/2020 12:24:07</publishTime>
+    </File>
+    <File Include="Account/ResetPassword.aspx">
+      <publishTime>04/14/2018 12:29:43</publishTime>
+    </File>
+    <File Include="Account/SearchUser.aspx">
+      <publishTime>09/09/2020 12:11:26</publishTime>
+    </File>
+    <File Include="Account/Unauthorized.aspx">
+      <publishTime>04/14/2018 12:29:43</publishTime>
+    </File>
+    <File Include="Account/UpdateProfile.aspx">
+      <publishTime>04/14/2018 12:29:43</publishTime>
+    </File>
+    <File Include="Application/Admin/ApplicationConfig.aspx">
+      <publishTime>09/16/2020 17:02:09</publishTime>
+    </File>
+    <File Include="Application/Admin/ControlMaster.aspx">
+      <publishTime>09/18/2020 13:22:13</publishTime>
+    </File>
+    <File Include="Application/Admin/ControlSetup.aspx">
+      <publishTime>09/17/2020 17:33:02</publishTime>
+    </File>
+    <File Include="Application/CKYC/BatchJobDtls.aspx">
+      <publishTime>10/08/2020 13:58:28</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCCntrlPrsnQC.aspx">
+      <publishTime>05/21/2018 16:59:59</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCControllingPrsn.aspx">
+      <publishTime>11/02/2020 16:47:18</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCControlPrsnView.aspx">
+      <publishTime>11/02/2020 16:39:22</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCDocupld.aspx">
+      <publishTime>10/20/2020 14:12:48</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCDownload.aspx">
+      <publishTime>05/21/2018 16:59:59</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCEntAsRelPerson.aspx">
+      <publishTime>11/12/2020 14:23:13</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCEntDocUpld.aspx">
+      <publishTime>09/14/2020 17:13:55</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCEntView.aspx">
+      <publishTime>11/03/2020 14:39:53</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCExcelUpload.aspx">
+      <publishTime>01/25/2018 18:04:16</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCFile.aspx">
+      <publishTime>05/21/2018 16:59:59</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCLegalEntityQC.aspx">
+      <publishTime>05/25/2018 14:52:51</publishTime>
+    </File>
+    <File Include="Application/CKYC/CkycPMSVerify.aspx">
+      <publishTime>10/06/2020 11:00:01</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCQC.aspx">
+      <publishTime>11/02/2020 10:31:59</publishTime>
+    </File>
+    <File Include="Application/CKYC/CkycReg.aspx">
+      <publishTime>11/12/2020 12:53:08</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCRelatedPrsn.aspx">
+      <publishTime>11/11/2020 17:08:03</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCRelatedPrsnView.aspx">
+      <publishTime>11/05/2020 13:20:10</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCRltdPrsnQC.aspx">
+      <publishTime>05/21/2018 16:54:52</publishTime>
+    </File>
+    <File Include="Application/CKYC/CkycSearch.aspx">
+      <publishTime>11/30/2020 14:15:12</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCSecuredSearch_NEW.aspx">
+      <publishTime>12/30/2020 11:21:27</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCUnsolicitedSearch.aspx">
+      <publishTime>04/14/2018 12:29:46</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCUpload.aspx">
+      <publishTime>10/07/2020 10:31:01</publishTime>
+    </File>
+    <File Include="Application/CKYC/CKYCView.aspx">
+      <publishTime>12/28/2020 10:44:37</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/CSS/bootstrap-datepicker.css">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/CSS/CKYC.css">
+      <publishTime>04/14/2018 12:29:48</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/CSS/datetime.css">
+      <publishTime>04/14/2018 12:29:48</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/CSS/jquery.Jcrop.css">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/CSS/jquery.Jcrop.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/CSS/jquery.min.js">
+      <publishTime>04/14/2018 12:29:48</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Images/spinner.gif">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/bootstrap-datetimepicker.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/datetime.js">
+      <publishTime>04/14/2018 12:29:50</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/datetimepicker.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/jquery-1.11.0.min.js">
+      <publishTime>05/23/2018 11:27:07</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/jquery-1.5.1.min.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/jquery.color.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/jquery.Jcrop.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/jquery.Jcrop.min.js">
+      <publishTime>04/14/2018 12:29:49</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/jquery.min.js">
+      <publishTime>04/14/2018 12:29:50</publishTime>
+    </File>
+    <File Include="Application/CKYC/Common/Scripts/kmi.validation.js">
+      <publishTime>06/01/2018 00:07:19</publishTime>
+    </File>
+    <File Include="Application/CKYC/CountryMaster.aspx">
+      <publishTime>09/17/2020 16:14:26</publishTime>
+    </File>
+    <File Include="Application/CKYC/CropImage.aspx">
+      <publishTime>06/15/2018 19:31:29</publishTime>
+    </File>
+    <File Include="Application/CKYC/ImageCSharp.aspx">
+      <publishTime>04/14/2018 12:29:47</publishTime>
+    </File>
+    <File Include="Application/CKYC/Images/spinner.gif">
+      <publishTime>05/25/2018 14:36:20</publishTime>
+    </File>
+    <File Include="Application/CKYC/ImgCropped.aspx">
+      <publishTime>04/14/2018 12:29:48</publishTime>
+    </File>
+    <File Include="Application/CKYC/IndividualRegistration.aspx">
+      <publishTime>10/28/2020 12:50:57</publishTime>
+    </File>
+    <File Include="Application/CKYC/LegalEntityDtls.aspx">
+      <publishTime>01/05/2021 11:34:39</publishTime>
+    </File>
+    <File Include="Application/CKYC/PinCodeDtls.aspx">
+      <publishTime>09/27/2020 14:34:56</publishTime>
+    </File>
+    <File Include="Application/CKYC/ShortPortableSearch.aspx">
+      <publishTime>04/14/2018 12:29:48</publishTime>
+    </File>
+    <File Include="Application/CKYC/UploadSearch.aspx">
+      <publishTime>10/08/2020 14:20:24</publishTime>
+    </File>
+    <File Include="Application/CKyc_Image.aspx">
+      <publishTime>12/23/2020 12:50:56</publishTime>
+    </File>
+    <File Include="Application/Reports/CKYCRegReport.aspx">
+      <publishTime>08/13/2018 13:05:00</publishTime>
+    </File>
+    <File Include="Application/Test.aspx">
+      <publishTime>10/28/2020 10:52:14</publishTime>
+    </File>
+    <File Include="ApplicationInsights.config">
+      <publishTime>04/14/2018 12:29:40</publishTime>
+    </File>
+    <File Include="App_Code/Search.cs">
+      <publishTime>12/22/2020 20:24:52</publishTime>
+    </File>
+    <File Include="assets/css/bootstrap-multiselect.css">
+      <publishTime>09/11/2020 10:17:14</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/accepted_icon.png">
+      <publishTime>10/19/2020 11:30:04</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/completely_match.png">
+      <publishTime>10/19/2020 11:34:12</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/completely_match_icon.png">
+      <publishTime>10/19/2020 11:35:30</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/draft_icon.png">
+      <publishTime>10/19/2020 11:29:40</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/id_not_confirmed.png">
+      <publishTime>10/19/2020 11:36:32</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/insufficient_balance_icon.png">
+      <publishTime>10/19/2020 11:30:32</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/kyc-generated_icon.png">
+      <publishTime>10/19/2020 11:36:56</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/new_icon.png">
+      <publishTime>10/19/2020 11:29:18</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/probable_match_icon.png">
+      <publishTime>10/19/2020 11:35:52</publishTime>
+    </File>
+    <File Include="assets/images/dashboard-icon/rejected_icon.png">
+      <publishTime>10/19/2020 11:36:12</publishTime>
+    </File>
+    <File Include="assets/images/icon.jpeg">
+      <publishTime>10/19/2020 11:27:37</publishTime>
+    </File>
+    <File Include="assets/js/bootstrap-multiselect.js">
+      <publishTime>09/11/2020 09:58:54</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>04/14/2018 12:29:40</publishTime>
+    </File>
+    <File Include="bin/AspNet.ScriptManager.bootstrap.dll">
+      <publishTime>08/22/2013 22:09:14</publishTime>
+    </File>
+    <File Include="bin/AspNet.ScriptManager.jQuery.dll">
+      <publishTime>07/16/2013 20:06:22</publishTime>
+    </File>
+    <File Include="bin/CLTMGR.dll">
+      <publishTime>04/14/2018 12:29:51</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.Reduced.dll">
+      <publishTime>04/14/2018 12:29:51</publishTime>
+    </File>
+    <File Include="bin/KMI.FRMWRK.BAL.dll">
+      <publishTime>04/14/2018 12:29:51</publishTime>
+    </File>
+    <File Include="bin/KMI.FRMWRK.Communication.dll">
+      <publishTime>01/05/2021 11:55:43</publishTime>
+    </File>
+    <File Include="bin/KMI.FRMWRK.DAL.dll">
+      <publishTime>04/14/2018 12:29:39</publishTime>
+    </File>
+    <File Include="bin/KMI.FRMWRK.Multilingual.dll">
+      <publishTime>04/14/2018 12:29:52</publishTime>
+    </File>
+    <File Include="bin/KMI.FRMWRK.Security.dll">
+      <publishTime>04/14/2018 12:29:52</publishTime>
+    </File>
+    <File Include="bin/KMI.FRMWRK.Web.dll">
+      <publishTime>01/05/2021 11:56:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>08/06/2015 12:16:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>10/29/2015 20:45:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>10/29/2015 20:58:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>10/29/2015 20:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>10/29/2015 20:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>10/29/2015 20:49:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>10/28/2015 17:10:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
+      <publishTime>07/30/2013 16:57:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>04/03/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>04/03/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>04/03/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Web.Optimization.WebForms.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2015 13:16:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2015 13:16:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2015 13:16:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>02/13/2015 13:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>02/13/2015 13:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>02/13/2015 13:16:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ScriptManager.MSAjax.dll">
+      <publishTime>09/06/2013 11:20:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ScriptManager.WebForms.dll">
+      <publishTime>09/06/2013 11:20:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/13/2012 12:19:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/09/2013 11:05:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>11/22/2013 10:21:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/09/2013 23:35:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/09/2013 23:35:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/09/2013 23:35:12</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 17:03:52</publishTime>
+    </File>
+    <File Include="Bundle.config">
+      <publishTime>04/14/2018 12:29:40</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/animate.css">
+      <publishTime>04/14/2018 12:29:59</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/animate.min.css">
+      <publishTime>04/14/2018 12:29:59</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-datetime.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-grid.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-grid.css.map">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-grid.min.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-grid.min.css.map">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-reboot.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-reboot.css.map">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-reboot.min.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-reboot.min.css.map">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-simplex-white.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-simplex.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-theme.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap.css">
+      <publishTime>04/14/2018 12:29:59</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap.css.map">
+      <publishTime>04/14/2018 12:29:59</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap.min.css">
+      <publishTime>09/08/2020 20:52:09</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap.min.css.map">
+      <publishTime>04/14/2018 12:29:59</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/bootstrap.min_old.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/BootstrapDatePicker.css">
+      <publishTime>04/14/2018 12:30:00</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/btDatePicker.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/fileinput.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/fileinput.min.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/FileUpload.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/font-awesome.min.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/footable.min.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/ForImageControl.css">
+      <publishTime>04/14/2018 12:30:01</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/jquery-ui.css">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/css/jquery.Jcrop.css">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/fontawesome-webfont.eot">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/fontawesome-webfont.svg">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/fontawesome-webfont.ttf">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/fontawesome-webfont.woff">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/fontawesome-webfont.woff2">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/FontAwesome.otf">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>04/14/2018 12:30:02</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/angular.min.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/bootstrap-datepicker.min.1.4.1.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/bootstrap-datetimepicker.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/bootstrap-datetimepicker.min.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/bootstrap.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/bootstrap.min.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/exporting.js">
+      <publishTime>05/21/2018 11:41:16</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/FileUpload.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/footable.js">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/highcharts.js">
+      <publishTime>05/21/2018 11:39:21</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/jquery-3.2.1.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/jquery-ui.js">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/jquery.color.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Bootstrap/js/jquery.Jcrop.min.js">
+      <publishTime>04/14/2018 12:30:03</publishTime>
+    </File>
+    <File Include="Content/Images/bg_login.jpg">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/Breadcrumbs/icon-Home.gif">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/Breadcrumbs/icon-salesCrm.gif">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/Breadcrumbs/icon-servicingCrm.gif">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/Breadcrumbs/icon-SystemAdmin.gif">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/calenderIcon.png">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/CollapsAndExpandSMall2.png">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrFirst.gif">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrFirst.jpg">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrLast.gif">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrLast.jpg">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrNext.gif">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrNext.jpg">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrPrevious.gif">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ImgArrPrevious.jpg">
+      <publishTime>05/22/2018 19:32:18</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I75images %281%29.png">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I80defaultFemale.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I81defaultFemale.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I82defaultmale.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I84download.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I85download.jpg">
+      <publishTime>04/14/2018 12:30:06</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/Crop/I86download.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/defaultFemale.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/defaultmale.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/download.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/ProfileImage/I104download.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/Images/searchIcon.png">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/searchIconNew.jpg">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/SessionExpire.png">
+      <publishTime>04/14/2018 12:30:04</publishTime>
+    </File>
+    <File Include="Content/Images/unauthorize.jpg">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Content/kmi.framework.css">
+      <publishTime>09/09/2020 12:29:08</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>09/21/2020 15:49:15</publishTime>
+    </File>
+    <File Include="Empty.Master">
+      <publishTime>05/17/2018 20:28:35</publishTime>
+    </File>
+    <File Include="ErrorSession.aspx">
+      <publishTime>04/14/2018 12:29:41</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>04/14/2018 12:29:40</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>04/14/2018 12:30:06</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/14/2018 12:30:06</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>04/14/2018 12:30:06</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>04/14/2018 12:30:05</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/14/2018 12:29:41</publishTime>
+    </File>
+    <File Include="Image/add_customer_icon.png">
+      <publishTime>09/09/2020 12:00:20</publishTime>
+    </File>
+    <File Include="Image/bafindia-logo.png">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/BAFIndiaLogo.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/error5.png">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/footer-strip.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/footer-strip.png">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/ILFS-logo.png">
+      <publishTime>05/31/2018 14:48:19</publishTime>
+    </File>
+    <File Include="Image/KMIlogo.png">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/KMI_CRM_Logo.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/KMI_CRM_Logo_New.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/KMI_CRM_Logo_New_old.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/Krishmark.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Image/RNLICLogo.jpg">
+      <publishTime>05/31/2018 14:43:02</publishTime>
+    </File>
+    <File Include="Images/spinner.gif">
+      <publishTime>05/25/2018 14:36:31</publishTime>
+    </File>
+    <File Include="KMILOG/CIL.CMS">
+      <publishTime>04/14/2018 12:30:06</publishTime>
+    </File>
+    <File Include="KMILOG/CIL.xml">
+      <publishTime>04/14/2018 12:30:06</publishTime>
+    </File>
+    <File Include="Log/ErrorLog.txt">
+      <publishTime>01/05/2021 11:45:03</publishTime>
+    </File>
+    <File Include="Log/InfoLog.txt">
+      <publishTime>01/05/2021 11:46:18</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/22/2020 12:39:08</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-multiselect.js">
+      <publishTime>09/10/2020 19:46:03</publishTime>
+    </File>
+    <File Include="Scripts/kmi.common.js">
+      <publishTime>11/03/2020 16:32:11</publishTime>
+    </File>
+    <File Include="Scripts/kmi.framework.js">
+      <publishTime>04/14/2018 12:30:07</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjaxWebForms.js">
+      <publishTime>05/17/2018 20:44:45</publishTime>
+    </File>
+    <File Include="Scripts/MsAjaxBundle.js">
+      <publishTime>05/17/2018 20:44:15</publishTime>
+    </File>
+    <File Include="Site1.Master">
+      <publishTime>05/18/2018 11:11:05</publishTime>
+    </File>
+    <File Include="User.cs">
+      <publishTime>04/14/2018 12:29:42</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/29/2020 11:46:49</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>05/18/2018 11:23:10</publishTime>
+    </File>
+    <File Include="WebForm2.aspx">
+      <publishTime>05/18/2018 11:40:05</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

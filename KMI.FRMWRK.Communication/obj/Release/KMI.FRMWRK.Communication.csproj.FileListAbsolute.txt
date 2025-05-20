@@ -1,0 +1,16 @@
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.Communication.dll.config
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.Communication.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.Communication.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.DAL.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.csprojResolveAssemblyReference.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.Communication.dll.config
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.Communication.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.Communication.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Release\KMI.FRMWRK.DAL.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.csproj.CoreCompileInputs.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMWRK.Communication.csproj.AssemblyReference.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Release\KMI.FRMW.7963B8C5.Up2Date

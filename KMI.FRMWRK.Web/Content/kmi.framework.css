@@ -1,0 +1,297 @@
+﻿/*================= Master Page======================================*/
+
+        .sampleClass {
+            float: left;
+        }
+
+        @media only screen and (max-width: 315) {
+            .sampleClass {
+                float: none;
+            }
+        }
+
+        /*Right corne profile info CSS*/
+        .navbar-right > li {
+            float: left;
+        }
+
+        .navbar-right {
+            margin-top: -4px;
+            padding: 14px 8px 0px 8px;
+            font-size: 12px;
+            color:white;  /*KK*/
+        }
+
+            .navbar-right > li > i {
+                padding: 0px 8px 0px 8px;
+                font-size: 20px;
+            }
+
+        /*menu CSS*/
+        a {
+/*            color: rgba(21, 62, 60, 0.93); kk*/
+              color:white;
+        }
+
+        .icon-bar {
+            background-color: black;
+        }
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    cursor: pointer;
+    background-color: #093371; /*kH  #00b4bf*/
+    color: white; /*kk*/
+}
+
+        .nav > li > a:focus, .nav > li > a:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+    background-color: #093371 !important; /*KH #00b4bf*/
+    border-color: #337ab7;
+    color: white; /*Kk*/
+}
+
+/*================== Login Page =====================================*/
+.login {
+    background: url('../Content/Images/bg_login.jpg') no-repeat;
+    background-size: 100%;
+    width: 80%;
+    height: 400px;
+    margin-top: 10%;
+    border-radius: 10px;
+}
+
+    .login .glyphicon-user, .login .glyphicon-lock {
+        margin-right: 05%;
+        margin-top: 2%;
+    }
+
+    .login .form-group {
+        margin-bottom: 30%;
+    }
+
+    .login .left-panel {
+        margin: 3%;
+        padding: 02%;
+        height: 350px;
+        background-color: rgba(51, 51, 51, 0.25);
+    }
+
+    .login .header {
+        font-family: sans-serif;
+        font-size: 25px;
+        margin-bottom: 10%;
+        color: #ddd;
+        text-align: center;
+    }
+
+    .login .form-control {
+        height: 44px;
+    }
+
+    .login .btn-section {
+        margin-top: 6%;
+    }
+    /*.login .action-link {
+        text-decoration: underline;
+        font-size: 20px;
+        color: white;
+        padding: 05%;
+    }*/
+
+
+/*================== Unauthorized User Page =====================================*/
+.pnl-custom {
+    margin-top: 10%;
+}
+
+/*================== Forgot Passwprd Page =====================================*/
+.sendlink {
+   text-align:right;
+}
+ .frame-small {
+    width: 100%;
+    height: 250px;
+    border: none;
+}
+.msg-label {
+    font-size: 85% !important;
+    white-space: pre-wrap  !important;
+    padding: 2px !important;
+}
+
+
+/*================== Default Page =====================================*/
+.framecontent {
+    margin: 0 0 0 0;
+    padding: 0;
+    width: 100%;
+    height: 80%;
+    border: none;
+}
+
+.logout-icon {
+    color: #286090;
+    text-decoration: underline;
+    font-size: 25px;
+}
+.head-top {
+    padding-left: 30px;
+    vertical-align: top;
+    padding-right: 30px;
+    padding-top: 8px;
+    color: white;
+    /*background: url(Images/backdownload.jpg) no-repeat;*/
+}
+.head-bottom {
+    width: 100% !important;
+    background-color: rgba(27, 188, 155, 0.47);
+    margin-top: 0px !important;
+}
+.div-flip {
+    border: 1.5px solid rgb(51, 51, 51);
+    margin-left: 2%;
+    margin-right: 2%;
+    position: absolute;
+    background-color: rgb(245, 245, 245);
+    padding-left: 1%;
+    display: none;
+    width: 95.75% !important;
+}
+.bg-gradient {
+    background: red; /* For browsers that do not support gradients */
+    /*background: -webkit-linear-gradient(#1bbc9b, rgba(27, 188, 155, 0.47));*/ /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(#1bbc9b, rgba(27, 188, 155, 0.47));*/ /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(#1bbc9b, rgba(27, 188, 155, 0.47));*/ /* For Firefox 3.6 to 15 */
+    background-color: #0a4090; /* KH #00b4bf; Standard syntax */
+}
+/*============================ Common styles here ====================================*/
+
+/* Form Controls */
+
+
+.datepicker {
+}
+
+    .datepicker > .input-group-btn > img {
+        height: 33.4px;
+        width: 33px;
+    }
+
+.btn-animated {
+    border: none;
+    padding: 11px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+    .btn-animated:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+.btn-search-small {
+    background: url('Images/searchIcon.png') no-repeat;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #1bbc9b;
+    height: 34px;
+    width: 34px;
+}
+
+    .btn-search-small:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+.link-lg {
+    text-decoration: underline;
+    font-size: 20px;
+    padding: 05px;
+}
+.link-md {
+    text-decoration: underline;
+    font-size: 15px;
+    padding: 05px;
+}
+.link-lg:hover, link-md:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+ /* background colors with font */
+.bg-horrible {
+    background-color: #ee3737;
+    color: white;
+    border-radius: 4px; /*AP*/
+}
+.bg-green {
+    background-color: #00b4bf; /*KK*/
+    color: white;
+    border-radius: 4px; /*AP*/
+}
+
+ /* font color */
+.horrible {
+    color: #ee3737;
+}
+.red {
+    color:red;
+}
+.white {
+    color: white;
+}
+
+/* Page footer */
+footer {
+    font-size: 20px;
+    color: #777;
+    text-align: center;
+}
+
+/* Browser scrollbar */
+::-webkit-scrollbar-thumb {
+    border: 1px solid #262524;
+    background-color: #696663;
+    -webkit-border-bottom-right-radius: 1ex;
+    -webkit-border-top-left-radius: 1ex;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+    height: 4px;
+    background: #fff;
+}
+/* End Browser scrollbar */
+
+
+/*======================================= COMMON PAGE LEVEL ============================================================*/
+
+.control-label {
+font-size:14px;
+}
+
+.custom-disable {
+background-color:#e8ecf2;
+}
+
+/*Link button*/ 
+.btn-link:hover,.btn-link:active {
+text-decoration-line:none;
+background-color:#ee3737;
+color:white;
+}
+
+
+.row {
+margin-bottom:10px;
+}

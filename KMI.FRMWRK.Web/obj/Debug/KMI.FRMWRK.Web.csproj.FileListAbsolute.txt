@@ -1,0 +1,744 @@
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\vbc.exe
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Helpers.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Helpers.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojResolveAssemblyReference.cache
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\vbc.exe
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojResolveAssemblyReference.cache
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\vbc.exe
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojResolveAssemblyReference.cache
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\vbc.exe
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll.config
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojAssemblyReference.cache
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.CoreCompileInputs.cache
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.CopyComplete
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Helpers.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.WebPages.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Razor.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.WebPages.Deployment.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Helpers.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.WebPages.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Razor.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.WebPages.Deployment.xml
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojResolveAssemblyReference.cache
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojAssemblyReference.cache
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.CoreCompileInputs.cache
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll.config
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.CopyComplete
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csprojResolveAssemblyReference.cache
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+E:\Tushar Shelke\OFFICE_File\CKYC\174 Application\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Renci.SshNet.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll.config
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Renci.SshNet.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.AssemblyReference.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.CoreCompileInputs.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMW.47F4FB40.Up2Date
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\ApplicationInsights.config
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\csc.exe
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll.config
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Web.pdb
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\AspNet.ScriptManager.jQuery.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Owin.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\WebGrease.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.pdb
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\KMI.FRMWRK.Communication.dll.config
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.DependencyCollector.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Renci.SshNet.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\EntityFramework.SqlServer.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Providers.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.AssemblyReference.cache
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.csproj.CoreCompileInputs.cache
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMW.47F4FB40.Up2Date
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.dll
+C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\obj\Debug\KMI.FRMWRK.Web.pdb

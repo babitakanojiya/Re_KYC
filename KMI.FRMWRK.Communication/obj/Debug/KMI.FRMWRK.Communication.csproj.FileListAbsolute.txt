@@ -1,0 +1,47 @@
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+E:\KMI_Office\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csprojResolveAssemblyReference.cache
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\C\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csprojResolveAssemblyReference.cache
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+E:\Tushar Shelke\CKYC_Application\C_KYC\CKYC_DEMO_DEV_VS_APP_190\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csprojResolveAssemblyReference.cache
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CoreCompileInputs.cache
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CopyComplete
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+C:\HostedApplications\CKYC\Demo\CKYC_DEMO_DEV_APP\CKYC\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csprojAssemblyReference.cache
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+E:\During WFH\CKYC\SrcTree\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csprojResolveAssemblyReference.cache
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CoreCompileInputs.cache
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CopyComplete
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+C:\BitBucket Repository\ckyc_base\Applications\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.AssemblyReference.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CoreCompileInputs.cache
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMW.7963B8C5.Up2Date
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb

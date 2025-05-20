@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Empty.master.cs" Inherits="KMI.FRMWRK.Web.Empty" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <%: Styles.Render("~/bundles/FRMWRKcss") %>
+    <%: Scripts.Render("~/bundles/FRMWRKjs") %>
+
+    <script>
+        function AlertMsg(msg) {
+            showModal('#myModal', 'Alert', 'alert-warning', '', '', msg);
+        }
+        //function LoadPage(url) {
+        //    alert(url);
+        //    loadPageInIframe('#__TARGETCONTENT', url);
+        //}
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%--<asp:ScriptManager id="scr1" runat="server"  EnablePartialRendering="true"></asp:ScriptManager>--%>
+
+            <asp:ContentPlaceHolder ID="EmptyPagePlaceholder" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+
+        <!-- Display Modal popup window in division -->
+        <div class="modal fade" id="myModal" role="dialog">
+        </div>
+        <!-- End Display Modal popup window in division -->
+    </form>
+</body>
+</html>

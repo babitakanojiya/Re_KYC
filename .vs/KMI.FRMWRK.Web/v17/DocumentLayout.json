@@ -1,0 +1,455 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|c:\\re_ckyc\\kmi.frmwrk.web\\kmi.frmwrk.web\\application\\ckyc\\ckycindreg.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycindreg.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\admin\\baseclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\admin\\baseclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycindreg.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycindreg.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\account\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\account\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycsearch.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycsearch.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycsearch.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycsearch.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\search.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\search.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\search.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\search.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\zipfiledetail.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\zipfiledetail.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\zipfiledetail.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\zipfiledetail.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\account\\searchuser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\account\\searchuser.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\searchdownload.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\searchdownload.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\account\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\account\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\app_code\\vapt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\app_code\\vapt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\account\\searchuser.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\account\\searchuser.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycreg.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycreg.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycqc.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycqc.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycview.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycview.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycview.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycview.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycviewmaildtls.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycviewmaildtls.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.web\\application\\ckyc\\ckycviewmaildtls.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D584DA13-B0C2-4204-87BF-4B7059200A98}|KMI.FRMWRK.Web\\KMI.FRMWRK.Web.csproj|solutionrelative:kmi.frmwrk.web\\application\\ckyc\\ckycviewmaildtls.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44623FB1-B340-4245-9749-BA2C91103171}|KMI.FRMWRK.Communication\\KMI.FRMWRK.Communication.csproj|C:\\Re_CKYC\\KMI.FRMWRK.Web\\kmi.frmwrk.communication\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{44623FB1-B340-4245-9749-BA2C91103171}|KMI.FRMWRK.Communication\\KMI.FRMWRK.Communication.csproj|solutionrelative:kmi.frmwrk.communication\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Search.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx.cs",
+              "ViewState": "AQIAAOoCAAAAAAAAAAAwwAYDAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-23T12:03:50.976Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseClass.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Admin\\BaseClass.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Admin\\BaseClass.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Admin\\BaseClass.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Admin\\BaseClass.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAkwFoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T12:34:31.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CkycIndReg.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx.cs",
+              "ViewState": "AQIAAGwYAAAAAAAAAAAkwG8YAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T07:46:43.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CkycIndReg.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycIndReg.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-16T05:51:01.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\Login.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Account\\Login.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\Login.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Account\\Login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-21T08:10:49.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Default.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Default.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Default.aspx.cs",
+              "ViewState": "AQIAAG8BAAAAAAAAAAAYwHkBAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T08:19:09.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Search.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\Search.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-02-23T12:03:51.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Account\\Login.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\Login.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Account\\Login.aspx.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAQwEQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T08:09:08.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CkycSearch.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-02-27T12:05:28.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CkycSearch.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycSearch.aspx.cs",
+              "ViewState": "AQIAAE8BAAAAAAAAAAAkwE8BAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-13T07:56:49.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CKYCView.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx.cs",
+              "ViewState": "AQIAAMEMAAAAAAAAAABRwMQMAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-27T11:37:24.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ZipFileDetail.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx.cs",
+              "ViewState": "AQIAAF8CAAAAAAAAAAAkwHYCAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-23T12:03:51.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ZipFileDetail.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\ZipFileDetail.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-02-23T12:34:58.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Web.config",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Web.config",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Web.config",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Web.config",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAUwHkAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-02-21T09:27:50.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SearchDownload.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\SearchDownload.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\SearchDownload.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\SearchDownload.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\SearchDownload.aspx.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAD4v1AAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T11:24:18.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SearchUser.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\SearchUser.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Account\\SearchUser.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\SearchUser.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Account\\SearchUser.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-13T10:05:09.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "VAPT.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\App_Code\\VAPT.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\App_Code\\VAPT.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\App_Code\\VAPT.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\App_Code\\VAPT.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T07:38:33.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SearchUser.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\SearchUser.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Account\\SearchUser.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Account\\SearchUser.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Account\\SearchUser.aspx.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAqwIwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T07:44:25.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Global.asax.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Global.asax.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Global.asax.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Global.asax.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAlwC4AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-12T13:15:20.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CkycReg.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycReg.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycReg.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycReg.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycReg.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-13T10:06:16.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CKYCQC.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CKYCQC.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CKYCQC.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CKYCQC.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CKYCQC.aspx.cs",
+              "ViewState": "AQIAAEYAAAAAAAAAAABRwEkAAAB4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-27T11:37:24.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CKYCView.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CKYCView.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-02-27T12:02:54.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CkycViewMailDtls.aspx.cs",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx.cs",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx.cs",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx.cs",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAYwHUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-21T09:33:46.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CkycViewMailDtls.aspx",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx",
+              "RelativeToolTip": "KMI.FRMWRK.Web\\Application\\CKYC\\CkycViewMailDtls.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-05T11:10:44.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "app.config",
+              "DocumentMoniker": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Communication\\app.config",
+              "RelativeDocumentMoniker": "KMI.FRMWRK.Communication\\app.config",
+              "ToolTip": "C:\\Re_CKYC\\KMI.FRMWRK.Web\\KMI.FRMWRK.Communication\\app.config",
+              "RelativeToolTip": "KMI.FRMWRK.Communication\\app.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-02-23T11:31:14.181Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

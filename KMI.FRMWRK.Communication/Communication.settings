@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KMI.FRMWRK.Communication" GeneratedClassName="Communication">
+  <Profiles />
+  <Settings>
+    <Setting Name="MailUserId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">isys.artl.rgicl@gmail.com</Value>
+    </Setting>
+    <Setting Name="MailPswd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">kmi@12345</Value>
+    </Setting>
+    <Setting Name="MailPortNo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="MailHostIP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.gmail.com</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

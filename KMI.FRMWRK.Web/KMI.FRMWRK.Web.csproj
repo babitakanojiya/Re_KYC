@@ -1,0 +1,1132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D584DA13-B0C2-4204-87BF-4B7059200A98}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KMI.FRMWRK.Web</RootNamespace>
+    <AssemblyName>KMI.FRMWRK.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CLTMGR, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CLTMGR.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="KMI.FRMWRK.BAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\KMI.FRMWRK.BAL.dll</HintPath>
+    </Reference>
+    <Reference Include="KMI.FRMWRK.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>bin\KMI.FRMWRK.DAL.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="KMI.FRMWRK.Multilingual, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\KMI.FRMWRK.Multilingual.dll</HintPath>
+    </Reference>
+    <Reference Include="KMI.FRMWRK.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\KMI.FRMWRK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\..\Job\WindowsCkycSftp\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ForgotPassword.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\RegisterUser.aspx" />
+    <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="Account\SearchUser.aspx" />
+    <Content Include="Account\Unauthorized.aspx" />
+    <Content Include="Account\UpdateProfile.aspx" />
+    <Content Include="Application\Admin\ApplicationConfig.aspx" />
+    <Content Include="Application\Admin\CKYC_Middleware_Ver_Hist.aspx" />
+    <Content Include="Application\Admin\ControlMaster.aspx" />
+    <Content Include="Application\Admin\ControlSetup.aspx" />
+    <Content Include="Application\Admin\CRS_VER_HST.aspx" />
+    <Content Include="Application\Admin\DataPrepration.aspx" />
+    <Content Include="Application\Admin\Defbassrctbl.aspx" />
+    <Content Include="Application\Admin\ErrorHandling.aspx" />
+    <Content Include="Application\Admin\HTMLPage_new_html.html" />
+    <Content Include="Application\Admin\IntgrtnSrcTblLogic.aspx" />
+    <Content Include="Application\Admin\JobDetails.aspx" />
+    <Content Include="Application\Admin\Job_Run_Status.aspx" />
+    <Content Include="Application\Admin\MstInsRulSrcTbl.aspx" />
+    <Content Include="Application\Admin\MstSynonym.aspx" />
+    <Content Include="Application\CKYC\BatchJobDtls.aspx" />
+    <Content Include="Application\CKYC\CKCYViewOld.aspx" />
+    <Content Include="Application\CKYC\CKYCCntrlPrsnQC.aspx" />
+    <Content Include="Application\CKYC\CKYCControllingPrsn.aspx" />
+    <Content Include="Application\CKYC\CKYCControlPrsnView.aspx" />
+    <Content Include="Application\CKYC\CKYCDocupld.aspx" />
+    <Content Include="Application\CKYC\CKYCDownload.aspx" />
+    <Content Include="Application\CKYC\CKYCEntAsRelPerson.aspx" />
+    <Content Include="Application\CKYC\CKYCEntDocUpld.aspx" />
+    <Content Include="Application\CKYC\CKYCEntView.aspx" />
+    <Content Include="Application\CKYC\CKYCExcelUpload.aspx" />
+    <Content Include="Application\CKYC\CKYCFile.aspx" />
+    <Content Include="Application\CKYC\CkycIndReg.aspx" />
+    <Content Include="Application\CKYC\CKYCLegalEntityQC.aspx" />
+    <Content Include="Application\CKYC\CkycPMSVerify.aspx" />
+    <Content Include="Application\CKYC\CKYCQC.aspx" />
+    <Content Include="Application\CKYC\CkycReg.aspx" />
+    <Content Include="Application\CKYC\CKYCRelatedPrsn.aspx" />
+    <Content Include="Application\CKYC\CKYCRelatedPrsnView.aspx" />
+    <Content Include="Application\CKYC\CKYCRltdPrsnQC.aspx" />
+    <Content Include="Application\CKYC\CkycSearch.aspx" />
+    <Content Include="Application\CKYC\CKYCSecuredSearch_NEW.aspx" />
+    <Content Include="Application\CKYC\CKYCUnsolicitedSearch.aspx" />
+    <Content Include="Application\CKYC\CKYCUpload.aspx" />
+    <Content Include="Application\CKYC\CKYCView.aspx" />
+    <Content Include="Application\CKYC\CKYCViewDetails.aspx" />
+    <Content Include="Application\CKYC\CkycViewMailDtls.aspx" />
+    <Content Include="Application\CKYC\Colmn_Error_Dtls.aspx" />
+    <Content Include="Application\CKYC\Common\CSS\bootstrap-datepicker.css" />
+    <Content Include="Application\CKYC\Common\CSS\CKYC.css" />
+    <Content Include="Application\CKYC\Common\CSS\datetime.css" />
+    <Content Include="Application\CKYC\Common\CSS\jquery.Jcrop.css" />
+    <Content Include="Application\CKYC\Common\CSS\jquery.Jcrop.js" />
+    <Content Include="Application\CKYC\Common\CSS\jquery.min.js" />
+    <Content Include="Application\CKYC\Common\Images\spinner.gif" />
+    <Content Include="Application\CKYC\Common\Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Application\CKYC\Common\Scripts\datetime.js" />
+    <Content Include="Application\CKYC\Common\Scripts\datetimepicker.js" />
+    <Content Include="Application\CKYC\Common\Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Application\CKYC\Common\Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Application\CKYC\Common\Scripts\jquery.color.js" />
+    <Content Include="Application\CKYC\Common\Scripts\jquery.Jcrop.js" />
+    <Content Include="Application\CKYC\Common\Scripts\jquery.Jcrop.min.js" />
+    <Content Include="Application\CKYC\Common\Scripts\jquery.min.js" />
+    <Content Include="Application\CKYC\Common\Scripts\kmi.validation.js" />
+    <Content Include="Application\CKYC\CountryMaster.aspx" />
+    <Content Include="Application\CKYC\CropImage.aspx" />
+    <Content Include="Application\CKYC\ExecutionHistoImage.aspx" />
+    <Content Include="Application\CKYC\ExecutionHistory.aspx" />
+    <Content Include="Application\CKYC\IdentityCodeMaster.aspx" />
+    <Content Include="Application\CKYC\ImageC.aspx" />
+    <Content Include="Application\CKYC\ImageCSharp.aspx" />
+    <Content Include="Application\CKYC\Images\spinner.gif" />
+    <Content Include="Application\CKYC\ImgCropped.aspx" />
+    <Content Include="Application\CKYC\IndividualRegistration.aspx" />
+    <Content Include="Application\CKYC\JobHistory.aspx" />
+    <Content Include="Application\CKYC\LegalEntityDtls.aspx" />
+    <Content Include="Application\CKYC\PinCodeDtls.aspx" />
+    <Content Include="Application\CKYC\ProofofAddressMaster.aspx" />
+    <Content Include="Application\CKYC\Search.aspx" />
+    <Content Include="Application\CKYC\SearchDownload.aspx" />
+    <Content Include="Application\CKYC\ShortPortableSearch.aspx" />
+    <Content Include="Application\CKYC\UploadSearch.aspx" />
+    <Content Include="Application\CKYC\ZipFileDetail.aspx" />
+    <Content Include="Application\CKyc_Image.aspx" />
+    <Content Include="Application\Reports\CKYCRegReport.aspx" />
+    <Content Include="Application\Test.aspx" />
+    <Content Include="assets\css\bootstrap-multiselect.css" />
+    <Content Include="assets\images\dashboard-icon\accepted_icon.png" />
+    <Content Include="assets\images\dashboard-icon\completely_match.png" />
+    <Content Include="assets\images\dashboard-icon\completely_match_icon.png" />
+    <Content Include="assets\images\dashboard-icon\CSV_file_icon.png" />
+    <Content Include="assets\images\dashboard-icon\draft_icon.png" />
+    <Content Include="assets\images\dashboard-icon\id_not_confirmed.png" />
+    <Content Include="assets\images\dashboard-icon\insufficient_balance_icon.png" />
+    <Content Include="assets\images\dashboard-icon\kyc-generated_icon.png" />
+    <Content Include="assets\images\dashboard-icon\new_icon.png" />
+    <Content Include="assets\images\dashboard-icon\probable_match_icon.png" />
+    <Content Include="assets\images\dashboard-icon\rejected_icon.png" />
+    <Content Include="assets\images\icon.jpeg" />
+    <Content Include="assets\images\IndImg.jpg" />
+    <Content Include="assets\js\bootstrap-multiselect.js" />
+    <Content Include="Content\Bootstrap\css\animate.css" />
+    <Content Include="Content\Bootstrap\css\animate.min.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-datetime.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-simplex-white.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-simplex.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap.min_old.css" />
+    <Content Include="Content\Bootstrap\css\BootstrapDatePicker.css" />
+    <Content Include="Content\Bootstrap\css\btDatePicker.css" />
+    <Content Include="Content\Bootstrap\css\fileinput.css" />
+    <Content Include="Content\Bootstrap\css\fileinput.min.css" />
+    <Content Include="Content\Bootstrap\css\FileUpload.css" />
+    <Content Include="Content\Bootstrap\css\font-awesome.min.css" />
+    <Content Include="Content\Bootstrap\css\footable.min.css" />
+    <Content Include="Content\Bootstrap\css\ForImageControl.css" />
+    <Content Include="Content\Bootstrap\css\jquery.Jcrop.css" />
+    <Content Include="Content\Bootstrap\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Bootstrap\js\angular.min.js" />
+    <Content Include="Content\Bootstrap\js\bootstrap-datepicker.min.1.4.1.js" />
+    <Content Include="Content\Bootstrap\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\Bootstrap\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Bootstrap\js\exporting.js" />
+    <Content Include="Content\Bootstrap\js\FileUpload.js" />
+    <Content Include="Content\Bootstrap\js\footable.js" />
+    <Content Include="Content\Bootstrap\js\highcharts.js" />
+    <Content Include="Content\Bootstrap\js\jquery-3.2.1.js" />
+    <Content Include="Content\Bootstrap\js\jquery.color.js" />
+    <Content Include="Content\Bootstrap\js\jquery.Jcrop.min.js" />
+    <Content Include="Content\Images\bg_login.jpg" />
+    <Content Include="Content\Images\Breadcrumbs\icon-Home.gif" />
+    <Content Include="Content\Images\Breadcrumbs\icon-salesCrm.gif" />
+    <Content Include="Content\Images\Breadcrumbs\icon-servicingCrm.gif" />
+    <Content Include="Content\Images\Breadcrumbs\icon-SystemAdmin.gif" />
+    <Content Include="Content\Images\calenderIcon.png" />
+    <Content Include="Content\Images\CollapsAndExpandSMall2.png" />
+    <Content Include="Content\Images\ImgArrFirst.gif" />
+    <Content Include="Content\Images\ImgArrFirst.jpg" />
+    <Content Include="Content\Images\ImgArrLast.gif" />
+    <Content Include="Content\Images\ImgArrLast.jpg" />
+    <Content Include="Content\Images\ImgArrNext.gif" />
+    <Content Include="Content\Images\ImgArrNext.jpg" />
+    <Content Include="Content\Images\ImgArrPrevious.gif" />
+    <Content Include="Content\Images\ImgArrPrevious.jpg" />
+    <Content Include="Content\Images\ProfileImage\Crop\I75images %281%29.png" />
+    <Content Include="Content\Images\ProfileImage\Crop\I80defaultFemale.jpg" />
+    <Content Include="Content\Images\ProfileImage\Crop\I81defaultFemale.jpg" />
+    <Content Include="Content\Images\ProfileImage\Crop\I82defaultmale.jpg" />
+    <Content Include="Content\Images\ProfileImage\Crop\I84download.jpg" />
+    <Content Include="Content\Images\ProfileImage\Crop\I85download.jpg" />
+    <Content Include="Content\Images\ProfileImage\Crop\I86download.jpg" />
+    <Content Include="Content\Images\ProfileImage\defaultFemale.jpg" />
+    <Content Include="Content\Images\ProfileImage\defaultmale.jpg" />
+    <Content Include="Content\Images\ProfileImage\download.jpg" />
+    <Content Include="Content\Images\ProfileImage\I104download.jpg" />
+    <Content Include="Content\Images\searchIcon.png" />
+    <Content Include="Content\Images\searchIconNew.jpg" />
+    <Content Include="Content\Images\SessionExpire.png" />
+    <Content Include="Content\Images\unauthorize.jpg" />
+    <Content Include="Content\Bootstrap\css\jquery-ui.css" />
+    <Content Include="Content\Bootstrap\js\jquery-ui.js" />
+    <Content Include="ErrorSession.aspx" />
+    <Content Include="ErrorSession_Old.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Bootstrap\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Bootstrap\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Bootstrap\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Bootstrap\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Bootstrap\fonts\FontAwesome.otf" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\kmi.framework.css" />
+    <Content Include="HighCharts.aspx" />
+    <Content Include="Images\spinner.gif" />
+    <Content Include="Image\01_Strat_icon.png" />
+    <Content Include="Image\02_New_Registration.png" />
+    <Content Include="Image\03_Upload_Documents.png" />
+    <Content Include="Image\04_QC_icon.png" />
+    <Content Include="Image\05_zip_generation_icon.png" />
+    <Content Include="Image\06_Push_CRS_icon.png" />
+    <Content Include="Image\07_Response_From_CRS.png" />
+    <Content Include="Image\08_End.png" />
+    <Content Include="Image\Accept.png" />
+    <Content Include="Image\add_customer_icon.png" />
+    <Content Include="Image\bafindia-logo.png" />
+    <Content Include="Image\BAFIndiaLogo.jpg" />
+    <Content Include="Image\blackline.PNG" />
+    <Content Include="Image\dashboard_iocn.png" />
+    <Content Include="Image\Dashline.PNG" />
+    <Content Include="Image\download_error_icon.png" />
+    <Content Include="Image\end.jpg" />
+    <Content Include="Image\error5.png" />
+    <Content Include="Image\errorckyc.png" />
+    <Content Include="Image\Exsisting.png" />
+    <Content Include="Image\Exsisting2.png" />
+    <Content Include="Image\footer-strip.jpg" />
+    <Content Include="Image\footer-strip.png" />
+    <Content Include="Image\ILFS-logo.png" />
+    <Content Include="Image\Insufficient.png" />
+    <Content Include="Image\KMIlogo.png" />
+    <Content Include="Image\KMI_CRM_Logo.jpg" />
+    <Content Include="Image\KMI_CRM_Logo_New.jpg" />
+    <Content Include="Image\KMI_CRM_Logo_New_old.jpg" />
+    <Content Include="Image\Krishmark.jpg" />
+    <Content Include="Image\New.png" />
+    <Content Include="Image\newkyc.png" />
+    <Content Include="Image\promatch.png" />
+    <Content Include="Image\Rejected.png" />
+    <Content Include="Image\RNLICLogo.jpg" />
+    <Content Include="Image\zip.png" />
+    <Content Include="KMILOG\CIL.CMS" />
+    <Content Include="KMILOG\CIL.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Log\ErrorLog.txt" />
+    <Content Include="Log\InfoLog.txt" />
+    <Content Include="Scripts\bootstrap-multiselect.js" />
+    <Content Include="Scripts\kmi.framework.js" />
+    <Content Include="Scripts\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\MsAjaxBundle.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <Content Include="Empty.Master" />
+    <Content Include="Content\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <None Include="HighCharts.html" />
+    <Content Include="Scripts\kmi.common.js" />
+    <None Include="Properties\PublishProfiles\09-Nov-17.pubxml" />
+    <None Include="Properties\PublishProfiles\10-Oct-17.pubxml" />
+    <None Include="Properties\PublishProfiles\11-Oct-17.pubxml" />
+    <None Include="Properties\PublishProfiles\12-Oct-17.pubxml" />
+    <None Include="Properties\PublishProfiles\28-Dec-17.pubxml" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterUser.aspx.cs">
+      <DependentUpon>RegisterUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterUser.aspx.designer.cs">
+      <DependentUpon>RegisterUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\SearchUser.aspx.cs">
+      <DependentUpon>SearchUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\SearchUser.aspx.designer.cs">
+      <DependentUpon>SearchUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Unauthorized.aspx.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Unauthorized.aspx.designer.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BaseClass.cs" />
+    <Compile Include="Admin\FTPClientNew.cs" />
+    <Compile Include="Application\Admin\ApplicationConfig.aspx.cs">
+      <DependentUpon>ApplicationConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\ApplicationConfig.aspx.designer.cs">
+      <DependentUpon>ApplicationConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\CKYC_Middleware_Ver_Hist.aspx.cs">
+      <DependentUpon>CKYC_Middleware_Ver_Hist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\CKYC_Middleware_Ver_Hist.aspx.designer.cs">
+      <DependentUpon>CKYC_Middleware_Ver_Hist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\ControlMaster.aspx.cs">
+      <DependentUpon>ControlMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\ControlMaster.aspx.designer.cs">
+      <DependentUpon>ControlMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\ControlSetup.aspx.cs">
+      <DependentUpon>ControlSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\ControlSetup.aspx.designer.cs">
+      <DependentUpon>ControlSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\CRS_VER_HST.aspx.cs">
+      <DependentUpon>CRS_VER_HST.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\CRS_VER_HST.aspx.designer.cs">
+      <DependentUpon>CRS_VER_HST.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\DataPrepration.aspx.cs">
+      <DependentUpon>DataPrepration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\DataPrepration.aspx.designer.cs">
+      <DependentUpon>DataPrepration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\Defbassrctbl.aspx.cs">
+      <DependentUpon>Defbassrctbl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\Defbassrctbl.aspx.designer.cs">
+      <DependentUpon>Defbassrctbl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\ErrorHandling.aspx.cs">
+      <DependentUpon>ErrorHandling.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\ErrorHandling.aspx.designer.cs">
+      <DependentUpon>ErrorHandling.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\IntgrtnSrcTblLogic.aspx.cs">
+      <DependentUpon>IntgrtnSrcTblLogic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\IntgrtnSrcTblLogic.aspx.designer.cs">
+      <DependentUpon>IntgrtnSrcTblLogic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\JobDetails.aspx.cs">
+      <DependentUpon>JobDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\JobDetails.aspx.designer.cs">
+      <DependentUpon>JobDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\Job_Run_Status.aspx.cs">
+      <DependentUpon>Job_Run_Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\Job_Run_Status.aspx.designer.cs">
+      <DependentUpon>Job_Run_Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\MstInsRulSrcTbl.aspx.cs">
+      <DependentUpon>MstInsRulSrcTbl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\MstInsRulSrcTbl.aspx.designer.cs">
+      <DependentUpon>MstInsRulSrcTbl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Admin\MstSynonym.aspx.cs">
+      <DependentUpon>MstSynonym.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Admin\MstSynonym.aspx.designer.cs">
+      <DependentUpon>MstSynonym.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\BatchJobDtls.aspx.cs">
+      <DependentUpon>BatchJobDtls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\BatchJobDtls.aspx.designer.cs">
+      <DependentUpon>BatchJobDtls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKCYViewOld.aspx.cs">
+      <DependentUpon>CKCYViewOld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKCYViewOld.aspx.designer.cs">
+      <DependentUpon>CKCYViewOld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCControlPrsnView.aspx.cs">
+      <DependentUpon>CKYCControlPrsnView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCControlPrsnView.aspx.designer.cs">
+      <DependentUpon>CKYCControlPrsnView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCEntAsRelPerson.aspx.cs">
+      <DependentUpon>CKYCEntAsRelPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCEntAsRelPerson.aspx.designer.cs">
+      <DependentUpon>CKYCEntAsRelPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCEntView.aspx.cs">
+      <DependentUpon>CKYCEntView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCEntView.aspx.designer.cs">
+      <DependentUpon>CKYCEntView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCExcelUpload.aspx.cs">
+      <DependentUpon>CKYCExcelUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCExcelUpload.aspx.designer.cs">
+      <DependentUpon>CKYCExcelUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycIndReg.aspx.cs">
+      <DependentUpon>CkycIndReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycIndReg.aspx.designer.cs">
+      <DependentUpon>CkycIndReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCRelatedPrsnView.aspx.cs">
+      <DependentUpon>CKYCRelatedPrsnView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCRelatedPrsnView.aspx.designer.cs">
+      <DependentUpon>CKYCRelatedPrsnView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCSecuredSearch_NEW.aspx.cs">
+      <DependentUpon>CKYCSecuredSearch_NEW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCSecuredSearch_NEW.aspx.designer.cs">
+      <DependentUpon>CKYCSecuredSearch_NEW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCViewDetails.aspx.cs">
+      <DependentUpon>CKYCViewDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCViewDetails.aspx.designer.cs">
+      <DependentUpon>CKYCViewDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycViewMailDtls.aspx.cs">
+      <DependentUpon>CkycViewMailDtls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycViewMailDtls.aspx.designer.cs">
+      <DependentUpon>CkycViewMailDtls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\Colmn_Error_Dtls.aspx.cs">
+      <DependentUpon>Colmn_Error_Dtls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\Colmn_Error_Dtls.aspx.designer.cs">
+      <DependentUpon>Colmn_Error_Dtls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\Common\CommonClass.cs" />
+    <Compile Include="Application\CKYC\CountryMaster.aspx.cs">
+      <DependentUpon>CountryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CountryMaster.aspx.designer.cs">
+      <DependentUpon>CountryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ExecutionHistoImage.aspx.cs">
+      <DependentUpon>ExecutionHistoImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ExecutionHistoImage.aspx.designer.cs">
+      <DependentUpon>ExecutionHistoImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ExecutionHistory.aspx.cs">
+      <DependentUpon>ExecutionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ExecutionHistory.aspx.designer.cs">
+      <DependentUpon>ExecutionHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\IdentityCodeMaster.aspx.cs">
+      <DependentUpon>IdentityCodeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\IdentityCodeMaster.aspx.designer.cs">
+      <DependentUpon>IdentityCodeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ImageC.aspx.cs">
+      <DependentUpon>ImageC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ImageC.aspx.designer.cs">
+      <DependentUpon>ImageC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\IndividualRegistration.aspx.cs">
+      <DependentUpon>IndividualRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\IndividualRegistration.aspx.designer.cs">
+      <DependentUpon>IndividualRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\JobHistory.aspx.cs">
+      <DependentUpon>JobHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\JobHistory.aspx.designer.cs">
+      <DependentUpon>JobHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ProofofAddressMaster.aspx.cs">
+      <DependentUpon>ProofofAddressMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ProofofAddressMaster.aspx.designer.cs">
+      <DependentUpon>ProofofAddressMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\SearchDownload.aspx.cs">
+      <DependentUpon>SearchDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\SearchDownload.aspx.designer.cs">
+      <DependentUpon>SearchDownload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\UploadSearch.aspx.cs">
+      <DependentUpon>UploadSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\UploadSearch.aspx.designer.cs">
+      <DependentUpon>UploadSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ZipFileDetail.aspx.cs">
+      <DependentUpon>ZipFileDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ZipFileDetail.aspx.designer.cs">
+      <DependentUpon>ZipFileDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKyc_Image.aspx.cs">
+      <DependentUpon>CKyc_Image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKyc_Image.aspx.designer.cs">
+      <DependentUpon>CKyc_Image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Reports\CKYCRegReport.aspx.cs">
+      <DependentUpon>CKYCRegReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Reports\CKYCRegReport.aspx.designer.cs">
+      <DependentUpon>CKYCRegReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Content Include="App_Code\Search.cs" />
+    <Compile Include="Application\CKYC\Common\CKYCSearch.cs" />
+    <Content Include="App_Code\VAPT.cs" />
+    <Compile Include="ErrorSession.aspx.cs">
+      <DependentUpon>ErrorSession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorSession.aspx.designer.cs">
+      <DependentUpon>ErrorSession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HighCharts.aspx.cs">
+      <DependentUpon>HighCharts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HighCharts.aspx.designer.cs">
+      <DependentUpon>HighCharts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Content Include="User.cs" />
+    <Compile Include="Account\UpdateProfile.aspx.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\UpdateProfile.aspx.designer.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminBAL.cs" />
+    <Compile Include="Admin\AdminDAL.cs" />
+    <Compile Include="Admin\User.cs" />
+    <Compile Include="Admin\UserSetupBAL.cs" />
+    <Compile Include="Admin\UserSetupDAL.cs" />
+    <Compile Include="Application\CKYC\CKYCCntrlPrsnQC.aspx.cs">
+      <DependentUpon>CKYCCntrlPrsnQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCCntrlPrsnQC.aspx.designer.cs">
+      <DependentUpon>CKYCCntrlPrsnQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCControllingPrsn.aspx.cs">
+      <DependentUpon>CKYCControllingPrsn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCControllingPrsn.aspx.designer.cs">
+      <DependentUpon>CKYCControllingPrsn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCDocupld.aspx.cs">
+      <DependentUpon>CKYCDocupld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCDocupld.aspx.designer.cs">
+      <DependentUpon>CKYCDocupld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCDownload.aspx.cs">
+      <DependentUpon>CKYCDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCDownload.aspx.designer.cs">
+      <DependentUpon>CKYCDownload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCEntDocUpld.aspx.cs">
+      <DependentUpon>CKYCEntDocUpld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCEntDocUpld.aspx.designer.cs">
+      <DependentUpon>CKYCEntDocUpld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCFile.aspx.cs">
+      <DependentUpon>CKYCFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCFile.aspx.designer.cs">
+      <DependentUpon>CKYCFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCLegalEntityQC.aspx.cs">
+      <DependentUpon>CKYCLegalEntityQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCLegalEntityQC.aspx.designer.cs">
+      <DependentUpon>CKYCLegalEntityQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycPMSVerify.aspx.cs">
+      <DependentUpon>CkycPMSVerify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycPMSVerify.aspx.designer.cs">
+      <DependentUpon>CkycPMSVerify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCQC.aspx.cs">
+      <DependentUpon>CKYCQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCQC.aspx.designer.cs">
+      <DependentUpon>CKYCQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycReg.aspx.cs">
+      <DependentUpon>CkycReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycReg.aspx.designer.cs">
+      <DependentUpon>CkycReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCRelatedPrsn.aspx.cs">
+      <DependentUpon>CKYCRelatedPrsn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCRelatedPrsn.aspx.designer.cs">
+      <DependentUpon>CKYCRelatedPrsn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCRltdPrsnQC.aspx.cs">
+      <DependentUpon>CKYCRltdPrsnQC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCRltdPrsnQC.aspx.designer.cs">
+      <DependentUpon>CKYCRltdPrsnQC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycSearch.aspx.cs">
+      <DependentUpon>CkycSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CkycSearch.aspx.designer.cs">
+      <DependentUpon>CkycSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCUnsolicitedSearch.aspx.cs">
+      <DependentUpon>CKYCUnsolicitedSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCUnsolicitedSearch.aspx.designer.cs">
+      <DependentUpon>CKYCUnsolicitedSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCUpload.aspx.cs">
+      <DependentUpon>CKYCUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCUpload.aspx.designer.cs">
+      <DependentUpon>CKYCUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCView.aspx.cs">
+      <DependentUpon>CKYCView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CKYCView.aspx.designer.cs">
+      <DependentUpon>CKYCView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\Common\CkycValidtion.cs" />
+    <Compile Include="Application\CKYC\Common\CommonUtility.cs" />
+    <Compile Include="Application\CKYC\CropImage.aspx.cs">
+      <DependentUpon>CropImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\CropImage.aspx.designer.cs">
+      <DependentUpon>CropImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ImageCSharp.aspx.cs">
+      <DependentUpon>ImageCSharp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ImageCSharp.aspx.designer.cs">
+      <DependentUpon>ImageCSharp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ImgCropped.aspx.cs">
+      <DependentUpon>ImgCropped.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ImgCropped.aspx.designer.cs">
+      <DependentUpon>ImgCropped.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\LegalEntityDtls.aspx.cs">
+      <DependentUpon>LegalEntityDtls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\LegalEntityDtls.aspx.designer.cs">
+      <DependentUpon>LegalEntityDtls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\PinCodeDtls.aspx.cs">
+      <DependentUpon>PinCodeDtls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\PinCodeDtls.aspx.designer.cs">
+      <DependentUpon>PinCodeDtls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\ShortPortableSearch.aspx.cs">
+      <DependentUpon>ShortPortableSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\ShortPortableSearch.aspx.designer.cs">
+      <DependentUpon>ShortPortableSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Attributes\AppActivityAttribute.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empty.Master.cs">
+      <DependentUpon>Empty.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empty.Master.designer.cs">
+      <DependentUpon>Empty.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorSession_Old.aspx.cs">
+      <DependentUpon>ErrorSession_Old.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\CKYC\App_UserControl\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KMI.FRMWRK.Communication\KMI.FRMWRK.Communication.csproj">
+      <Project>{44623fb1-b340-4245-9749-ba2c91103171}</Project>
+      <Name>KMI.FRMWRK.Communication</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27208/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
