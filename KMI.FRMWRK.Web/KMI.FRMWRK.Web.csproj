@@ -296,6 +296,7 @@
     <Content Include="Application\CKYC\Common\Scripts\kmi.validation.js" />
     <Content Include="Application\CKYC\CountryMaster.aspx" />
     <Content Include="Application\CKYC\CropImage.aspx" />
+    <Content Include="Application\CKYC\DownloadOTPPage.aspx" />
     <Content Include="Application\CKYC\ExecutionHistoImage.aspx" />
     <Content Include="Application\CKYC\ExecutionHistory.aspx" />
     <Content Include="Application\CKYC\IdentityCodeMaster.aspx" />
@@ -309,6 +310,7 @@
     <Content Include="Application\CKYC\PinCodeDtls.aspx" />
     <Content Include="Application\CKYC\ProofofAddressMaster.aspx" />
     <Content Include="Application\CKYC\Search.aspx" />
+    <Content Include="Application\CKYC\SearchDataForCkyc.aspx" />
     <Content Include="Application\CKYC\SearchDownload.aspx" />
     <Content Include="Application\CKYC\ShortPortableSearch.aspx" />
     <Content Include="Application\CKYC\UploadSearch.aspx" />
@@ -727,6 +729,13 @@
     <Compile Include="Application\CKYC\CountryMaster.aspx.designer.cs">
       <DependentUpon>CountryMaster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Application\CKYC\DownloadOTPPage.aspx.cs">
+      <DependentUpon>DownloadOTPPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\DownloadOTPPage.aspx.designer.cs">
+      <DependentUpon>DownloadOTPPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Application\CKYC\ExecutionHistoImage.aspx.cs">
       <DependentUpon>ExecutionHistoImage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -782,6 +791,13 @@
     </Compile>
     <Compile Include="Application\CKYC\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Application\CKYC\SearchDataForCkyc.aspx.cs">
+      <DependentUpon>SearchDataForCkyc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Application\CKYC\SearchDataForCkyc.aspx.designer.cs">
+      <DependentUpon>SearchDataForCkyc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Application\CKYC\SearchDownload.aspx.cs">
       <DependentUpon>SearchDownload.aspx</DependentUpon>

@@ -45,3 +45,11 @@ C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Commun
 C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMW.7963B8C5.Up2Date
 C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
 C:\DEMO-PC\HOSTED-APPLICATIONS\CKYC\Application\KMI.FRMWRK.Web\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll.config
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.dll
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\bin\Debug\KMI.FRMWRK.Communication.pdb
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CoreCompileInputs.cache
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.dll
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.pdb
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csproj.CopyComplete
+F:\Re_ckyc application\02 june 2025\new application\Re_KYC\KMI.FRMWRK.Communication\obj\Debug\KMI.FRMWRK.Communication.csprojAssemblyReference.cache
