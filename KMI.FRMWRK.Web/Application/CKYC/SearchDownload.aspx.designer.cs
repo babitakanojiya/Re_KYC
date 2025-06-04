@@ -51,6 +51,24 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.HtmlControls.HtmlImage Img3;
 
         /// <summary>
+        /// ldr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ldr;
+
+        /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+
+        /// <summary>
         /// txtCKYC control.
         /// </summary>
         /// <remarks>
