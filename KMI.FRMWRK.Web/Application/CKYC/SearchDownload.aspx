@@ -331,13 +331,11 @@
   </style>
     <script>
         function hideDiv(toHide, toShow) {
-            document.getElementById(toHide).style.display = "none";
-/*            document.getElementById("divloadergrid").style.display = "flex";*/
+            document.getElementById(toHide).style.display = "none";         
+            ShowProgressBar('Loading...');
             setTimeout(function () {
-                document.getElementById('loader').style.display = "none";
                 document.getElementById(toShow).style.display = "block";
-            }, 3000);
-
+            }, 5000);
         }
 
         function showmodalpopup(toShow) {
@@ -407,7 +405,7 @@
             debugger;
             var pan = document.getElementById('<%= PanNo.ClientID %>').value.trim();
             var dob = document.getElementById('<%= pandob.ClientID %>').value.trim();
-
+            
             $.ajax({
                 type: "POST",
                 url: "SearchDownload.aspx/SearchPan",
@@ -415,7 +413,7 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
-                    debugger;
+                    hideDiv('PANpage2', 'PANpage3');
                     // Parse the stringified JSON returned by WebMethod
                     var data = JSON.parse(response.d);
                     var fullName = data.fullName;
@@ -448,7 +446,6 @@
 
 
                     // Simulate "redirect" by hiding/showing panels
-                    hideDiv('PANpage2', 'PANpage3');
                     startTimer();
                 },
                 error: function (xhr, status, error) {
@@ -600,17 +597,39 @@
                                             <p style="margin-top: 1rem; font-size: 1.2rem;">Loading...</p>
                                         </div>
                                     </div>
-
+                                    <div id="dvProgressBar" style="display: none; text-align: center" class="loader">
+                                        <center>
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <asp:Image id="ldr" src="../../Images/horizonal_loader.gif" height="50px" alt="" runat="server" ImageAlign="Middle" />
+                                            <br />
+                                            <asp:Label ID="lblMsg" Text="" runat="server" ForeColor="Blue" style="font-size: medium; font-weight: bold"></asp:Label>
+                                        </center>
+                                    </div>
                                     <%-- Added by Vikash K on 26May2025 page1 --%>
                                     <div id="onboardpage1">
                                             <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Let's complete your KYC</h1>
                                                 <div style="margin-top: 20px; text-align: center;">
                                                     <img id="onboardimage" src="Images/Onboardp1.jpg" alt="Onboarding Image" style="max-width: 100%; height: 30rem; display: block; margin: -1.5rem auto;" />
     
-                                                    <h4 style="line-height: 1.6; margin-top: -2rem;">
-                                                    KYC means Know-your-customer,which every financial institution<br />
-                                                    must perform before offering there services to any customer.<br />
-                                                    So please follow simple steps.
+                                                    <h4 style="line-height: 1.3; margin-top: -2rem;">
+                                                    KYC means Know-Your-Customer, which every financial institution<br />
+                                                must perform before offering their services to any customer.<br /><br />
+                                                So please follow these simple steps.
                                                 </h4>
                                                 </div>
 
