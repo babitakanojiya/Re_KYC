@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <%: Scripts.Render("~/bundles/CKYCValidationjs") %>
     <%: Styles.Render("~/bundles/CKYCcss") %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 
 
@@ -111,6 +112,30 @@
     animation: spin .8s linear infinite;*/
             }
     </style>
+
+    <%--Added by Vikash K on 21May2025--%>
+    <style>
+    .step-label {
+        font-size: 19px;
+        color: #9c9c9a;
+        margin-left: 7px;
+        cursor: pointer;
+    }
+
+    .step-label.active {
+        color: #000000;
+        border-bottom: inset;
+        border-bottom-color: #00cccc;
+    }
+
+    .step-content {
+        display: none;
+    }
+
+    .step-content.active {
+        display: block;
+    }
+</style>
     <script type="text/javascript">
 
         function ValidationMsg(id) {
@@ -349,8 +374,53 @@
             var span = document.getElementsByClassName("close")[0];
             modal.style.display = "none";
         }
-
     </script>
+
+<script>
+    let currentStep = 0;
+    const steps = ['lblPerdtls', 'lblAdddtls', 'lblContactdtls', 'lblrekycdtls'];
+    const contentIds = ['step0', 'step1', 'step2', 'step3'];
+
+    function changeStep(direction) {
+        // Hide current step
+        document.getElementById(steps[currentStep]).classList.remove('active');
+        document.getElementById(contentIds[currentStep]).style.display = 'none';
+
+        // Update step index
+        currentStep += direction;
+        if (currentStep < 0) currentStep = 0;
+        if (currentStep >= steps.length) currentStep = steps.length - 1;
+
+        // Show new step
+        document.getElementById(steps[currentStep]).classList.add('active');
+        document.getElementById(contentIds[currentStep]).style.display = 'block';
+
+        // Show/hide "Previous" button based on current step
+        const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
+        if (currentStep === 0) {
+            prevBtn.style.display = 'none';
+        } else {
+            prevBtn.style.display = 'inline-block';
+        }
+        const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
+        nextBtn.style.display = currentStep === steps.length - 1 ? 'none' : 'inline-block';
+    }
+
+    // On page load
+    window.onload = function () {
+        document.getElementById(steps[0]).classList.add('active');
+        document.getElementById(contentIds[0]).style.display = 'block';
+
+        // Hide "Previous" on first load
+        const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
+        prevBtn.style.display = 'none';
+
+        // Show "Next" on first load
+        const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
+        nextBtn.style.display = 'inline-block';
+    }
+</script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="EmptyPagePlaceholder" runat="server">
 
@@ -360,8 +430,191 @@
 
 
     <center>
-            <div class="container" style="margin-top: 0px; width: 100%;">
-                  <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+            <div class="container-fluid mt-0">
+                 <div id="divImg" runat="server" class="panel panel-success" style="margin-left:0px;margin-right:0px">
+  <div id="Div19"  runat="server" class="panel-heading" >           
+<div class="row">
+<div class="col-sm-10" style="text-align:left">
+<span class="glyphicon glyphicon-menu-hamburger" ></span>
+<asp:Label ID="lbluploadDoc" Text="UPLOADED DOCUMENTS" runat="server"  CssClass="control-label" ></asp:Label>
+         
+</div>
+<div class="col-sm-2" >
+<span id="btnnavigate" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divnavigate','btnnavigate');return false;" style="cursor:pointer;float: right; padding: 1px 10px ! important; font-size: 18px;"></span>
+</div>
+</div>
+</div>
+    <div id="divnavigate" style="display:block;" runat="server" class="panel-body">
+        <div class="row">
+          <div class="col-sm-12" style="text-align:right">
+              
+                 <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
+                     AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
+                            <%--<AlternatingRowStyle BackColor="White" />--%>
+                            <EditRowStyle BackColor="#7C6F57" />
+                            <FooterStyle BackColor="#1C5E55" ForeColor="White" />
+                            <HeaderStyle BackColor="#00c5cc" ForeColor="White" Height="35px" CssClass="gridViewHeader" />
+                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#E3EAEB" />
+                            <Columns>
+                                
+                                <asp:TemplateField HeaderText="Document Code" HeaderStyle-CssClass="center" Visible="false">
+                                    <ItemTemplate>
+                                       <asp:Label ID="lbldocCode" runat="server"  Text='<%#Bind("DOC_CODE") %>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle  CssClass="center"    />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Document Name" HeaderStyle-CssClass="center" >
+                                    <ItemTemplate>
+                                       <asp:Label ID="lbldocName" runat="server" Text='<%#Bind("DOC_NAME") %>'></asp:Label>
+                                    </ItemTemplate>
+                                     <ItemStyle  CssClass="left2"    />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="DocumentName" HeaderStyle-CssClass="center" Visible="false">
+                                    <ItemTemplate>
+                                       <asp:Label ID="lbldocTyp" runat="server" Text='<%#Bind("Image_Name") %>'></asp:Label>
+                                    </ItemTemplate>
+                                     <ItemStyle  CssClass="left2"    />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="View Document" HeaderStyle-CssClass="center">
+                                    <ItemTemplate >
+                                         <asp:LinkButton ID="btnView" runat="server" class="glyphicon glyphicon-eye-open" Style="color: #337ab7;"  OnClientClick="Confirm(this);"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>
+                                            <%--style="color:black;" OnClientClick="Confirm(this); ShowProgressBarWithOutTimer('Loading Document... Please Wait...');"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>--%>
+                                    </ItemTemplate>
+                                     <ItemStyle  CssClass="center"    />
+                                </asp:TemplateField>
+                            </Columns>
+                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="false" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                            <SortedAscendingHeaderStyle BackColor="#246B61" />
+                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                            <SortedDescendingHeaderStyle BackColor="#15524A" />
+                        </asp:GridView>
+                <asp:UpdatePanel runat="server" ID="upnlPrev"  style="display:none;">
+                    <ContentTemplate>
+                       
+
+                            <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
+ OnClick="btnprev_Click"    TabIndex="244" >
+<span class="glyphicon glyphicon-arrow-left">Prev</span> 
+</asp:LinkButton> --%>
+                       <%----%>
+                           <%-- <asp:LinkButton ID="btnnext" Text="Next" runat="server" CssClass="btn btn-primary" CausesValidation="false"
+   OnClick="btnnext_Click" TabIndex="244" >
+<span class="glyphicon glyphicon-arrow-right">Next</span> 
+</asp:LinkButton> --%>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+      </div>
+      <div>
+          <div class="col-sm-3" style="text-align: left;display:none">
+                                                   
+                                                    
+                                                    <asp:Label ID="lblPageInfo" runat="server" Visible="false"></asp:Label>
+                                                </div>
+          <asp:UpdatePanel runat="server">
+              <ContentTemplate>
+                  <div id="divloaderqc" class="col-sm-12" runat="server" style="display: none;">
+                      <caption>
+                          <img id="img31" alt="" src="~/images/spinner.gif" runat="server" />
+                          Loading...
+                      </caption>
+                  </div>
+              </ContentTemplate>
+          </asp:UpdatePanel>
+       <asp:UpdatePanel runat="server" ID="upnlHeader">
+        <ContentTemplate>
+        <div class="row">
+         <div class="col-sm-12" align="center">
+           <asp:Label ID="lblpanelheader" runat="server" CssClass="control-label" />
+                        <asp:HiddenField ID="hdnDocId" runat="server" />
+         </div>
+    </div>
+
+       <div class="row">
+         
+     
+        <asp:GridView ID="GridImage" runat="server" AllowSorting="True" CssClass="footable"
+                                  width="1200px"              AutoGenerateColumns="False" PageSize="10" AllowPaging="true" CellPadding="1"
+                                            OnRowDataBound="GridImage_RowDataBound"> <%--OnPageIndexChanging="GridImage_PageIndexChanging"
+                                --%>
+                                                  <RowStyle CssClass="GridViewRow" ></RowStyle>  
+                    <PagerStyle CssClass="disablepage" />
+                    <HeaderStyle CssClass="gridview th" />
+                    
+                    
+                                              <Columns>
+                                    <asp:TemplateField SortExpression="SR_NO" HeaderText="SR_NO" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="lblCndNo1" runat="server" Text='<%# Eval("SR_NO") %>'></asp:LinkButton>
+                                            <asp:HiddenField ID="hdnid" runat="server" Value='<%# Eval("SR_NO") %>'></asp:HiddenField>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:ImageField DataImageUrlField="SR_NO" DataImageUrlFormatString="ImageCSharp.aspx?ImageID=ckyc+{0}" 
+                                       HeaderText="Preview Image">
+                                        <ControlStyle CssClass="left_padding" Width="30%" /> <%--Height="100%"--%>
+                                    </asp:ImageField>
+                                </Columns> 
+                                            </asp:GridView>
+                                             <center>
+                                          
+
+                                                <table style="display:none;">
+                                                    <tr>
+                                                        <td>
+                                                            <asp:Button ID="btnprev" Text="<" CssClass="form-submit-button" runat="server"
+                                                                Width="40px" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat;
+                                                                background-color: transparent; float: left; margin: 0; height: 30px;" OnClick="btnprev_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
+                                                          <%--  <asp:TextBox runat="server" ID="txtPage" Text="1" Style="width: 35px; border-style: solid;
+                                                                border-width: 1px; border-color: Gray; height: 30px; float: left; margin: 0;funload();
+                                                                text-align: center;" CssClass="form-control" ReadOnly="true" />--%>
+                                                            <asp:Button ID="btnnext" Text=">" CssClass="form-submit-button" runat="server" Enabled="false" Style="border-style: solid;
+                                                                border-width: 1px; background-repeat: no-repeat; background-color: transparent;
+                                                                float: left; margin: 0; height: 30px;" Width="40px" OnClick="btnnext_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </center>
+
+                                            
+                                              </div>
+       </ContentTemplate>
+          <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="btnnext" EventName="Click"></asp:AsyncPostBackTrigger>
+        </Triggers>
+     </asp:UpdatePanel>
+
+      
+   </div>
+</div>
+</div>
+
+                <%--Added by Vikash K on 20May2025--%>
+                <div class="row">
+                              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">
+                              <%--<span id="lblPerdtls" runat="server" class="control-label labelSize HeaderColor" style="font-size:19px;border-bottom: inset;border-bottom-color: #00cccc;">Personal Details</span>
+                              <span id="lblContactdtls" runat="server" class="control-label labelSize " style="font-size:19px;;color:#9c9c9a;margin-left:7px;">Contact Details</span>                           
+                               
+
+                                  <span id="lblAdddtls" class="control-label labelSize " style="font-size:19px;color:#9c9c9a;margin-left:7px;">Address Details</span>
+                               <span id="lblDocdtls" class="control-label labelSize " style="font-size:19px;color:#9c9c9a;margin-left:7px;">Document Details</span>
+                               --%>
+                        <!-- Step Labels -->
+
+                        <span id="lblPerdtls" class="step-label active">Personal Details</span>
+                        <span id="lblAdddtls" class="step-label">Address Details</span>
+                        <span id="lblContactdtls" class="step-label">Contact Details</span>
+                        <span id="lblrekycdtls" class="step-label">Verification Details</span>
+
+
+                              </div>
+                              <div class="col-sm-2">
+                              
+                               </div>
+                             </div>
+
+                  <div id="step3" class="panel panel-success step-content" style="margin-left: 0px; margin-right: 0px;display:none">
                     <div id="Div25" runat="server" class="panel-heading" >
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -449,164 +702,7 @@
                     </div>
                 </div>
 
-         <div id="divImg" runat="server" class="panel panel-success" style="margin-left:0px;margin-right:0px">
-          <div id="Div19"  runat="server" class="panel-heading" >           
-        <div class="row">
-        <div class="col-sm-10" style="text-align:left">
-        <span class="glyphicon glyphicon-menu-hamburger" ></span>
-        <asp:Label ID="lbluploadDoc" Text="UPLOADED DOCUMENTS" runat="server"  CssClass="control-label" ></asp:Label>
-                 
-        </div>
-        <div class="col-sm-2" >
-        <span id="btnnavigate" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divnavigate','btnnavigate');return false;" style="cursor:pointer;float: right; padding: 1px 10px ! important; font-size: 18px;"></span>
-        </div>
-        </div>
-        </div>
-            <div id="divnavigate" style="display:block;" runat="server" class="panel-body">
-                <div class="row">
-                  <div class="col-sm-12" style="text-align:right">
-                      
-                         <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
-                             AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
-                                    <%--<AlternatingRowStyle BackColor="White" />--%>
-                                    <EditRowStyle BackColor="#7C6F57" />
-                                    <FooterStyle BackColor="#1C5E55" ForeColor="White" />
-                                    <HeaderStyle BackColor="#00c5cc" ForeColor="White" Height="35px" CssClass="gridViewHeader" />
-                                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#E3EAEB" />
-                                    <Columns>
-                                        
-                                        <asp:TemplateField HeaderText="Document Code" HeaderStyle-CssClass="center" Visible="false">
-                                            <ItemTemplate>
-                                               <asp:Label ID="lbldocCode" runat="server"  Text='<%#Bind("DOC_CODE") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle  CssClass="center"    />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Document Name" HeaderStyle-CssClass="center" >
-                                            <ItemTemplate>
-                                               <asp:Label ID="lbldocName" runat="server" Text='<%#Bind("DOC_NAME") %>'></asp:Label>
-                                            </ItemTemplate>
-                                             <ItemStyle  CssClass="left2"    />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="DocumentName" HeaderStyle-CssClass="center" Visible="false">
-                                            <ItemTemplate>
-                                               <asp:Label ID="lbldocTyp" runat="server" Text='<%#Bind("Image_Name") %>'></asp:Label>
-                                            </ItemTemplate>
-                                             <ItemStyle  CssClass="left2"    />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="View Document" HeaderStyle-CssClass="center">
-                                            <ItemTemplate >
-                                                 <asp:LinkButton ID="btnView" runat="server" class="glyphicon glyphicon-eye-open" Style="color: #337ab7;"  OnClientClick="Confirm(this);"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>
-                                                    <%--style="color:black;" OnClientClick="Confirm(this); ShowProgressBarWithOutTimer('Loading Document... Please Wait...');"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>--%>
-                                            </ItemTemplate>
-                                             <ItemStyle  CssClass="center"    />
-                                        </asp:TemplateField>
-                                    </Columns>
-                                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="false" ForeColor="#333333" />
-                                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                                    <SortedAscendingHeaderStyle BackColor="#246B61" />
-                                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                                    <SortedDescendingHeaderStyle BackColor="#15524A" />
-                                </asp:GridView>
-                        <asp:UpdatePanel runat="server" ID="upnlPrev"  style="display:none;">
-                            <ContentTemplate>
-                               
-
-                                    <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
-         OnClick="btnprev_Click"    TabIndex="244" >
-        <span class="glyphicon glyphicon-arrow-left">Prev</span> 
-        </asp:LinkButton> --%>
-                               <%----%>
-                                   <%-- <asp:LinkButton ID="btnnext" Text="Next" runat="server" CssClass="btn btn-primary" CausesValidation="false"
-           OnClick="btnnext_Click" TabIndex="244" >
-        <span class="glyphicon glyphicon-arrow-right">Next</span> 
-        </asp:LinkButton> --%>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </div>
-              </div>
-              <div>
-                  <div class="col-sm-3" style="text-align: left" style="display:none">
-                                                           
-                                                            
-                                                            <asp:Label ID="lblPageInfo" runat="server" Visible="false"></asp:Label>
-                                                        </div>
-                  <asp:UpdatePanel runat="server">
-                      <ContentTemplate>
-                          <div id="divloaderqc" class="col-sm-12" runat="server" style="display: none;">
-                              <caption>
-                                  <img id="img31" alt="" src="~/images/spinner.gif" runat="server" />
-                                  Loading...
-                              </caption>
-                          </div>
-                      </ContentTemplate>
-                  </asp:UpdatePanel>
-               <asp:UpdatePanel runat="server" ID="upnlHeader">
-                <ContentTemplate>
-                <div class="row">
-                 <div class="col-sm-12" align="center">
-                   <asp:Label ID="lblpanelheader" runat="server" CssClass="control-label" />
-                                <asp:HiddenField ID="hdnDocId" runat="server" />
-                 </div>
-            </div>
-        
-               <div class="row">
-                 
-             
-                <asp:GridView ID="GridImage" runat="server" AllowSorting="True" CssClass="footable"
-                                          width="1200px"              AutoGenerateColumns="False" PageSize="10" AllowPaging="true" CellPadding="1"
-                                                    OnRowDataBound="GridImage_RowDataBound"> <%--OnPageIndexChanging="GridImage_PageIndexChanging"
-                                        --%>
-                                                          <RowStyle CssClass="GridViewRow" ></RowStyle>  
-                            <PagerStyle CssClass="disablepage" />
-                            <HeaderStyle CssClass="gridview th" />
-                            
-                            
-                                                      <Columns>
-                                            <asp:TemplateField SortExpression="SR_NO" HeaderText="SR_NO" Visible="false">
-                                                <ItemTemplate>
-                                                    <asp:LinkButton ID="lblCndNo1" runat="server" Text='<%# Eval("SR_NO") %>'></asp:LinkButton>
-                                                    <asp:HiddenField ID="hdnid" runat="server" Value='<%# Eval("SR_NO") %>'></asp:HiddenField>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:ImageField DataImageUrlField="SR_NO" DataImageUrlFormatString="ImageCSharp.aspx?ImageID=ckyc+{0}" 
-                                               HeaderText="Preview Image">
-                                                <ControlStyle CssClass="left_padding" Width="30%" /> <%--Height="100%"--%>
-                                            </asp:ImageField>
-                                        </Columns> 
-                                                    </asp:GridView>
-                                                     <center>
-                                                  
-
-                                                        <table style="display:none;">
-                                                            <tr>
-                                                                <td>
-                                                                    <asp:Button ID="btnprev" Text="<" CssClass="form-submit-button" runat="server"
-                                                                        Width="40px" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat;
-                                                                        background-color: transparent; float: left; margin: 0; height: 30px;" OnClick="btnprev_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
-                                                                  <%--  <asp:TextBox runat="server" ID="txtPage" Text="1" Style="width: 35px; border-style: solid;
-                                                                        border-width: 1px; border-color: Gray; height: 30px; float: left; margin: 0;funload();
-                                                                        text-align: center;" CssClass="form-control" ReadOnly="true" />--%>
-                                                                    <asp:Button ID="btnnext" Text=">" CssClass="form-submit-button" runat="server" Enabled="false" Style="border-style: solid;
-                                                                        border-width: 1px; background-repeat: no-repeat; background-color: transparent;
-                                                                        float: left; margin: 0; height: 30px;" Width="40px" OnClick="btnnext_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </center>
-
-                                                    
-                                                      </div>
-               </ContentTemplate>
-                  <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="btnnext" EventName="Click"></asp:AsyncPostBackTrigger>
-                </Triggers>
-             </asp:UpdatePanel>
-
-              
-           </div>
-        </div>
-        </div>
+         
                                
         <%-- <div class="panel panel-success" style="margin-left:0px;margin-right:0px">--%>
              <%-- Below div18 commented by Rutuja--%>
@@ -624,7 +720,7 @@
         </div>
         </div>               --%>
        <%-- <div id="menu1" style="display:block;" runat="server" class="panel-body"> --%>
-          <div class="panel panel-success" style="margin-left:0px;margin-right:0px">
+          <div id="step0"  class="panel panel-success step-content" style="margin-left:0px;margin-right:0px">
              <div id="Div2"  runat="server" class="panel-heading">           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
@@ -640,32 +736,36 @@
 
             <div id="divPersonal" style="display:block;" runat="server" class="panel-body">
                                 
-           <div class="row">
-                                    <div class="col-sm-3" style="text-align: left">
-                                    </div>
-                                    <div class="col-sm-9" style="padding-left:0">
-                                        <div class="col-sm-2" style="padding-left:3%">
-                                            <asp:Label ID="Label7" Text="Prefix" runat="server" CssClass="control-label">
-                                            </asp:Label>
-                                        </div>
-                                        <div class="col-sm-10" style="padding-left:0">
-                                            <div class="col-sm-4">
-                                                <asp:Label ID="Label8"
-                                                    Text="First Name" runat="server" CssClass="control-label">
-                                                </asp:Label>
-                                            </div>
-                                            <div class="col-sm-4" style="padding-left:3%">
-                                                <asp:Label ID="lblmiddle" Text="Middle Name" runat="server" CssClass="control-label">
-                                                </asp:Label>
-                                            </div>
-                                            <div class="col-sm-4" style="padding-left:4%">
-                                                <asp:Label ID="Label11" Text="Last Name" runat="server" CssClass="control-label">
-                                                </asp:Label>
-                                            </div>
-                                        </div>
+           <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-12 mb-2 text-start">
+            <!-- Empty or additional controls -->
+        </div>
 
-                                    </div>
-                                </div>
+        <div class="col-md-9 col-12">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-2 col-12 mb-2 ps-md-3">
+                    <asp:Label ID="Label7" runat="server" Text="Prefix" CssClass="control-label"></asp:Label>
+                </div>
+
+                <div class="col-md-10 col-12">
+                    <div class="row">
+                        <div class="col-md-4 col-12 mb-2">
+                            <asp:Label ID="Label8" runat="server" Text="First Name" CssClass="control-label"></asp:Label>
+                        </div>
+                        <div class="col-md-4 col-12 mb-2 ps-md-3">
+                            <asp:Label ID="lblmiddle" runat="server" Text="Middle Name" CssClass="control-label"></asp:Label>
+                        </div>
+                        <div class="col-md-4 col-12 mb-2 ps-md-4">
+                            <asp:Label ID="Label11" runat="server" Text="Last Name" CssClass="control-label"></asp:Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
                                 <div class="row">
                                     <div class="col-sm-3" style="text-align: left">
                                         <asp:Label ID="lblName" Text="" runat="server" CssClass="control-label">
@@ -673,7 +773,7 @@
                                         <span style="color: red">*</span>
                                     </div>
                                     <div class="col-sm-9" style="padding:0">
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-2 mt-2">
                                             <asp:UpdatePanel ID="upcboTitle" runat="server">
                                                 <ContentTemplate>
                                                     <asp:DropDownList ID="cboTitle" runat="server" CssClass="form-control" DataTextField="ParamDesc"
@@ -683,17 +783,17 @@
                                             </asp:UpdatePanel>
                                         </div>
                                         <div class="col-sm-10" style="padding:0">
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtGivenName" runat="server" CssClass="form-control" onkeypress="funIsAlphaNumericWithSpace();" onchange="javascript:this.value=this.value.toUpperCase();"
                                                     MaxLength="50" TabIndex="7" placeholder="First Name">
                                                 </asp:TextBox>
                                             </div>
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtMiddleName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="8" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                                 </asp:TextBox>
                                             </div>
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="9" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                                 </asp:TextBox>
@@ -717,17 +817,17 @@
                                             </asp:UpdatePanel>
                                         </div>
                                         <div class="col-sm-10" style="padding:0">
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtGivenName1" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="11" onblur="CheckSpaces();return false;" placeholder="First Name">
                                                 </asp:TextBox>
                                             </div>
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtMiddleName1" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="12" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                                 </asp:TextBox>
                                             </div>
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtLastName1" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="13" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                                 </asp:TextBox>
@@ -738,23 +838,23 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                        <div class="col-sm-3">
-                                            <div class="col-sm-6" style="padding:0;     text-align: left;">
-                                            <asp:Label ID="lblFatherName" Text="" CssClass="control-label"
-                                                runat="server"></asp:Label>
-                                            <span style="color: red">*</span>
-                                                </div>
-                                            <div class="col-sm-6" style="padding:0">
-                                            <asp:UpdatePanel ID="UpdFSFlag" runat="server">
-                                                <ContentTemplate>
-                                                    <asp:RadioButtonList ID="rbtFS" runat="server" CssClass="radiobtn" RepeatDirection="Horizontal"
-                                                        Visible="true" TabIndex="14" AutoPostBack="true">
-                                                        <asp:ListItem Value="F">Father</asp:ListItem>
-                                                        <asp:ListItem Value="S">Spouse</asp:ListItem>
-                                                    </asp:RadioButtonList>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-                                        </div></div>
+<div class="col-sm-3">
+    <asp:UpdatePanel ID="UpdFSFlag" runat="server">
+        <ContentTemplate>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <label>
+                    Father
+                    <asp:RadioButton ID="rbFather" runat="server" GroupName="FS" Text="" Value="F" AutoPostBack="true" />
+                </label>
+                <label>
+                    Spouse
+                    <asp:RadioButton ID="rbSpouse" runat="server" GroupName="FS" Text="" Value="S" AutoPostBack="true" />
+                </label>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</div>
+
                                         <div class="col-sm-9" style="padding:0">
                                             <div class="col-sm-2">
                                                 <asp:UpdatePanel ID="upcboTitle2" runat="server">
@@ -766,17 +866,17 @@
                                                 </asp:UpdatePanel>
                                             </div>
                                             <div class="col-sm-10" style="padding:0">
-                                                <div class="col-sm-4" style="padding-left:0">
+                                                <div class="col-sm-4 mt-2">
                                                     <asp:TextBox ID="txtGivenName2" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                         MaxLength="50" TabIndex="16" onblur="CheckSpaces();return false;" placeholder="First Name">
                                                     </asp:TextBox>
                                                 </div>
-                                                <div class="col-sm-4" style="padding-left:0">
+                                                <div class="col-sm-4 mt-2">
                                                     <asp:TextBox ID="txtMiddleName2" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                         MaxLength="50" TabIndex="17" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                                     </asp:TextBox>
                                                 </div>
-                                                <div class="col-sm-4" style="padding-left:0">
+                                                <div class="col-sm-4 mt-2">
                                                     <asp:TextBox ID="txtLastName2" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                         MaxLength="50" TabIndex="18" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                                     </asp:TextBox>
@@ -802,17 +902,17 @@
                                             </asp:DropDownList>
                                         </div>
                                         <div class="col-sm-10" style="padding:0">
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtGivenName3" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="20" onblur="CheckSpaces();return false;" placeholder="First Name">
                                                 </asp:TextBox>
                                             </div>
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtMiddleName3" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="21" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                                 </asp:TextBox>
                                             </div>
-                                            <div class="col-sm-4" style="padding-left:0">
+                                            <div class="col-sm-4 mt-2">
                                                 <asp:TextBox ID="txtLastName3" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="funIsAlphaNumericWithSpace();"
                                                     MaxLength="50" TabIndex="22" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                                 </asp:TextBox>
@@ -1036,7 +1136,7 @@
                 <%--  Added for Personal Details end --%>
                          
         <%--  Added for Tick If Applicable start --%>
-            <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
+            <div   class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none" >
                             <div id="Div1" runat="server" class="panel-heading subheader" 
                                 onclick=" showHideDiv('div3','Span1');return false;">
                                 <div class="row">
@@ -1121,7 +1221,7 @@
         <%--  Added for Tick If Applicable end --%>
             <%--</div>--%>
             <%--</div>--%>
-                 <div id="divPOISection" runat="server" visible="false" class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                 <div id="divPOISection" runat="server" visible="false" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
                     <div id="Div4" runat="server" class="panel-heading">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -1200,7 +1300,7 @@
                             </div>
                       </div>
                      </div>
-         <div class="panel panel-success" style="margin-left:0px;margin-right:0px">
+         <div id="step1" class="panel panel-success step-content" style="margin-left:0px;margin-right:0px;display:none">
         <div id="Div20"  runat="server" class="panel-heading" >           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
@@ -1239,7 +1339,7 @@
        
         </div>
                    </div>
-                <div id="divIdProof" runat="server" class="row">
+                <div id="divIdProof" runat="server" class="row" style="display:none;">
                     <div style="padding:10px;">
                                 <asp:GridView ID="GridView2" runat="server" Width="100%" CssClass="footable" AutoGenerateColumns="false">
                                     <%--<AlternatingRowStyle BackColor="White" />--%>
@@ -1620,7 +1720,7 @@
                               <%--</div>--%>
                         <%-- Added for Proof of Address end--%>
                         <%--  Added for Contact Details start--%>
-                     <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                     <div id="step2" class="panel panel-success step-content" style="margin-left: 0px; margin-right: 0px;display:none">
                             <div id="Div8" runat="server" class="panel-heading" >
                                 <div class="row">
                                     <div class="col-sm-10" style="text-align: left">
@@ -1743,7 +1843,7 @@
             <%--</div>--%>
         <%--</div>--%>
 
-         <div id="divRelPersonDtls" runat="server" class="panel panel-success" style="margin-left:0px;margin-right:0px" visible="false">
+         <div id="divRelPersonDtls" runat="server" class="panel panel-success" style="margin-left:0px;margin-right:0px;display:none;" visible="false">
         <div id="Div22"  runat="server" class="panel-heading" >           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
@@ -1927,7 +2027,7 @@
                 </div>
          </div>
 
-         <div class="panel panel-success" style="margin-left:0px;margin-right:0px">
+         <div class="panel panel-success" style="margin-left:0px;margin-right:0px;display:none">
         <div id="Div23"  runat="server" class="panel-heading" >           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
@@ -1951,7 +2051,7 @@
                 </div>
                 </div>
 
-         <div class="panel panel-success" style="margin-left:0px;margin-right:0px">
+         <div class="panel panel-success" style="margin-left:0px;margin-right:0px;display:none">
         <div id="Div24"  runat="server" class="panel-heading" >           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
@@ -2195,16 +2295,29 @@
             
                </div> --%>
             <%--<button class="btn-animated bg-green has-spinner" id="two" >Approve</button> --%>
-           
+<%--           <asp:Button ID="btnPrev" runat="server" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');"   OnClick="btnPrevious_Click" Text="Previous">
+           </asp:Button>--%>
+<asp:Button ID="btnPrev1" runat="server"
+    CssClass="btn-animated bg-green"
+    Text="Previous"
+    UseSubmitBehavior="false"
+    OnClientClick="changeStep(-1); return false;" />
+
+
         <asp:Button ID="btnUpdate" runat="server" CssClass="btn-animated bg-green"  OnClientClick="ShowProgressBar('Processing...');"  OnClick="btnUpdate_Click"  Text="Approve">
                         </asp:Button>
              <asp:Button ID="btnReject" runat="server" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');"   OnClick="btnReject_Click" Text="Reject">
                         </asp:Button>
-         
-               
-      
+<asp:Button ID="btnNext1" runat="server"
+    CssClass="btn-animated bg-green"
+    Text="Next"
+    UseSubmitBehavior="false"
+    OnClientClick="changeStep(1); return false;" />
+
         </div>
         </div>
+
+
          
 </div>
           
