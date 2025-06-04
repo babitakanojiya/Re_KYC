@@ -48,9 +48,14 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         int AppId;
         #endregion
 
+
         #region PAGELOADEVENTS
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Request.QueryString.ToString();
+            }
             try
             {
 
@@ -119,255 +124,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         BindGrid();
                         BindGrid_RelatedData();
                         lblPassportNo.Text = "Document Number";
-                        //if (ddlProofIdentity.SelectedIndex == 0)
-                        //{
-                        //    divIdProof.Visible = false;
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 1)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "Passport Number";
-                        //    //llPassExpDate.Text = "Passport Expiry Date";
-                        //    llPassExpDate.Visible = false;
-                        //    txtPassExpDate.Visible = false;
-                        //    divPass.Visible = true;
-                        //    txtPassOthr.Visible = false;
-                        //    txtPassNo.Visible = true;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassExpDate.Text = ViewState["strIdExpDate"].ToString();
-                        //    //FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //    txtPassNo.Attributes.Add("onblur", "return ValidationPassport(this)");
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 2)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "Voter ID Card";
-                        //    llPassExpDate.Visible = false;
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassOthr.Visible = false;
-                        //    divPass.Visible = false;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassNo.Visible = true;
-                        //    // FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 30;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 3)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "PAN Card";
-                        //    llPassExpDate.Visible = false;
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassOthr.Visible = false;
-                        //    divPass.Visible = false;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassNo.Visible = true;
-                        //    //  FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //  FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 10;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //    txtPassNo.Attributes.Add("onblur", "return fnValidatePAN(this)");
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 4)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "Driving Licence";
-                        //    //llPassExpDate.Text = "Driving Licence Expiry Date";
-                        //    llPassExpDate.Visible = false;
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassOthr.Visible = false;
-                        //    divPass.Visible = true;
-                        //    txtPassNo.Visible = true;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassExpDate.Text = ViewState["strIdExpDate"].ToString();
-                        //    // FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 5)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "UID(Aadhaar)";
-                        //    llPassExpDate.Visible = false;
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassOthr.Visible = false;
-                        //    divPass.Visible = false;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassNo.Visible = true;
-                        //    //FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Numbers;
-                        //    txtPassNo.MaxLength = 12;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //    txtPassNo.Attributes.Add("onblur", "return fnValidateAdhar(this)");
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 6)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "NREGA Job Card";
-                        //    llPassExpDate.Visible = false;
-                        //    txtPassOthr.Visible = false;
-                        //    divPass.Visible = false;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassNo.Visible = true;
-                        //    // FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    // FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 7)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "Others";
-                        //    llPassExpDate.Text = "Identification Number";
-                        //    txtPassExpDate.Visible = true;
-                        //    llPassExpDate.Visible = true;
-                        //    divPass.Visible = true;
-                        //    txtPassNo.Text = ViewState["strIdName"].ToString();
-                        //    txtPassOthr.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassNo.Visible = true;
-                        //    // FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    // FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //}
-                        //else if (ddlProofIdentity.SelectedIndex == 8)
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "Simplified Measures Account";
-                        //    llPassExpDate.Text = "Identification Number";
-                        //    txtPassExpDate.Visible = true;
-                        //    llPassExpDate.Visible = true;
-                        //    divPass.Visible = true;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassOthr.Text = ViewState["strSamDocNum"].ToString();
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassNo.Visible = true;
-                        //    //  FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    // FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //}
-                        //else
-                        //{
-                        //    divIdProof.Visible = true;
-                        //    //lblPassportNo.Text = "Simplified Measures Account";
-                        //    llPassExpDate.Text = "Identification Number";
-                        //    txtPassExpDate.Visible = true;
-                        //    llPassExpDate.Visible = true;
-                        //    divPass.Visible = true;
-                        //    txtPassNo.Text = ViewState["strIdNumber"].ToString();
-                        //    txtPassOthr.Text = ViewState["strIdExpDate"].ToString();
-                        //    txtPassExpDate.Visible = false;
-                        //    txtPassNo.Visible = true;
-                        //    // FilteredTextBoxExtender12.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    // FilteredTextBoxExtender12.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //}
-                        //                        lblPassportNo.Text = "Document Number";
-                        //Commented by kalyani hande start
-                        //if (ddlProofOfAddress.SelectedIndex == 0)
-                        //{
-                        //    divAddProof.Visible = false;
-                        //}
-                        //else if (ddlProofOfAddress.SelectedIndex == 1)
-                        //{
-                        //    divAddProof.Visible = true;
-                        //    lblPassportNoAdd.Text = "Passport Number";
-                        //    //llPassExpDateAdd.Text = "Passport Expiry Date";
-                        //    llPassExpDateAdd.Visible = false;
-                        //    txtPassExpDateAdd.Visible = false;
-                        //    divPassAdd.Visible = true;
-                        //    txtPassOthrAdd.Visible = false;
-                        //    txtPassNoAdd.Visible = true;
-                        //    //FilteredTextBoxExtender6.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //FilteredTextBoxExtender6.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNo.Attributes.Remove("onblur");
-                        //    txtPassNo.Attributes.Add("onblur", "return ValidationPassport(this)");
-                        //}
-                        //else if (ddlProofOfAddress.SelectedIndex == 2)
-                        //{
-                        //    divAddProof.Visible = true;
-                        //    lblPassportNoAdd.Text = "Driving Licence";
-                        //    //llPassExpDateAdd.Text = "Driving Licence Expiry Date";
-                        //    llPassExpDateAdd.Visible = false;
-                        //    txtPassExpDateAdd.Visible = false;
-                        //    txtPassOthrAdd.Visible = false;
-                        //    divPassAdd.Visible = true;
-                        //    txtPassNoAdd.Visible = true;
-                        //    //  FilteredTextBoxExtender6.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //FilteredTextBoxExtender6.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNoAdd.MaxLength = 15;
-                        //    txtPassNoAdd.Attributes.Remove("onblur");
-                        //}
-                        //else if (ddlProofOfAddress.SelectedIndex == 3)
-                        //{
-                        //    divAddProof.Visible = true;
-                        //    lblPassportNoAdd.Text = "UID(Aadhaar)";
-                        //    llPassExpDateAdd.Visible = false;
-                        //    txtPassExpDateAdd.Visible = false;
-                        //    txtPassOthrAdd.Visible = false;
-                        //    divPassAdd.Visible = false;
-                        //    txtPassNoAdd.Visible = true;
-                        //    //  FilteredTextBoxExtender6.FilterType = AjaxControlToolkit.FilterTypes.Numbers;
-                        //    txtPassNoAdd.MaxLength = 12;
-                        //    txtPassNoAdd.Attributes.Remove("onblur");
-                        //    txtPassNoAdd.Attributes.Add("onblur", "return fnValidateAdhar(this)");
-                        //}
-                        //else if (ddlProofOfAddress.SelectedIndex == 4)
-                        //{
-                        //    divAddProof.Visible = true;
-                        //    lblPassportNoAdd.Text = "Voter ID Card";
-                        //    llPassExpDateAdd.Visible = false;
-                        //    txtPassExpDateAdd.Visible = false;
-                        //    txtPassOthrAdd.Visible = false;
-                        //    divPassAdd.Visible = false;
-                        //    txtPassNoAdd.Visible = true;
-                        //    // FilteredTextBoxExtender6.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    // FilteredTextBoxExtender6.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNo.MaxLength = 15;
-                        //    txtPassNoAdd.Attributes.Remove("onblur");
-                        //}
-                        //else if (ddlProofOfAddress.SelectedIndex == 5)
-                        //{
-                        //    divAddProof.Visible = true;
-                        //    lblPassportNoAdd.Text = "NREGA Job Card";
-                        //    llPassExpDateAdd.Visible = false;
-                        //    txtPassNoAdd.Visible = true;
-                        //    txtPassExpDateAdd.Visible = false;
-                        //    txtPassOthrAdd.Visible = false;
-                        //    divPassAdd.Visible = false;
-                        //    // FilteredTextBoxExtender6.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    // FilteredTextBoxExtender6.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNoAdd.MaxLength = 15;
-                        //    txtPassNoAdd.Attributes.Remove("onblur");
-                        //}
-                        //else
-                        //{
-                        //    divAddProof.Visible = true;
-                        //    lblPassportNoAdd.Text = "Document Name";
-                        //    llPassExpDateAdd.Text = "Identification Number";
-                        //    txtPassExpDateAdd.Visible = false;
-                        //    llPassExpDateAdd.Visible = true;
-                        //    divPassAdd.Visible = true;
-                        //    llPassExpDateAdd.Visible = true; txtPassExpDateAdd.Visible = false;
-                        //    txtPassOthrAdd.Visible = true;
-                        //    txtPassNoAdd.Visible = true;
-                        //    //FilteredTextBoxExtender6.FilterType = AjaxControlToolkit.FilterTypes.Custom;
-                        //    //FilteredTextBoxExtender6.ValidChars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                        //    txtPassNoAdd.MaxLength = 15;
-                        //    txtPassNoAdd.Attributes.Remove("onblur");
-                        //}
-                        //Commented by kalyani hande end
-
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowPopup1", "window.setTimeout('removeLoader()');", true);
+                        
                     }
                 }
 
@@ -1928,8 +1685,11 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 objht.Clear();
                 cbNew.Checked = true;
                 DataAccessLayer objDAL = new DataAccessLayer("CKYCConnectionString");
-                objht.Add("@RegRefNo", hdnRegRefNo.Value);
-                objds = objDAL.GetDataSet("getSearchData_Web", objht);
+                //objht.Add("@RegRefNo", hdnRegRefNo.Value);
+                objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+                //objds = objDAL.GetDataSet("getSearchData_Web", objht);
+                objds = objDAL.GetDataSet("getSearchData_Web_newbabita", objht);  //added by babita for qc base on otp
+                
                 chkAppDeclare1.Checked = true;
                 chkAppDeclare2.Checked = true;
                 //Added by tushar for Account type
@@ -2061,11 +1821,11 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
                 if (Convert.ToString(objds.Tables[0].Rows[0]["FS_FLAG"]) == "01")
                 {
-                    rbtFS.SelectedValue = "F";
+                    //rbtFS.SelectedValue = "F";
                 }
                 else
                 {
-                    rbtFS.SelectedValue = "S";
+                   // rbtFS.SelectedValue = "S";
                 }
                 cboTitle2.SelectedValue = Convert.ToString(objds.Tables[0].Rows[0]["FATHER_PREFIX"]);
                 txtGivenName2.Text = Convert.ToString(objds.Tables[0].Rows[0]["FATHER_FNAME"]);
@@ -2268,7 +2028,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 //LblLName.Text = olng.GetItemDesc("lblcategory");
                 lblName.Text = olng.GetItemDesc("lblName");
                 lblMaidenName.Text = olng.GetItemDesc("lblMaidenName");
-                lblFatherName.Text = olng.GetItemDesc("lblFatherName");
+                //lblFatherName.Text = olng.GetItemDesc("lblFatherName");
                 lblMotherName.Text = olng.GetItemDesc("lblMotherName");
                 lbldob.Text = olng.GetItemDesc("lbldob");
                 lblGender.Text = olng.GetItemDesc("lblGender");
@@ -2733,7 +2493,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 txtGivenName1.Enabled = false;
                 txtMiddleName1.Enabled = false;
                 txtLastName1.Enabled = false;
-                rbtFS.Enabled = false;
+                //rbtFS.Enabled = false;
                 cboTitle2.Enabled = false;
                 txtGivenName2.Enabled = false;
                 txtMiddleName2.Enabled = false;
@@ -3326,5 +3086,26 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             }
 
         }
+        //protected void btnPrevious_Click1(object sender, EventArgs e)
+        //{
+        //    Button2.Visible = false;
+        //    // Deactivate Personal Details
+        //    lblContactdtls.Attributes["class"] = "control-label labelSize";
+        //    lblContactdtls.Attributes["style"] = "font-size:19px; color:#9c9c9a; margin-left:7px;display:none";
+        //    // Activate Contact Details
+        //    lblPerdtls.Attributes["class"] = "control-label labelSize HeaderColor";
+        //    lblPerdtls.Attributes["style"] = "font-size:19px; border-bottom: inset; border-bottom-color: #00cccc; color:#00cccc; margin-left:11px;display:block";
+        //}
+        //protected void btnNext_Click1(object sender, EventArgs e)
+        //{
+        //    Button2.Visible = true;
+        //    // Deactivate Personal Details
+        //    lblPerdtls.Attributes["class"] = "control-label labelSize";
+        //    lblPerdtls.Attributes["style"] = "font-size:19px; color:#9c9c9a; margin-left:7px;display:none";
+
+        //    // Activate Contact Details
+        //    lblContactdtls.Attributes["class"] = "control-label labelSize HeaderColor";
+        //    lblContactdtls.Attributes["style"] = "font-size:19px; border-bottom: inset; border-bottom-color: #00cccc; color:#00cccc; margin-left:11px;display:block";
+        //}
     }
 }

@@ -1,9 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empty.Master" AutoEventWireup="true" CodeBehind="CkycIndReg.aspx.cs" Inherits="KMI.FRMWRK.Web.Application.CKYC.CkycIndReg" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%: Scripts.Render("~/bundles/CKYCValidationjs") %>
-    <%: Styles.Render("~/bundles/CKYCcss") %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    
     <style type="text/css">
+        img.preview-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
         .spinner-border {
             color: #007bff !important;
             display: inline-block;
@@ -76,9 +85,212 @@
             //}, 4000);
         }
     </script>
+    
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="EmptyPagePlaceholder" runat="server">
+        <style>
+            /* Upload Wrapper */
+.upload-wrapper {
+    flex: 1;
+    min-width: 618px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .upload-wrapper {
+        min-width: 100%;
+        padding: 10px 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .upload-wrapper {
+        min-width: 100%;
+        padding: 5px 0;
+    }
+}
+
+/* Upload DropZone */
+#dropZone {
+    width: 100%;
+    max-width: 600px;
+    height: 233px;
+    border: 2px dashed blue;
+    background: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    margin: 0 auto 15px auto;
+    border-radius: 6px;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+#dropZone:hover {
+    background-color: #e0f0ff;
+}
+
+/* Carousel Container */
+#carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 644px;
+    margin: 0 auto;
+    border: 2px solid blue;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    flex-wrap: wrap;
+}
+
+#carousel:empty {
+    display: none;
+}
+
+/* Carousel Content Area */
+#carouselContent {
+    width: 492px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background-color: #f8f9fa;
+    padding: 10px;
+    position: relative;
+}
+
+#carouselContent img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    user-select: none;
+    pointer-events: none;
+    background-color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: zoom-in;
+}
+
+/* Carousel Navigation Buttons */
+.nav-btn {
+    background-color: #4da6ff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+    margin: 5px;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    background-color: gray;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.carousel-dots .dot.active {
+    background-color: blue;
+}
+
+/* Input fields */
+input.form-control {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 250px;
+    padding: 6px;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Upload Section Layout */
+.upload-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 992px) {
+    #carouselContent {
+        width: 100%;
+        height: auto;
+        min-height: 180px;
+    }
+
+    #carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+
+    input.form-control {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    #dropZone {
+        height: auto;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .nav-btn {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    #carouselContent {
+        min-height: 160px;
+    }
+
+    .carousel-dots {
+        gap: 6px;
+    }
+}
+
+</style>
+
     <style>
         .pointer {
             cursor: pointer;
@@ -251,26 +463,34 @@
         
         function callCalender(id) {
             debugger;
-            if (id == "txtDateKYCver") {
-                var dateArr = $("#<%=txtDateKYCver.ClientID%>").val().split('-');
-                $("#<%= txtDateKYCver.ClientID%>").datepicker({ changeMonth: true, changeYear: true, dateFormat: 'dd-mm-yy', yearRange: '1945:'+(new Date).getFullYear()  });
-                $.datepicker.initialized = true;
-                $("#<%= txtDateKYCver.ClientID%>").focus();
-             }
-             if (id == "txtDate") {
-                 var dateArr = $("#<%=txtDate.ClientID%>").val().split('-');
-                 $("#<%= txtDate.ClientID%>").datepicker({ changeMonth: true, changeYear: true, dateFormat: 'dd-mm-yy', yearRange: '1945:'+(new Date).getFullYear()  });
-                 $.datepicker.initialized = true;
-                 $("#<%= txtDate.ClientID%>").focus();
-            }
-             if (id == "txtDOB") {
-                 var dateArr = $("#<%=txtDOB.ClientID%>").val().split('-');
-                 $("#<%= txtDOB.ClientID%>").datepicker({ changeMonth: true, changeYear: true, dateFormat: 'dd-mm-yy', yearRange: '1945:'+(new Date).getFullYear()  });
-                 $.datepicker.initialized = true;
-                 $("#<%= txtDOB.ClientID%>").focus();
-             }
+            var control = null;
 
-         }
+            if (id == "txtDOB") {
+                control = $("#<%=txtDOB.ClientID%>");
+    } else if (id == "txtDateKYCver") {
+        control = $("#<%=txtDateKYCver.ClientID%>");
+    } else if (id == "txtDate") {
+                control = $("#<%=txtDate.ClientID%>");
+            }
+
+            if (control != null) {
+                // Check if datepicker is already initialized
+                if (!control.hasClass('hasDatepicker')) {
+                    control.datepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        dateFormat: 'dd-mm-yy',
+                        yearRange: '1945:' + (new Date).getFullYear(),
+                        onSelect: function (dateText, inst) {
+                            control.val(dateText); // Ensure selected date is applied
+                        }
+                    });
+                }
+
+                control.datepicker('show'); // Show calendar
+            }
+        }
+
 
         function ValidateDOB(date) {
             debugger;
@@ -667,23 +887,520 @@
             $("#<%= txtDatOfInc.ClientID%>").focus();
 
         }
-        //Ended By Shubham 
+        //Ended By Shubham
 
     </script>
-    <%--<asp:ScriptManager ID="SM1" runat="server">--%>
-    <%--<Scripts>
-            <asp:ScriptReference Path="../../../Application/Common/Lookup.js" />
-        </Scripts>
-        <Services>
-            <asp:ServiceReference Path="../../../Application/Common/Lookup.asmx" />
-        </Services>--%>
-    <%-- </asp:ScriptManager>--%>
+    <%--//added by babita --%>
+       
+<script type="text/javascript">
+    debugger;
+        //Changed by Vikash to make documentdetails as first on 23May2025
+    const panels = [
+        "documentdetails",    // 0
+        "personaldetails",    // 1
+        "contactdetails",     // 2
+        "addressdetails",     // 3 
+        "KYCverification"     // 4
+    ];
+        //Changed by Vikash to make documentdetails as first on 23May2025
+    const tabMap = {
+        "documentdetails": { tabId: "ctl00_ContentPlaceHolder1_divDUH", badgeId: "ctl00_ContentPlaceHolder1_span9" },
+        "personaldetails": { tabId: "ctl00_ContentPlaceHolder1_divRDH", badgeId: "ctl00_ContentPlaceHolder1_span3" },
+        "contactdetails": { tabId: "ctl00_ContentPlaceHolder1_divCDH", badgeId: "ctl00_ContentPlaceHolder1_span2" },
+        "addressdetails": { tabId: "ctl00_ContentPlaceHolder1_divPAH", badgeId: "ctl00_ContentPlaceHolder1_span4" },
+        "KYCverification": { tabId: "ctl00_ContentPlaceHolder1_divPDH", badgeId: "ctl00_ContentPlaceHolder1_span1" }
+    };
+
+        let currentPanelIndex = 0;
+
+        function showPanelByIndex(index) {
+            debugger
+            if (index < 0 || index >= panels.length) return;
+
+            // Hide all panels
+            panels.forEach(pid => {
+                const panel = document.getElementById(pid);
+                if (panel) panel.style.display = "none";
+            });
+
+            // Special case: first index (pasanldeatils) also shows londeatails
+            if (index === 1) {
+                //Added by Vikash K on 23May2025 for making display loadn when index is 1
+                const pasan = document.getElementById("personaldetails");
+                const lon = document.getElementById("londeatails");
+                if (pasan) pasan.style.display = "block";
+                if (lon) lon.style.display = "block";
+            } else {
+                // Show only the current panel
+                const currentPanel = document.getElementById(panels[index]);
+                if (currentPanel) currentPanel.style.display = "block";
+            }
+
+            // Reset tab styles
+            Object.values(tabMap).forEach(({ tabId, badgeId }) => {
+                const tab = document.getElementById(tabId);
+                const badge = document.getElementById(badgeId);
+                if (tab) {
+                    tab.classList.remove("active");
+                    tab.style.color = "#8c8c8c";
+                }
+                if (badge) badge.style.backgroundColor = "#8c8c8c";
+            });
+
+            // Activate current tab
+            const currentTabInfo = tabMap[panels[index]];
+            if (currentTabInfo) {
+                const tab = document.getElementById(currentTabInfo.tabId);
+                const badge = document.getElementById(currentTabInfo.badgeId);
+                if (tab) {
+                    tab.classList.add("active");
+                    tab.style.color = "#00cccc";
+                }
+                if (badge) badge.style.backgroundColor = "#00cccc";
+            }
+
+            // Toggle Previous button
+            const prevBtn = document.getElementById("<%= btnprevcd.ClientID %>");
+        if (prevBtn) {
+            prevBtn.style.display = (index === 0) ? "none" : "inline-block";
+        }
+
+        // Handle Next and Save buttons
+        const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
+        const saveBtn = document.getElementById("<%= btnSave.ClientID %>");
+        if (nextBtn) {
+            nextBtn.style.display = (index === panels.length - 1) ? "none" : "inline-block";
+        }
+        if (saveBtn) {
+            saveBtn.style.display = (index === panels.length - 1) ? "inline-block" : "none";
+        }
+
+            currentPanelIndex = index;
+            const hdnCurrentPanel = document.getElementById("hdnCurrentPanel");
+            if (hdnCurrentPanel) {
+                hdnCurrentPanel.value = panels[index];
+            }
+            
+    }
+
+    function goToNextPanel() {
+        if (currentPanelIndex < panels.length - 1) {
+            showPanelByIndex(currentPanelIndex + 1);
+        }
+    }
+
+    function goToPrevPanel() {
+        if (currentPanelIndex > 0) {
+            showPanelByIndex(currentPanelIndex - 1);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        showPanelByIndex(0);
+
+        const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
+        if (nextBtn) {
+            nextBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                goToNextPanel();
+            });
+        }
+
+        const prevBtn = document.getElementById("<%= btnprevcd.ClientID %>");
+        if (prevBtn) {
+            prevBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                goToPrevPanel();
+            });
+        }
+
+        const saveBtn = document.getElementById("<%= btnSave.ClientID %>");
+        if (saveBtn) {
+            saveBtn.style.display = "none";
+        }
+    });
+</script>
+
+        <%--//added for documnet--%>
+    <script type="text/javascript">
+        function showImage(src) {
+            const carouselContent = document.getElementById('carouselContent');
+            carouselContent.innerHTML = ''; // clear existing
+            const img = document.createElement('img');
+            img.src = src;
+            carouselContent.appendChild(img);
+        }
+
+        debugger
+        let uploadedImages = [];
+        let currentIndex = 0;
+        let tempImage = null; // preview before Add button
+
+        window.onload = function () {
+            setupDropZone(document.getElementById("dropZone"));
+            renderCarouselSlide();
+        };
+
+        function setupDropZone(dropZone) {
+            dropZone.addEventListener("click", () => {
+                document.getElementById("fileInput").click();
+            });
+
+            dropZone.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZone.style.background = "#d0e7ff";
+            });
+
+            dropZone.addEventListener("dragleave", (e) => {
+                e.preventDefault();
+                dropZone.style.background = "#f0f8ff";
+            });
+
+            dropZone.addEventListener("drop", (e) => {
+                e.preventDefault();
+                dropZone.style.background = "#f0f8ff";
+                if (e.dataTransfer.files.length > 0) {
+                    previewImageBeforeAdd(e.dataTransfer.files[0]);
+                }
+            });
+        }
+
+        function previewImageBeforeAdd(file) {
+            if (!file || !file.type.startsWith("image/")) {
+                alert("Please upload a valid image file.");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                tempImage = e.target.result;
+                // Show preview in visible drop zone (initial or inside carousel)
+                let dropZone = document.getElementById("dropZone");
+                if (dropZone.style.display === "none") {
+                    dropZone = document.getElementById("dropZoneInner");
+                }
+                if (dropZone) {
+                    dropZone.innerHTML = `<img src="${tempImage}" style="max-width: 100%; max-height: 100%;" />`;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function validateAndAddImage() {
+            debugger;
+            const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
+
+        // Elements that might be visible depending on doc type
+        const normalContainer = document.getElementById("<%= normalContainer.ClientID %>");
+        const maskContainer = document.getElementById("<%= maskContainer.ClientID %>");
+
+// Document number input fields
+const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
+        const passNoInput = document.getElementById("<%= txtmaskadhar.ClientID %>");
+
+            let docNumber = "";
+
+            if (!docType) {
+                alert("Please select a Document Type.");
+                return false;
+            }
+
+            // Determine which container is visible and use corresponding textbox
+            //if (maskContainer && maskContainer.style.display !== "none") {
+            //    docNumber = passNoInput.value.trim();
+            //    if (!docNumber) {
+            //        alert("Please enter aadhaar last 4 digit number.");
+            //        passNoInput.focus();
+            //        return false;
+            //    }
+            //} else if (normalContainer && normalContainer.style.display !== "none") {
+            //    docNumber = docNumberInput.value.trim();
+            //    if (!docNumber) {
+            //        alert("Please enter a valid Document Number.");
+            //        docNumberInput.focus();
+            //        return false;
+            //    }
+            //} else {
+            //    alert("Please enter a valid Document Number.");
+            //    return false;
+            //}
+
+            if (!tempImage) {
+                alert("Please upload an image.");
+                return false;
+            }
+
+            // Store the image along with docType and docNumber (optional enhancement)
+            uploadedImages.push({
+                image: tempImage,
+                type: docType,
+                number: docNumber
+            });
+            
+            document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
+            currentIndex = uploadedImages.length - 1;
+            tempImage = null;
+
+            document.getElementById("dropZone").style.display = "none";
+
+            const carousel = document.getElementById("carousel");
+            carousel.style.display = "flex";
+            document.getElementById("prevBtn").style.display = "inline-block";
+            document.getElementById("nextBtn").style.display = "inline-block";
+
+            alert("Document added successfully!");
+            renderCarouselSlide();
+            showNext();
+            return true; // prevent postback
+        }
+
+        function showNext() {
+            const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                renderCarouselSlide();
+            }
+        }
+
+        function showPrevious() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderCarouselSlide();
+            }
+        }
+        function renderCarouselSlide() {
+            const container = document.getElementById("carouselContent");
+            container.innerHTML = "";
+
+            if (uploadedImages.length === 0) {
+                // Hide carousel when no image is uploaded
+                document.getElementById("carousel").style.display = "none";
+                return;
+            }
+
+            const totalSlides = uploadedImages.length + 1;
+
+            // Show carousel if there is at least 1 image
+            document.getElementById("carousel").style.display = "flex";
+
+            if (currentIndex < uploadedImages.length) {
+                const img = document.createElement("img");
+                img.src = uploadedImages[currentIndex].image;
+                container.appendChild(img);
+            } else {
+                // Only when user clicks "Next" to add new
+                const dropZone = document.createElement("div");
+                dropZone.id = "dropZoneInner";
+                dropZone.textContent = "Drag & drop an image here or click to upload";
+                dropZone.style = "..."; // your styling here
+                container.appendChild(dropZone);
+                setupDropZone(dropZone);
+            }
+
+            document.getElementById("prevBtn").disabled = currentIndex === 0;
+            document.getElementById("nextBtn").disabled = currentIndex === totalSlides - 1;
+            renderDots(totalSlides);
+        }
+        function renderDots(totalSlides) {
+            const dotsContainer = document.getElementById("carouselDots");
+            dotsContainer.innerHTML = "";
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement("span");
+                dot.className = "dot" + (i === currentIndex ? " active" : "");
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function fileInputChanged(input) {
+            if (input.files.length > 0) {
+                previewImageBeforeAdd(input.files[0]);
+            }
+        }
+    </script>
+    
+
+    <%--//ended by babita--%>
+    
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel runat="server">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+
         <ContentTemplate>
-            <div class="container" style="margin-top: 0px;">
-                <%-- Added for CKYC Details header start--%>
-                <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+            <%--added by babita--%>
+            <asp:HiddenField ID="hdnCurrentPanel" runat="server" />
+
+            <div class="container-fluid"> <%--For making resonsive by Vikash K on 23May2025--%>
+    <div class="row">
+        <div class="col-12">
+            <div class="stripPanelClass">
+                <div class="table-responsive">
+                    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab" role="tablist" style="white-space: nowrap;">
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divDUH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divDU" type="button" role="tab" aria-controls="divDU" aria-selected="false" style="color:#00cccc !important;" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span9" style="background-color: #00cccc !important;">1</span> Document Details
+                            <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divRDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divRD" type="button" role="tab" aria-controls="divRD" aria-selected="false" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span3" style="background-color: #8c8c8c !important;">2</span> Personal Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divCDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divCD" type="button" role="tab" aria-controls="divCD" aria-selected="false" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span2" style="background-color: #8c8c8c !important;">3</span> Contact Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divPAH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divPA" type="button" role="tab" aria-controls="divPA" aria-selected="false" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span4" style="background-color: #8c8c8c !important;">4</span> Address Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divPDH" class="nav-link active Strip" data-bs-toggle="tab" data-bs-target="#divPD" type="button" role="tab" aria-controls="divPD" aria-selected="true" style="color:#8c8c8c !important;" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span1" style="background-color: #8c8c8c !important;">5</span> Verification Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+            <%--ended by babita--%>
+            <div   class="container-fluid" style="margin-top: 0px;"> <%--Added by Vikash K for making responsive--%>
+                
+                                <div id="documentdetails" class="panel panel-success"  >
+                    <div id="Div22" runat="server" class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-10" style="text-align: left">
+                                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                <asp:CheckBox ID="ChkUpdRemark" runat="server" CssClass="standardcheckbox" Text=""
+                                    OnCheckedChanged="ChkUpdRemark_Checked" AutoPostBack="true" TabIndex="2" />
+                                <asp:Label ID="lblRemarks" Text="" runat="server" CssClass="control-label">
+                                </asp:Label>
+                            </div>
+<div class="col-sm-2 d-none d-md-block" onclick="showHideDiv('menu5','Span11'); return false;">
+    <span id="ReqDtlsInfoIcon5" class="glyphicon glyphicon-question-sign"
+        onmouseover="NotificationDivSlide('DivSrcReqDtlsNote5','ReqDtlsInfoIcon5'); 
+        getHeaderbyID('SrcReqDtlsNote5');"
+        style="float: left; padding: 1px 10px !important; font-size: 18px; color: red; margin-left: 95px;"></span>
+    
+    <span id="Span11" class="glyphicon glyphicon-collapse-down"
+        style="float: right; padding: 1px 10px !important; font-size: 18px;"></span>
+</div>
+
+                        </div>
+                    </div>
+                    <div style="background-color: #d5d5c3; display: none;" id="DivSrcReqDtlsNote5">
+                        <div class="row">
+                            <div class="col-sm-12" style="margin-left: 17px; margin-top: 10px;">
+                                <span class="glyphicon glyphicon-alert" style="color: yellow"></span>&#160;&#160;
+         
+                                <span id="SrcReqDtlsNote5" style="text-align: justify; font-size: 11px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menu5" style="display: block;" class="panel-body">
+                        <%--  Added for Details of Remarks start--%>
+                                <div class="upload-section">
+        
+        
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
+
+    <!-- LEFT PANEL: Form -->
+    <div style="flex: 1; min-width: 630px; max-width: 550px;">
+        <asp:UpdatePanel runat="server" ID="updDocPanel">
+            <ContentTemplate>
+                <!-- Document Type -->
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <label style="margin-right: 10px; white-space: nowrap;">Document Type:</label>
+                    <asp:DropDownList ID="ddlDocType" runat="server"
+                        CssClass="form-control"
+                        Style="width: 250px;"
+                        AutoPostBack="true"
+                        OnSelectedIndexChanged="ddlDocType_SelectedIndexChanged">
+                        <asp:ListItem Text="Select Document" Value="" />
+                    </asp:DropDownList>
+                </div>
+
+                <!-- Document Number Section -->
+                <div id="showdoctextbox" runat="server" visible="false" style="margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center;">
+                        <label style="margin-right: 10px; white-space: nowrap;">Document No. :</label>
+
+                        <!-- Aadhaar Format -->
+                        <div id="maskContainer" runat="server" visible="false" style="display: flex;">
+                            <asp:TextBox ID="txtMaskCodeno" runat="server" 
+                                CssClass="form-control"
+                                Text="X X X X X X X X"
+                                MaxLength="8"
+                                ReadOnly="true"
+                                Style="width: 140px; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: #e9ecef;" />
+                            <asp:TextBox ID="txtmaskadhar" runat="server" 
+                                CssClass="form-control"
+                                MaxLength="4"
+                                onChange="this.value=this.value.toUpperCase();"
+                                onkeypress="return WebForm_TextBoxKeyHandler(event);"
+                                Style="width: 135px; border-top-left-radius: 0; border-bottom-left-radius: 0;" />
+                        </div>
+
+                        <!-- Normal Format -->
+                        <div id="normalContainer" runat="server" visible="false" style="flex: 1;">
+                            <asp:TextBox ID="txtDocNumber" runat="server"
+                                CssClass="form-control"
+                                Placeholder="Enter document number"
+                                Style="width: 275px;" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Button -->
+<%--                <asp:Button ID="btnAddDoc" runat="server" Text="Add Document"
+                    OnClientClick="return validateAndAddImage();" />--%>
+                                <asp:Button ID="btnAddDoc" runat="server" Text="Add Document" OnClick="btnAddDoc_Click" OnClientClick="return validateAndAddImage();" />
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="ddlDocType" EventName="SelectedIndexChanged" />
+            </Triggers>
+        </asp:UpdatePanel>
+    </div>
+
+    <!-- RIGHT PANEL: Dropzone and Carousel -->
+    <%--<div style="flex: 1; min-width: 618px;">--%>
+                                        <div class="upload-wrapper">
+
+        <div id="dropZone">
+    <span>Drag & drop an image here or click to upload</span>
+</div>
+        <div id="carousel">
+    <button id="prevBtn" class="nav-btn" type="button" onclick="showPrevious()" style="display:none;">&lt;</button>
+    <div id="carouselContent"></div>
+    <button id="nextBtn" class="nav-btn" type="button" onclick="showNext()" style="display:none;">&gt;</button>
+</div>
+        <div id="carouselDots" class="carousel-dots"></div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="fileInputChanged(this)" />
+            </div>
+    
+
+
+
+
+
+</div>
+        
+    </div>
+</div>
+
+        </div>
+                        
+                   
+                <%--ended for documnet--%>
+                
+                <div id="personaldetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
+                <div id="londeatails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
                     <div id="Div18" runat="server" class="panel-heading" onclick="showHideDiv('divCKYCdtls','btnCKYCdtls');return false;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -717,15 +1434,15 @@
                                 <asp:Label ID="lblAppType" Text="" runat="server" Font-Bold="false">
                                 </asp:Label>
                             </div>
-                            <div class="col-sm-3" style="text-align: left">
+                            <div class="col-sm-3">
                                 <asp:CheckBox ID="cbNew" runat="server" CssClass="standardcheckbox" AutoPostBack="true" Visible="false"
                                     Enabled="false" TabIndex="20" />
-                                <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox" Style="padding-left: 3%;" Visible="false"></asp:Label>
+                                <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox" Visible="false"></asp:Label>
                                 <asp:CheckBox ID="cbUpdate" runat="server" CssClass="standardcheckbox" Text="Update"
                                     AutoPostBack="true" Visible="false" TabIndex="1" />
                             </div>
                             <div class="col-sm-3" style="text-align: left">
-                                <asp:Label ID="lblRefNumber" Text="" runat="server" Font-Bold="false"></asp:Label>
+                                <asp:Label ID="lblRefNumber" Text="Loan Number" runat="server" Font-Bold="false"></asp:Label>
                                 <span style="color: red">*</span>
                             </div>
                             <div class="col-sm-3" style="text-align: left">
@@ -781,7 +1498,7 @@
 
 
 
-                <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                <div  class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
                     <div id="Div19" runat="server" class="panel-heading">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -832,38 +1549,19 @@
     </asp:Label>
     <span id="lblAccountTypeImp" runat="server" style="color: red">*</span>
 </div>
+
 <div class="col-sm-3" style="text-align: left; display:flex">
-    
+     <asp:UpdatePanel ID="upcboTitle" runat="server">
+        <ContentTemplate>
     <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true" CssClass="form-control" TabIndex="2"
-        onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged">
+        onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged"  style="width: 220px;">
     </asp:DropDownList>
     
     <div id="ddlAccountTypeLoader"></div>
+            </ContentTemplate>
+         </asp:UpdatePanel>
 </div>
-                                <%--<div class="col-sm-3" style="text-align: left">
-                                </div>
-                                <div class="col-sm-9" style="padding-left: 0">
-                                    <div class="col-sm-2" style="padding-left: 3%">
-                                        <asp:Label ID="Label7" Text="Prefix" runat="server" CssClass="control-label">
-                                        </asp:Label>
-                                    </div>
-                                    <div class="col-sm-10" style="padding-left: 0">
-                                        <div class="col-sm-4">
-                                            <asp:Label ID="Label8"
-                                                Text="First Name" runat="server" CssClass="control-label">
-                                            </asp:Label>
-                                        </div>
-                                        <div class="col-sm-4" style="padding-left: 3%">
-                                            <asp:Label ID="Label10" Text="Middle Name" runat="server" CssClass="control-label">
-                                            </asp:Label>
-                                        </div>
-                                        <div class="col-sm-4" style="padding-left: 4%">
-                                            <asp:Label ID="Label11" Text="Last Name" runat="server" CssClass="control-label">
-                                            </asp:Label>
-                                        </div>
-                                    </div>
-
-                                </div>--%>
+                                
                             </div>
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
@@ -875,26 +1573,26 @@
                                 </div>
                                 <div class="col-sm-9" style="padding: 0">
                                     <div class="col-sm-2">
-                                        <%-- <asp:UpdatePanel ID="upcboTitle" runat="server">
-                                                <ContentTemplate>--%>
+                                         <asp:UpdatePanel ID="upcboTitlep" runat="server">
+                                                <ContentTemplate>
                                         <asp:DropDownList ID="cboTitle" AutoPostBack="true" runat="server" CssClass="form-control" DataTextField="ParamDesc"
                                             DataValueField="ParamValue" AppendDataBoundItems="True" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('prefix')" OnSelectedIndexChanged="cboTitle_SelectedIndexChanged">
                                         </asp:DropDownList>
-                                        <%-- </ContentTemplate>
-                                            </asp:UpdatePanel>--%>
+                                         </ContentTemplate>
+                                            </asp:UpdatePanel>
                                     </div>
-                                    <div class="col-sm-10" style="padding: 0">
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                    <div class="col-sm-10" style="padding:0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtGivenName" runat="server" CssClass="form-control" onkeypress="return lettersOnly();" onchange="javascript:this.value=this.value.toUpperCase();"
                                                 MaxLength="50" TabIndex="2" placeholder="First Name">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtMiddleName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly();"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                             </asp:TextBox>
@@ -916,17 +1614,17 @@
                                         
                                     </div>
                                     <div class="col-sm-10" style="padding: 0">
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtGivenName1" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="First Name" Enabled="false">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtMiddleName1" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Middle Name" Enabled="false">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtLastName1" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Last Name" Enabled="false">
                                             </asp:TextBox>
@@ -955,24 +1653,27 @@
                                 </div>
                                 <div class="col-sm-9" style="padding: 0">
                                     <div class="col-sm-2">
-                                        
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+       <ContentTemplate>
                                         <asp:DropDownList ID="cboTitle2" runat="server" CssClass="form-control" DataTextField="ParamDesc" onchange="CheckFatherSpouce('FatherPrefix')"
                                             DataValueField="ParamValue" AppendDataBoundItems="True" TabIndex="2" AutoPostBack="false" ClientIDMode="Static">
                                         </asp:DropDownList>
                                         
+           </ContentTemplate>
+                                            </asp:UpdatePanel>
                                     </div>
                                     <div class="col-sm-10" style="padding: 0">
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtGivenName2" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="First Name">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtMiddleName2" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4" style="padding-left: 0">
+                                        <div class="col-sm-4 mt-2">
                                             <asp:TextBox ID="txtLastName2" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                             </asp:TextBox>
@@ -1028,7 +1729,7 @@
                                 <div class="col-sm-3">
                                     <div class="input-group">
                                         <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" placeholder="dd-mm-yyyy" onchange="ValidateDOB(this.value);" MaxLength="10" TabIndex="2"></asp:TextBox>
-                                        <div class="input-group-btn">
+                                        <div class="input-btn">
                                             <div class="btn btn-primary btn-lg-kmi" onclick="callCalender('txtDOB')">
                                                 <span class="glyphicon glyphicon-calendar BtnGlyphicon"></span>
                                             </div>
@@ -1330,8 +2031,8 @@
                         <%--  Added for Tick If Applicable end --%>
                     </div>
                 </div>
-
-                <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                </div> <%--added by babita--%>
+                <div id="addressdetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none" >
                     <div id="Div4" runat="server" class="panel-heading">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -1442,7 +2143,7 @@
                             <div id="div20" runat="server" class="col-sm-9">
                             </div>
                             <%--Tushar multiple Doc--%>
-                            <div class="container" style="padding-right: 46px;">
+                            <div class="container-fluid" style="padding-right: 46px;">
                                 <asp:GridView ID="GridView1" runat="server" Width="100%" CssClass="footable" OnDataBinding="GridView1_DataBinding">
                                     <%--<AlternatingRowStyle BackColor="White" />--%>
                                     <EditRowStyle BackColor="#7C6F57" />
@@ -1702,7 +2403,7 @@
                                 <div id="div7" runat="server" class="col-sm-9">
                                 </div>
                                 <%--Tushar multiple Doc--%>
-                                <div class="container" style="padding-right: 46px;">
+                                <div class="container-fluid" style="padding-right: 46px;">
                                     <asp:GridView ID="GridView2" runat="server" Width="100%" CssClass="footable" Visible="false">
                                         <%--<AlternatingRowStyle BackColor="White" />--%>
                                         <EditRowStyle BackColor="#7C6F57" />
@@ -1811,7 +2512,7 @@
                 <%--</div>--%>
                 <%--</div>--%>
 
-                <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                <div id="contactdetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
                     <div id="Div8" runat="server" class="panel-heading subheader">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -1844,26 +2545,57 @@
                                 <asp:Label ID="lblTelOff1" runat="server" Text="" CssClass="control-label"></asp:Label>
                             </div>
                             <div class="col-sm-3">
-                                <div class="input-group">
-                                    <%--<span class="input-group-addon" style="width: 20% !important; border-top-left-radius: 7% !important; padding:0px !important; border:0px !important;">--%>
+                                <%--<div class="input-group">
+                                  
                                     <span class="input-group-addon input-group-addon-tel">
                                         <asp:TextBox ID="txtTelOff" runat="server" CssClass="form-control" TabIndex="2" onkeypress="fncInputNumericValuesOnly();" MaxLength="4" Style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></asp:TextBox>
                                     </span>
                                     <asp:TextBox ID="txtTelOff2" runat="server" CssClass="form-control" onblur="fnValidateNumber(this.id,'8');" onkeypress="fncInputNumericValuesOnly();"
                                         MaxLength="10" TabIndex="2"></asp:TextBox>
-                                </div>
+                                </div>--%>
+                                <div class="form-group">
+    <div class="input-group" style="width: 100%;">
+        <asp:TextBox ID="txtTelOff" runat="server" CssClass="form-control" MaxLength="4" onkeypress="fncInputNumericValuesOnly();"
+            Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
+
+        <asp:TextBox ID="txtTelOff2" runat="server" CssClass="form-control" MaxLength="10" onblur="fnValidateNumber(this.id,'8');"
+            onkeypress="fncInputNumericValuesOnly();"
+            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+    </div>
+</div>
                             </div>
                             <div class="col-sm-3" style="text-align: left">
                                 <asp:Label ID="lblTelRes" runat="server" CssClass="control-label" Text="Tel.(Res)"></asp:Label>
                             </div>
                             <div class="col-sm-3">
-                                <div class="input-group">
+                                <%--<div class="input-group">
                                     <span class="input-group-addon input-group-addon-tel">
                                         <asp:TextBox ID="txtTelRes" runat="server" CssClass="form-control" TabIndex="2" onkeypress="fncInputNumericValuesOnly();" MaxLength="4" Style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></asp:TextBox>
                                     </span>
                                     <asp:TextBox ID="txtTelRes2" runat="server" CssClass="form-control" onblur="fnValidateNumber(this.id,'8');" MaxLength="10" onkeypress="fncInputNumericValuesOnly();"
                                         TabIndex="2"></asp:TextBox>
-                                </div>
+                                </div>--%>
+                                <div class="form-group">
+    <div class="input-group">
+        <!-- STD Code -->
+        <asp:TextBox ID="txtTelRes" runat="server"
+            CssClass="form-control"
+            MaxLength="4"
+            TabIndex="2"
+            onkeypress="fncInputNumericValuesOnly();"
+            Style="max-width: 80px; border-top-right-radius: 0; border-bottom-right-radius: 0; border-right: 0;"></asp:TextBox>
+
+        <!-- Landline Number -->
+        <asp:TextBox ID="txtTelRes2" runat="server"
+            CssClass="form-control"
+            MaxLength="10"
+            TabIndex="2"
+            onkeypress="fncInputNumericValuesOnly();"
+            onblur="fnValidateNumber(this.id,'8');"
+            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+    </div>
+</div>
+
                             </div>
                         </div>
                         <div class="row">
@@ -1871,13 +2603,34 @@
                                 <asp:Label ID="lblMobile" runat="server" Text="" CssClass="control-label"></asp:Label>
                             </div>
                             <div class="col-sm-3">
-                                <div class="input-group">
+                                <%--<div class="input-group">
                                     <span class="input-group-addon input-group-addon-tel">
                                         <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control" TabIndex="2" onkeypress="fncInputNumericValuesOnly();" MaxLength="3" Style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></asp:TextBox>
                                     </span>
                                     <asp:TextBox ID="txtMobile2" runat="server" CssClass="form-control" onblur="validateMobileNumber(this)" onkeypress="fncInputNumericValuesOnly();"
                                         MaxLength="20" TabIndex="2"></asp:TextBox>
-                                </div>
+                                </div>--%>
+                                <div class="form-group">
+    <div class="input-group">
+        <!-- Country/Code Prefix -->
+        <asp:TextBox ID="txtMobile" runat="server"
+            CssClass="form-control"
+            MaxLength="3"
+            TabIndex="2"
+            onkeypress="fncInputNumericValuesOnly();"
+            Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
+
+        <!-- Main Mobile Number -->
+        <asp:TextBox ID="txtMobile2" runat="server"
+            CssClass="form-control"
+            MaxLength="20"
+            TabIndex="2"
+            onkeypress="fncInputNumericValuesOnly();"
+            onblur="validateMobileNumber(this);"
+            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+    </div>
+</div>
+
                             </div>
                             <%--Added By Shubham--%>
                             <div id="divMob2" runat="server" visible="false">
@@ -2270,46 +3023,24 @@
 
                 </div>
 
-                <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
-                    <div id="Div22" runat="server" class="panel-heading">
-                        <div class="row">
-                            <div class="col-sm-10" style="text-align: left">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                                <asp:CheckBox ID="ChkUpdRemark" runat="server" CssClass="standardcheckbox" Text=""
-                                    OnCheckedChanged="ChkUpdRemark_Checked" AutoPostBack="true" TabIndex="2" />
-                                <asp:Label ID="lblRemarks" Text="" runat="server" CssClass="control-label">
-                                </asp:Label>
-                            </div>
-                            <div class="col-sm-2" onclick="showHideDiv('menu5','Span11');return false;">
-                                <span id="ReqDtlsInfoIcon5" class="glyphicon glyphicon-question-sign" onmouseover="NotificationDivSlide('DivSrcReqDtlsNote5','ReqDtlsInfoIcon5'); 
-                                    getHeaderbyID('SrcReqDtlsNote5');"
-                                    style="float: left; padding: 1px 10px ! important; font-size: 18px; color: red; margin-left: 95px;"></span>
-                                <span id="Span11" class="glyphicon glyphicon-collapse-down" style="float: right; padding: 1px 10px ! important; font-size: 18px;"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="background-color: #d5d5c3; display: none;" id="DivSrcReqDtlsNote5">
-                        <div class="row">
-                            <div class="col-sm-12" style="margin-left: 17px; margin-top: 10px;">
-                                <span class="glyphicon glyphicon-alert" style="color: yellow"></span>&#160;&#160;
-         
-                                <span id="SrcReqDtlsNote5" style="text-align: justify; font-size: 11px;"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="menu5" style="display: block;" class="panel-body">
-                        <%--  Added for Details of Remarks start--%>
-                        <div class="row">
+                
+                <div style="display:none">
+                                            <div class="row">
                             <div class="col-sm-12">
                                 <asp:TextBox CssClass="form-control" onchange="setDateFormat('txtRemarks')" runat="server"
                                     ID="txtRemarks" MaxLength="300" TabIndex="2" />
                             </div>
                         </div>
-                        <%--  Added for Details of Remarks end--%>
-                    </div>
+                        
+                        <div class="col-sm-3" style="text-align: left">
+    <asp:Label ID="Label11" Text="Documnet Type" runat="server" Font-Bold="false"></asp:Label>
+</div>
+<div class="col-sm-3" style="text-align: left;display:none">
+    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" TabIndex="2" ClientIDMode="Static">
+    </asp:DropDownList>
+</div>
                 </div>
-
-                <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                <div  id="KYCverification" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
                     <div id="Div23" runat="server" class="panel-heading">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -2410,7 +3141,7 @@
                                     <div class="col-sm-3">
                                         <div class="input-group">
                                             <asp:TextBox CssClass="form-control" runat="server" ID="txtDate" MaxLength="15" TabIndex="2" />
-                                            <div class="input-group-btn">
+                                            <div class="input-btn">
                                                 <div class="btn btn-primary btn-lg-kmi" onclick="callCalender('txtDate')">
                                                     <span class="glyphicon glyphicon-calendar BtnGlyphicon"></span>
                                                 </div>
@@ -2609,12 +3340,25 @@
                     <asp:HiddenField ID="HiddenField6" runat="server" />
                     <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Partial Update
                 </asp:LinkButton>
+                <%--added by babita--%>
+<%--                <asp:LinkButton ID="btnprevcd" CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;" OnClick="btnprevcd_Click">
+                <span></span> Previous
+</asp:LinkButton>--%>
+                <asp:LinkButton ID="btnprevcd" CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;" OnClick="btnprevcd_Click">
+    <span></span> Previous
+</asp:LinkButton>
+                <%--ended by babita--%>
 
-                <asp:LinkButton ID="btnSave"  OnClick="btnSave_Click"
-                    CssClass="btn-animated bg-green" runat="server" TabIndex="2"> <%--OnClientClick="return funCKYC();"--%>
+                <%--<asp:LinkButton ID="btnSave"  OnClick="btnSave_Click"
+                    CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;"> 
                     <asp:HiddenField ID="TabName" runat="server" />
                     <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
-                </asp:LinkButton>
+                </asp:LinkButton>--%>
+                <asp:LinkButton ID="btnSave"  OnClick="btnSave_Click_ReKyc"
+    CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;"> 
+    <asp:HiddenField ID="TabName" runat="server" />
+    <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
+</asp:LinkButton>
                  <asp:LinkButton ID="btnCancel" OnClick="btnCancel_Click" CssClass="btn-animated bg-horrible"
                     runat="server" TabIndex="2">
                              <span class="glyphicon glyphicon-remove BtnGlyphicon"> </span> Cancel </asp:LinkButton>
@@ -2623,6 +3367,11 @@
                     <img id="Img1" alt="" src="Common/Images/spinner.gif" runat="server" />
                     Loading...
                 </div>
+                
+                <asp:LinkButton ID="btnnextpas" CssClass="btn-animated bg-green" runat="server" TabIndex="2" OnClick="btnnextpas_Click"> 
+    <asp:HiddenField ID="HiddenField5" runat="server" />
+    <span></span> Next
+</asp:LinkButton>
             </div>
                 </center>
             </div>
@@ -2705,6 +3454,7 @@
             <input id="hdnChkPOADoc" type="hidden" runat="server" />
             <input id="hdnChkPOIDocument" type="hidden" runat="server" />
             <input id="hdnddlProofOfAddress1" type="hidden" runat="server" />
+            <asp:HiddenField ID="hdnBase64Image" runat="server" />
             <asp:HiddenField ID="hdnFiRefNo" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>

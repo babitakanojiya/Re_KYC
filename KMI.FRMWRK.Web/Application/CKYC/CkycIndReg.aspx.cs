@@ -12,7 +12,11 @@ using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Services; //added by rutuja
-using Newtonsoft.Json; //added by rutuja
+using Newtonsoft.Json;
+using System.Configuration; //added by rutuja
+using System.Net.Http;
+using System.Text;
+
 
 namespace KMI.FRMWRK.Web.Application.CKYC
 {
@@ -54,6 +58,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         {
             try
             {
+
                 if (Request.QueryString["flag"] != null)
                 {
                     FlagPageTyp = Request.QueryString["flag"].ToString();//added by shubham
@@ -96,7 +101,8 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     //lngcode = Session["UserLangNum"].ToString();
                     Session["CarrierCode"] = '2';
                     olng = new MultilingualManager("DefaultConn", "CKYCReg.aspx", Session["UserLangNum"].ToString());
-                    strUserId = HttpContext.Current.Session["UserID"].ToString().Trim();
+                    //strUserId = HttpContext.Current.Session["UserID"].ToString().Trim();
+                    strUserId = HttpContext.Current.Session["UserID"].ToString().Trim();//added by akash on 20 may 25 for rekc
                 }
 
                 txtInsName.Enabled = false;
@@ -116,6 +122,9 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
                 if (!IsPostBack)
                 {
+                    FillDocTypeDropdown(); //added by babita
+
+                    //ended by babita
                     InitializeControls();
                     FillDocumentReceived();
                     //gvAddPOIDtls.Visible = true;
@@ -6904,7 +6913,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 lblattstn.Text = "KYC VERIFICATION DETAILS";
                 lbldec.Text = olng.GetItemDesc("lbldec");
                 lblAttesOfc.Text = olng.GetItemDesc("lblAttesOfc");
-                lblOfcuseOnly.Text = "LOAD & APPLICANT DETAILS";
+                lblOfcuseOnly.Text = "LOAN & APPLICANT DETAILS";
                 lblInsDtls.Text = olng.GetItemDesc("lblInsDtls");
                 lblContactDetails.Text = olng.GetItemDesc("lblContactDetails");
             }
@@ -8314,5 +8323,349 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 }
             }
         }
+        ////added by babita
+
+        protected void btnnextpas_Click(object sender, EventArgs e)
+        {
+            string currentPanel = hdnCurrentPanel.Value;
+
+            // Check validation only if pasanldeatils panel is active
+            if (currentPanel == "documentdetails")
+            {
+                if (Session["Name"].ToString() != "")
+                {
+                    string fullName = Session["Name"]?.ToString();
+                    string firstName = string.Empty;
+                    string middleName = string.Empty;
+                    string lastName = string.Empty;
+
+                    if (!string.IsNullOrWhiteSpace(fullName))
+                    {
+                        var nameParts = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        if (nameParts.Length >= 1)
+                            firstName = nameParts[0];
+                        if (nameParts.Length == 2)
+                            lastName = nameParts[1];
+                        if (nameParts.Length >= 3)
+                        {
+                            middleName = string.Join(" ", nameParts.Skip(1).Take(nameParts.Length - 2));
+                            lastName = nameParts.Last();
+                        }
+
+                        // Store in session if needed
+                        Session["FirstName"] = firstName;
+                        Session["MiddleName"] = middleName;
+                        Session["LastName"] = lastName;
+
+                        // Assign to controls
+                        txtGivenName.Text = firstName;
+                        txtMiddleName.Text = middleName;
+                        txtLastName.Text = lastName;
+                    }
+                }
+                else
+                {
+                    txtGivenName.Text = "";
+                    txtMiddleName.Text = "";
+                    txtLastName.Text = "";
+                }
+
+                if (Session["PanNumber"].ToString() != "")
+                {
+                   
+                }
+                    if (ddlAccountType.SelectedValue == "")
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please select an Account Type before proceeding.');", true);
+                    return;
+                }
+            }
+            if (currentPanel == "addressdetails")
+            {
+
+                if (Session["Address"].ToString() != "")
+                {
+                    string fullAddress = Session["Address"]?.ToString();
+                    string line1 = "", line2 = "", city = "", district = "", pin = "", state = "";
+
+                    if (!string.IsNullOrWhiteSpace(fullAddress))
+                    {
+                        var addressLines = fullAddress.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
+                                                      .Select(l => l.Trim())
+                                                      .Where(l => !string.IsNullOrEmpty(l))
+                                                      .ToList();
+
+                        if (addressLines.Count >= 1) line1 = addressLines[0];
+                        if (addressLines.Count >= 2) line2 = addressLines[1];
+                        if (addressLines.Count >= 3) city = addressLines[2];  // City or town/village
+                        if (addressLines.Count >= 4)
+                        {
+                            var lastLine = addressLines[addressLines.Count - 1];
+                            var parts = lastLine.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+
+                            if (parts.Length == 2)
+                            {
+                                state = parts[0].Trim();
+                                pin = parts[1].Trim();
+                            }
+                            else
+                            {
+                                state = lastLine.Trim(); // fallback
+                            }
+                        }
+
+                        // Assign district same as city, or extract from line2 if needed
+                        district = city;
+
+                        // Store or assign to controls
+                        Session["AddressLine1"] = line1;
+                        Session["AddressLine2"] = line2;
+                        Session["City"] = city;
+                        Session["District"] = district;
+                        Session["Pin"] = pin;
+                        Session["State"] = state;
+
+                        txtAddressLine1.Text = line1;
+                        txtAddressLine2.Text = line2;
+                        txtCity.Text = city;
+                        ddlDistrict.SelectedValue = district;
+                        ddlPinCode.SelectedValue = pin;
+                        ddlState.SelectedValue = state;
+                    }
+
+                }
+
+            }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "nextStep", "goToNextPanel();", true);
+        }
+
+        protected void btnprevcd_Click(object sender, EventArgs e)
+        {
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "prevStep", "goToPrevPanel();", true);
+        }
+
+        protected void FillDocTypeDropdown()
+        {
+            try
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["CKYCConnectionString"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("Prc_Documentfill_Rekyc", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@LookUpCode", "KId"); // Adjust if needed
+
+                        conn.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        ddlDocType.Items.Clear();
+                        ddlDocType.Items.Add(new ListItem("Select Document", "")); // Default item
+
+                        while (reader.Read())
+                        {
+                            string value = reader["ParamValue"].ToString();
+                            string text = reader["ParamDesc"].ToString();
+                            ddlDocType.Items.Add(new ListItem(text, value));
+                        }
+
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Session["UserID"] == null || string.IsNullOrEmpty(Session["UserID"].ToString()))
+                {
+                    Response.Redirect("~/ErrorSession.aspx");
+                }
+                else
+                {
+                    objErr = new ErrorLog();
+                    objErr.LogErr(AppID, "LegalEntityDtls.aspx.cs", "FillDocTypeDropdown", ex.InnerException == null ? ex.Message : ex.Message + " | " + ex.InnerException.ToString(), strUserId, "CKYC");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmsg", "AlertMsg('Something went wrong, Kindly contact to service provider.');", true);
+                }
+            }
+            finally
+            {
+                objDAL = null;
+                dt = null;
+            }
+        }
+
+
+        protected void ddlDocType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = ddlDocType.SelectedItem.Value;
+
+
+            if (!string.IsNullOrEmpty(selectedValue))
+            {
+                showdoctextbox.Visible = true;
+            }
+            else
+            {
+                showdoctextbox.Visible = false;
+            }
+
+
+            if (selectedValue == "E")
+            {
+                maskContainer.Visible = true;
+                normalContainer.Visible = false;
+            }
+            else
+            {
+                maskContainer.Visible = false;
+                normalContainer.Visible = true;
+            }
+        }
+
+
+        protected void btnSave_Click_ReKyc(object sender, EventArgs e)
+        {
+            try
+            {
+                htParam.Add("@CREATEDBY", strUserId.ToString());
+                htParam.Add("@TKYCNO", "");
+                htParam.Add("@uniqueID", obj.ToString());
+                htParam.Add("@PREFIX", cboTitle.SelectedValue);
+                htParam.Add("@FNAME", txtGivenName.Text.Trim());
+                htParam.Add("@MNAME", txtMiddleName.Text.Trim());
+                htParam.Add("@LNAME", txtLastName.Text.Trim());
+                htParam.Add("@FATHER_PREFIX", cboTitle2.SelectedValue);
+                htParam.Add("@FATHER_PREFIX", cboTitle2.SelectedValue);
+                htParam.Add("@FATHER_FNAME", txtGivenName2.Text.Trim());
+                htParam.Add("@FATHER_MNAME", txtMiddleName2.Text.Trim());
+                htParam.Add("@FATHER_LNAME", txtLastName2.Text.Trim());
+                htParam.Add("@PartialRegRefNo", txtRefNumber.Text.ToString());
+                objDAL = new DataAccessLayer("CKYCConnectionString");
+                dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htParam);
+
+
+            }
+            catch (Exception ex)
+            { }
+            }
+
+        protected void btnAddDoc_Click(object sender, EventArgs e)
+        {
+            string base64Image = hdnBase64Image.Value;
+            string base64Data = base64Image.Contains(",") ? base64Image.Split(',')[1] : base64Image;
+
+
+            string docname = string.Empty;
+
+            if (ddlDocType.SelectedValue == "E")
+            {
+                 docname = "aadhaar";
+            }
+            else if(ddlDocType.SelectedValue == "C")
+            {
+                docname = "pan";
+            }
+            else 
+            {
+                docname = "";
+            }
+
+            if (!string.IsNullOrEmpty(base64Data) && !string.IsNullOrEmpty(docname))
+            {
+                try
+                {
+                    // Convert Base64 string to byte array
+                    //byte[] imageBytes = Convert.FromBase64String(base64Data);
+
+                    // Prepare request object
+                    var request = new OcrRequest
+                    {
+                        docType = docname,
+                        imageBytes = base64Data
+                    };
+
+                    string apiUrl = "http://kmi.centralindia.cloudapp.azure.com/OCRWEBAPI/api/Ocr/process";
+
+                    using (var client = new HttpClient())
+                    {
+                        var json = JsonConvert.SerializeObject(request);
+                        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                        HttpResponseMessage response = client.PostAsync(apiUrl, content).Result;
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string result = response.Content.ReadAsStringAsync().Result;
+
+                            if (ddlDocType.SelectedValue == "E")
+                            {
+                                // Deserialize the JSON response
+                                var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
+
+                                if (ocrResult != null)
+                                {
+                                    // Store in session
+                                    Session["Gender"] = ocrResult.Gender;
+                                    Session["Name"] = ocrResult.Name;
+                                    Session["Dob"] = ocrResult.Dob;
+                                    Session["AadharNumber"] = ocrResult.AadharNumber;
+                                    Session["Address"] = ocrResult.Address;
+                                }
+                                else
+                                {
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
+                                }
+                            }
+                            else
+                            {
+                                var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
+
+                                if (ocrResult != null)
+                                {
+                                    Session["PanNumber"] = ocrResult.PanNumber;
+                                }
+                                else
+                                {
+                                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Error: {response.StatusCode}');", true);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Exception: {ex.Message}');", true);
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Missing image or docname');", true);
+            }
+
+        }
+    }
+
+    public class OcrRequest
+    {
+        public string docType { get; set; }
+        public string imageBytes { get; set; }
+    }
+
+    public class OcrResponse
+    {
+        public string Gender { get; set; }
+        public string Name { get; set; }
+        public string Dob { get; set; }
+        public string AadharNumber { get; set; }
+        public string Address { get; set; }
+        public string PanNumber { get; set; }
     }
 }
