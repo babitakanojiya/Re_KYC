@@ -306,7 +306,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 string dateofbith=null;
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("GetApplicantInfoByCKYC", conn))
+                    using (SqlCommand cmd = new SqlCommand("Prc_GetApplicantInfoByCKYC", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@PAN_NO", pan);
