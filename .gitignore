@@ -14,3 +14,27 @@
 /.vs/KMI.FRMWRK.Web/FileContentIndex/02349bd1-f3f3-4b74-91d0-35925d21d30c.vsidx
 /.vs/KMI.FRMWRK.Web/FileContentIndex/02349bd1-f3f3-4b74-91d0-35925d21d30c.vsidx
 /.vs/KMI.FRMWRK.Web/v17/.suo
+*.dll
+*.pdb
+# Ignore all .dll files
+*.dll
+
+# Ignore build output folders (optional but recommended)
+bin/
+obj/
+
+# Ignore Visual Studio folder
+.vs/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore logs
+*.log
+/KMI.FRMWRK.Web/obj/Debug/KMI.FRMWRK.Web.csproj.AssemblyReference.cache
+/.vs/KMI.FRMWRK.Web/config/applicationhost.config
+/KMI.FRMWRK.Communication/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/KMI.FRMWRK.Web/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
