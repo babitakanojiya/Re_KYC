@@ -446,7 +446,7 @@
 
 
                     // Simulate "redirect" by hiding/showing panels
-                    startTimer();
+                    startTimer('0');
                 },
                 error: function (xhr, status, error) {
                     alert("API call failed: " + error);
@@ -528,14 +528,23 @@
             return "Web-" + timestamp + "-" + randomNum;
         }
 
-        let timerInterval;  // To hold the interval ID
-        let totalTime = 5 * 60; // 5 minutes in seconds
+        let timerInterval;  // Global: so we can clear it later
+        let totalTime = 3 * 60; // Default 3 minutes
 
-        function startTimer() {
-            const timerLabel = document.getElementById('countdownTimer');
-            totalTime = 3 * 60; // reset timer to 3 minutes if needed
+        function startTimer(issend) {
+            const retryButton = document.getElementById("retrytimer");
+            const timerLabel = document.getElementById("countdownTimer");
 
-            // Clear any existing timer before starting new one
+            // Always disable the button when starting timer
+            retryButton.disabled = true;
+            retryButton.style.backgroundColor = "grey"; // Optional: grey when disabled
+            retryButton.style.color = "white";
+            retryButton.style.cursor = "not-allowed";
+
+            // Reset timer
+            totalTime = 3 * 60;
+
+            // Clear existing timer
             if (timerInterval) {
                 clearInterval(timerInterval);
             }
@@ -543,14 +552,20 @@
             timerInterval = setInterval(() => {
                 let minutes = Math.floor(totalTime / 60);
                 let seconds = totalTime % 60;
-                timerLabel.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+
+                timerLabel.textContent = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
 
                 if (totalTime === 0) {
                     clearInterval(timerInterval);
-                    // Optional: do something when timer ends, e.g. disable OTP input
-                } else {
-                    totalTime--;
+
+                    //  Enable RESEND button
+                    retryButton.disabled = false;
+                    retryButton.style.backgroundColor = "#007bff"; // Enable color
+                    retryButton.style.color = "white";
+                    retryButton.style.cursor = "pointer";
                 }
+
+                totalTime--;
             }, 1000);
         }
         function validateOtp(inputId) {
@@ -647,13 +662,16 @@
                                     <div id="CKYCpage1" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Do you have a CKYC No.?</h1>
                                             <div style="margin-top: 20px; text-align: center;">
-                                                <img src="Images/CKYCSample.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
+                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
     
-                                                <h4 style="line-height: 1.6; margin-top: 1rem;font-weight:unset;">
-                                                    CKYC number is a unique 14-digit number, assigned by CERSAI as an identifier across all financial institutions.If you<br />
-                                                   already have a CKYC number.Please enter this number to seamlessly complete your verification<br />
-                                                    without submitting any document.
-                                                </h4>
+                                                 <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;">CKYC number is a unique 14-digit number, assigned by CERSAI, as an identifier across all financial institutions.<br />
+                                                If you already have a CKYC number, Please enter this number to seamlessly complete your verification,<br />
+                                                without submitting any document.
+                                            </h4>
+
+                                            <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;"><strong>OR, receive your CKYC number via SMS now, please give a missed call to the</strong><br />
+                                                <strong>CKYC Registry on 7799022129,</strong> else press the "NO I DON'T HAVE" option.
+                                            </h4>
                                             </div>
 
                                         <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
@@ -674,9 +692,11 @@
                                     <div id="CKYCpage2" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter CKYC No.</h1>
                                     <div style="margin-top: 0px; text-align: center;">
-                                        <img src="Images/CKYCSample.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 28rem; display: block; margin: 0 auto;" />
+                                        <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 28rem; display: block; margin: 0 auto;" />
     
- 
+ <div>
+                                                <h3 style="font: unset;font-size: initial;color: black; margin-top: 7px;">Please enter your 14-digit CKYC number and date of birth.</h3>
+                                            </div>
                                         <div style="margin-top: 0px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
                                         <!-- CKYC Number -->
                                         <div style="text-align: left;">
@@ -691,14 +711,22 @@
                                         </div>
                                         </div>
  
-                                        <div style="margin-top: 5px;">
-                                          <asp:Button ID="Button1" runat="server" Text="SUBMIT" type="button"
-                                          BackColor="#007bff" ForeColor="White" BorderStyle="None" Width="150px" Height="35px" 
-                                          style="border-radius: 10px;font-size:1.3rem;" 
-                                          OnClientClick="if (CKYCValidate()) { hideDiv('CKYCpage2','PANpage3'); } return false;" />
+                                        <div style="display: flex; justify-content: center; margin-top: 20px; gap: 6rem;">
+                                            <button
+                                                id="ckycsearch"
+                                                type="button"
+                                                class="btn btn-primary btn-lg"
+                                                style="width: 13rem; border-radius: 5rem;"
+                                                onclick="hideDiv('CKYCpage2','CKYCpage3');">
+                                                Submit</button>
+
+                                            <button type="button" id="ckycclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue" onclick="resetFields('<%= txtCKYC.ClientID %>','<%= ckycDOB.ClientID %>')">
+                                                Clear
+                                            </button>
+
                                         </div>
                                         <div>
-                                        <h3 style="color:blue; font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 14 digit CKYC number and Date of Birth</h3>
+<%--                                        <h3 style="color:blue; font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 14 digit CKYC number and Date of Birth</h3>--%>
                                         </div>
                                     </div>
                                         </div>
@@ -774,7 +802,7 @@
                                         <div style="margin-top: 20px; text-align: center;">
                                             <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
                                                 <div>
-                                            <p style="color:blue; font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 10 digit PAN number and Date of Birth</p>
+                                            <p style=" font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 10 digit PAN number and Date of Birth</p>
                                             </div>
  
                                             <div style="margin-top: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
@@ -790,19 +818,20 @@
                                             <asp:TextBox ID="pandob" runat="server" MaxLength="8" TextMode="Date" Width="220px" style=" border-radius: 10px;font-size:1.3rem;"  CssClass="form-control"/>
                                             </div>
                                             </div>
-                                          <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
-                                        <button 
-                                            id="pansearch" 
-                                            type="button"
-                                            class="btn btn-primary btn-lg" 
-                                            style="width: 13rem; border-radius: 5rem;" 
-                                            onclick="CKYCPANValidate();">Submit</button>
+                                            <div style="display: flex; justify-content: center; margin-top: 20px; gap: 6rem;">
+                                                <button
+                                                    id="pansearch"
+                                                    type="button"
+                                                    class="btn btn-primary btn-lg"
+                                                    style="width: 13rem; border-radius: 5rem;"
+                                                    onclick="CKYCPANValidate();">
+                                                    Submit</button>
 
-                                            <button type="button" id="panclear"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue" onclick="resetFields('<%= PanNo.ClientID %>','<%= pandob.ClientID %>')"> 
-                                                Clear
-                                            </button>
+                                                <button type="button" id="panclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue" onclick="resetFields('<%= PanNo.ClientID %>','<%= pandob.ClientID %>')">
+                                                    Clear
+                                                </button>
 
-                                        </div>
+                                            </div>
                                         </div>
                                             </div>
 
@@ -846,7 +875,7 @@
                                                             </div>
                                                             <div class="d-flex justify-content-between py-1 border-bottom">
                                                                 <span><strong>CKYC No:</strong></span>
-                                                                <span><asp:Label ID="lblCKYCNo1" runat="server" Text="XXXXXXXXXX8278" /></span>
+                                                                <span><asp:Label ID="lblCKYCNo1" runat="server" Text="" /></span>
                                                             </div>
                                                             <div class="d-flex justify-content-between py-1 border-bottom">
                                                                 <span><strong>Full Name:</strong></span>
@@ -858,7 +887,7 @@
                                                             </div>
                                                             <div class="d-flex justify-content-between py-1 border-bottom">
                                                                 <span><strong>CKYC Date:</strong></span>
-                                                                <span><asp:Label ID="lblCKYCDate" runat="server" Text="" /></span>
+                                                                <span><asp:Label ID="lblCKYCDate" runat="server" Text="23-08-2024" /></span>
                                                             </div>
                                                             <div class="d-flex justify-content-between py-1 border-bottom">
                                                                 <span><strong>Age</strong></span>
@@ -925,11 +954,17 @@
                                         <asp:RegularExpressionValidator ID="RegexOtp" runat="server" ControlToValidate="TextBox7" ValidationExpression="^\d{6}$" ErrorMessage="OTP must be exactly 6 digits." ForeColor="Red" Display="Dynamic" />
                                         </div>
                                         <div><label id="countdownTimer">3:00</label>
-                                        <asp:LinkButton ID="LinkButton1" runat="server" > Resend</asp:LinkButton>
+<%--                                        <asp:LinkButton ID="LinkButton1" runat="server" > Resend</asp:LinkButton>--%>
                                         </div>
                                                                                  <div style="display: flex; gap: 20px; justify-content: center; margin: 0px;">
                                         <asp:Button ID="Button3" runat="server" Text="Download" OnClientClick="validateOtp('<%= TextBox7.ClientID %>');" Onclick="Button3_Click"
                                             style="padding: 12px 40px; background-color:#007bff;  color:white; border:none; border-radius:5rem; cursor:pointer;" />
+                                        <button type="button" id="retrytimer" class="btn btn-light btn-lg"
+                                            style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue; background-color: grey; color: white;"
+                                            onclick="startTimer('1'); return false;" disabled="disabled">
+                                            RESEND
+                                        </button>
+
                                         </div>
                                                                                  </div>
                                      </div>
@@ -941,12 +976,13 @@
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have an AADHAR card?</h1>
                                         <div style="margin-top: 20px; text-align: center;">
                                         <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
-                                        <h4 style="line-height: 1.6; margin-top: 1rem;font-weight:unset;">
-                                                AADHAR is a unique 12 digit number, issued by UIDAI, that is based on your bio-<br />
-                                                metrics and serves as proof of identity and address. If you have an AADHAR <br />
-                                                number, please click Yes. If you don’t have one, you can still continue the verifica-<br />
-                                                tion process with other identity documents.
-                                        </h4>
+                                        <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;">AADHAR is a unique 12 digit number, issued by UIDAI, that is based on your<br />
+                                                biometrics and serves as proof of identity and address. If you have an
+                                                <br />
+                                                AADHAR number, please click<strong> YES I DO HAVE.</strong> If you don’t have one, you can <br />
+                                                still continue the verification process with other identity documents.<br />
+                                                
+                                            </h4>
                                         </div>
                                         <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
                                         <button type="button" id="aadharyes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('Aadharpage1','Aadharpage2')">
@@ -1150,7 +1186,7 @@
                                     <div id="CKYCpage3" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:5rem;font-weight:bold;">Please enter OTP</h1>
                                 <div style="margin-top: 20px; text-align: center;">
-                                                <img src="Images/CKYCSample.jpg" alt="CKYC Card Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
                                             </div>                               
                                  <div style="text-align: center; margin-top:10px;font-size:medium;">
 
