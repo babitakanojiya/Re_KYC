@@ -17,7 +17,15 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Xml;
 using Newtonsoft.Json;
-
+using Newtonsoft.Json.Linq;
+using System.Web.Services;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using Microsoft.Office.Interop.Excel;
+using Microsoft.Owin;
+using System.Globalization;
+using System.Configuration;
+using System.Data.SqlClient;
 namespace KMI.FRMWRK.Web.Application.CKYC
 {
     public partial class SearchDownload : System.Web.UI.Page
@@ -31,6 +39,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
 
@@ -38,6 +47,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 //hdnCurrentTab.Value = "Search";
                 //Search.Visible = true;
                 //Download.Visible = false;
+
             }
         }
 
@@ -285,6 +295,159 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 			}
         }
 
+        [WebMethod]
+        public static string SearchPan(string pan,string dob)
+        {
+            try
+            {
+                // 1. Get data from stored procedure
+                var dbData = new Dictionary<string, string>();
+                string connStr = ConfigurationManager.ConnectionStrings["CKYCConnectionString"].ConnectionString;
+                string dateofbith=null;
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("GetApplicantInfoByCKYC", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@PAN_NO", pan);
+                        conn.Open();
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                dbData["REFERENCE_ID"] = reader["REFERENCE_ID"].ToString();
+                                dbData["CKYCNo"] = reader["CKYCNo"].ToString();
+                                dbData["Fullname"] = $"{reader["Prefix"]} {reader["FName"]} {reader["LName"]}";
+                                dbData["Gender"] = reader["Gender"].ToString() == "M" ? "Male"
+                                                       : reader["Gender"].ToString() == "F" ? "Female"
+                                                       : reader["Gender"].ToString() == "T" ? "Transgender"
+                                                       : "Unknown";
+                                dbData["DOC_NAME"] = reader["DOC_NAME"].ToString();
+                                DateTime dob1 = Convert.ToDateTime(reader["DateofBirth"]);
+                                dbData["DateofBirth"] = dob1.ToString("dd-MM-yyyy");
+                                dateofbith = dbData["DateofBirth"]; // Save to use in API
+                                dbData["FSPrefix"] = reader["FSPrefix"].ToString();
+                                dbData["FSFName"] = reader["FSFName"].ToString();
+                                dbData["FSLName"] = reader["FSLName"].ToString();
+                                dbData["FatherName"] = $"{dbData["FSPrefix"]} {dbData["FSFName"]} {dbData["FSLName"]}";
+                                dbData["KYCVerificationDate"] = Convert.ToDateTime(reader["KYCVerificationDate"]).ToString("dd-MM-yyyy");
+                                // First, check if the IMAGE column exists
+                                // First, check if the IMAGE column exists
+                                bool hasImageColumn = false;
+                                var schemaTable = reader.GetSchemaTable();
+                                if (schemaTable != null)
+                                {
+                                    foreach (DataRow row in schemaTable.Rows)
+                                    {
+                                        if (row["ColumnName"].ToString() == "IMAGE")
+                                        {
+                                            hasImageColumn = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (hasImageColumn && !reader.IsDBNull(reader.GetOrdinal("IMAGE")))
+                                {
+                                    try
+                                    {
+                                        byte[] imageBytes = (byte[])reader["IMAGE"];
+                                        string base64String = Convert.ToBase64String(imageBytes);
+                                        //dbData["PhotoBase64"] = base64String;
+                                        HttpContext.Current.Session["ApplicantImageBytes"] = base64String;
+                                    }
+                                    catch
+                                    {
+                                        dbData["PhotoBase64"] = ""; // Fallback if cast fails
+                                    }
+                                }
+                                else
+                                {
+                                    dbData["PhotoBase64"] = ""; // Or use a default image
+                                }
+                                
+                                
+
+
+                                // Calculate Age
+                                int age = DateTime.Now.Year - dob1.Year;
+                                if (DateTime.Now.Date < dob1.AddYears(age)) age--;
+                                dbData["Age"] = age.ToString();
+                            }
+                        }
+                    }
+                }
+
+                // 2. Setup for API
+                string uniqueId = Guid.NewGuid().ToString();
+
+                var requestPayload = new
+                {
+                    jsonInput = JsonConvert.SerializeObject(new
+                    {
+                        PAN = pan,
+                        DOB = dateofbith,
+                        UNIQUEID = uniqueId
+                    })
+                };
+
+                string fullName = "Vikash"; // default fallback
+                string apiUrl = "http://kmidev.centralus.cloudapp.azure.com/CBCMSWEBAPI/api/CBCMS/CkycDwnldDtls_web";
+
+                try
+                {
+                    using (var client = new HttpClient())
+                    {
+                        var json = JsonConvert.SerializeObject(requestPayload);
+                        var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                        HttpResponseMessage response = client.PostAsync(apiUrl, content).Result;
+                        string responseString = response.Content.ReadAsStringAsync().Result;
+
+                        // FIRST unwrap the inner JSON string
+                        string innerJson = JsonConvert.DeserializeObject<string>(responseString);
+
+                        // THEN parse the real object
+                        var jsonResponse = JObject.Parse(innerJson);
+
+                        var apiName = jsonResponse["kyc_data"]?["CKYC"]?["result"]?["PERSONAL_DETAILS"]?["FULLNAME"]?.ToString();
+                        if (!string.IsNullOrEmpty(apiName))
+                        {
+                            fullName = apiName;
+                        }
+                    }
+                }
+                catch
+                {
+                    // Log API failure if needed
+                    fullName = "Vikash";
+                }
+
+                // 3. Return final combined result
+                var finalResult = new
+                {
+                    fullName = fullName ,
+                    dbData = dbData
+                };
+
+                return JsonConvert.SerializeObject(finalResult);
+            }
+            catch (Exception ex)
+            {
+                var errorResult = new
+                {
+                    fullName = "Hi, Vikash!",
+                    dbData = new { Error = ex.Message }
+                };
+                return JsonConvert.SerializeObject(errorResult);
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            
+        }       
 
     }
 }

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMI.FRMWRK.Web.Application.CKYC {
-    
-    
-    public partial class SearchDownload {
-        
+namespace KMI.FRMWRK.Web.Application.CKYC
+{
+
+
+    public partial class SearchDownload
+    {
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// trDgViewDtl control.
         /// </summary>
@@ -29,25 +31,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trDgViewDtl;
-        
-        /// <summary>
-        /// tblupload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblupload;
-        
-        /// <summary>
-        /// lblCanddoc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCanddoc;
-        
+
         /// <summary>
         /// btnend control.
         /// </summary>
@@ -56,7 +40,268 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnend;
-        
+
+        /// <summary>
+        /// Img3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Img3;
+
+        /// <summary>
+        /// txtCKYC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCKYC;
+
+        /// <summary>
+        /// ckycDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ckycDOB;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// PanNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PanNo;
+
+        /// <summary>
+        /// pandob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pandob;
+
+        /// <summary>
+        /// applicantImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage applicantImage;
+
+        /// <summary>
+        /// lblCKYCRefNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCKYCRefNo;
+
+        /// <summary>
+        /// lblCKYCNo1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCKYCNo1;
+
+        /// <summary>
+        /// lblFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFullName;
+
+        /// <summary>
+        /// lblFatherName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFatherName;
+
+        /// <summary>
+        /// lblCKYCDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCKYCDate;
+
+        /// <summary>
+        /// lblage1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblage1;
+
+        /// <summary>
+        /// lblIdentityDocs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdentityDocs;
+
+        /// <summary>
+        /// Img4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Img4;
+
+        /// <summary>
+        /// lblAccountName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccountName;
+
+        /// <summary>
+        /// lblAccountNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccountNumber;
+
+        /// <summary>
+        /// TextBox7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+
+        /// <summary>
+        /// RegexOtp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexOtp;
+
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+
+        /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
+
+        /// <summary>
+        /// TextBox6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+
+        /// <summary>
+        /// revOTP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revOTP;
+
+        /// <summary>
+        /// btnVerify control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerify;
+
+        /// <summary>
+        /// btnRetry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRetry;
+
+        /// <summary>
+        /// TextBox8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
+
+        /// <summary>
+        /// Button5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button5;
+
         /// <summary>
         /// myList control.
         /// </summary>
@@ -65,7 +310,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl myList;
-        
+
         /// <summary>
         /// Search control.
         /// </summary>
@@ -74,7 +319,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Search;
-        
+
         /// <summary>
         /// LItab control.
         /// </summary>
@@ -83,7 +328,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl LItab;
-        
+
         /// <summary>
         /// Download control.
         /// </summary>
@@ -92,7 +337,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Download;
-        
+
         /// <summary>
         /// lblcount control.
         /// </summary>
@@ -101,7 +346,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcount;
-        
+
         /// <summary>
         /// lblNote control.
         /// </summary>
@@ -110,7 +355,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNote;
-        
+
         /// <summary>
         /// div2 control.
         /// </summary>
@@ -119,7 +364,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl div2;
-        
+
         /// <summary>
         /// srchby control.
         /// </summary>
@@ -128,7 +373,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl srchby;
-        
+
         /// <summary>
         /// lblSrchBy control.
         /// </summary>
@@ -137,7 +382,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSrchBy;
-        
+
         /// <summary>
         /// Span1 control.
         /// </summary>
@@ -146,7 +391,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span1;
-        
+
         /// <summary>
         /// ddlSearchby control.
         /// </summary>
@@ -155,7 +400,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSearchby;
-        
+
         /// <summary>
         /// lblCndName control.
         /// </summary>
@@ -164,7 +409,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCndName;
-        
+
         /// <summary>
         /// Span2 control.
         /// </summary>
@@ -173,7 +418,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span2;
-        
+
         /// <summary>
         /// lblAdvNameValue control.
         /// </summary>
@@ -182,7 +427,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lblAdvNameValue;
-        
+
         /// <summary>
         /// prfofidnty control.
         /// </summary>
@@ -191,7 +436,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl prfofidnty;
-        
+
         /// <summary>
         /// lblProofofidn control.
         /// </summary>
@@ -200,7 +445,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProofofidn;
-        
+
         /// <summary>
         /// Span3 control.
         /// </summary>
@@ -209,7 +454,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span3;
-        
+
         /// <summary>
         /// ddlProofofidn control.
         /// </summary>
@@ -218,7 +463,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProofofidn;
-        
+
         /// <summary>
         /// Lblidntynum control.
         /// </summary>
@@ -227,7 +472,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lblidntynum;
-        
+
         /// <summary>
         /// Span4 control.
         /// </summary>
@@ -236,7 +481,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span4;
-        
+
         /// <summary>
         /// txtidtnum control.
         /// </summary>
@@ -245,7 +490,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtidtnum;
-        
+
         /// <summary>
         /// txtidentynum control.
         /// </summary>
@@ -254,7 +499,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtidentynum;
-        
+
         /// <summary>
         /// TextBox1 control.
         /// </summary>
@@ -263,7 +508,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+
         /// <summary>
         /// TextBox2 control.
         /// </summary>
@@ -272,7 +517,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
-        
+
         /// <summary>
         /// dividentynum control.
         /// </summary>
@@ -281,7 +526,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dividentynum;
-        
+
         /// <summary>
         /// txtidnummm control.
         /// </summary>
@@ -290,7 +535,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtidnummm;
-        
+
         /// <summary>
         /// applcntnme control.
         /// </summary>
@@ -299,7 +544,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl applcntnme;
-        
+
         /// <summary>
         /// lblAppfullnme control.
         /// </summary>
@@ -308,7 +553,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAppfullnme;
-        
+
         /// <summary>
         /// Span5 control.
         /// </summary>
@@ -317,7 +562,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span5;
-        
+
         /// <summary>
         /// txtAppfullname control.
         /// </summary>
@@ -326,7 +571,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAppfullname;
-        
+
         /// <summary>
         /// lblDOB control.
         /// </summary>
@@ -335,7 +580,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDOB;
-        
+
         /// <summary>
         /// Span6 control.
         /// </summary>
@@ -344,7 +589,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span6;
-        
+
         /// <summary>
         /// txtDOB control.
         /// </summary>
@@ -353,7 +598,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDOB;
-        
+
         /// <summary>
         /// gender control.
         /// </summary>
@@ -362,7 +607,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl gender;
-        
+
         /// <summary>
         /// lblGender control.
         /// </summary>
@@ -371,7 +616,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGender;
-        
+
         /// <summary>
         /// Span7 control.
         /// </summary>
@@ -380,7 +625,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span7;
-        
+
         /// <summary>
         /// ddlGender control.
         /// </summary>
@@ -389,7 +634,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
-        
+
         /// <summary>
         /// div4 control.
         /// </summary>
@@ -398,7 +643,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl div4;
-        
+
         /// <summary>
         /// ckyccno control.
         /// </summary>
@@ -407,7 +652,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ckyccno;
-        
+
         /// <summary>
         /// lblckycno control.
         /// </summary>
@@ -416,7 +661,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblckycno;
-        
+
         /// <summary>
         /// Span8 control.
         /// </summary>
@@ -425,7 +670,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span8;
-        
+
         /// <summary>
         /// txtckyno control.
         /// </summary>
@@ -434,7 +679,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtckyno;
-        
+
         /// <summary>
         /// lblAuttype control.
         /// </summary>
@@ -443,7 +688,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAuttype;
-        
+
         /// <summary>
         /// Span9 control.
         /// </summary>
@@ -452,7 +697,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span9;
-        
+
         /// <summary>
         /// ddlauthtype control.
         /// </summary>
@@ -461,7 +706,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlauthtype;
-        
+
         /// <summary>
         /// auth control.
         /// </summary>
@@ -470,7 +715,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl auth;
-        
+
         /// <summary>
         /// lblauthfctor control.
         /// </summary>
@@ -479,7 +724,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblauthfctor;
-        
+
         /// <summary>
         /// txtauthfactor control.
         /// </summary>
@@ -488,7 +733,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtauthfactor;
-        
+
         /// <summary>
         /// divButtons control.
         /// </summary>
@@ -497,7 +742,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divButtons;
-        
+
         /// <summary>
         /// btnSubmit control.
         /// </summary>
@@ -506,7 +751,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSubmit;
-        
+
         /// <summary>
         /// btnCancel control.
         /// </summary>
@@ -515,7 +760,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnCancel;
-        
+
         /// <summary>
         /// hdnDownload control.
         /// </summary>
@@ -524,7 +769,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnDownload;
-        
+
         /// <summary>
         /// hdnSearch control.
         /// </summary>
@@ -533,7 +778,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnSearch;
-        
+
         /// <summary>
         /// hdnCurrentTab control.
         /// </summary>
@@ -542,7 +787,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnCurrentTab;
-        
+
         /// <summary>
         /// Div1 control.
         /// </summary>
@@ -551,7 +796,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-        
+
         /// <summary>
         /// trtitle control.
         /// </summary>
@@ -560,7 +805,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trtitle;
-        
+
         /// <summary>
         /// trDetails control.
         /// </summary>
@@ -569,7 +814,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trDetails;
-        
+
         /// <summary>
         /// lblprospectsearch control.
         /// </summary>
@@ -578,7 +823,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblprospectsearch;
-        
+
         /// <summary>
         /// trgridsponsorship control.
         /// </summary>
@@ -587,7 +832,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trgridsponsorship;
-        
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -596,7 +841,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Img1 control.
         /// </summary>
@@ -605,7 +850,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Img1;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -614,7 +859,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
-        
+
         /// <summary>
         /// lblCkycNoRes control.
         /// </summary>
@@ -623,7 +868,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCkycNoRes;
-        
+
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -632,7 +877,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
-        
+
         /// <summary>
         /// lblFullNm control.
         /// </summary>
@@ -641,7 +886,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFullNm;
-        
+
         /// <summary>
         /// Label6 control.
         /// </summary>
@@ -650,7 +895,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label6;
-        
+
         /// <summary>
         /// lblFthNm control.
         /// </summary>
@@ -659,7 +904,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFthNm;
-        
+
         /// <summary>
         /// Label8 control.
         /// </summary>
@@ -668,7 +913,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label8;
-        
+
         /// <summary>
         /// lblKycDt control.
         /// </summary>
@@ -677,7 +922,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblKycDt;
-        
+
         /// <summary>
         /// Label10 control.
         /// </summary>
@@ -686,7 +931,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label10;
-        
+
         /// <summary>
         /// lblAge control.
         /// </summary>
@@ -695,7 +940,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAge;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -704,7 +949,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-        
+
         /// <summary>
         /// DivDocC control.
         /// </summary>
@@ -713,7 +958,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivDocC;
-        
+
         /// <summary>
         /// Label12 control.
         /// </summary>
@@ -722,7 +967,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label12;
-        
+
         /// <summary>
         /// lblRmk control.
         /// </summary>
@@ -731,7 +976,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRmk;
-        
+
         /// <summary>
         /// lblPageInfo control.
         /// </summary>
@@ -740,7 +985,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPageInfo;
-        
+
         /// <summary>
         /// divloadergrid control.
         /// </summary>
@@ -749,7 +994,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divloadergrid;
-        
+
         /// <summary>
         /// Img2 control.
         /// </summary>
