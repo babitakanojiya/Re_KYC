@@ -717,7 +717,6 @@ C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.Web.xml
 C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.AI.WindowsServer.xml
 C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.ApplicationInsights.xml
 C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Renci.SshNet.xml
 C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\System.Web.Optimization.xml
 C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Antlr3.Runtime.pdb
 C:\Re_CKYC\KMI.FRMWRK.Web\KMI.FRMWRK.Web\bin\Newtonsoft.Json.xml
