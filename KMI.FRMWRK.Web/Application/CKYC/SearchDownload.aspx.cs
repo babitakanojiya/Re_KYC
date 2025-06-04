@@ -331,7 +331,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                 dbData["FSFName"] = reader["FSFName"].ToString();
                                 dbData["FSLName"] = reader["FSLName"].ToString();
                                 dbData["FatherName"] = $"{dbData["FSPrefix"]} {dbData["FSFName"]} {dbData["FSLName"]}";
-                                dbData["KYCVerificationDate"] = Convert.ToDateTime(reader["KYCVerificationDate"]).ToString("dd-MM-yyyy");
+                                //dbData["KYCVerificationDate"] = Convert.ToDateTime(reader["KYCVerificationDate"]).ToString("dd-MM-yyyy");
                                 // First, check if the IMAGE column exists
                                 // First, check if the IMAGE column exists
                                 bool hasImageColumn = false;
@@ -392,7 +392,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     })
                 };
 
-                string fullName = "Vikash"; // default fallback
+                string fullName = "Unknown"; // default fallback
                 string apiUrl = "http://kmidev.centralus.cloudapp.azure.com/CBCMSWEBAPI/api/CBCMS/CkycDwnldDtls_web";
 
                 try
@@ -421,7 +421,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 catch
                 {
                     // Log API failure if needed
-                    fullName = "Vikash";
+                    fullName = "Unkown";
                 }
 
                 // 3. Return final combined result
@@ -437,7 +437,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             {
                 var errorResult = new
                 {
-                    fullName = "Hi, Vikash!",
+                    fullName = "Unknow",
                     dbData = new { Error = ex.Message }
                 };
                 return JsonConvert.SerializeObject(errorResult);
