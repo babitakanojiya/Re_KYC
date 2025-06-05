@@ -296,7 +296,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         }
         //Added by Vikash K on 04June2025 for dilling details via database and api of user
         [WebMethod]
-        public static string SearchPan(string pan, string aadharNumber, string dob)
+        public static string SearchPan(string pan, string aadharNumber, string ckycNumber, string dob)
         {
             try
             {
@@ -318,6 +318,10 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         if (!string.IsNullOrEmpty(aadharNumber))
                         {
                             cmd.Parameters.AddWithValue("@ID_NO", aadharNumber);
+                        }
+                        if (!string.IsNullOrEmpty(ckycNumber))
+                        {
+                            cmd.Parameters.AddWithValue("@CKYCNo", ckycNumber);
                         }
 
                         conn.Open();

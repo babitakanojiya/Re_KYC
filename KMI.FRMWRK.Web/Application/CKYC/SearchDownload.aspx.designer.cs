@@ -375,6 +375,24 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
+        /// txtotherdocnumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtotherdocnumber;
+
+        /// <summary>
+        /// txtotherdob control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtotherdob;
+
+        /// <summary>
         /// myList control.
         /// </summary>
         /// <remarks>
