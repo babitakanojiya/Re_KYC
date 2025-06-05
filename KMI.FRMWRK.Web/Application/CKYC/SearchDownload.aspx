@@ -371,7 +371,7 @@
             //else {
             //    return false;
             //}
-                hideDiv('Aadharpage2', 'PANpage3');
+                callSearchPanAjax();
             return true;
         }
 
@@ -402,58 +402,76 @@
         }
 
         function callSearchPanAjax() {
-            debugger;
-            var pan = document.getElementById('<%= PanNo.ClientID %>').value.trim();
-            var dob = document.getElementById('<%= pandob.ClientID %>').value.trim();
-            
-            $.ajax({
-                type: "POST",
-                url: "SearchDownload.aspx/SearchPan",
-                data: JSON.stringify({ pan: pan, dob: dob }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    hideDiv('PANpage2', 'PANpage3');
-                    // Parse the stringified JSON returned by WebMethod
-                    var data = JSON.parse(response.d);
-                    var fullName = data.fullName;
-                    var dbData = data.dbData;
-                    var ckycrefno = dbData.REFERENCE_ID;
-                    var ckycno1 = dbData.CKYCNo;
-                    var fathername = dbData.FatherName;
-                    var verificationdate = dbData.KYCVerificationDate;
-                    var dateofbirth = dbData.Age;
-                    var name = dbData.Fullname;
-                    var docs = dbData.DOC_NAME;
-                    var image = '<%= Session["ApplicantImageBytes"] != null ? Session["ApplicantImageBytes"].ToString() : "" %>';
-                    //var image = dbData.PhotoBase64;
-                    // Set full name (from API)
-                    if (docs =="Proof of Possession of Aadhaar") {
-                        docs="Aadhar"
-                    }
-                    verificationdate="23-08-2024";
-                    document.getElementById('<%= lblAccountName.ClientID %>').innerText = fullName; 
-                    document.getElementById('<%= lblFullName.ClientID %>').innerText = name;
-                    document.getElementById('<%= lblCKYCRefNo.ClientID %>').innerText = ckycrefno;
-                    document.getElementById('<%= lblCKYCNo1.ClientID %>').innerText = ckycno1;
-                    document.getElementById('<%= lblFatherName.ClientID %>').innerText = fathername;
-                    document.getElementById('<%= lblCKYCDate.ClientID %>').innerText = verificationdate;
-                    document.getElementById('<%= lblage1.ClientID %>').innerText = dateofbirth;
-                    document.getElementById('<%= lblIdentityDocs.ClientID %>').innerText = docs; 
-                    document.getElementById('<%= lblAccountNumber.ClientID %>').innerText = pan;
-                    if (image) {
-                        document.getElementById('<%= applicantImage.ClientID %>').src = "data:image/jpeg;base64," + image;
-                     }
-
-
-                    // Simulate "redirect" by hiding/showing panels
-                    startTimer('0');
-                },
-                error: function (xhr, status, error) {
-                    alert("API call failed: " + error);
-                }
-            });
+    debugger;
+    var pan = document.getElementById('<%= PanNo.ClientID %>').value.trim();
+    var dob = document.getElementById('<%= pandob.ClientID %>').value.trim();
+    var aadharNumber = document.getElementById("aadhaarNumber").value.trim();
+    if (aadharNumber.length >= 4) {
+    var maskedAadhar = aadharNumber.slice(0, -4).replace(/\d/g, "X") + aadharNumber.slice(-4);
+    console.log(maskedAadhar); // Example output: XXXXXXXXXXXX1234
         }
+        else {
+            console.log("Invalid Aadhaar Number");
+        }
+    if (!pan && !aadharNumber) {
+        alert("Please enter either PAN or Aadhar Number.");
+        return;
+    }
+
+    // Always send both params; if empty, send empty string
+    var requestData = {
+        pan: pan || "",
+        aadharNumber: maskedAadhar || "",
+        dob: dob
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "SearchDownload.aspx/SearchPan",
+        data: JSON.stringify(requestData),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            if(pan){
+                 hideDiv('PANpage2', 'PANpage3');
+            }
+            else{
+                hideDiv('Aadharpage2', 'PANpage3');
+            }
+            
+            var data = JSON.parse(response.d);
+            var fullName = data.fullName;
+            var dbData = data.dbData;
+
+            document.getElementById('<%= lblAccountName.ClientID %>').innerText = fullName;
+            document.getElementById('<%= lblFullName.ClientID %>').innerText = dbData.Fullname;
+            document.getElementById('<%= lblCKYCRefNo.ClientID %>').innerText = dbData.REFERENCE_ID;
+            document.getElementById('<%= lblCKYCNo1.ClientID %>').innerText = dbData.CKYCNo;
+            document.getElementById('<%= lblFatherName.ClientID %>').innerText = dbData.FatherName;
+            document.getElementById('<%= lblCKYCDate.ClientID %>').innerText = dbData.KYCVerificationDate || "23-08-2024";
+            document.getElementById('<%= lblage1.ClientID %>').innerText = dbData.Age;
+            var docs = dbData.DOC_NAME;
+            if (docs == "Proof of Possession of Aadhaar") {
+                docs = "Aadhar";
+            }
+            document.getElementById('<%= lblIdentityDocs.ClientID %>').innerText = docs;
+
+            // Show either PAN or Aadhar number
+            document.getElementById('<%= lblAccountNumber.ClientID %>').innerText = pan || "Unknown";
+
+            // Set image if provided in dbData.PhotoBase64 (recommended)
+            if (dbData.PhotoBase64) {
+                document.getElementById('<%= applicantImage.ClientID %>').src = "data:image/jpeg;base64," + dbData.PhotoBase64;
+            }
+
+            startTimer('0');
+        },
+        error: function (xhr, status, error) {
+            alert("API call failed: " + error + "\n" + xhr.responseText);
+        }
+    });
+}
+
 
 
         function CKYCPANValidate() {
@@ -489,13 +507,8 @@
              alert("Please enter a valid 14-digit CKYC Number.");
              return false;
          }
-            if (is18OrOlder('<%= ckycDOB.ClientID %>')) {
-                return true;
-            }
-            else {
-                return false;
-            }
-            callSearchPanAjax();
+            
+            hideDiv('CKYCpage2','CKYCpage3');
          return true;
         }
 
@@ -569,6 +582,7 @@
                 totalTime--;
             }, 1000);
         }
+
         function validateOtp(inputId) {
             var otpInput = document.getElementById(inputId);
             var otp = otpInput.value.trim();
@@ -580,6 +594,45 @@
             }
             return true;
         }
+
+      function onVerifyClick(refNo, otpInput) {
+var refInput = document.getElementById('<%= lblCKYCRefNo.ClientID %>').innerText;  // For Label
+var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For TextBox
+
+
+    if (!refInput || !otpInput) {
+        alert("Required elements not found on page.");
+        return false;
+    }
+
+    var refNo = refInput.innerText || refInput.textContent || refInput.value || "";
+    //var otp = otpInput.value.trim();
+
+    // Example validation for OTP (6 digits)
+  //  if (!/^\d{6}$/.test(otp)) {
+    //    alert("Please enter a valid 6-digit OTP.");
+      //  otpInput.focus();
+        //return false; // Prevent postback if invalid
+  //  }
+
+   // if (!refNo) {
+     //   alert("Reference number is missing.");
+       // return false;
+    //}
+
+    var pageFlag = "01";
+    var status = "QC";
+    ShowProgressBar('Loading...');
+    // Redirect with query params
+    window.location.href = "CKYCQC.aspx?RefNo=" + encodeURIComponent(refInput) +
+                           "&PageFlag=" + encodeURIComponent(pageFlag) +
+                           "&Status=" + encodeURIComponent(status);
+
+    return false; // Prevent postback because redirect is handled
+}
+
+
+
     </script>
 
 </asp:Content>
@@ -654,7 +707,7 @@
                                                     &gt;
                                                 </button>--%>
                                                 <button type="button" id="start" class="btn btn-primary btn-lg" style="width: 13rem; font-size: initial; border-radius: 5rem;" onclick="hideDiv('onboardpage1','CKYCpage1')">
-                                                    Start</button>
+                                                    START</button>
                                             </div>
                                         </div>
                                     <%-- Ended by Vikash K on 26May2025 --%>
@@ -718,11 +771,11 @@
                                                 type="button"
                                                 class="btn btn-primary btn-lg"
                                                 style="width: 13rem; border-radius: 5rem;"
-                                                onclick="hideDiv('CKYCpage2','CKYCpage3');">
-                                                Submit</button>
+                                                onclick="CKYCValidate();">
+                                                SEARCH</button>
 
                                             <button type="button" id="ckycclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue" onclick="resetFields('<%= txtCKYC.ClientID %>','<%= ckycDOB.ClientID %>')">
-                                                Clear
+                                                CLEAR
                                             </button>
 
                                         </div>
@@ -958,8 +1011,10 @@
 <%--                                        <asp:LinkButton ID="LinkButton1" runat="server" > Resend</asp:LinkButton>--%>
                                         </div>
                                                                                  <div style="display: flex; gap: 20px; justify-content: center; margin: 0px;">
-                                        <asp:Button ID="Button3" runat="server" Text="Download" OnClientClick="validateOtp('<%= TextBox7.ClientID %>');" Onclick="Button3_Click"
-                                            style="padding: 12px 40px; background-color:#007bff;  color:white; border:none; border-radius:5rem; cursor:pointer;" />
+                                        <asp:Button ID="Button3" runat="server" Text="Download"
+                                        OnClientClick="return onVerifyClick('<%= lblCKYCRefNo.ClientID %>', '<%= TextBox7.ClientID %>');"
+                                        style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
+
                                         <button type="button" id="retrytimer" class="btn btn-light btn-lg"
                                             style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue; background-color: grey; color: white;"
                                             onclick="startTimer('1'); return false;" disabled="disabled">
@@ -987,10 +1042,10 @@
                                         </div>
                                         <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
                                         <button type="button" id="aadharyes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('Aadharpage1','Aadharpage2')">
-                                                Yes
+                                                YES I DO HAVE
                                         </button>
                                         <button type="button" id="aadharno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="hideDiv('Aadharpage1','OtherDocs')">
-                                                No
+                                                NO, I DON'T HAVE
                                         </button>
                                         </div>
                                         </div>
@@ -1057,7 +1112,7 @@
                                 </div>
                                 </div>--%>
                                     <div id="Aadharpage2" style="display:none;">
-                                    <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;margin-bottom: -2rem;">Please enter <br /> AADHAR details</h1>
+                                    <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;margin-bottom: -2rem;">Please enter  AADHAR details</h1>
                                     <div style="margin-top: 20px; text-align: center;">
                                     <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 25rem; display: block; margin: -1rem auto;" />
  
@@ -1065,7 +1120,7 @@
                                     <div class="row justify-content-center m-5">
                                     <!-- Aadhaar Number -->
                                     <div class="col-md-2 form-group">
-                                    <label for="aadhaarNumber" style="font-size:1.3rem;" class="form-label">AADHAAR Number:</label>
+                                    <label for="lblaadhaarNumber" style="font-size:1.3rem;" class="form-label">AADHAAR Number:</label>
                                     <input type="text" id="aadhaarNumber" style="font-size:1.3rem;" class="form-control" placeholder="e.g. 3652 746 352" />
                                     </div>
                                     <!-- Full Name -->
@@ -1105,10 +1160,10 @@
                                     </div>
                                     <div style="display: flex; justify-content: center; margin-top: -2rem;gap:6rem;">
                                     <button type="button" id="searchaadhar" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="validateAadhaar();">
-                                            Search
+                                            SEARCH
                                     </button>
                                     <button type="button" id="clearaadhar"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="resetFields('aadhaarNumber','fullName','dob','gender')">
-                                            Clear
+                                            CLEAR
                                     </button>
                                     </div>
                                     </div>
@@ -1184,11 +1239,62 @@
   </div>
 
                                 </div>
-                                    <div id="CKYCpage3" style="display:none;">
-                                    <h1 style="color:#1f50a7;font-size:5rem;font-weight:bold;">Please enter OTP</h1>
-                                <div style="margin-top: 20px; text-align: center;">
-                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-                                            </div>                               
+                                <div id="CKYCpage3" style="display:none;">
+                                    <h1 style="color:#1f50a7;font-size:3rem;font-weight:bold;">Hurray!</h1>
+                                <div style="margin: 4rem 29rem 44rem;text-align: center;">
+                                    <h1 style="color: #1f50a7; font-size: 2rem; font-weight: bold;" class="text-center">
+                                                    We found you in CKYC Registry
+                                                </h1>
+                                               <!-- Applicant's Information Card -->
+                         <div class="card shadow-lg p-4 mb-4 bg-white rounded-4" style="max-width: 45rem;">
+                             <!-- Card Title -->
+                             <h5 class="card-title text-center mb-4 py-2 rounded-3"
+                                 style="background: linear-gradient(to right, #d5c0c5, #b6b8d6); color: #0a4090; font-size: 1.6rem; font-weight: bold;">
+                                 Applicant's Information
+                             </h5>
+
+                             <!-- Content: Image + Info -->
+                             <div class="d-flex align-items-start gap-4">
+                                 <!-- Applicant Photo -->
+                                 <div class="text-center">
+                                     <img runat="server" src="~/application/ckyc/images/vikashphoto.jpg" id="Img5"
+                                         alt="applicant's photo" class="rounded-circle border border-2 shadow-sm"
+                                         style="width: 120px; height: 120px; object-fit: cover;" />
+                                 </div>
+
+                                 <!-- Applicant Info -->
+                                 <div class="flex-grow-1">
+                                     <div class="d-flex justify-content-between py-1 border-bottom">
+                                         <span><strong>CKYC Ref No:</strong></span>
+                                         <span><asp:Label ID="ckycdocrefno" runat="server" Text="INFKXQ82060056" /></span>
+                                     </div>
+                                     <div class="d-flex justify-content-between py-1 border-bottom">
+                                         <span><strong>CKYC No:</strong></span>
+                                         <span><asp:Label ID="ckycdocno" runat="server" Text="XXXXXXXXXX8278" /></span>
+                                     </div>
+                                     <div class="d-flex justify-content-between py-1 border-bottom">
+                                         <span><strong>Full Name:</strong></span>
+                                         <span><asp:Label ID="ckycfullname" runat="server" Text="Vikash Khatri" /></span>
+                                     </div>
+                                     <div class="d-flex justify-content-between py-1 border-bottom">
+                                         <span><strong>Father's Name:</strong></span>
+                                         <span><asp:Label ID="ckycfathersname" runat="server" Text="Rajendra Khatri" /></span>
+                                     </div>
+                                     <div class="d-flex justify-content-between py-1 border-bottom">
+                                         <span><strong>CKYC Date:</strong></span>
+                                         <span><asp:Label ID="ckycdate" runat="server" Text="23-08-2024" /></span>
+                                     </div>
+                                     <div class="d-flex justify-content-between py-1 border-bottom">
+                                         <span><strong>Age</strong></span>
+                                         <span><asp:Label ID="ckycage2" runat="server" Text="24" /></span>
+                                     </div>
+                                     <div class="d-flex justify-content-between py-1">
+                                         <span><strong>ID Document:</strong></span>
+                                         <span><asp:Label ID="ckycid" runat="server" Text="Aadhar" /></span>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>                              
                                  <div style="text-align: center; margin-top:10px;font-size:medium;">
 
                                 <label for="txtCKYC"  >Enter OTP </label><br />
@@ -1196,11 +1302,11 @@
                                 <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" placeholder="e.g. 849477" style="width: 220px; border-radius: 10px; margin-top: -8px;" />
                                 <asp:RegularExpressionValidator ID="revOTP" runat="server" ControlToValidate="TextBox6"  ValidationExpression="^\d{6}$" ForeColor="Red" Display="Dynamic" /> 
                                 </div>
-                                <label for="txtCKYC">5:00 </label>
+                                <label for="txtCKYC" id="timerckyc">3:00 </label>
                                 <div style="display: flex; gap: 20px; justify-content: center; margin-top: 5px;">
-                                <asp:Button ID="btnVerify" runat="server" Text="Verify" 
+                                <asp:Button ID="btnVerify" runat="server" Text="DOWNLOAD" 
                                     style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
-                                <asp:Button ID="btnRetry" runat="server" Text="Retry" 
+                                <asp:Button ID="btnRetry" runat="server" Text="RESEND OTP" 
                                    style="padding: 12px 40px; background-color:white; color:black; border-color:#007bff; border-radius:5rem; cursor:pointer;" />
                                 </div>
                                 <p style="color: blue; margin-top: 20px">Record found please download the record</p>
@@ -1211,32 +1317,32 @@
                                     </button>
                                 </div>--%>
 
-
+                                </div>
                                  </div>
 
                                         
 
                                     <div id="Aadharpage3" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:5rem;font-weight:bold;">Please enter OTP</h1>
-<div style="margin-top: 20px; text-align: center;">
-                <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-            </div>                               
- <div style="text-align: center; margin-top:10px;font-size:medium;">
-<label for="txtCKYC"  >Enter OTP </label><br />
-<div style="display: flex; justify-content: center; margin-top: 20px;">
-<asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" placeholder="e.g. 849477" style="width: 220px; border-radius: 10px; margin-top: -8px;" />
-<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox8"  ValidationExpression="^\d{6}$" ForeColor="Red" Display="Dynamic" /> 
-</div>
-<label for="txtCKYC">5:00 </label>
-<div style="display: flex; gap: 20px; justify-content: center; margin-top: 5px;">
-<asp:Button ID="Button2" runat="server" Text="Verify" 
-    style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
-<asp:Button ID="Button5" runat="server" Text="Retry" 
-   style="padding: 12px 40px; background-color:white; color:black; border-color:#007bff; border-radius:5rem;border:0.2rem solid blue; cursor:pointer;" />
-</div>
-<p style="color: blue; margin-top: 20px">Pleas enter the otp sent to your registered mobile number.</p>
-</div>
-<%--<div class="text-center mt-5">
+                                            <div style="margin-top: 20px; text-align: center;">
+                                                            <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                                                        </div>                               
+                                             <div style="text-align: center; margin-top:10px;font-size:medium;">
+                                            <label for="txtCKYC"  >Enter OTP </label><br />
+                                            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                                            <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" placeholder="e.g. 849477" style="width: 220px; border-radius: 10px; margin-top: -8px;" />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBox8"  ValidationExpression="^\d{6}$" ForeColor="Red" Display="Dynamic" /> 
+                                            </div>
+                                            <label for="txtCKYC">3:00 </label>
+                                            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 5px;">
+                                            <asp:Button ID="Button2" runat="server" Text="Verify" 
+                                                style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
+                                            <asp:Button ID="Button5" runat="server" Text="Retry" 
+                                               style="padding: 12px 40px; background-color:white; color:black; border-color:#007bff; border-radius:5rem;border:0.2rem solid blue; cursor:pointer;" />
+                                            </div>
+                                            <p style="color: blue; margin-top: 20px">Pleas enter the otp sent to your registered mobile number.</p>
+                                            </div>
+                                            <%--<div class="text-center mt-5">
     <button class="btn btn-outline-primary btn-lg" style="border-radius: 5rem;">
         <span class="bi bi-arrow-down" style="display: inline-block; border-bottom: 2px solid currentColor; padding-bottom: 0px;"></span>
     </button>
@@ -1298,7 +1404,7 @@
                                                     <div class="col-sm-3" style="text-align: left">
                                                         <asp:Label ID="lblSrchBy" runat="server" CssClass="control-label" Text="Search By"
                                                             Font-Bold="False"></asp:Label>
-                                                        <span id="Span1" runat="server" style="color: red">*</span>
+                                                        <span id="Span2" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <asp:DropDownList ID="ddlSearchby" runat="server" CssClass="form-control"
@@ -1308,7 +1414,7 @@
                                                     <div class="col-sm-3" style="text-align: left; display: none">
                                                         <asp:Label ID="lblCndName" CssClass="control-label" runat="server" Text="Name"
                                                             Font-Bold="False"></asp:Label>
-                                                        <span id="Span2" runat="server" style="color: red">*</span>
+                                                        <span id="Span3" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3" style="display: none">
                                                         <asp:TextBox ID="lblAdvNameValue" runat="server" CssClass="form-control" MaxLength="20"
@@ -1320,7 +1426,7 @@
                                                     <div class="col-sm-3" id="prfid" style="text-align: left">
                                                         <asp:Label ID="lblProofofidn" Text="Proof Of Identity" CssClass="control-label" runat="server"
                                                             Font-Bold="False"></asp:Label>
-                                                        <span id="Span3" runat="server" style="color: red">*</span>
+                                                        <span id="Span4" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <asp:DropDownList ID="ddlProofofidn" runat="server" CssClass="form-control"
@@ -1330,7 +1436,7 @@
                                                     <div class="col-sm-3" style="text-align: left">
                                                         <asp:Label ID="Lblidntynum" Text="Identity Number" CssClass="control-label" runat="server"
                                                             Font-Bold="False"></asp:Label>
-                                                        <span id="Span4" runat="server" style="color: red">*</span>
+                                                        <span id="Span5" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3" id="txtidtnum" style="display: none" runat="server">
                                                         <div class="col-sm-4" style="padding: 0px;">
@@ -1351,14 +1457,14 @@
                                                     <div class="col-sm-3" style="text-align: left">
                                                         <asp:Label ID="lblAppfullnme" Text="Applicant's Full Name" CssClass="control-label" runat="server"
                                                             Font-Bold="False"></asp:Label>
-                                                        <span id="Span5" runat="server" style="color: red">*</span>
+                                                        <span id="Span6" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <asp:TextBox ID="txtAppfullname" CssClass="form-control" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="col-sm-3" style="text-align: left">
                                                         <asp:Label ID="lblDOB" Text="DOB" CssClass="control-label" runat="server" Font-Bold="False"></asp:Label>
-                                                        <span id="Span6" runat="server" style="color: red">*</span>
+                                                        <span id="Span7" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <div class="input-group">
@@ -1376,7 +1482,7 @@
                                                     <div class="col-sm-3" style="text-align: left">
                                                         <asp:Label ID="lblGender" Text="Gender" CssClass="control-label" runat="server"
                                                             Font-Bold="False"></asp:Label>
-                                                        <span id="Span7" runat="server" style="color: red">*</span>
+                                                        <span id="Span8" runat="server" style="color: red">*</span>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <asp:DropDownList ID="ddlGender" runat="server" CssClass="form-control"
@@ -1391,7 +1497,7 @@
                                                         <div class="col-sm-3" style="text-align: left">
                                                             <asp:Label ID="lblckycno" Text="CKYC No." CssClass="control-label" runat="server"
                                                                 Font-Bold="False"></asp:Label>
-                                                            <span id="Span8" runat="server" style="color: red">*</span>
+                                                            <span id="Span9" runat="server" style="color: red">*</span>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <asp:TextBox ID="txtckyno" CssClass="form-control" runat="server"></asp:TextBox>
@@ -1399,7 +1505,7 @@
                                                         <div class="col-sm-3" style="text-align: left">
                                                             <asp:Label ID="lblAuttype" Text="Authentication Factor Type" CssClass="control-label" runat="server"
                                                                 Font-Bold="False"></asp:Label>
-                                                            <span id="Span9" runat="server" style="color: red">*</span>
+                                                            <span id="Span10" runat="server" style="color: red">*</span>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <asp:DropDownList ID="ddlauthtype" runat="server" CssClass="form-control"

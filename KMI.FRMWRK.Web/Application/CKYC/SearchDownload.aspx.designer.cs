@@ -231,6 +231,78 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Button Button3;
 
         /// <summary>
+        /// Img5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Img5;
+
+        /// <summary>
+        /// ckycdocrefno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycdocrefno;
+
+        /// <summary>
+        /// ckycdocno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycdocno;
+
+        /// <summary>
+        /// ckycfullname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycfullname;
+
+        /// <summary>
+        /// ckycfathersname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycfathersname;
+
+        /// <summary>
+        /// ckycdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycdate;
+
+        /// <summary>
+        /// ckycage2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycage2;
+
+        /// <summary>
+        /// ckycid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ckycid;
+
+        /// <summary>
         /// TextBox6 control.
         /// </summary>
         /// <remarks>
@@ -384,13 +456,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblSrchBy;
 
         /// <summary>
-        /// Span1 control.
+        /// Span2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span2;
 
         /// <summary>
         /// ddlSearchby control.
@@ -411,13 +483,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblCndName;
 
         /// <summary>
-        /// Span2 control.
+        /// Span3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span3;
 
         /// <summary>
         /// lblAdvNameValue control.
@@ -447,13 +519,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblProofofidn;
 
         /// <summary>
-        /// Span3 control.
+        /// Span4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span4;
 
         /// <summary>
         /// ddlProofofidn control.
@@ -474,13 +546,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label Lblidntynum;
 
         /// <summary>
-        /// Span4 control.
+        /// Span5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span5;
 
         /// <summary>
         /// txtidtnum control.
@@ -555,13 +627,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblAppfullnme;
 
         /// <summary>
-        /// Span5 control.
+        /// Span6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span5;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span6;
 
         /// <summary>
         /// txtAppfullname control.
@@ -582,13 +654,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblDOB;
 
         /// <summary>
-        /// Span6 control.
+        /// Span7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span6;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span7;
 
         /// <summary>
         /// txtDOB control.
@@ -618,13 +690,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblGender;
 
         /// <summary>
-        /// Span7 control.
+        /// Span8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span7;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span8;
 
         /// <summary>
         /// ddlGender control.
@@ -663,13 +735,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblckycno;
 
         /// <summary>
-        /// Span8 control.
+        /// Span9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span8;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span9;
 
         /// <summary>
         /// txtckyno control.
@@ -690,13 +762,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblAuttype;
 
         /// <summary>
-        /// Span9 control.
+        /// Span10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span9;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span10;
 
         /// <summary>
         /// ddlauthtype control.
