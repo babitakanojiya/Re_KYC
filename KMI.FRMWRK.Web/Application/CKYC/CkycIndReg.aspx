@@ -3,7 +3,28 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    
+        <style>
+    .step-label {
+        font-size: 19px;
+        color: #9c9c9a;
+        margin-left: 7px;
+        cursor: pointer;
+    }
+
+    .step-label.active {
+        color: #000000;
+        border-bottom: inset;
+        border-bottom-color: #00cccc;
+    }
+
+    .step-content {
+        display: none;
+    }
+
+    .step-content.active {
+        display: block;
+    }
+</style>
     <style type="text/css">
         img.preview-img {
     max-width: 100%;
@@ -85,6 +106,7 @@
             //}, 4000);
         }
     </script>
+
     
 </asp:Content>
 
@@ -903,12 +925,19 @@ input.form-control {
         "KYCverification"     // 4
     ];
         //Changed by Vikash to make documentdetails as first on 23May2025
+    //const tabMap = {
+    //    "documentdetails": { tabId: "ctl00_ContentPlaceHolder1_divDUH", badgeId: "ctl00_ContentPlaceHolder1_span9" },
+    //    "personaldetails": { tabId: "ctl00_ContentPlaceHolder1_divRDH", badgeId: "ctl00_ContentPlaceHolder1_span3" },
+    //    "contactdetails": { tabId: "ctl00_ContentPlaceHolder1_divCDH", badgeId: "ctl00_ContentPlaceHolder1_span2" },
+    //    "addressdetails": { tabId: "ctl00_ContentPlaceHolder1_divPAH", badgeId: "ctl00_ContentPlaceHolder1_span4" },
+    //    "KYCverification": { tabId: "ctl00_ContentPlaceHolder1_divPDH", badgeId: "ctl00_ContentPlaceHolder1_span1" }
+    //};
     const tabMap = {
-        "documentdetails": { tabId: "ctl00_ContentPlaceHolder1_divDUH", badgeId: "ctl00_ContentPlaceHolder1_span9" },
-        "personaldetails": { tabId: "ctl00_ContentPlaceHolder1_divRDH", badgeId: "ctl00_ContentPlaceHolder1_span3" },
-        "contactdetails": { tabId: "ctl00_ContentPlaceHolder1_divCDH", badgeId: "ctl00_ContentPlaceHolder1_span2" },
-        "addressdetails": { tabId: "ctl00_ContentPlaceHolder1_divPAH", badgeId: "ctl00_ContentPlaceHolder1_span4" },
-        "KYCverification": { tabId: "ctl00_ContentPlaceHolder1_divPDH", badgeId: "ctl00_ContentPlaceHolder1_span1" }
+        "documentdetails": { badgeId: "ctl00_ContentPlaceHolder1_span9" },
+        "personaldetails": { badgeId: "ctl00_ContentPlaceHolder1_span3" },
+        "contactdetails": {  badgeId: "ctl00_ContentPlaceHolder1_span2" },
+        "addressdetails": {  badgeId: "ctl00_ContentPlaceHolder1_span4" },
+        "KYCverification": { badgeId: "ctl00_ContentPlaceHolder1_span1" }
     };
 
         let currentPanelIndex = 0;
@@ -1001,8 +1030,17 @@ input.form-control {
         const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
         if (nextBtn) {
             nextBtn.addEventListener("click", function (e) {
-                e.preventDefault();
-                goToNextPanel();
+
+                const currentPanel = document.getElementById("hdnCurrentPanel").value;
+
+                if (currentPanel === "contactdetails") {
+                    // Allow postback to run server-side logic
+                } else {
+                    e.preventDefault(); // Block postback for JS-only panels
+                    goToNextPanel();
+                }
+                //e.preventDefault();
+                //goToNextPanel();
             });
         }
 
@@ -1019,6 +1057,25 @@ input.form-control {
             saveBtn.style.display = "none";
         }
     });
+</script>
+<script type="text/javascript">
+    function updateSessionFromTextbox(textbox, sessionKey) {
+        var value = textbox.value;
+
+        $.ajax({
+            type: "POST",
+            url: "CkycIndReg.aspx/UpdateSessionValue",
+            data: JSON.stringify({ key: sessionKey, value: value }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                console.log("Session updated for key:", sessionKey);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error updating session:", error);
+            }
+        });
+    }
 </script>
 
         <%--//added for documnet--%>
@@ -1220,54 +1277,23 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
     
 
     <%--//ended by babita--%>
-    
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
 
         <ContentTemplate>
             <%--added by babita--%>
             <asp:HiddenField ID="hdnCurrentPanel" runat="server" />
 
-            <div class="container-fluid"> <%--For making resonsive by Vikash K on 23May2025--%>
-    <div class="row">
-        <div class="col-12">
-            <div class="stripPanelClass">
-                <div class="table-responsive">
-                    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab" role="tablist" style="white-space: nowrap;">
-                        <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divDUH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divDU" type="button" role="tab" aria-controls="divDU" aria-selected="false" style="color:#00cccc !important;" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span9" style="background-color: #00cccc !important;">1</span> Document Details
-                            <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divRDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divRD" type="button" role="tab" aria-controls="divRD" aria-selected="false" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span3" style="background-color: #8c8c8c !important;">2</span> Personal Details
-                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divCDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divCD" type="button" role="tab" aria-controls="divCD" aria-selected="false" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span2" style="background-color: #8c8c8c !important;">3</span> Contact Details
-                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divPAH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divPA" type="button" role="tab" aria-controls="divPA" aria-selected="false" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span4" style="background-color: #8c8c8c !important;">4</span> Address Details
-                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                        </li>
-
-                        <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divPDH" class="nav-link active Strip" data-bs-toggle="tab" data-bs-target="#divPD" type="button" role="tab" aria-controls="divPD" aria-selected="true" style="color:#8c8c8c !important;" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span1" style="background-color: #8c8c8c !important;">5</span> Verification Details
-                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            
+<div class="row">
+              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">
+                  <span id="span9" class="step-label active">Document Details</span>
+                  <span id="span3" class="step-label active">Personal Details</span>
+                  <span id="span2" class="step-label active">Contact Details</span>
+                  <span id="span4" class="step-label active">Address Details</span>
+                  <span id="span1" class="step-label active">Verification Details</span>
+                  </div>
     </div>
-</div>
-
  
             <%--ended by babita--%>
             <div   class="container-fluid" style="margin-top: 0px;"> <%--Added by Vikash K for making responsive--%>
@@ -1583,17 +1609,17 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     </div>
                                     <div class="col-sm-10" style="padding:0">
                                         <div class="col-sm-4 mt-2">
-                                            <asp:TextBox ID="txtGivenName" runat="server" CssClass="form-control" onkeypress="return lettersOnly();" onchange="javascript:this.value=this.value.toUpperCase();"
+                                            <asp:TextBox ID="txtGivenName" runat="server" CssClass="form-control" onkeypress="return lettersOnly();" onchange="javascript:this.value=this.value.toUpperCase();updateSessionFromTextbox(this, 'GivenName');"
                                                 MaxLength="50" TabIndex="2" placeholder="First Name">
                                             </asp:TextBox>
                                         </div>
                                         <div class="col-sm-4 mt-2">
-                                            <asp:TextBox ID="txtMiddleName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly();"
+                                            <asp:TextBox ID="txtMiddleName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();updateSessionFromTextbox(this, 'MiddleName');" onkeypress="return lettersOnly();"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                             </asp:TextBox>
                                         </div>
                                         <div class="col-sm-4 mt-2">
-                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="return lettersOnly()"
+                                            <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();updateSessionFromTextbox(this, 'LastName');" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                             </asp:TextBox>
                                         </div>
@@ -1786,7 +1812,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 </div>
                                 <div class="col-sm-3" style="text-align: left; display: flex;">
                                     <asp:TextBox runat="server" ID="txtPanNo" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged"
-                                        onChange="javascript:AddLoader('txtPanNoLoader');" ClientIDMode="Static" AutoPostBack="true" onblur="return validatePAN(this)" onkeyup="javascript: this.value = this.value.toUpperCase()" TabIndex="2" />
+                                        onChange="javascript:AddLoader('txtPanNoLoader');updateSessionFromTextbox(this, 'PanNo');" ClientIDMode="Static" AutoPostBack="true" onblur="return validatePAN(this)" onkeyup="javascript: this.value = this.value.toUpperCase()" TabIndex="2" />
                                     <div id="txtPanNoLoader"></div>
                                 </div>
                                 <div class="col-sm-3">
@@ -2261,7 +2287,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             </div>
                             <div class="col-sm-3">
                                 <asp:TextBox CssClass="form-control" runat="server" Enabled="false"
-                                    ID="txtAddressLine1" MaxLength="55" TabIndex="2" />
+                                    ID="txtAddressLine1" MaxLength="55" TabIndex="2" onchange="updateSessionFromTextbox(this, 'AddressLine1');"/>
                             </div>
                             <div class="col-sm-3" style="text-align: left">
                                 <asp:Label ID="lblAddressLine2" Text="" runat="server" CssClass="control-label"></asp:Label>
