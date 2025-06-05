@@ -423,13 +423,15 @@
     var dob = document.getElementById('<%= pandob.ClientID %>').value.trim();
     var aadharNumber = document.getElementById("aadhaarNumber").value.trim();
     var ckycNumber =document.getElementById('<%= txtCKYC.ClientID %>').value.trim(); 
-    var maskedckycNumber = ckycNumber.slice(0,-4).replace(/\d/g,"X")+ckycNumber.slice(-4);
     if (aadharNumber.length >= 4) {
     var maskedAadhar = aadharNumber.slice(0, -4).replace(/\d/g, "X") + aadharNumber.slice(-4);
     console.log(maskedAadhar); // Example output: XXXXXXXXXXXX1234
         }
+        else if(ckycNumber.length >= 4){
+                var maskedckycNumber = ckycNumber.slice(0,-4).replace(/\d/g,"X")+ckycNumber.slice(-4);
+        }
         else {
-            console.log("Invalid Aadhaar Number");
+            console.log("Invalid Aadhaar and CKYC Number");
         }
     if (!pan && !aadharNumber && !maskedckycNumber) {
         alert("Please enter either PAN or Aadhar Number.");
@@ -458,7 +460,7 @@
                 hideDiv('Aadharpage2', 'PANpage3','5000');
             }
             else{
-                hideDiv('Ckycpage2', 'PANpage3','5000');
+                hideDiv('CKYCpage2', 'PANpage3','5000');
             }
             
             var data = JSON.parse(response.d);
