@@ -1,76 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empty.Master" AutoEventWireup="true" CodeBehind="DownloadOTPPage.aspx.cs" Inherits="KMI.FRMWRK.Web.Application.CKYC.DownloadOTPPage" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--<script type="text/javascript">
-    function validateOtp(inputId) {
-        var otpInput = document.getElementById(inputId);
-        var otp = otpInput.value.trim();
+    <%: Scripts.Render("~/bundles/CKYCValidationjs") %>
+    <%: Styles.Render("~/bundles/CKYCcss") %>
 
-        if (!/^\d{6}$/.test(otp)) {
-            alert("Please enter a valid 6-digit OTP.");
 
-            otpInput.focus();
-            return false;
-        }
-        return true;
+    <style>
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8); /* translucent background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
     }
 
-    // Countdown Timer
-    window.onload = function () {
-        var timeLeft = 180; // 3 minutes in seconds
-        var timerLabel = document.getElementById("countdownTimer");
-
-        var countdown = setInterval(function () {
-            var minutes = Math.floor(timeLeft / 60);
-            var seconds = timeLeft % 60;
-
-            // Pad with leading zero if needed
-            var formattedTime = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
-            timerLabel.textContent = formattedTime;
-
-            timeLeft--;
-
-            if (timeLeft < 0) {
-                clearInterval(countdown);
-                timerLabel.textContent = "OTP expired";
-                // Optional: Disable the verify button
-                var verifyBtn = document.getElementById('<%= btnqcpageopen.ClientID %>');
-                if (verifyBtn) {
-                    verifyBtn.disabled = true;
-                    verifyBtn.style.opacity = "0.5";
-                    verifyBtn.style.cursor = "not-allowed";
-                }
-            }
-        }, 1000);
-    };
-</script>--%>
-    <%--<script type="text/javascript">
-    function onVerifyClick() {
-        var otpInput = document.getElementById('<%= TextBox7.ClientID %>');
-        var otp = otpInput.value.trim();
-
-        if (!/^\d{6}$/.test(otp)) {
-            alert("Please enter a valid 6-digit OTP.");
-            otpInput.focus();
-            return false;
-        }
-
-        // Optional: You can validate OTP server-side using AJAX before redirecting here
-
-        // Get hidden field value (RefNo)
-        var refNo = document.getElementById('<%= hdnRegRefNo.ClientID %>').value;
-
-        // Set PageFlag
-        var pageFlag = "01"; // You can make this dynamic if needed
-
-        // Redirect to CKYCQC.aspx with query string
-        //window.location.href = "CKYCQC.aspx?RefNo=" + encodeURIComponent(refNo) + "&PageFlag=" + pageFlag  ;
-        window.location.href = "CKYCQC.aspx?RefNo=" + encodeURIComponent(refNo) + "&PageFlag=" + pageFlag + "&Status=QC";
-
-
-        return false; // prevent postback
+    .loader-content {
+        text-align: center;
     }
-</script>--%>
+</style>
 
     
     <script type="text/javascript">
@@ -125,12 +76,32 @@
         return false; // Prevent postback
     }
 </script>
+<script>
+    function ShowProgressBar(message) {
+        document.getElementById('<%= dvProgressBar.ClientID %>').style.display = 'flex';
+        document.getElementById('<%= lblMsg.ClientID %>').innerText = message || "Loading...";
+    }
 
-
+ 
+function HideProgressBar() {
+     debugger;
+     document.getElementById('dvProgressBar').style.display = "none";
+    }
+</script>
 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="EmptyPagePlaceholder" runat="server">
+    <div>
+               <div id="dvProgressBar" style="display: none;" class="loader-overlay" runat="server">
+    <div class="loader-content">
+        <asp:Image id="ldr" src="../../Images/horizonal_loader.gif" height="50px" alt="" runat="server" ImageAlign="Middle"/>
+        <br />
+        <asp:Label ID="lblMsg" Text="" runat="server" ForeColor="Blue" style="font-size: medium; font-weight: bold;"></asp:Label>
+    </div>
+</div>
+
+        
     <div style="text-align: center; padding: 30px;">
         <h1>Enter OTP</h1>
 
@@ -146,17 +117,16 @@
         <label id="countdownTimer" style="display: block; margin-top: 15px;">3:00</label>
 
         <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-            <%--<asp:Button ID="btnqcpageopen" runat="server" Text="Verify" 
-                OnClientClick="return validateOtp('<%= TextBox7.ClientID %>');" 
-                OnClick="QCPageopen_Click"
-                CausesValidation="true"
-                ValidationGroup="otpGroup"
-                style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />--%>
-          <asp:Button ID="btnqcpageopen" runat="server" Text="Verify"
+            
+         <%-- <asp:Button ID="btnqcpageopen" runat="server" Text="Verify"
     OnClientClick="return onVerifyClick();" 
     UseSubmitBehavior="false"
-    style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
+    style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />--%>
 
+            <asp:Button ID="btnqcpageopen" runat="server" Text="Verify"
+    OnClientClick="ShowProgressBar('Searching..Please wait'); return onVerifyClick();"
+    UseSubmitBehavior="false"
+    style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
 
             <asp:Button ID="Button4" runat="server" Text="Retry" 
                 style="padding: 12px 40px; background-color:white; color:black; border-color:#007bff; border-radius:5rem; border:0.2rem solid blue; cursor:pointer;" />
@@ -166,4 +136,6 @@
         <asp:HiddenField ID="hdnRegRefNo" runat="server" />
 
     </div>
+        
+        </div>
 </asp:Content>

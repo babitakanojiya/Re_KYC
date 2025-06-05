@@ -7,11 +7,40 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KMI.FRMWRK.Web.Application.CKYC {
-    
-    
-    public partial class DownloadOTPPage {
-        
+namespace KMI.FRMWRK.Web.Application.CKYC
+{
+
+
+    public partial class DownloadOTPPage
+    {
+
+        /// <summary>
+        /// dvProgressBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvProgressBar;
+
+        /// <summary>
+        /// ldr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ldr;
+
+        /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+
         /// <summary>
         /// TextBox7 control.
         /// </summary>
@@ -20,7 +49,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox7;
-        
+
         /// <summary>
         /// RegexOtp control.
         /// </summary>
@@ -29,7 +58,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexOtp;
-        
+
         /// <summary>
         /// btnqcpageopen control.
         /// </summary>
@@ -38,7 +67,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnqcpageopen;
-        
+
         /// <summary>
         /// Button4 control.
         /// </summary>
@@ -47,7 +76,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button4;
-        
+
         /// <summary>
         /// hdnRegRefNo control.
         /// </summary>
