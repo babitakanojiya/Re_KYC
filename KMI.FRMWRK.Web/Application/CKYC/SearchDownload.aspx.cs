@@ -294,22 +294,32 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 				txtidtnum.Attributes.Add("style", "display:none;");
 			}
         }
-
+        //Added by Vikash K on 04June2025 for dilling details via database and api of user
         [WebMethod]
-        public static string SearchPan(string pan,string dob)
+        public static string SearchPan(string pan, string aadharNumber, string dob)
         {
             try
             {
-                // 1. Get data from stored procedure
                 var dbData = new Dictionary<string, string>();
                 string connStr = ConfigurationManager.ConnectionStrings["CKYCConnectionString"].ConnectionString;
-                string dateofbith=null;
+                string dateofbith = null;
+
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
                     using (SqlCommand cmd = new SqlCommand("Prc_GetApplicantInfoByCKYC", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@PAN_NO", pan);
+
+                        if (!string.IsNullOrEmpty(pan))
+                        {
+                            cmd.Parameters.AddWithValue("@PAN_NO", pan);
+                        }
+
+                        if (!string.IsNullOrEmpty(aadharNumber))
+                        {
+                            cmd.Parameters.AddWithValue("@ID_NO", aadharNumber);
+                        }
+
                         conn.Open();
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -320,20 +330,21 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                 dbData["CKYCNo"] = reader["CKYCNo"].ToString();
                                 dbData["Fullname"] = $"{reader["Prefix"]} {reader["FName"]} {reader["LName"]}";
                                 dbData["Gender"] = reader["Gender"].ToString() == "M" ? "Male"
-                                                       : reader["Gender"].ToString() == "F" ? "Female"
-                                                       : reader["Gender"].ToString() == "T" ? "Transgender"
-                                                       : "Unknown";
+                                                        : reader["Gender"].ToString() == "F" ? "Female"
+                                                        : reader["Gender"].ToString() == "T" ? "Transgender"
+                                                        : "Unknown";
                                 dbData["DOC_NAME"] = reader["DOC_NAME"].ToString();
+
                                 DateTime dob1 = Convert.ToDateTime(reader["DateofBirth"]);
                                 dbData["DateofBirth"] = dob1.ToString("dd-MM-yyyy");
-                                dateofbith = dbData["DateofBirth"]; // Save to use in API
+                                dateofbith = dbData["DateofBirth"];
+
                                 dbData["FSPrefix"] = reader["FSPrefix"].ToString();
                                 dbData["FSFName"] = reader["FSFName"].ToString();
                                 dbData["FSLName"] = reader["FSLName"].ToString();
                                 dbData["FatherName"] = $"{dbData["FSPrefix"]} {dbData["FSFName"]} {dbData["FSLName"]}";
-                                //dbData["KYCVerificationDate"] = Convert.ToDateTime(reader["KYCVerificationDate"]).ToString("dd-MM-yyyy");
-                                // First, check if the IMAGE column exists
-                                // First, check if the IMAGE column exists
+
+                                // Check for IMAGE column and convert to Base64
                                 bool hasImageColumn = false;
                                 var schemaTable = reader.GetSchemaTable();
                                 if (schemaTable != null)
@@ -354,21 +365,17 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                     {
                                         byte[] imageBytes = (byte[])reader["IMAGE"];
                                         string base64String = Convert.ToBase64String(imageBytes);
-                                        //dbData["PhotoBase64"] = base64String;
                                         HttpContext.Current.Session["ApplicantImageBytes"] = base64String;
                                     }
                                     catch
                                     {
-                                        dbData["PhotoBase64"] = ""; // Fallback if cast fails
+                                        dbData["PhotoBase64"] = ""; // fallback
                                     }
                                 }
                                 else
                                 {
-                                    dbData["PhotoBase64"] = ""; // Or use a default image
+                                    dbData["PhotoBase64"] = "";
                                 }
-                                
-                                
-
 
                                 // Calculate Age
                                 int age = DateTime.Now.Year - dob1.Year;
@@ -379,7 +386,8 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     }
                 }
 
-                // 2. Setup for API
+                // Step 2: API Call (optional if PAN is provided)
+                string fullName = "Unknown";
                 string uniqueId = Guid.NewGuid().ToString();
 
                 var requestPayload = new
@@ -392,7 +400,6 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     })
                 };
 
-                string fullName = "Unknown"; // default fallback
                 string apiUrl = "http://kmidev.centralus.cloudapp.azure.com/CBCMSWEBAPI/api/CBCMS/CkycDwnldDtls_web";
 
                 try
@@ -405,10 +412,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         HttpResponseMessage response = client.PostAsync(apiUrl, content).Result;
                         string responseString = response.Content.ReadAsStringAsync().Result;
 
-                        // FIRST unwrap the inner JSON string
                         string innerJson = JsonConvert.DeserializeObject<string>(responseString);
-
-                        // THEN parse the real object
                         var jsonResponse = JObject.Parse(innerJson);
 
                         var apiName = jsonResponse["kyc_data"]?["CKYC"]?["result"]?["PERSONAL_DETAILS"]?["FULLNAME"]?.ToString();
@@ -420,14 +424,12 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 }
                 catch
                 {
-                    // Log API failure if needed
-                    fullName = "Unkown";
+                    fullName = "Unknown";
                 }
 
-                // 3. Return final combined result
                 var finalResult = new
                 {
-                    fullName = fullName ,
+                    fullName = fullName,
                     dbData = dbData
                 };
 
@@ -437,17 +439,14 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             {
                 var errorResult = new
                 {
-                    fullName = "Unknow",
+                    fullName = "Unknown",
                     dbData = new { Error = ex.Message }
                 };
                 return JsonConvert.SerializeObject(errorResult);
             }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            
-        }       
+
 
     }
 }
