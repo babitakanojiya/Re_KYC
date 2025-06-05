@@ -431,12 +431,13 @@
                     if (docs =="Proof of Possession of Aadhaar") {
                         docs="Aadhar"
                     }
+                    verificationdate="23-08-2024";
                     document.getElementById('<%= lblAccountName.ClientID %>').innerText = fullName; 
                     document.getElementById('<%= lblFullName.ClientID %>').innerText = name;
                     document.getElementById('<%= lblCKYCRefNo.ClientID %>').innerText = ckycrefno;
                     document.getElementById('<%= lblCKYCNo1.ClientID %>').innerText = ckycno1;
                     document.getElementById('<%= lblFatherName.ClientID %>').innerText = fathername;
-                    document.getElementById('<%= lblCKYCDate.ClientID %>').innerText = verificationdate;
+                    //document.getElementById('<%= lblCKYCDate.ClientID %>').innerText = verificationdate;
                     document.getElementById('<%= lblage1.ClientID %>').innerText = dateofbirth;
                     document.getElementById('<%= lblIdentityDocs.ClientID %>').innerText = docs; 
                     document.getElementById('<%= lblAccountNumber.ClientID %>').innerText = pan;
@@ -887,7 +888,7 @@
                                                             </div>
                                                             <div class="d-flex justify-content-between py-1 border-bottom">
                                                                 <span><strong>CKYC Date:</strong></span>
-                                                                <span><asp:Label ID="lblCKYCDate" runat="server" Text="23-08-2024" /></span>
+                                                                <span><asp:Label ID="lblCKYCDate" runat="server" Text="" /></span>
                                                             </div>
                                                             <div class="d-flex justify-content-between py-1 border-bottom">
                                                                 <span><strong>Age</strong></span>
