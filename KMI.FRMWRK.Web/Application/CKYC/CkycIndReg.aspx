@@ -1376,7 +1376,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
 
     <!-- LEFT PANEL: Form -->
-    <div style="flex: 1; min-width: 630px; max-width: 550px;">
+    <div style="flex: 1; min-width: 601px; max-width: 550px;">
         <asp:UpdatePanel runat="server" ID="updDocPanel">
             <ContentTemplate>
                 <!-- Document Type -->
