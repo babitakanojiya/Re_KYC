@@ -437,7 +437,7 @@
                     document.getElementById('<%= lblCKYCRefNo.ClientID %>').innerText = ckycrefno;
                     document.getElementById('<%= lblCKYCNo1.ClientID %>').innerText = ckycno1;
                     document.getElementById('<%= lblFatherName.ClientID %>').innerText = fathername;
-                    //document.getElementById('<%= lblCKYCDate.ClientID %>').innerText = verificationdate;
+                    document.getElementById('<%= lblCKYCDate.ClientID %>').innerText = verificationdate;
                     document.getElementById('<%= lblage1.ClientID %>').innerText = dateofbirth;
                     document.getElementById('<%= lblIdentityDocs.ClientID %>').innerText = docs; 
                     document.getElementById('<%= lblAccountNumber.ClientID %>').innerText = pan;
