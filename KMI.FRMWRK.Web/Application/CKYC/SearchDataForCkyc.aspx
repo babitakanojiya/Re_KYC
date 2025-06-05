@@ -85,6 +85,10 @@
         {
             margin-bottom:10%;
         }*/
+        .panel-body {
+            padding:5px !important;
+        }
+
     </style>
 
     <script type="text/javascript">
@@ -178,9 +182,27 @@
         }
     </script>
   <script type="text/javascript">
+      //function openPopup(url) {
+      //    window.open(url, '_blank', 'width=700,height=300,resizable=yes,scrollbars=yes');
+      //}
       function openPopup(url) {
-          window.open(url, '_blank', 'width=700,height=700,resizable=yes,scrollbars=yes');
+          var width = 700;
+          var height = 300;
+
+          // Calculate center position
+          var left = (window.screen.width / 2) - (width / 2);
+          var top = (window.screen.height / 2) - (height / 2);
+
+          var features =
+              'width=' + width +
+              ',height=' + height +
+              ',resizable=yes,scrollbars=yes' +
+              ',top=' + top +
+              ',left=' + left;
+
+          window.open(url, '_blank', features);
       }
+
   </script>
 
 
@@ -236,8 +258,8 @@
         </ul>--%>
         <div class="tab-content">
             <div id="menu1" class="tab-pane fade active in">
-                <div id="div2" class="panel-body" runat="server" style="overflow: auto;">
-                    <div class="row" id="srchby" style="margin-bottom: 5px" runat="server">
+                <div id="div2" class="panel-body" runat="server" style="padding:12px !important;">
+                    <div class="row" id="srchby" style="margin-bottom: 9px" runat="server">
                         <div class="col-sm-3" style="text-align: left">
                             <asp:Label ID="lblSrchBy" runat="server" CssClass="control-label" Text="Search By"
                                 Font-Bold="False"></asp:Label>
@@ -450,7 +472,7 @@
                                     </div>
                                 <div class="row">
                                     <center>
-    <div class="col-sm-12" style='margin-top: 15px;'>
+    <div class="col-sm-12" style='margin-top: 2px;'>
         <asp:Button ID="btnSearch" Text="Search" OnClick="btnSearch_Click" CssClass="btn-animated bg-green" runat="server"  OnClientClick="ShowProgressBar('Searching..Please wait')">                                   
         </asp:Button>
         <asp:Button ID="btnClear" OnClick="btnClear_Click" CssClass="btn-animated bg-horrible" Text="Clear" runat="server">    </asp:Button>                            

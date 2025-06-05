@@ -118,12 +118,12 @@
             <label id="countdownTimer" style="display: block; margin-top: 15px;">3:00</label>
 
             <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-                <asp:Button ID="btnqcpageopen" runat="server" Text="Verify"
+                <asp:Button ID="btnqcpageopen" runat="server" Text="DOWNLOAD"
                     OnClientClick="return onVerifyClick();"
                     UseSubmitBehavior="false"
                     style="padding: 12px 40px; background-color:#007bff; color:white; border:none; border-radius:5rem; cursor:pointer;" />
 
-                <asp:Button ID="Button4" runat="server" Text="Retry"
+                <asp:Button ID="Button4" runat="server" Text="RESEND OTP"
                     style="padding: 12px 40px; background-color:white; color:black; border-color:#007bff; border-radius:5rem; border:0.2rem solid blue; cursor:pointer;" />
             </div>
 

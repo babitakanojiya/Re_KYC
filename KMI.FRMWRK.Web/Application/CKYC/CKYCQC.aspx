@@ -447,7 +447,19 @@
     <div id="divnavigate" style="display:block;" runat="server" class="panel-body">
         <div class="row">
           <div class="col-sm-12" style="text-align:right">
-              
+              <%--added by babita --%>
+ <%--              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
+     <div id="divSearchResult" runat="server">
+       
+     </div>
+ </asp:Panel>--%>
+              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
+    <div id="divSearchResult" runat="server" 
+         style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px;margin-right: 1290px;">
+    </div>
+</asp:Panel>
+    
+              <%--ended by babita --%>
                  <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
                      AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
                             <%--<AlternatingRowStyle BackColor="White" />--%>

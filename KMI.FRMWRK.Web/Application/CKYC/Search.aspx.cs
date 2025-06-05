@@ -285,7 +285,8 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         if (hdnCurrActId.Value == "REG")
                         {
 
-                            htmlTable.Append("<span ID='" + HdrId + "'  style='color: black; ' >" + " FiRefNo.:" + (objDt.Rows[i]["FiRefNo"].ToString()) + "</span>");
+                            //htmlTable.Append("<span ID='" + HdrId + "'  style='color: black; ' >" + " FiRefNo.:" + (objDt.Rows[i]["FiRefNo"].ToString()) + "</span>");
+                            htmlTable.Append("<span ID='" + HdrId + "'  style='color: black; ' >" + "" + (objDt.Rows[i]["FiRefNo"].ToString()) + "</span>");//added by babita on 05 june 2025 to removed firefno lable 
                         }
                         else
                         {
