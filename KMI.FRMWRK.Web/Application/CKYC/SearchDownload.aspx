@@ -43,13 +43,13 @@
             }
         });
 
-        function ShowProgressBar(Msg) {
+        function ShowProgressBar(Msg,time=2000) {
             debugger;
             var Msg = Msg
 
             document.getElementById('dvProgressBar').style.display = "block";
             document.getElementById('EmptyPagePlaceholder_lblMsg').innerHTML = Msg;
-            setTimeout(function () { HideProgressBar(); }, 5000);
+            setTimeout(function () { HideProgressBar(); }, time);
         }
         function HideProgressBar() {
             debugger;
@@ -330,12 +330,28 @@
 }
   </style>
     <script>
-        function hideDiv(toHide, toShow) {
+        function showOtherDocs(show){
+            document.getElementById("divotherdocsdata").style.display="block";
+            
+            if(show=="voter"){
+                document.getElementById("lblotherdocs").textContent="Voter ID Number: ";  
+                document.getElementById("docspara").textContent="Please enter the voter id and the DOB Details."
+            }
+            else if(show=="drivinglic"){
+                document.getElementById("lblotherdocs").textContent="Driving Licence Number: ";
+                document.getElementById("docspara").textContent="Please enter the Driving Licence Number and the DOB Details."
+            }
+            else{
+                document.getElementById("lblotherdocs").textContent="Passport Number: "
+                document.getElementById("docspara").textContent="Please enter the Passport Number and the DOB Details."
+            }
+        }
+        function hideDiv(toHide, toShow,time=2000) {
             document.getElementById(toHide).style.display = "none";         
-            ShowProgressBar('Loading...');
+            ShowProgressBar('Loading...',time);
             setTimeout(function () {
                 document.getElementById(toShow).style.display = "block";
-            }, 5000);
+            }, time);
         }
 
         function showmodalpopup(toShow) {
@@ -406,6 +422,8 @@
     var pan = document.getElementById('<%= PanNo.ClientID %>').value.trim();
     var dob = document.getElementById('<%= pandob.ClientID %>').value.trim();
     var aadharNumber = document.getElementById("aadhaarNumber").value.trim();
+    var ckycNumber =document.getElementById('<%= txtCKYC.ClientID %>').value.trim(); 
+    var maskedckycNumber = ckycNumber.slice(0,-4).replace(/\d/g,"X")+ckycNumber.slice(-4);
     if (aadharNumber.length >= 4) {
     var maskedAadhar = aadharNumber.slice(0, -4).replace(/\d/g, "X") + aadharNumber.slice(-4);
     console.log(maskedAadhar); // Example output: XXXXXXXXXXXX1234
@@ -413,7 +431,7 @@
         else {
             console.log("Invalid Aadhaar Number");
         }
-    if (!pan && !aadharNumber) {
+    if (!pan && !aadharNumber && !maskedckycNumber) {
         alert("Please enter either PAN or Aadhar Number.");
         return;
     }
@@ -422,6 +440,7 @@
     var requestData = {
         pan: pan || "",
         aadharNumber: maskedAadhar || "",
+        ckycNumber:maskedckycNumber || "",
         dob: dob
     };
 
@@ -433,10 +452,13 @@
         dataType: "json",
         success: function (response) {
             if(pan){
-                 hideDiv('PANpage2', 'PANpage3');
+                 hideDiv('PANpage2', 'PANpage3','5000');
+            }
+            else if(aadharNumber){
+                hideDiv('Aadharpage2', 'PANpage3','5000');
             }
             else{
-                hideDiv('Aadharpage2', 'PANpage3');
+                hideDiv('Ckycpage2', 'PANpage3','5000');
             }
             
             var data = JSON.parse(response.d);
@@ -507,8 +529,8 @@
              alert("Please enter a valid 14-digit CKYC Number.");
              return false;
          }
-            
-            hideDiv('CKYCpage2','CKYCpage3');
+            callSearchPanAjax();
+            //hideDiv('CKYCpage2','CKYCpage3');
          return true;
         }
 
@@ -693,7 +715,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="onboardpage1">
                                             <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Let's complete your KYC</h1>
                                                 <div style="margin-top: 20px; text-align: center;">
-                                                    <img id="onboardimage" src="Images/Onboardp1.jpg" alt="Onboarding Image" style="max-width: 100%; height: 30rem; display: block; margin: -1.5rem auto;" />
+                                                    <img id="onboardimage" src="Images/Onboardp1.jpg" alt="Onboarding Image" style="max-width: 100%; height: 22rem; display: block; margin: -1.5rem auto;" />
     
                                                     <h4 style="line-height: 1.3; margin-top: -2rem;">
                                                     KYC means Know-Your-Customer, which every financial institution<br />
@@ -716,7 +738,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="CKYCpage1" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Do you have a CKYC No.?</h1>
                                             <div style="margin-top: 20px; text-align: center;">
-                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
+                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
     
                                                  <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;">CKYC number is a unique 14-digit number, assigned by CERSAI, as an identifier across all financial institutions.<br />
                                                 If you already have a CKYC number, Please enter this number to seamlessly complete your verification,<br />
@@ -746,10 +768,12 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="CKYCpage2" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter CKYC No.</h1>
                                     <div style="margin-top: 0px; text-align: center;">
-                                        <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 28rem; display: block; margin: 0 auto;" />
+                                        <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
     
- <div>
-                                                <h3 style="font: unset;font-size: initial;color: black; margin-top: 7px;">Please enter your 14-digit CKYC number and date of birth.</h3>
+                                     <div>                                  <br />
+                                                                                    <h3 style="font: unset;font-size: initial;color: black; margin-top: 7px;">Please enter your 14-digit CKYC number and date of birth.</h3>
+                                         <br />
+                                         <br />
                                             </div>
                                         <div style="margin-top: 0px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
                                         <!-- CKYC Number -->
@@ -831,7 +855,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="PANpage1" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have a PAN No.?</h1>
                                         <div style="margin-top: 20px; text-align: center;">
-                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
+                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
     
                                             <h4 style="line-height: 1.4; margin-top: 0.5rem; font-weight: normal; text-align: center; color: #2b4db0;">Permanent Account Number (PAN) is a 10 character identification number,<br />
                                                 consisting of letters and numbers, issued to all taxpayers, by the Indian Income Tax Department.
@@ -854,7 +878,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="PANpage2" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter PAN Number</h1>
                                         <div style="margin-top: 20px; text-align: center;">
-                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
+                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
                                                 <div>
                                             <p style=" font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 10 digit PAN number and Date of Birth</p>
                                             </div>
@@ -1031,7 +1055,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="Aadharpage1" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have an AADHAR card?</h1>
                                         <div style="margin-top: 20px; text-align: center;">
-                                        <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 25rem; display: block; margin: 0 auto;" />
+                                        <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
                                         <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;">AADHAR is a unique 12 digit number, issued by UIDAI, that is based on your<br />
                                                 biometrics and serves as proof of identity and address. If you have an
                                                 <br />
@@ -1114,7 +1138,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="Aadharpage2" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;margin-bottom: -2rem;">Please enter  AADHAR details</h1>
                                     <div style="margin-top: 20px; text-align: center;">
-                                    <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 25rem; display: block; margin: -1rem auto;" />
+                                    <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 22rem; display: block; margin: -1rem auto;" />
  
                                         </div>
                                     <div class="row justify-content-center m-5">
@@ -1352,29 +1376,45 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
  </div>
 
                                     <div id="OtherDocs" style="display:none;">
-                                        <h1 style="color:#1f50a7;font-size:5rem;font-weight:bold;">Do you have any of the <br /> required documents?</h1>
+                                        <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Do you have any of the <br /> required documents?</h1>
                                      <h3 style="color:#1999ed;font-size:3.5rem;font-weight: 350;">If yes, please select one.</h3>
 
                                         <div style="margin-top: 20px; text-align: center;">                                            
                                     <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
-                                        <button type="button" id="btnpassport" class="btn btn-light btn-lg verification-btn"  onclick="hideDiv('PANpage1','PANpage2')">
+                                        <button type="button" id="btnpassport" class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('passport')">
                                             PASSPORT
                                         </button>
-                                        <button type="button" id="btnprivinglic"class="btn btn-light btn-lg verification-btn"  onclick="hideDiv('PANpage1','Aadharpage1')">
+                                        <button type="button" id="btnprivinglic"class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('drivinglic')">
                                             DRIVING LICENCE
                                         </button>
-                                         <button type="button" id="btnvoter"class="btn btn-light btn-lg verification-btn" onclick="hideDiv('PANpage1','Aadharpage1')">
+                                         <button type="button" id="btnvoter"class="btn btn-light btn-lg verification-btn" onclick="showOtherDocs('voter')">
                                              VOTER ID
                                          </button>
                                     </div>
+                                            <div id="divotherdocsdata" style="display:none;margin:3%">
+                                                <h3 id="docspara">Enter the voter id and DOB Details.</h3>
+                                           <div style="margin-top: 3%; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                                                <!-- CKYC Number -->
+                                            <div style="text-align: left;">
+                                            <label id="lblotherdocs" style="font-size:1.3rem;">Voter ID Number:</label><br />
+                                            <asp:TextBox ID="txtotherdocnumber" runat="server" MaxLength="14" Width="220px" placeholder="e.g. 29473186504217" style=" border-radius: 10px;font-size:1.3rem;" CssClass="form-control"/>
+                                            </div>
+ 
+                                              <!-- Date of Birth -->
+                                            <div style="text-align: left;">
+                                            <label for="lblotherdob" style="font-size:1.3rem;">Date of Birth:</label><br />
+                                            <asp:TextBox ID="txtotherdob" runat="server" MaxLength="8" TextMode="Date" Width="220px" style=" border-radius: 10px;font-size:1.3rem;"  CssClass="form-control"/>
+                                            </div>
+                                            </div>
+                                        </div>
                                         </div>
 
-                                    <div style="display: flex; justify-content: center; margin-top: 20%;gap:6rem;">
-                                        <button type="button" id="otheryes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('OtherDocs','PANpage1')">
-                                            Submit
+                                    <div style="display: flex; justify-content: center; margin-top: 10%;gap:6rem;">
+                                        <button type="button" id="otherdocsearch" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('OtherDocs','PANpage1')">
+                                            SEARCH
                                         </button>
-                                        <button type="button" id="otherno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:2px solid darkblue;" onclick="hideDiv('OtherDocs','onboardpage1')">
-                                            No
+                                        <button type="button" id="otherdocclear"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:2px solid darkblue;" onclick="hideDiv('OtherDocs','onboardpage1')">
+                                            CLEAR
                                         </button>
                                     </div>
                                 </div>
