@@ -925,20 +925,20 @@ input.form-control {
         "KYCverification"     // 4
     ];
         //Changed by Vikash to make documentdetails as first on 23May2025
-    //const tabMap = {
-    //    "documentdetails": { tabId: "ctl00_ContentPlaceHolder1_divDUH", badgeId: "ctl00_ContentPlaceHolder1_span9" },
-    //    "personaldetails": { tabId: "ctl00_ContentPlaceHolder1_divRDH", badgeId: "ctl00_ContentPlaceHolder1_span3" },
-    //    "contactdetails": { tabId: "ctl00_ContentPlaceHolder1_divCDH", badgeId: "ctl00_ContentPlaceHolder1_span2" },
-    //    "addressdetails": { tabId: "ctl00_ContentPlaceHolder1_divPAH", badgeId: "ctl00_ContentPlaceHolder1_span4" },
-    //    "KYCverification": { tabId: "ctl00_ContentPlaceHolder1_divPDH", badgeId: "ctl00_ContentPlaceHolder1_span1" }
-    //};
     const tabMap = {
-        "documentdetails": { badgeId: "ctl00_ContentPlaceHolder1_span9" },
-        "personaldetails": { badgeId: "ctl00_ContentPlaceHolder1_span3" },
-        "contactdetails": {  badgeId: "ctl00_ContentPlaceHolder1_span2" },
-        "addressdetails": {  badgeId: "ctl00_ContentPlaceHolder1_span4" },
-        "KYCverification": { badgeId: "ctl00_ContentPlaceHolder1_span1" }
+        "documentdetails": { tabId: "ctl00_ContentPlaceHolder1_divDUH", badgeId: "ctl00_ContentPlaceHolder1_span9" },
+        "personaldetails": { tabId: "ctl00_ContentPlaceHolder1_divRDH", badgeId: "ctl00_ContentPlaceHolder1_span3" },
+        "contactdetails": { tabId: "ctl00_ContentPlaceHolder1_divCDH", badgeId: "ctl00_ContentPlaceHolder1_span2" },
+        "addressdetails": { tabId: "ctl00_ContentPlaceHolder1_divPAH", badgeId: "ctl00_ContentPlaceHolder1_span4" },
+        "KYCverification": { tabId: "ctl00_ContentPlaceHolder1_divPDH", badgeId: "ctl00_ContentPlaceHolder1_span1" }
     };
+    //const tabMap = {
+    //    "documentdetails": { badgeId: "ctl00_ContentPlaceHolder1_span9" },
+    //    "personaldetails": { badgeId: "ctl00_ContentPlaceHolder1_span3" },
+    //    "contactdetails": {  badgeId: "ctl00_ContentPlaceHolder1_span2" },
+    //    "addressdetails": {  badgeId: "ctl00_ContentPlaceHolder1_span4" },
+    //    "KYCverification": { badgeId: "ctl00_ContentPlaceHolder1_span1" }
+    //};
 
         let currentPanelIndex = 0;
 
@@ -1285,7 +1285,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
             <asp:HiddenField ID="hdnCurrentPanel" runat="server" />
 
             
-<div class="row">
+<%--<div class="row">
               <div class="col-sm-10" style="text-align:left;margin-top: 20px;">
                   <span id="span9" class="step-label active">Document Details</span>
                   <span id="span3" class="step-label active">Personal Details</span>
@@ -1293,8 +1293,47 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                   <span id="span4" class="step-label active">Address Details</span>
                   <span id="span1" class="step-label active">Verification Details</span>
                   </div>
+    </div>--%>
+             <div class="container-fluid"> <%--For making resonsive by Vikash K on 23May2025--%>
+    <div class="row">
+        <div class="col-12">
+            <div class="stripPanelClass">
+                <div class="table-responsive">
+                    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab" role="tablist" style="white-space: nowrap;">
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divDUH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divDU" type="button" role="tab" aria-controls="divDU" aria-selected="false" style="color:#00cccc !important;" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span9" style="background-color: #00cccc !important;">1</span> Document Details
+                            <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divRDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divRD" type="button" role="tab" aria-controls="divRD" aria-selected="false" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span3" style="background-color: #8c8c8c !important;">2</span> Personal Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divCDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divCD" type="button" role="tab" aria-controls="divCD" aria-selected="false" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span2" style="background-color: #8c8c8c !important;">3</span> Contact Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divPAH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divPA" type="button" role="tab" aria-controls="divPA" aria-selected="false" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span4" style="background-color: #8c8c8c !important;">4</span> Address Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+                            <button id="ctl00_ContentPlaceHolder1_divPDH" class="nav-link active Strip" data-bs-toggle="tab" data-bs-target="#divPD" type="button" role="tab" aria-controls="divPD" aria-selected="true" style="color:#8c8c8c !important;" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span1" style="background-color: #8c8c8c !important;">5</span> Verification Details
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
- 
+</div>
+
             <%--ended by babita--%>
             <div   class="container-fluid" style="margin-top: 0px;"> <%--Added by Vikash K for making responsive--%>
                 
