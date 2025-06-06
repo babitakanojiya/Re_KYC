@@ -328,6 +328,66 @@
     width: 60px; /* Adjust size of your spinner gif */
     height: 60px;
 }
+.docs-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .docs-section {
+        flex: 1 1 300px;
+        min-width: 280px;
+    }
+
+ .upload-zone {
+        border: 2px dashed #ccc;
+        padding: 2rem;
+        text-align: center;
+        border-radius: 1rem;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s, border-color 0.3s;
+        color: #555;
+        cursor: pointer;
+        max-width: 400px;
+        margin: auto;
+    }
+
+    .upload-zone.dragover {
+        background-color: #e3f2fd;
+        border-color: #007bff;
+    }
+
+    .preview-img {
+        max-width: 100%;
+        max-height: 100px;
+        margin-top: 0rem;
+        border-radius: 0.5rem;
+    }
+
+    .doc-buttons {
+        display: flex;
+        justify-content: end;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .vertical-divider {
+        width: 1px;
+        background-color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+        .docs-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .vertical-divider {
+            display: none;
+        }
+    }
   </style>
     <script>
         function showOtherDocs(show){
@@ -655,8 +715,58 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
     return false; // Prevent postback because redirect is handled
 }
 
+        window.addEventListener('DOMContentLoaded', function () {
+            setupDropZone("docDropZone", "docFileInput");
+            setupDropZone("panDropZone", "docPanInput");
 
+            function setupDropZone(zoneId, inputId) {
+                const dropZone = document.getElementById(zoneId);
+                const fileInput = document.getElementById(inputId);
 
+                if (!dropZone || !fileInput) return;
+
+                dropZone.addEventListener('click', () => fileInput.click());
+
+                fileInput.addEventListener('change', () => {
+                    if (fileInput.files.length > 0) {
+                        previewImage(dropZone, fileInput.files[0]);
+                    }
+                });
+
+                ['dragenter', 'dragover'].forEach(event => {
+                    dropZone.addEventListener(event, (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropZone.classList.add('dragover');
+                    });
+                });
+
+                ['dragleave', 'drop'].forEach(event => {
+                    dropZone.addEventListener(event, (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropZone.classList.remove('dragover');
+                    });
+                });
+
+                dropZone.addEventListener('drop', (e) => {
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0 && files[0].type.startsWith('image/')) {
+                        previewImage(dropZone, files[0]);
+                    } else {
+                        alert("Only image files are allowed.");
+                    }
+                });
+            }
+
+            function previewImage(targetZone, file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    targetZone.innerHTML = `<img src="${e.target.result}" class="preview-img" alt="Preview">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
 
 </asp:Content>
@@ -1386,7 +1496,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                         <button type="button" id="btnpassport" class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('passport')">
                                             PASSPORT
                                         </button>
-                                        <button type="button" id="btnprivinglic"class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('drivinglic')">
+                                        <button type="button" id="btndrivinglic"class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('drivinglic')">
                                             DRIVING LICENCE
                                         </button>
                                          <button type="button" id="btnvoter"class="btn btn-light btn-lg verification-btn" onclick="showOtherDocs('voter')">
@@ -1412,14 +1522,82 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                         </div>
 
                                     <div style="display: flex; justify-content: center; margin-top: 10%;gap:6rem;">
-                                        <button type="button" id="otherdocsearch" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('OtherDocs','PANpage1')">
+                                        <button type="button" id="otherdocsearch" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('OtherDocs','onboardpage1')">
                                             SEARCH
                                         </button>
-                                        <button type="button" id="otherdocclear"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:2px solid darkblue;" onclick="hideDiv('OtherDocs','onboardpage1')">
-                                            CLEAR
+                                        <button type="button" id="otherdocclear"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:2px solid darkblue;" onclick="hideDiv('OtherDocs','docsupload')">
+                                            NO, I DON'T HAVE
                                         </button>
                                     </div>
                                 </div>
+
+                                       <div id="docsupload" style="display: none; padding: 2rem;">
+    <h1 style="color: #1f50a7; font-size: 2.2rem; font-weight: bold; text-align: center;">
+        Please upload one of the <br /> following documents and PAN
+    </h1>
+
+    <div class="docs-container" style="margin-top: 3rem;">
+        <!-- Left Section -->
+        <div class="docs-section">
+            <div class="doc-buttons">
+                <button type="button" id="btnuploadaadhar" class="btn btn-light btn-lg verification-btn"
+                onclick="document.getElementById('aadharFileInput').click();">
+                AADHAR CARD
+            </button>
+                <input type="file" id="aadharFileInput" style="display: none;" onchange="handleFileUpload(this)">
+
+                <button type="button" id="btnuploadpassport" class="btn btn-light btn-lg verification-btn"
+                    onclick="document.getElementById('passportFileInput').click();">PASSPORT</button>
+                 <input type="file" id="passportFileInput" style="display:none;" onchange="handleFileUpload(this)" />
+
+            </div>
+
+            <div class="doc-buttons" style="margin-top: 2rem;">
+                <button type="button" id="btnuploaddrivinglic" class="btn btn-light btn-lg verification-btn"
+                    onclick="document.getElementById('drivingFileInput').click()">DRIVING LICENCE</button>
+                <input type="file" id="drivingFileInput" style="display:none;" onchange="handleFileUpload(this)" />
+
+                <button type="button" id="btnuploadvoter" class="btn btn-light btn-lg verification-btn"
+                    onclick="document.getElementById('voterFileInput').click()">VOTER ID</button>
+                <input type="file" id="voterFileInput" style="display:none;" />
+            </div>
+            <div class="upload-zone" id="docDropZone" style="
+    margin-left: 20rem;
+    margin-top: 1rem;height:60%">
+    Drag & Drop Aadhar/Passport/Driving Licence/Voter ID Here
+</div>
+
+<!-- Hidden file input for fallback (optional) -->
+<input type="file" id="docFileInput" accept="image/*" style="display: none;" onchange="handleImageUpload(this.files)">
+        </div>
+
+        <!-- Divider -->
+        <div class="vertical-divider"></div>
+
+        <!-- Right Section -->
+        <div class="docs-section">
+            <button type="button" id="btnuploadpan" class="btn btn-light btn-lg verification-btn"
+                onclick="document.getElementById('panFileUpload').click()">PAN</button>
+            <input id="panFileUpload" type="file" style="display:none;" onchange="handleImageUpload(this.files)" />
+            <div display="flex" style="margin-top: 5px;">
+                <input type="checkbox" id="chkpanupload" />
+                <label>Upload Form 60 if you do not have a PAN No.</label>
+            </div>
+            <div class="upload-zone" id="panDropZone" style="margin-top: 3rem;margin-left: 0rem;height: 9.3rem;">Drag & Drop PAN Card Here</div>
+            <input type="file" id="docPanInput" accept="image/*" style="display:none;" onchange="handleImageUpload(this.files)"/>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div style="display: flex; justify-content: center; margin-top: 3rem;">
+        <button type="button" id="otherdocsubmit" class="btn btn-primary btn-lg"
+            style="width: 13rem; border-radius: 5rem;" >
+            SUBMIT
+        </button>
+    </div>
+</div>
+
+
                                     <ul class="nav nav-tabs" id="myList" runat="server" style="display:none"><%-- Added by Vikash K on 26May2025 for hiding old ui --%>
                                         <li class="active" id="Search" runat="server" onclick="checktab(this,'menu1')">
                                             <a data-toggle="tab" href="#menu1">
