@@ -940,9 +940,90 @@ input.form-control {
     //    "KYCverification": { badgeId: "ctl00_ContentPlaceHolder1_span1" }
     //};
 
-        let currentPanelIndex = 0;
+    let currentPanelIndex = 0;
+    function showPanelByIndex(index) {
+        if (index < 0 || index >= panels.length) return;
 
-        function showPanelByIndex(index) {
+        // Hide all panels
+        panels.forEach(pid => {
+            const panel = document.getElementById(pid);
+            if (panel) panel.style.display = "none";
+        });
+
+        // Special case: personaldetails also shows londeatails
+        if (index === 1) {
+            const pasan = document.getElementById("personaldetails");
+            const lon = document.getElementById("londeatails");
+            if (pasan) pasan.style.display = "block";
+            if (lon) lon.style.display = "block";
+        } else {
+            const currentPanel = document.getElementById(panels[index]);
+            if (currentPanel) currentPanel.style.display = "block";
+        }
+
+        // Reset tab styles
+        Object.values(tabMap).forEach(({ tabId, badgeId }) => {
+            const tab = document.getElementById(tabId);
+            const badge = document.getElementById(badgeId);
+            if (tab) {
+                tab.classList.remove("active");
+                tab.style.color = "#8c8c8c";
+            }
+            if (badge) badge.style.backgroundColor = "#8c8c8c";
+        });
+
+        // Activate current tab
+        const currentTabInfo = tabMap[panels[index]];
+        if (currentTabInfo) {
+            const tab = document.getElementById(currentTabInfo.tabId);
+            const badge = document.getElementById(currentTabInfo.badgeId);
+            if (tab) {
+                tab.classList.add("active");
+                tab.style.color = "#00cccc";
+            }
+            if (badge) badge.style.backgroundColor = "#00cccc";
+        }
+
+        // Restore image carousel if documentdetails
+        if (panels[index] === "documentdetails") {
+            const hdnUploadedImages = document.getElementById("hdnUploadedImages");
+            if (hdnUploadedImages && hdnUploadedImages.value) {
+                uploadedImages = JSON.parse(hdnUploadedImages.value);
+                if (uploadedImages.length > 0) {
+                    currentIndex = 0;
+                    document.getElementById("dropZone").style.display = "none";
+                    document.getElementById("carousel").style.display = "flex";
+                    document.getElementById("prevBtn").style.display = "inline-block";
+                    document.getElementById("nextBtn").style.display = "inline-block";
+                    renderCarouselSlide();
+                }
+            }
+        }
+
+        // Show/hide prev/next/save
+        const prevBtn = document.getElementById("<%= btnprevcd.ClientID %>");
+            if (prevBtn) {
+                prevBtn.style.display = (index === 0) ? "none" : "inline-block";
+            }
+
+            const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
+        const saveBtn = document.getElementById("<%= btnSave.ClientID %>");
+        if (nextBtn) {
+            nextBtn.style.display = (index === panels.length - 1) ? "none" : "inline-block";
+        }
+        if (saveBtn) {
+            saveBtn.style.display = (index === panels.length - 1) ? "inline-block" : "none";
+        }
+
+        currentPanelIndex = index;
+        const hdnCurrentPanel = document.getElementById("hdnCurrentPanel");
+        if (hdnCurrentPanel) {
+            hdnCurrentPanel.value = panels[index];
+        }
+    }
+
+
+        <%--function showPanelByIndex(index) {
             debugger
             if (index < 0 || index >= panels.length) return;
 
@@ -1010,7 +1091,7 @@ input.form-control {
                 hdnCurrentPanel.value = panels[index];
             }
             
-    }
+    }--%>
 
     function goToNextPanel() {
         if (currentPanelIndex < panels.length - 1) {
@@ -1023,8 +1104,24 @@ input.form-control {
             showPanelByIndex(currentPanelIndex - 1);
         }
     }
-
     document.addEventListener("DOMContentLoaded", function () {
+        showPanelByIndex(0); // Initial panel
+
+        const hdnUploadedImages = document.getElementById("hdnUploadedImages");
+        if (hdnUploadedImages && hdnUploadedImages.value) {
+            uploadedImages = JSON.parse(hdnUploadedImages.value);
+            if (uploadedImages.length > 0) {
+                document.getElementById("dropZone").style.display = "none";
+                document.getElementById("carousel").style.display = "flex";
+                renderCarouselSlide();
+            }
+        }
+
+        // Your other logic for buttons...
+    });
+
+
+    <%--document.addEventListener("DOMContentLoaded", function () {
         showPanelByIndex(0);
 
         const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
@@ -1056,7 +1153,7 @@ input.form-control {
         if (saveBtn) {
             saveBtn.style.display = "none";
         }
-    });
+    });--%>
 </script>
 <script type="text/javascript">
     function updateSessionFromTextbox(textbox, sessionKey) {
@@ -1142,8 +1239,54 @@ input.form-control {
             };
             reader.readAsDataURL(file);
         }
-
         function validateAndAddImage() {
+            const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
+            const normalContainer = document.getElementById("<%= normalContainer.ClientID %>");
+            const maskContainer = document.getElementById("<%= maskContainer.ClientID %>");
+    const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
+    const passNoInput = document.getElementById("<%= txtmaskadhar.ClientID %>");
+
+    let docNumber = "";
+
+    if (!docType) {
+        alert("Please select a Document Type.");
+        return false;
+    }
+
+    if (!tempImage) {
+        alert("Please upload an image.");
+        return false;
+    }
+
+    // Add image to array
+    uploadedImages.push({
+        image: tempImage,
+        type: docType,
+        number: docNumber
+    });
+
+    // Store array in hidden field
+    document.getElementById("hdnUploadedImages").value = JSON.stringify(uploadedImages);
+
+            document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
+
+            currentIndex = uploadedImages.length - 1;
+            tempImage = null;
+
+            document.getElementById("dropZone").style.display = "none";
+            const carousel = document.getElementById("carousel");
+            carousel.style.display = "flex";
+            document.getElementById("prevBtn").style.display = "inline-block";
+            document.getElementById("nextBtn").style.display = "inline-block";
+
+            alert("Document added successfully!");
+            renderCarouselSlide();
+            showNext();
+            return true; // prevent postback
+        }
+
+
+        <%--function validateAndAddImage() {
             debugger;
             const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
 
@@ -1209,7 +1352,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
             renderCarouselSlide();
             showNext();
             return true; // prevent postback
-        }
+        }--%>
 
         function showNext() {
             const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
@@ -1281,8 +1424,10 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
 
         <ContentTemplate>
-            <%--added by babita--%>
+            
             <asp:HiddenField ID="hdnCurrentPanel" runat="server" />
+            <%--added by babita--%>
+            <asp:HiddenField ID="hdnUploadedImages" runat="server" ClientIDMode="Static" /> 
 
             
 <%--<div class="row">
