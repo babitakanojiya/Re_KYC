@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <%: Scripts.Render("~/bundles/CKYCValidationjs") %>
     <%: Styles.Render("~/bundles/CKYCcss") %>
+
 </asp:Content>
 
 
@@ -84,6 +85,10 @@
         {
             margin-bottom:10%;
         }*/
+        .panel-body {
+            padding:5px !important;
+        }
+
     </style>
 
     <script type="text/javascript">
@@ -162,6 +167,47 @@
         }
 
     </script>
+    <script type="text/javascript">
+        function callCalender(controlId) {
+            var textbox = document.getElementById(controlId);
+            if (textbox) {
+                $('#' + controlId).datepicker({
+                    dateFormat: 'dd-mm-yy',
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "1900:+0",
+                    showButtonPanel: true
+                }).datepicker("show");
+            }
+        }
+    </script>
+  <script type="text/javascript">
+      //function openPopup(url) {
+      //    window.open(url, '_blank', 'width=700,height=300,resizable=yes,scrollbars=yes');
+      //}
+      function openPopup(url) {
+          var width = 700;
+          var height = 300;
+
+          // Calculate center position
+          var left = (window.screen.width / 2) - (width / 2);
+          var top = (window.screen.height / 2) - (height / 2);
+
+          var features =
+              'width=' + width +
+              ',height=' + height +
+              ',resizable=yes,scrollbars=yes' +
+              ',top=' + top +
+              ',left=' + left;
+
+          window.open(url, '_blank', features);
+      }
+
+  </script>
+
+
+
+
     <asp:ScriptManager ID="CKYCSearch" runat="server">
     </asp:ScriptManager>
 
@@ -212,8 +258,8 @@
         </ul>--%>
         <div class="tab-content">
             <div id="menu1" class="tab-pane fade active in">
-                <div id="div2" class="panel-body" runat="server" style="overflow: auto;">
-                    <div class="row" id="srchby" style="margin-bottom: 5px" runat="server">
+                <div id="div2" class="panel-body" runat="server" style="padding:12px !important;">
+                    <div class="row" id="srchby" style="margin-bottom: 9px" runat="server">
                         <div class="col-sm-3" style="text-align: left">
                             <asp:Label ID="lblSrchBy" runat="server" CssClass="control-label" Text="Search By"
                                 Font-Bold="False"></asp:Label>
@@ -259,7 +305,7 @@
                                 <asp:TextBox ID="TextBox1"  placeholder="XXXX" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-sm-4" style="padding: 0px; padding-left: 6px;">
-                                <asp:TextBox ID="TextBox2" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtaadhar" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="col-sm-3" id="dividentynum" style="display:none" runat="server">
@@ -275,7 +321,7 @@
                         <div class="col-sm-3">
                             <asp:TextBox ID="txtAppfullname" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
-                        <div class="col-sm-3" style="text-align: left">
+                        <%--<div class="col-sm-3" style="text-align: left">
                             <asp:Label ID="lblDOB" Text="DOB" CssClass="control-label" runat="server" Font-Bold="False"></asp:Label>
                             <span id="Span7" runat="server" style="color: red">*</span>
                         </div>
@@ -289,7 +335,23 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
+                        <div class="col-sm-3" style="text-align: left">
+    <asp:Label ID="lblDOB" Text="DOB" CssClass="control-label" runat="server" Font-Bold="False"></asp:Label>
+    <span id="Span7" runat="server" style="color: red">*</span>
+</div>
+<div class="col-sm-3">
+    <div class="input-group">
+        <asp:TextBox ID="txtDOB" ClientIDMode="Static" CssClass="form-control" placeholder="dd-mm-yyyy"
+            onchange="ValidateDOB(this.value);" runat="server"></asp:TextBox>
+        <div class="input-group-btn">
+            <div class="btn btn-primary btn-lg-kmi" onclick="callCalender('txtDOB')">
+                <span class="glyphicon glyphicon-calendar BtnGlyphicon"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
                     </div>
                     <div class="row" id="gender" style="margin-bottom: 5px; display: none" runat="server">
                         <div class="col-sm-3" style="text-align: left">
@@ -410,7 +472,7 @@
                                     </div>
                                 <div class="row">
                                     <center>
-    <div class="col-sm-12" style='margin-top: 15px;'>
+    <div class="col-sm-12" style='margin-top: 2px;'>
         <asp:Button ID="btnSearch" Text="Search" OnClick="btnSearch_Click" CssClass="btn-animated bg-green" runat="server"  OnClientClick="ShowProgressBar('Searching..Please wait')">                                   
         </asp:Button>
         <asp:Button ID="btnClear" OnClick="btnClear_Click" CssClass="btn-animated bg-horrible" Text="Clear" runat="server">    </asp:Button>                            
@@ -509,9 +571,20 @@
 </asp:TemplateField>--%>
 
                                         <asp:TemplateField HeaderText="Download Data" ItemStyle-Width="20%" HeaderStyle-CssClass="pad">
-    <ItemTemplate>
+    <%--<ItemTemplate>
         <asp:HyperLink ID="lnkDownload" runat="server" NavigateUrl='<%# Eval("DownloadUrl") %>' Text="Download" Target="_blank" />
-    </ItemTemplate>
+        
+    </ItemTemplate>--%>
+<ItemTemplate>
+    <a href='javascript:void(0);'
+       onclick='openPopup("<%# Eval("DownloadUrl").ToString().Replace("'", "\\'") %>"); return false;'>
+       Download
+    </a>
+</ItemTemplate>
+
+
+
+
     <ItemStyle CssClass="pad" HorizontalAlign="Center" Width="12%" />
 </asp:TemplateField>
 
@@ -641,6 +714,9 @@
             <script type="text/javascript" src="../../Scripts/jquery.min.js"></script>
 
             <script type="text/javascript" src="../../Scripts/jquery.elevatezoom.js"></script>
+                <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
         </ContentTemplate>
     </asp:UpdatePanel>
 

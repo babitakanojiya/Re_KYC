@@ -6,6 +6,7 @@ using System.Collections;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -110,6 +111,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         Fillcountrycd1();
                         FillDocumentReceived();
                         FillRequiredDataForCKYC();
+                        Fillimagedata(); //added by babita on 05 june 2025 for load a image
                         if (ddlCountryCode.SelectedValue == "IN")
                         {
                             FillDistrictState(ddlPinCode, ddlDistrict, ddlState);
@@ -124,7 +126,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         BindGrid();
                         BindGrid_RelatedData();
                         lblPassportNo.Text = "Document Number";
-                        
+
                     }
                 }
 
@@ -1689,7 +1691,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 objht.Add("@RegRefNo1", hdnRegRefNo.Value);
                 //objds = objDAL.GetDataSet("getSearchData_Web", objht);
                 objds = objDAL.GetDataSet("getSearchData_Web_newbabita", objht);  //added by babita for qc base on otp
-                
+
                 chkAppDeclare1.Checked = true;
                 chkAppDeclare2.Checked = true;
                 //Added by tushar for Account type
@@ -1825,7 +1827,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 }
                 else
                 {
-                   // rbtFS.SelectedValue = "S";
+                    // rbtFS.SelectedValue = "S";
                 }
                 cboTitle2.SelectedValue = Convert.ToString(objds.Tables[0].Rows[0]["FATHER_PREFIX"]);
                 txtGivenName2.Text = Convert.ToString(objds.Tables[0].Rows[0]["FATHER_FNAME"]);
@@ -3086,26 +3088,56 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             }
 
         }
-        //protected void btnPrevious_Click1(object sender, EventArgs e)
-        //{
-        //    Button2.Visible = false;
-        //    // Deactivate Personal Details
-        //    lblContactdtls.Attributes["class"] = "control-label labelSize";
-        //    lblContactdtls.Attributes["style"] = "font-size:19px; color:#9c9c9a; margin-left:7px;display:none";
-        //    // Activate Contact Details
-        //    lblPerdtls.Attributes["class"] = "control-label labelSize HeaderColor";
-        //    lblPerdtls.Attributes["style"] = "font-size:19px; border-bottom: inset; border-bottom-color: #00cccc; color:#00cccc; margin-left:11px;display:block";
-        //}
-        //protected void btnNext_Click1(object sender, EventArgs e)
-        //{
-        //    Button2.Visible = true;
-        //    // Deactivate Personal Details
-        //    lblPerdtls.Attributes["class"] = "control-label labelSize";
-        //    lblPerdtls.Attributes["style"] = "font-size:19px; color:#9c9c9a; margin-left:7px;display:none";
+        //added by babita on 05 june 2025 for image show 
+        protected void Fillimagedata()
+        {
+            try
+            {
+                objht.Clear();
+                cbNew.Checked = true;
 
-        //    // Activate Contact Details
-        //    lblContactdtls.Attributes["class"] = "control-label labelSize HeaderColor";
-        //    lblContactdtls.Attributes["style"] = "font-size:19px; border-bottom: inset; border-bottom-color: #00cccc; color:#00cccc; margin-left:11px;display:block";
-        //}
+                DataAccessLayer objDAL = new DataAccessLayer("CKYCConnectionString");
+                objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+                objds = objDAL.GetDataSet("Prc_GetImageforqcpage", objht);  // Proc returns IMAGE (varbinary)
+
+                if (objds != null && objds.Tables.Count > 0 && objds.Tables[0].Rows.Count > 0)
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    foreach (DataRow row in objds.Tables[0].Rows)
+                    {
+                        if (row["IMAGE"] != DBNull.Value)
+                        {
+                            byte[] imageBytes = (byte[])row["IMAGE"];
+                            string base64Image = Convert.ToBase64String(imageBytes);
+                            string imgSrc = "data:image/jpeg;base64," + base64Image;
+
+                            sb.AppendFormat("<img src='{0}' style='height:180px;margin:5px;' />", imgSrc);
+                        }
+                    }
+
+                    divSearchResult.InnerHtml = sb.ToString(); // 'divSearchResult' is server-side div
+                }
+                else
+                {
+                    divSearchResult.InnerHtml = "<p>No image(s) found.</p>";
+                }
+            }
+            catch (Exception ex)
+            {
+                if (string.IsNullOrWhiteSpace(Convert.ToString(Session["UserID"])))
+                {
+                    Response.Redirect("~/ErrorSession.aspx");
+                }
+                else
+                {
+                    string currentFile = new System.Diagnostics.StackTrace(true).GetFrame(0).GetFileName();
+                    System.Reflection.MethodBase method = System.Reflection.MethodBase.GetCurrentMethod();
+                    objErr.LogErr(AppId, "CKYCQC.aspx.cs", method.Name.ToString(), ex.InnerException == null ? ex.Message : ex.Message + " | " + ex.InnerException.ToString(), strUserId, "USRMGMT");
+                    throw;
+                }
+            }
+        }
+
     }
 }

@@ -8329,6 +8329,116 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         {
             string currentPanel = hdnCurrentPanel.Value;
 
+            if (!IsPostBack)
+            {
+                subPopulateGender();
+            }
+            if (Session["Name"] != null && !string.IsNullOrEmpty(Session["Name"].ToString()))
+            {
+                string fullName = Session["Name"]?.ToString();
+                string firstName = string.Empty;
+                string middleName = string.Empty;
+                string lastName = string.Empty;
+
+                if (!string.IsNullOrWhiteSpace(fullName))
+                {
+                    var nameParts = fullName.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (nameParts.Length >= 1)
+                        firstName = nameParts[0];
+                    if (nameParts.Length == 2)
+                        lastName = nameParts[1];
+                    if (nameParts.Length >= 3)
+                    {
+                        middleName = string.Join(" ", nameParts.Skip(1).Take(nameParts.Length - 2));
+                        lastName = nameParts.Last();
+                    }
+
+                    // Store in session if needed
+                    Session["FirstName"] = firstName;
+                    Session["MiddleName"] = middleName;
+                    Session["LastName"] = lastName;
+
+                    // Assign to controls
+                    txtGivenName.Text = firstName;
+                    txtMiddleName.Text = middleName;
+                    txtLastName.Text = lastName;
+                }
+            }
+                if (Session["Gender"] != null && !string.IsNullOrEmpty(Session["Gender"].ToString()))
+
+                {
+                    cboGender.SelectedItem.Text = Session["Gender"].ToString();
+            }
+            //else {
+            //    cboGender.ClearSelection();
+            //}
+            if (Session["Address"] != null && !string.IsNullOrEmpty(Session["Address"].ToString()))
+            {
+                string fullAddress = Session["Address"]?.ToString();
+                string cleanedAddress = fullAddress.Replace("\n", " ");
+
+                //string line1 = "";
+                //, line2 = "", city = "", district = "", pin = "", state = "";
+
+                if (!string.IsNullOrWhiteSpace(fullAddress))
+                {
+                    //var addressLines = fullAddress.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
+                    //                              .Select(l => l.Trim())
+                    //                              .Where(l => !string.IsNullOrEmpty(l))
+                    //                              .ToList();
+
+                    //line1 = fullAddress.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries).ToString();
+                     
+                    //if (addressLines.Count >= 1) line1 = addressLines[0];
+                    //if (addressLines.Count >= 2) line2 = addressLines[1];
+                    //if (addressLines.Count >= 3) city = addressLines[2];  // City or town/village
+                    //if (addressLines.Count >= 4)
+                    //{
+                    //    var lastLine = addressLines[addressLines.Count - 1];
+                    //    var parts = lastLine.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    //    if (parts.Length == 2)
+                    //    {
+                    //        state = parts[0].Trim();
+                    //        pin = parts[1].Trim();
+                    //    }
+                    //    else
+                    //    {
+                    //        state = lastLine.Trim(); // fallback
+                    //    }
+                    //}
+
+                    // Assign district same as city, or extract from line2 if needed
+                    //district = city;//commented by Akash on 04 jun 25
+
+                    // Store or assign to controls
+                    Session["AddressLine1"] = cleanedAddress;
+                    //commented & Added by Akash on 04 jun 25
+                    //Session["AddressLine2"] = line2;
+                    //Session["City"] = city;
+                    //Session["District"] = district;
+                    //Session["Pin"] = pin;
+                    //Session["State"] = state;
+                    //commented & Ended by Akash on 04 jun 25
+                    txtAddressLine1.Text = cleanedAddress;
+                    //commented & Added by Akash on 04 jun 25
+                    //txtAddressLine2.Text = line2;
+                    //txtCity.Text = city;
+                    //ddlDistrict.SelectedValue = district;
+                    //ddlPinCode.SelectedValue = pin;
+                    //ddlState.SelectedValue = state;
+                    //commented & ended by Akash on 04 jun 25
+                }
+
+            }
+
+
+            if(Session["PanNumber"] != null && !string.IsNullOrEmpty(Session["PanNumber"].ToString()))
+            {
+                txtPanNo.Text = Session["PanNumber"].ToString();
+            }
+
             // Check validation only if pasanldeatils panel is active
             if (currentPanel == "documentdetails")
             {
@@ -8651,6 +8761,78 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             }
 
         }
+
+        [System.Web.Services.WebMethod]
+        public static string UpdateSessionValue(string key, string value)
+        {
+
+            if (key == "GivenName")
+            {
+                if (HttpContext.Current.Session["Name"] != null)
+                {
+                    HttpContext.Current.Session.Remove("Name");
+                }
+                if (HttpContext.Current.Session["FirstName"] != null)
+                {
+                    HttpContext.Current.Session.Remove("FirstName");
+                }
+                HttpContext.Current.Session["FirstName"] = value.Trim();
+            }
+            else if (key == "MiddleName")
+            {
+                if (HttpContext.Current.Session["Name"] != null)
+                {
+                    HttpContext.Current.Session.Remove("Name");
+                }
+                if (HttpContext.Current.Session["MiddleName"] != null)
+                {
+                    HttpContext.Current.Session.Remove("MiddleName");
+                }
+                HttpContext.Current.Session["MiddleName"] = value.Trim();
+
+            }
+            else if (key == "LastName")
+            {
+                if (HttpContext.Current.Session["Name"] != null)
+                {
+                    HttpContext.Current.Session.Remove("Name");
+                }
+                if (HttpContext.Current.Session["LastName"] != null)
+                {
+                    HttpContext.Current.Session.Remove("LastName");
+                }
+                HttpContext.Current.Session["LastName"] = value.Trim();
+
+            }
+            else if (key == "PanNo")
+            {
+                if (HttpContext.Current.Session["PanNumber"] != null)
+                {
+                    HttpContext.Current.Session.Remove("PanNumber");
+                }
+                HttpContext.Current.Session["PanNumber"] = value.Trim();
+            }
+            else if (key == "AddressLine1")
+            {
+                if (HttpContext.Current.Session["Address"] != null)
+                {
+                    HttpContext.Current.Session.Remove("Address");
+                }
+                if (HttpContext.Current.Session["AddressLine1"] != null)
+                {
+                    HttpContext.Current.Session.Remove("AddressLine1");
+                }
+                HttpContext.Current.Session["AddressLine1"] = value.Trim();
+            }
+
+            else
+            {
+                HttpContext.Current.Session[key] = value.Trim();
+            }
+
+            return "OK";
+        }
+
     }
 
     public class OcrRequest

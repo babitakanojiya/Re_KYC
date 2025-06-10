@@ -60,6 +60,24 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divnavigate;
 
         /// <summary>
+        /// panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel1;
+
+        /// <summary>
+        /// divSearchResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSearchResult;
+
+        /// <summary>
         /// gvDocDtls control.
         /// </summary>
         /// <remarks>

@@ -80,28 +80,77 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         {
             try
             {
-                hdnbachNo.Value = txtbatchno.Text.Trim();
-                hdnKycNo.Value = txtKycNo.Text.Trim();
-                if (txtDTsearchFrom.Text.ToString().Trim() != "" && txtDTsearchTo.Text.ToString().Trim() != "")
+                if (ddlSearchby.SelectedValue == "2")
                 {
-                    if (DateTime.ParseExact(txtDTsearchTo.Text.ToString(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture) < DateTime.ParseExact(txtDTsearchFrom.Text.ToString(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture))
+                    // Server-side validation for required identity fields
+                    if (string.IsNullOrWhiteSpace(txtaadhar.Text.Trim()) ||
+                    string.IsNullOrWhiteSpace(txtAppfullname.Text.Trim()) ||
+                    string.IsNullOrWhiteSpace(txtDOB.Text.Trim()) ||
+                    string.IsNullOrWhiteSpace(ddlGender.SelectedValue.Trim()))
                     {
-                        msg = "Registration Date From should be less than Registration Date To";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmsg", "AlertMsg('" + msg + "')", true);
+                        string msg = "Please fill all required fields: Identity Number, Full Name, DOB, and Gender.";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alertRequired", "AlertMsg('" + msg + "');", true);
+                        return;
+                    }
+
+                }
+                // Registration date check
+                if (txtDTsearchFrom.Text.Trim() != "" && txtDTsearchTo.Text.Trim() != "")
+                {
+                    if (DateTime.ParseExact(txtDTsearchTo.Text.Trim(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture) <
+                        DateTime.ParseExact(txtDTsearchFrom.Text.Trim(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture))
+                    {
+                        string msg = "Registration Date From should be less than Registration Date To.";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmsg", "AlertMsg('" + msg + "');", true);
                         return;
                     }
                 }
 
+                // Set hidden values
+                hdnbachNo.Value = txtbatchno.Text.Trim();
+                hdnKycNo.Value = txtKycNo.Text.Trim();
 
+                // Bind data
                 BindDataGrid();
-                //added by babita 
+
+                // Show/hide search details
                 ClientScript.RegisterStartupScript(this.GetType(), "alert12", "showHideDiv('trSearchDetails', 'btnToggle');", true);
             }
             catch (Exception ex)
             {
-                objErr.LogErr(Convert.ToInt32(strAppID), "SearchDataForCkyc.aspx.cs", "Page_Load", ex.InnerException == null ? ex.Message.ToString() : ex.Message.ToString() + " | " + ex.InnerException.ToString(), Session["UserID"].ToString().Trim(), "CKYC");
+                objErr.LogErr(Convert.ToInt32(strAppID), "SearchDataForCkyc.aspx.cs", "Page_Load", ex.InnerException == null
+                    ? ex.Message.ToString()
+                    : ex.Message.ToString() + " | " + ex.InnerException.ToString(), Session["UserID"].ToString().Trim(), "CKYC");
             }
         }
+
+        //protected void btnSearch_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+
+        //        hdnbachNo.Value = txtbatchno.Text.Trim();
+        //        hdnKycNo.Value = txtKycNo.Text.Trim();
+        //        if (txtDTsearchFrom.Text.ToString().Trim() != "" && txtDTsearchTo.Text.ToString().Trim() != "")
+        //        {
+        //            if (DateTime.ParseExact(txtDTsearchTo.Text.ToString(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture) < DateTime.ParseExact(txtDTsearchFrom.Text.ToString(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture))
+        //            {
+        //                msg = "Registration Date From should be less than Registration Date To";
+        //                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmsg", "AlertMsg('" + msg + "')", true);
+        //                return;
+        //            }
+        //        }
+
+
+        //        BindDataGrid();
+        //        //added by babita 
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert12", "showHideDiv('trSearchDetails', 'btnToggle');", true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        objErr.LogErr(Convert.ToInt32(strAppID), "SearchDataForCkyc.aspx.cs", "Page_Load", ex.InnerException == null ? ex.Message.ToString() : ex.Message.ToString() + " | " + ex.InnerException.ToString(), Session["UserID"].ToString().Trim(), "CKYC");
+        //    }
+        //}
         protected DataTable GetDataTableCKYC()
         {
             dt = new DataTable();
@@ -114,8 +163,27 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
                 hTable.Add("@batchid", txtbatchno.Text.Trim());
                 hTable.Add("@KYC_Number_20", txtKycNo.Text.Trim());
+                //hTable.Add("@identityno", txtaadhar.Text.Trim());
+                //hTable.Add("@fullname", txtAppfullname.Text.Trim());
+                //hTable.Add("@dob", txtDOB.Text.Trim());
+                //hTable.Add("@gender", ddlGender.Text.Trim());
+                if (!string.IsNullOrWhiteSpace(txtaadhar.Text.Trim()) &&
+    !string.IsNullOrWhiteSpace(txtAppfullname.Text.Trim()) &&
+    !string.IsNullOrWhiteSpace(txtDOB.Text.Trim()) &&
+    !string.IsNullOrWhiteSpace(ddlGender.Text.Trim()))
+                {
+                    hTable.Add("@identityno", txtaadhar.Text.Trim());
+                    hTable.Add("@fullname", txtAppfullname.Text.Trim());
+                    hTable.Add("@dob", txtDOB.Text.Trim());
+                    hTable.Add("@gender", ddlGender.Text.Trim());
+                }
+
+
                 //hTable.Add("@applicantname", txtName.Text.Trim());
-                hTable.Add("@identityno", txtidnummm.Text.Trim());
+                else
+                {
+                    hTable.Add("@identityno", txtidnummm.Text.Trim());
+                }
                 if (txtDTsearchFrom.Text.Trim() != "")
                 {
                     hTable.Add("@CreateFrmDtim", txtDTsearchFrom.Text.Trim());
@@ -164,24 +232,32 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     if (!dtResult_Kyc.Columns.Contains("DownloadUrl"))
                         dtResult_Kyc.Columns.Add("DownloadUrl", typeof(string));
 
-                    // Populate DownloadUrl for each row
+
+                    //foreach (DataRow row in dtResult_Kyc.Rows)
+                    //{
+                    //    string ckycRef = row["CKYCReferenceNumber"].ToString();
+
+
+                    //    //string filePath = ResolveUrl("~/Downloads/" + ckycRef + ".pdf");
+                    //    //row["DownloadUrl"] = filePath;
+                    //    string filePath = ResolveUrl("~/Application/CKYC/DownloadOTPPage.aspx?ckycRef=" + ckycRef + "&showDiv=1");
+
+                    //    row["DownloadUrl"] = filePath;
+
+                    //}
                     foreach (DataRow row in dtResult_Kyc.Rows)
                     {
                         string ckycRef = row["CKYCReferenceNumber"].ToString();
-
-
-                        //string filePath = ResolveUrl("~/Downloads/" + ckycRef + ".pdf");
-                        //row["DownloadUrl"] = filePath;
                         string filePath = ResolveUrl("~/Application/CKYC/DownloadOTPPage.aspx?ckycRef=" + ckycRef + "&showDiv=1");
 
                         row["DownloadUrl"] = filePath;
-
                     }
 
+
                     // Hide column 4 if exists (as per your existing logic)
-                    if (dgView.Columns.Count > 5)
+                    if (dgView.Columns.Count > 6)
                     {
-                        dgView.Columns[4].Visible = false;
+                        dgView.Columns[5].Visible = false;
                     }
 
                     // Bind to GridView
