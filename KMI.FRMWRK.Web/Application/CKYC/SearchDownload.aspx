@@ -301,7 +301,7 @@
     border-radius: 5rem;
     border: 2px solid black;
     background-color: white;
-    color: black;
+    /*color: black;*/
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
@@ -334,6 +334,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         gap: 2rem;
+        height:250px;
     }
 
     .docs-section {
@@ -390,14 +391,49 @@
     }
   </style>
     <script>
-        function showOtherDocs(show){
-            document.getElementById("divotherdocsdata").style.display="block";
+        var nid = "";
+        function bckotherdoc() {
+                document.getElementById("btnpassport").removeAttribute("style");
+                document.getElementById("btnvoter").removeAttribute("style");
+                document.getElementById("btndrivinglic").removeAttribute("style");
+            document.getElementById("divotherdocsdata").style.display = "none";
+            document.getElementById("otherdocyes").style.display = "block";
+            document.getElementById("otherdocsearch").style.display = "none";
+            hideDiv('OtherDocs', 'Aadharpage1');
+        }
+        function btnclicked(id) {
+            if (id == "btnvoter") {
+                
+                document.getElementById("btnpassport").removeAttribute("style");
+                document.getElementById("btndrivinglic").removeAttribute("style");
+            }
+            else if (id == "btndrivinglic") {
+                document.getElementById("btnvoter").removeAttribute("style");
+                document.getElementById("btnpassport").removeAttribute("style");
+            }
+            else {
+                document.getElementById("btnvoter").removeAttribute("style");
+                document.getElementById("btndrivinglic").removeAttribute("style");
+            }
             
-            if(show=="voter"){
+            document.getElementById("otherdocsearch").style.display = "none";
+            document.getElementById("otherdocyes").style.display = "block";
+            document.getElementById("divotherdocsdata").style.display = "none";
+            document.getElementById("otherdocyes").disabled = false;
+            document.getElementById(id).style.color = 'white';
+            document.getElementById(id).style.background = "blue";
+            nid = id;
+
+        }
+        function showOtherDocs() {
+            document.getElementById("divotherdocsdata").style.display = "block";          
+            document.getElementById("otherdocyes").style.display = "none"; 
+            document.getElementById("otherdocsearch").style.display = "block";
+            if (nid =="btnvoter"){
                 document.getElementById("lblotherdocs").textContent="Voter ID Number: ";  
                 document.getElementById("docspara").textContent="Please enter the voter id and the DOB Details."
             }
-            else if(show=="drivinglic"){
+            else if (nid =="btndrivinglic"){
                 document.getElementById("lblotherdocs").textContent="Driving Licence Number: ";
                 document.getElementById("docspara").textContent="Please enter the Driving Licence Number and the DOB Details."
             }
@@ -479,6 +515,7 @@
 
         function callSearchPanAjax() {
     debugger;
+     
     var pan = document.getElementById('<%= PanNo.ClientID %>').value.trim();
     var dob = document.getElementById('<%= pandob.ClientID %>').value.trim();
     var aadharNumber = document.getElementById("aadhaarNumber").value.trim();
@@ -515,12 +552,15 @@
         success: function (response) {
             if(pan){
                  hideDiv('PANpage2', 'PANpage3','5000');
+                 historyStack.push('PANpage2');
             }
             else if(aadharNumber){
                 hideDiv('Aadharpage2', 'PANpage3','5000');
+                historyStack.push('Aadharpage2');
             }
             else{
                 hideDiv('CKYCpage2', 'PANpage3','5000');
+                historyStack.push('CKYCpage2');
             }
             
             var data = JSON.parse(response.d);
@@ -767,6 +807,16 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                 reader.readAsDataURL(file);
             }
         });
+        let historyStack=[];
+        function goBack() {
+    const lastDiv = historyStack.pop(); // get previous div
+    if (lastDiv) {
+        document.querySelectorAll('.page-div').forEach(div => div.style.display = 'none'); // hide all
+        document.getElementById(lastDiv).style.display = "block";
+    } else {
+        alert("No previous section.");
+    }
+}
     </script>
 
 </asp:Content>
@@ -847,7 +897,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <%-- Ended by Vikash K on 26May2025 --%>
 
                                     <%-- Added by Vikash K on 26May2025 CKYCpage1 --%>
-                                    <div id="CKYCpage1" style="display:none;">
+                                    <div id="CKYCpage1" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Do you have a CKYC No.?</h1>
                                             <div style="margin-top: 20px; text-align: center;">
                                                 <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
@@ -869,15 +919,21 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             <button type="button" id="ckycno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="hideDiv('CKYCpage1','PANpage1')">
                                                 NO I DON'T HAVE
                                             </button>
+                                                <button type="button" id="bckbutton" class="btn btn-secondary btn-lg"
+                                                style="width: 10rem; border-radius: 5rem;"
+                                                onclick="hideDiv('CKYCpage1','onboardpage1')">
+                                                Back
+                                            </button>
 <%--                                             <button type="button" id="donot"class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="showmodalpopup('ckycModalpopup')">
                                                 I DON'T KNOW
                                             </button>--%>
                                         </div>
+
                                     </div>
                                     <%-- 28/05/2025 POP-UP PAGE --%>
 
                                     <%-- Ended by Vikash K on 26May2025 --%>
-                                    <div id="CKYCpage2" style="display:none;">
+                                    <div id="CKYCpage2" class="page-div" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter CKYC No.</h1>
                                     <div style="margin-top: 0px; text-align: center;">
                                         <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
@@ -913,7 +969,11 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             <button type="button" id="ckycclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue" onclick="resetFields('<%= txtCKYC.ClientID %>','<%= ckycDOB.ClientID %>')">
                                                 CLEAR
                                             </button>
-
+                                                <button type="button" id="bckbuttonaadhar2" class="btn btn-secondary btn-lg"
+                                                style="width: 10rem; border-radius: 5rem;"
+                                                onclick="hideDiv('CKYCpage2','CKYCpage1')">
+                                                Back
+                                            </button>
                                         </div>
                                         <div>
 <%--                                        <h3 style="color:blue; font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 14 digit CKYC number and Date of Birth</h3>--%>
@@ -922,7 +982,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                         </div>
                                     <%-- Added by Rahul Sawal on 27May2025 for CKYC page2 --%>
 
-                                    <div id="ckycModalpopup" style="display: none; position: fixed; z-index: 999; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+                                   <%-- <div id="ckycModalpopup" style="display: none; position: fixed; z-index: 999; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
                                     <div style="background-color: #fff; margin: auto; padding: 20px 30px; border-radius: 12px; width: 60%; max-width: 500px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); font-family: Arial, sans-serif; text-align: center;">
                                     <p style="line-height: 1.6; font-size: 14px;">
                                      If you have ever submitted your identity and address documents<br />
@@ -939,32 +999,11 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                                      OK
                                     </button>
                                     </div>
-                                    </div>
+                                    </div>--%>
 
                                     <%-- Added by Vikash K on 26May2025 CKYCpage1 --%>
-                                    <%--<div id="PANpage1" style="display:none;">
-                                        <h1 style="color:#1f50a7;font-size:5rem;font-weight:bold;">Do you have a PAN Number?</h1>
-                                            <div style="margin-top: 20px; text-align: center;">
-                                                <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
-    
-                                                <h4 style="line-height: 1.6; margin-top: 1rem;font-weight:unset;">
-                                                    Permanent Account Number (PAN) is a 10 character identification number, consisting <br />
-                                                    of letters and numbers, issued to all taxpayers, by the Indian Income Tax Department.<br />
-                                                    If you have a PAN number, please click Yes. If you don’t have one, you can still continue <br />
-                                                    the verification process with other identity documents.
-                                                </h4>
-                                            </div>
 
-                                        <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
-                                            <button type="button" id="panyes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('PANpage1','PANpage2')">
-                                                Yes
-                                            </button>
-                                            <button type="button" id="panno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="hideDiv('PANpage1','Aadharpage1')">
-                                                No
-                                            </button>
-                                        </div>
-                                    </div>--%>
-                                    <div id="PANpage1" style="display:none;">
+                                    <div id="PANpage1" class="page-div" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have a PAN No.?</h1>
                                         <div style="margin-top: 20px; text-align: center;">
                                             <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
@@ -985,9 +1024,14 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                         <button type="button" id="panno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="hideDiv('PANpage1','Aadharpage1')">
                                             NO I DON'T HAVE
                                         </button>
+                                            <button type="button" id="bckbuttonpan1" class="btn btn-secondary btn-lg"
+                                            style="width: 10rem; border-radius: 5rem;"
+                                            onclick="hideDiv('PANpage1','CKYCpage1')">
+                                            Back
+                                            </button>
                                     </div>
                                 </div>
-                                    <div id="PANpage2" style="display:none;">
+                                    <div id="PANpage2" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter PAN Number</h1>
                                         <div style="margin-top: 20px; text-align: center;">
                                             <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
@@ -1020,12 +1064,16 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                                 <button type="button" id="panclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue" onclick="resetFields('<%= PanNo.ClientID %>','<%= pandob.ClientID %>')">
                                                     Clear
                                                 </button>
-
+                                                <button type="button" id="bckbuttonpan2" class="btn btn-secondary btn-lg"
+                                                style="width: 10rem; border-radius: 5rem;"
+                                                onclick="hideDiv('PANpage2','PANpage1')">
+                                                Back
+                                                </button>
                                             </div>
                                         </div>
                                             </div>
 
-                                       <div id="PANpage3" style="display:none;">
+                                       <div id="PANpage3" class="page-div" style="display:none;">
                                      <h1 style="color:#1f50a7;font-size:3rem;font-weight:bold;">Hurray!</h1>
                                      <div style="text-align: center; margin-top:10px;font-size:medium;">
 
@@ -1156,6 +1204,11 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             onclick="startTimer('1'); return false;" disabled="disabled">
                                             RESEND
                                         </button>
+                                         <button type="button" id="bckbtndata" class="btn btn-secondary btn-lg"
+                                             style="width: 10rem; border-radius: 5rem;"
+                                             onclick="goBack();">
+                                             Back
+                                         </button>
 
                                         </div>
                                                                                  </div>
@@ -1164,7 +1217,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
 
                                     <%-- Ended by Vikash K on 26May2025 --%>
                                     <%--Added by Vikash K on 20May2025--%>
-                                    <div id="Aadharpage1" style="display:none;">
+                                    <div id="Aadharpage1" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have an AADHAR card?</h1>
                                         <div style="margin-top: 20px; text-align: center;">
                                         <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
@@ -1183,7 +1236,13 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                         <button type="button" id="aadharno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="hideDiv('Aadharpage1','OtherDocs')">
                                                 NO, I DON'T HAVE
                                         </button>
+                                        <button type="button" class="btn btn-secondary btn-lg"
+                                            style="width: 10rem; border-radius: 5rem;"
+                                            onclick="hideDiv('Aadharpage1','PANpage1')">
+                                            Back
+                                        </button>
                                         </div>
+
                                         </div>
 
                                     <%--<div id="Aadharpage2" style="display:none;">
@@ -1247,7 +1306,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     </button>
                                 </div>
                                 </div>--%>
-                                    <div id="Aadharpage2" style="display:none;">
+                                    <div id="Aadharpage2" class="page-div" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;margin-bottom: -2rem;">Please enter  AADHAR details</h1>
                                     <div style="margin-top: 20px; text-align: center;">
                                     <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 22rem; display: block; margin: -1rem auto;" />
@@ -1300,6 +1359,11 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     </button>
                                     <button type="button" id="clearaadhar"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="resetFields('aadhaarNumber','fullName','dob','gender')">
                                             CLEAR
+                                    </button>
+                                        <button type="button" class="btn btn-secondary btn-lg"
+                                        style="width: 10rem; border-radius: 5rem;"
+                                        onclick="hideDiv('Aadharpage2','Aadharpage1')">
+                                        Back
                                     </button>
                                     </div>
                                     </div>
@@ -1487,19 +1551,19 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
 
  </div>
 
-                                    <div id="OtherDocs" style="display:none;">
+                                    <div id="OtherDocs" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Do you have any of the <br /> required documents?</h1>
                                      <h3 style="color:#1999ed;font-size:3.5rem;font-weight: 350;">If yes, please select one.</h3>
 
                                         <div style="margin-top: 20px; text-align: center;">                                            
                                     <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
-                                        <button type="button" id="btnpassport" class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('passport')">
+                                        <button type="button" id="btnpassport" class="btn btn-light btn-lg verification-btn"  onclick="btnclicked('btnpassport')">
                                             PASSPORT
                                         </button>
-                                        <button type="button" id="btndrivinglic"class="btn btn-light btn-lg verification-btn"  onclick="showOtherDocs('drivinglic')">
+                                        <button type="button" id="btndrivinglic"class="btn btn-light btn-lg verification-btn"  onclick="btnclicked('btndrivinglic')">
                                             DRIVING LICENCE
                                         </button>
-                                         <button type="button" id="btnvoter"class="btn btn-light btn-lg verification-btn" onclick="showOtherDocs('voter')">
+                                         <button type="button" id="btnvoter"class="btn btn-light btn-lg verification-btn" onclick="btnclicked('btnvoter')">
                                              VOTER ID
                                          </button>
                                     </div>
@@ -1522,12 +1586,20 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                         </div>
 
                                     <div style="display: flex; justify-content: center; margin-top: 10%;gap:6rem;">
-                                        <button type="button" id="otherdocsearch" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('OtherDocs','onboardpage1')">
-                                            SEARCH
+                                        <button type="button" id="otherdocyes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" disabled="disabled" onclick="showOtherDocs();">
+                                            YES I DO HAVE   
                                         </button>
-                                        <button type="button" id="otherdocclear"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:2px solid darkblue;" onclick="hideDiv('OtherDocs','docsupload')">
+                                         <button type="button" id="otherdocsearch" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;display:none;"  onclick="hideDiv('OtherDocs','onboardpage1')">
+                                            SEARCH  
+                                            </button>
+                                        <button type="button" id="otherdocno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:2px solid darkblue;" onclick="hideDiv('OtherDocs','docsupload')">
                                             NO, I DON'T HAVE
                                         </button>
+                                        <button type="button" id="bckbtnotherdoc" class="btn btn-secondary btn-lg"
+                                        style="width: 10rem; border-radius: 5rem;"
+                                        onclick="bckotherdoc();">
+                                         Back
+                                    </button>
                                     </div>
                                 </div>
 
@@ -1536,7 +1608,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
         Please upload one of the <br /> following documents and PAN
     </h1>
 
-    <div class="docs-container" style="margin-top: 3rem;">
+    <div class="docs-container"  style="margin-top: 3rem;">
         <!-- Left Section -->
         <div class="docs-section">
             <div class="doc-buttons">
@@ -1583,17 +1655,22 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                 <input type="checkbox" id="chkpanupload" />
                 <label>Upload Form 60 if you do not have a PAN No.</label>
             </div>
-            <div class="upload-zone" id="panDropZone" style="margin-top: 3rem;margin-left: 0rem;height: 9.3rem;">Drag & Drop PAN Card Here</div>
+            <div class="upload-zone" id="panDropZone" style="margin-left: 0rem;margin-top: 3rem;height: 60%;width: 26rem;">Drag & Drop PAN Card Here</div>
             <input type="file" id="docPanInput" accept="image/*" style="display:none;" onchange="handleImageUpload(this.files)"/>
         </div>
     </div>
 
     <!-- Submit Button -->
-    <div style="display: flex; justify-content: center; margin-top: 3rem;">
+    <div style="display: flex; justify-content: center; margin-top: 5rem;gap:6rem;">
         <button type="button" id="otherdocsubmit" class="btn btn-primary btn-lg"
             style="width: 13rem; border-radius: 5rem;" >
             SUBMIT
         </button>
+            <button type="button" class="btn btn-secondary btn-lg"
+    style="width: 10rem; border-radius: 5rem;"
+    onclick="hideDiv('docsupload','OtherDocs')">
+     Back
+</button>
     </div>
 </div>
 
