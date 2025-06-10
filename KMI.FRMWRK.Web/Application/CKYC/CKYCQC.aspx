@@ -135,6 +135,60 @@
     .step-content.active {
         display: block;
     }
+
+    .nav-tabs .nav-item .active {
+    border: 3px solid !important;
+    color: #8AB5FF !important;
+    }
+
+    .nav-tabs .nav-item span {
+    color:grey !important;
+    border: none !important;
+    }
+
+    .nav-tabs .nav-item .active span {
+    color: blue !important;
+    border-bottom:0px transparent !important;
+    }
+    .panel {
+    border: 2px solid transparent !important;
+    }
+
+    .panel.panel-success {
+        /*background-color: #B7D2FF !important;  Slightly darker shade of #E1EEFF */
+       border-color: #8AB5FF !important; /* Optional: dark text color for contrast */
+    }
+
+    /* Base styles for the panel */
+.responsive-panel {
+    height: 12.5rem; /* 200px = 12.5rem */
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inner div styled using rem units */
+.responsive-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.625rem; /* 10px = 0.625rem */
+    width: 100%;
+    max-width: 75rem; /* ~1200px = 75rem */
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 48rem) { /* 768px = 48rem */
+    .responsive-search {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
 </style>
     <script type="text/javascript">
 
@@ -378,8 +432,8 @@
 
 <script>
     let currentStep = 0;
-    const steps = ['lblPerdtls', 'lblAdddtls', 'lblContactdtls', 'lblrekycdtls'];
-    const contentIds = ['step0', 'step1', 'step2', 'step3'];
+    const steps = ['lbldocument','lblPerdtls', 'lblAdddtls', 'lblContactdtls', 'lblrekycdtls'];
+    const contentIds = ['step0', 'step1', 'step2', 'step3','step4'];
 
     function changeStep(direction) {
         // Hide current step
@@ -431,176 +485,7 @@
 
     <center>
             <div class="container-fluid mt-0">
-                 <div id="divImg" runat="server" class="panel panel-success" style="margin-left:0px;margin-right:0px">
-  <div id="Div19"  runat="server" class="panel-heading" >           
-<div class="row">
-<div class="col-sm-10" style="text-align:left">
-<span class="glyphicon glyphicon-menu-hamburger" ></span>
-<asp:Label ID="lbluploadDoc" Text="UPLOADED DOCUMENTS" runat="server"  CssClass="control-label" ></asp:Label>
-         
-</div>
-<div class="col-sm-2" >
-<span id="btnnavigate" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divnavigate','btnnavigate');return false;" style="cursor:pointer;float: right; padding: 1px 10px ! important; font-size: 18px;"></span>
-</div>
-</div>
-</div>
-    <div id="divnavigate" style="display:block;" runat="server" class="panel-body">
-        <div class="row">
-          <div class="col-sm-12" style="text-align:right">
-              <%--added by babita --%>
- <%--              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
-     <div id="divSearchResult" runat="server">
-       
-     </div>
- </asp:Panel>--%>
-              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
-    <div id="divSearchResult" runat="server" 
-         style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px;margin-right: 1290px;">
-    </div>
-</asp:Panel>
-    
-              <%--ended by babita --%>
-                 <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
-                     AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
-                            <%--<AlternatingRowStyle BackColor="White" />--%>
-                            <EditRowStyle BackColor="#7C6F57" />
-                            <FooterStyle BackColor="#1C5E55" ForeColor="White" />
-                            <HeaderStyle BackColor="#00c5cc" ForeColor="White" Height="35px" CssClass="gridViewHeader" />
-                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#E3EAEB" />
-                            <Columns>
-                                
-                                <asp:TemplateField HeaderText="Document Code" HeaderStyle-CssClass="center" Visible="false">
-                                    <ItemTemplate>
-                                       <asp:Label ID="lbldocCode" runat="server"  Text='<%#Bind("DOC_CODE") %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <ItemStyle  CssClass="center"    />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Document Name" HeaderStyle-CssClass="center" >
-                                    <ItemTemplate>
-                                       <asp:Label ID="lbldocName" runat="server" Text='<%#Bind("DOC_NAME") %>'></asp:Label>
-                                    </ItemTemplate>
-                                     <ItemStyle  CssClass="left2"    />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="DocumentName" HeaderStyle-CssClass="center" Visible="false">
-                                    <ItemTemplate>
-                                       <asp:Label ID="lbldocTyp" runat="server" Text='<%#Bind("Image_Name") %>'></asp:Label>
-                                    </ItemTemplate>
-                                     <ItemStyle  CssClass="left2"    />
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="View Document" HeaderStyle-CssClass="center">
-                                    <ItemTemplate >
-                                         <asp:LinkButton ID="btnView" runat="server" class="glyphicon glyphicon-eye-open" Style="color: #337ab7;"  OnClientClick="Confirm(this);"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>
-                                            <%--style="color:black;" OnClientClick="Confirm(this); ShowProgressBarWithOutTimer('Loading Document... Please Wait...');"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>--%>
-                                    </ItemTemplate>
-                                     <ItemStyle  CssClass="center"    />
-                                </asp:TemplateField>
-                            </Columns>
-                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="false" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                            <SortedAscendingHeaderStyle BackColor="#246B61" />
-                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                            <SortedDescendingHeaderStyle BackColor="#15524A" />
-                        </asp:GridView>
-                <asp:UpdatePanel runat="server" ID="upnlPrev"  style="display:none;">
-                    <ContentTemplate>
-                       
-
-                            <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
- OnClick="btnprev_Click"    TabIndex="244" >
-<span class="glyphicon glyphicon-arrow-left">Prev</span> 
-</asp:LinkButton> --%>
-                       <%----%>
-                           <%-- <asp:LinkButton ID="btnnext" Text="Next" runat="server" CssClass="btn btn-primary" CausesValidation="false"
-   OnClick="btnnext_Click" TabIndex="244" >
-<span class="glyphicon glyphicon-arrow-right">Next</span> 
-</asp:LinkButton> --%>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-      </div>
-      <div>
-          <div class="col-sm-3" style="text-align: left;display:none">
-                                                   
-                                                    
-                                                    <asp:Label ID="lblPageInfo" runat="server" Visible="false"></asp:Label>
-                                                </div>
-          <asp:UpdatePanel runat="server">
-              <ContentTemplate>
-                  <div id="divloaderqc" class="col-sm-12" runat="server" style="display: none;">
-                      <caption>
-                          <img id="img31" alt="" src="~/images/spinner.gif" runat="server" />
-                          Loading...
-                      </caption>
-                  </div>
-              </ContentTemplate>
-          </asp:UpdatePanel>
-       <asp:UpdatePanel runat="server" ID="upnlHeader">
-        <ContentTemplate>
-        <div class="row">
-         <div class="col-sm-12" align="center">
-           <asp:Label ID="lblpanelheader" runat="server" CssClass="control-label" />
-                        <asp:HiddenField ID="hdnDocId" runat="server" />
-         </div>
-    </div>
-
-       <div class="row">
-         
-     
-        <asp:GridView ID="GridImage" runat="server" AllowSorting="True" CssClass="footable"
-                                  width="1200px"              AutoGenerateColumns="False" PageSize="10" AllowPaging="true" CellPadding="1"
-                                            OnRowDataBound="GridImage_RowDataBound"> <%--OnPageIndexChanging="GridImage_PageIndexChanging"
-                                --%>
-                                                  <RowStyle CssClass="GridViewRow" ></RowStyle>  
-                    <PagerStyle CssClass="disablepage" />
-                    <HeaderStyle CssClass="gridview th" />
-                    
-                    
-                                              <Columns>
-                                    <asp:TemplateField SortExpression="SR_NO" HeaderText="SR_NO" Visible="false">
-                                        <ItemTemplate>
-                                            <asp:LinkButton ID="lblCndNo1" runat="server" Text='<%# Eval("SR_NO") %>'></asp:LinkButton>
-                                            <asp:HiddenField ID="hdnid" runat="server" Value='<%# Eval("SR_NO") %>'></asp:HiddenField>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:ImageField DataImageUrlField="SR_NO" DataImageUrlFormatString="ImageCSharp.aspx?ImageID=ckyc+{0}" 
-                                       HeaderText="Preview Image">
-                                        <ControlStyle CssClass="left_padding" Width="30%" /> <%--Height="100%"--%>
-                                    </asp:ImageField>
-                                </Columns> 
-                                            </asp:GridView>
-                                             <center>
-                                          
-
-                                                <table style="display:none;">
-                                                    <tr>
-                                                        <td>
-                                                            <asp:Button ID="btnprev" Text="<" CssClass="form-submit-button" runat="server"
-                                                                Width="40px" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat;
-                                                                background-color: transparent; float: left; margin: 0; height: 30px;" OnClick="btnprev_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
-                                                          <%--  <asp:TextBox runat="server" ID="txtPage" Text="1" Style="width: 35px; border-style: solid;
-                                                                border-width: 1px; border-color: Gray; height: 30px; float: left; margin: 0;funload();
-                                                                text-align: center;" CssClass="form-control" ReadOnly="true" />--%>
-                                                            <asp:Button ID="btnnext" Text=">" CssClass="form-submit-button" runat="server" Enabled="false" Style="border-style: solid;
-                                                                border-width: 1px; background-repeat: no-repeat; background-color: transparent;
-                                                                float: left; margin: 0; height: 30px;" Width="40px" OnClick="btnnext_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </center>
-
-                                            
-                                              </div>
-       </ContentTemplate>
-          <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="btnnext" EventName="Click"></asp:AsyncPostBackTrigger>
-        </Triggers>
-     </asp:UpdatePanel>
-
-      
-   </div>
-</div>
-</div>
+                 
 
                 <%--Added by Vikash K on 20May2025--%>
                 <div class="row">
@@ -613,8 +498,34 @@
                                <span id="lblDocdtls" class="control-label labelSize " style="font-size:19px;color:#9c9c9a;margin-left:7px;">Document Details</span>
                                --%>
                         <!-- Step Labels -->
+                                  <%--<span id="lbldocument" class="step-label active">Document Details</span>
+                        <span id="lblPerdtls" class="step-label">Personal Details</span>
+                        <span id="lblAdddtls" class="step-label">Address Details</span>
+                        <span id="lblContactdtls" class="step-label">Contact Details</span>
+                        <span id="lblrekycdtls" class="step-label">Verification Details</span>--%>
 
-                        <span id="lblPerdtls" class="step-label active">Personal Details</span>
+
+                              </div>
+                              <div class="col-sm-2">
+                              
+                               </div>
+                             </div>
+
+             
+
+                <%--Added by Vikash K on 20May2025--%>
+<%--                <div class="row">
+                              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">--%>
+                              <%--<span id="lblPerdtls" runat="server" class="control-label labelSize HeaderColor" style="font-size:19px;border-bottom: inset;border-bottom-color: #00cccc;">Personal Details</span>
+                              <span id="lblContactdtls" runat="server" class="control-label labelSize " style="font-size:19px;;color:#9c9c9a;margin-left:7px;">Contact Details</span>                           
+                               
+
+                                  <span id="lblAdddtls" class="control-label labelSize " style="font-size:19px;color:#9c9c9a;margin-left:7px;">Address Details</span>
+                               <span id="lblDocdtls" class="control-label labelSize " style="font-size:19px;color:#9c9c9a;margin-left:7px;">Document Details</span>
+                               --%>
+                        <!-- Step Labels -->
+
+<%--                        <span id="lblPerdtls" class="step-label active">Personal Details</span>
                         <span id="lblAdddtls" class="step-label">Address Details</span>
                         <span id="lblContactdtls" class="step-label">Contact Details</span>
                         <span id="lblrekycdtls" class="step-label">Verification Details</span>
@@ -624,22 +535,143 @@
                               <div class="col-sm-2">
                               
                                </div>
-                             </div>
+                             </div>--%>
 
-                  <div id="step3" class="panel panel-success step-content" style="margin-left: 0px; margin-right: 0px;display:none">
-                    <div id="Div25" runat="server" class="panel-heading" >
+
+
+              <div class="container-fluid"> <%--For making resonsive by Vikash K on 23May2025--%>
+    <div class="row">
+        <div class="col-12">
+            <div class="stripPanelClass">
+                <div class="table-responsive">
+                    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab"  style="white-space: nowrap;">
+                        <li class="nav-item active" role="presentation">
+                            <button id="lbldocument"
+                                data-bs-toggle="tab"
+                                data-bs-target="#divDU"
+                                type="button"
+                                role="tab"
+                                aria-controls="divDU"
+                                aria-selected="false"
+                                tabindex="0"
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+
+                                <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left: 1rem;">1</span>
+
+                                <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">DOCUMENTS<br />
+                                    DETAILS
+                                </span>
+                                <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <%--<button id="ctl00_ContentPlaceHolder1_divRDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divRD" type="button" role="tab" aria-controls="divRD" aria-selected="false" style="padding: 2rem; border-color: blue;" tabindex="0">
+                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span3" style="background-color: #8c8c8c !important; ">2</span> Personal Details--%>
+                            <button id="lblPerdtls"
+                                data-bs-toggle="tab"
+                                data-bs-target="#divDU"
+                                type="button"
+                                role="tab"
+                                aria-controls="divDU"
+                                aria-selected="false"
+                                tabindex="0"
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">2</span>
+    
+                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                PERSONAL <br />DETAILS
+                            </span>
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                        <li class="nav-item" role="presentation">
+<%--                            <%--<button id="ctl00_ContentPlaceHolder1_divCDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divCD" type="button" role="tab" aria-controls="divCD" ariaselected="false" style ="padding: 2rem; border-color: blue;" tabindex="0">--%>
+<%--                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span2" style="background-color: #8c8c8c !important; ">3</span> Contact Details--%>
+                                             <button id="lblAdddtls"
+                                             data-bs-toggle="tab"
+                                             data-bs-target="#divDU"
+                                             type="button"
+                                             role="tab"
+                                             aria-controls="divDU"
+                                             aria-selected="false"
+                                             tabindex="0"
+                                             style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                                         <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
+    
+                                         <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                             CONTACT <br />DETAILS
+                                         </span>
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                        <li class="nav-item" role="presentation">
+<%--                            <button id="ctl00_ContentPlaceHolder1_divPAH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divPA" type="button" role="tab" aria-controls="divPA" aria-selected="false" style ="padding: 2rem; border-color: blue;" tabindex="0">--%>
+<%--                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span4" style="background-color: #8c8c8c !important;">4</span> Address Details--%>
+                                <button id="lblContactdtls"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#divDU"
+                                    type="button"
+                                    role="tab"
+                                    aria-controls="divDU"
+                                    aria-selected="false"
+                                    tabindex="0"
+                                    style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                                <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
+    
+                                <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                    ADDRESS <br />DETAILS
+                                </span>
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+
+                        <li class="nav-item" role="presentation">
+<%--                            <button id="ctl00_ContentPlaceHolder1_divPDH" class="nav-link active Strip" data-bs-toggle="tab" data-bs-target="#divPD" type="button" role="tab" aria-controls="divPD" aria-selected="true" style="color:#8c8c8c !important; padding: 2rem; border-color: blue;" tabindex="0">--%>
+<%--                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span1" style="background-color: #8c8c8c !important; ">5</span> Verification Details--%>
+                            <button id="lblrekycdtls"
+                                data-bs-toggle="tab"
+                                data-bs-target="#divDU"
+                                type="button"
+                                role="tab"
+                                aria-controls="divDU"
+                                aria-selected="false"
+                                tabindex="0"
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
+    
+                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                VERIFICATION <br />DETAILS
+                            </span>
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+                  <div id="step4" class="panel panel-success step-content" style="margin-top: -1rem; margin-left: 7px; margin-right: 0px;display:none">
+                    <div id="Div25" runat="server" class="panel-heading" style="background-color: #E1EEFF">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
-                                        <span class="glyphicon glyphicon-menu-hamburger" ></span>
-                                <asp:Label ID="lblOfcuseOnly" Text="For Office use only" runat="server" CssClass="control-label"></asp:Label>
+                                        <%--<span class="glyphicon glyphicon-menu-hamburger" ></span>--%>
+                                <asp:Label ID="lblOfcuseOnly" Text="For Office use only" runat="server" CssClass="control-label" style="color: blue; font-weight: bold;"></asp:Label>
                             </div>
                              <div class="col-sm-2" >
-                        <span id="btnToggle" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divCKYCdtls','btnToggle');return false;" style="cursor:pointer;float:right; padding: 1px 10px ! important; font-size: 18px;"></span>
+                        <%--<span id="btnToggle" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divCKYCdtls','btnToggle');return false;" style="cursor:pointer;float:right; padding: 1px 10px ! important; font-size: 18px;"></span>--%>
                     </div>
                         </div>
                     </div>
                     <div id="divCKYCdtls" style="display: block;" runat="server" class="panel-body">
-                     <div class="row">
+                        <div class="col-sm-12" style="text-align: left; display: flex;">
+                            <asp:CheckBox ID="CheckBox7" Text="I confirm that the above information furnished is true and correct and the said details may be updated in my account maintained with the company.<br />In case of any change in the information, the same will be informed to the company. I further hereby authorize the company to obtain necessary details from CKYC Registry."
+                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="margin-top: 1rem; font-size: 1.3rem; margin:1rem 1rem 0rem !important;" />
+                        </div>
+                     <div class="row" style="margin-top: 8rem;">
                              <div class="col-sm-3" style="text-align: left">
                                 <asp:Label ID="lblRefNumber" Text="CKYC Reference No." runat="server" Font-Bold="false"></asp:Label>
                                  <span style="color: red">*</span>
@@ -710,7 +742,10 @@
                                 <%--Added by tushar for--%>
                             </div>
                         </div>
-                      
+                      <div class="col-sm-12" style="text-align: left; display: flex;">
+    <asp:CheckBox ID="CheckBox6" Text="Check this box if any details in this segment has changed and needs to be modified"
+        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+</div>
                     </div>
                 </div>
 
@@ -731,17 +766,199 @@
         </div>
         </div>
         </div>               --%>
+                                <div id="step0" class="panel panel-success" style="margin-top: -1rem; margin-left: 7px; margin-right: 0px">
+                    <div id="Div19" runat="server" class="panel-heading" style="background-color: #E1EEFF;">
+                        <div class="row">
+                            <div class="col-sm-10" style="text-align: left">
+                                <%--<span class="glyphicon glyphicon-menu-hamburger"></span>--%>
+                                <asp:Label ID="lbluploadDoc" Text="UPLOADED DOCUMENTS" runat="server" CssClass="control-label" style="color: blue; font-weight: bold;"></asp:Label>
+
+                            </div>
+                            <div class="col-sm-2">
+<%--                                <span id="btnnavigate" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divnavigate','btnnavigate');return false;" style="cursor: pointer; float: right; padding: 1px 10px ! important; font-size: 18px;"></span>--%>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divnavigate" style="display: block;" runat="server" class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12" style="text-align: right;">
+                                <%--added by babita --%>
+                                <%--              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
+     <div id="divSearchResult" runat="server">
+       
+     </div>
+ </asp:Panel>--%>
+                                <%--<asp:Panel ID="panel1" runat="server" Style="height: 200px;  margin-left: 40rem;">
+                                    <div id="divSearchResult" runat="server"
+                                        style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; margin-right: 1290px;">
+                                    </div>
+                                </asp:Panel>--%>
+
+                                <asp:Panel ID="panel1" runat="server" Style="height: 200px; margin-left: 33rem;">
+                                    <div id="divSearchResult" runat="server"
+                                        style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; margin-right: 1290px;">
+                                    </div>
+                                </asp:Panel>
+
+                                <div class="col-sm-12" style="text-align: left; display: flex;">
+                                    <asp:CheckBox ID="CheckBox1" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" style="color: blue;"/>
+                                </div>
+
+                                <%--ended by babita --%>
+                                <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
+                                    AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
+                                    <%--<AlternatingRowStyle BackColor="White" />--%>
+                                    <EditRowStyle BackColor="#7C6F57" />
+                                    <FooterStyle BackColor="#1C5E55" ForeColor="White" />
+                                    <HeaderStyle BackColor="#00c5cc" ForeColor="White" Height="35px" CssClass="gridViewHeader" />
+                                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#E3EAEB" />
+                                    <Columns>
+
+                                        <asp:TemplateField HeaderText="Document Code" HeaderStyle-CssClass="center" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbldocCode" runat="server" Text='<%#Bind("DOC_CODE") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="center" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Document Name" HeaderStyle-CssClass="center">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbldocName" runat="server" Text='<%#Bind("DOC_NAME") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="left2" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="DocumentName" HeaderStyle-CssClass="center" Visible="false">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbldocTyp" runat="server" Text='<%#Bind("Image_Name") %>'></asp:Label>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="left2" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="View Document" HeaderStyle-CssClass="center">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="btnView" runat="server" class="glyphicon glyphicon-eye-open" Style="color: #337ab7;" OnClientClick="Confirm(this);" OnClick="btnView_Click" CommandName="View"></asp:LinkButton>
+                                                <%--style="color:black;" OnClientClick="Confirm(this); ShowProgressBarWithOutTimer('Loading Document... Please Wait...');"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>--%>
+                                            </ItemTemplate>
+                                            <ItemStyle CssClass="center" />
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="false" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                                </asp:GridView>
+                                <asp:UpdatePanel runat="server" ID="upnlPrev" style="display: none;">
+                                    <ContentTemplate>
+
+
+                                        <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
+ OnClick="btnprev_Click"    TabIndex="244" >
+<span class="glyphicon glyphicon-arrow-left">Prev</span> 
+</asp:LinkButton> --%>
+                                        <%----%>
+                                        <%-- <asp:LinkButton ID="btnnext" Text="Next" runat="server" CssClass="btn btn-primary" CausesValidation="false"
+   OnClick="btnnext_Click" TabIndex="244" >
+<span class="glyphicon glyphicon-arrow-right">Next</span> 
+</asp:LinkButton> --%>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-sm-3" style="text-align: left; display: none">
+
+
+                                <asp:Label ID="lblPageInfo" runat="server" Visible="false"></asp:Label>
+                            </div>
+                            <asp:UpdatePanel runat="server">
+                                <ContentTemplate>
+                                    <div id="divloaderqc" class="col-sm-12" runat="server" style="display: none;">
+                                        <caption>
+                                            <img id="img31" alt="" src="~/images/spinner.gif" runat="server" />
+                                            Loading...
+                                        </caption>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                            <asp:UpdatePanel runat="server" ID="upnlHeader">
+                                <ContentTemplate>
+                                    <div class="row">
+                                        <div class="col-sm-12" align="center">
+                                            <asp:Label ID="lblpanelheader" runat="server" CssClass="control-label" />
+                                            <asp:HiddenField ID="hdnDocId" runat="server" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+
+                                        <asp:GridView ID="GridImage" runat="server" AllowSorting="True" CssClass="footable"
+                                            Width="1200px" AutoGenerateColumns="False" PageSize="10" AllowPaging="true" CellPadding="1"
+                                            OnRowDataBound="GridImage_RowDataBound">
+                                            <%--OnPageIndexChanging="GridImage_PageIndexChanging"
+                                            --%>
+                                            <RowStyle CssClass="GridViewRow"></RowStyle>
+                                            <PagerStyle CssClass="disablepage" />
+                                            <HeaderStyle CssClass="gridview th" />
+
+
+                                            <Columns>
+                                                <asp:TemplateField SortExpression="SR_NO" HeaderText="SR_NO" Visible="false">
+                                                    <ItemTemplate>
+                                                        <asp:LinkButton ID="lblCndNo1" runat="server" Text='<%# Eval("SR_NO") %>'></asp:LinkButton>
+                                                        <asp:HiddenField ID="hdnid" runat="server" Value='<%# Eval("SR_NO") %>'></asp:HiddenField>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:ImageField DataImageUrlField="SR_NO" DataImageUrlFormatString="ImageCSharp.aspx?ImageID=ckyc+{0}"
+                                                    HeaderText="Preview Image">
+                                                    <ControlStyle CssClass="left_padding" Width="30%" />
+                                                    <%--Height="100%"--%>
+                                                </asp:ImageField>
+                                            </Columns>
+                                        </asp:GridView>
+                                        <center>
+
+
+                                            <table style="display: none;">
+                                                <tr>
+                                                    <td>
+                                                        <asp:Button ID="btnprev" Text="<" CssClass="form-submit-button" runat="server"
+                                                            Width="40px" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat; background-color: transparent; float: left; margin: 0; height: 30px;"
+                                                            OnClick="btnprev_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
+                                                        <%--  <asp:TextBox runat="server" ID="txtPage" Text="1" Style="width: 35px; border-style: solid;
+                                                                border-width: 1px; border-color: Gray; height: 30px; float: left; margin: 0;funload();
+                                                                text-align: center;" CssClass="form-control" ReadOnly="true" />--%>
+                                                        <asp:Button ID="btnnext" Text=">" CssClass="form-submit-button" runat="server" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat; background-color: transparent; float: left; margin: 0; height: 30px;"
+                                                            Width="40px" OnClick="btnnext_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </center>
+
+
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="btnnext" EventName="Click"></asp:AsyncPostBackTrigger>
+                                </Triggers>
+                            </asp:UpdatePanel>
+
+
+                        </div>
+                    </div>
+                </div>
        <%-- <div id="menu1" style="display:block;" runat="server" class="panel-body"> --%>
-          <div id="step0"  class="panel panel-success step-content" style="margin-left:0px;margin-right:0px">
-             <div id="Div2"  runat="server" class="panel-heading">           
+          <div id="step1"  class="panel panel-success step-content" style="margin-top: -1rem;margin-left: 7px;margin-right: 0px;display: none;">
+             <div id="Div2"  runat="server" class="panel-heading" style="background-color:#E1EEFF;">           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
-        <span class="glyphicon glyphicon-menu-hamburger" style="color: white;"></span>
-        <asp:Label ID="lblpfPersonal" Text="Personal Details" runat="server"  CssClass="control-label" ></asp:Label>
+        <%--<span class="glyphicon glyphicon-menu-hamburger" style="color: white;"></span>--%>
+        <asp:Label ID="lblpfPersonal" Text="PERSONAL DETAILS" runat="server"  CssClass="control-label" style="color: blue; font-weight: bold;"></asp:Label>
                  
         </div>
         <div class="col-sm-2">
-        <span id="btnpersnl1" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divDetailOfEntity','btnpersnl1');return false;" style="cursor:pointer;float: right;padding: 1px 10px ! important; font-size: 18px;"></span>
+        <%--<span id="btnpersnl1" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('divDetailOfEntity','btnpersnl1');return false;" style="cursor:pointer;float: right;padding: 1px 10px ! important; font-size: 18px;"></span>--%>
         </div>
         </div>
         </div>
@@ -1012,6 +1229,11 @@
                                         AutoPostBack="true" runat="server" CssClass="standardcheckbox"  />
                                      <%--<span style="color: red">*</span>--%>
                                 </div>
+
+                                    <div class="col-sm-12" style="text-align: left; display: flex;">
+                                        <asp:CheckBox ID="CheckBox2" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem;" />
+                                    </div>
                                     <%-- ended by Rutuja --%>
                                    
                                     <div class="col-sm-3" style="text-align: left">
@@ -1312,16 +1534,16 @@
                             </div>
                       </div>
                      </div>
-         <div id="step1" class="panel panel-success step-content" style="margin-left:0px;margin-right:0px;display:none">
-        <div id="Div20"  runat="server" class="panel-heading" >           
+         <div id="step3" class="panel panel-success step-content" style="margin-top: -1rem;margin-left: 7px;margin-right: 0px;display: none;">
+        <div id="Div20"  runat="server" class="panel-heading" style="background-color: #E1EEFF;">           
         <div class="row">
         <div class="col-sm-10" style="text-align:left">
-        <span class="glyphicon glyphicon-menu-hamburger"></span>
-        <asp:Label ID="Label10" Text="PROOF OF IDENTITY AND ADDRESS" runat="server"  CssClass="control-label" ></asp:Label>
+<%--        <span class="glyphicon glyphicon-menu-hamburger"></span>--%>
+        <asp:Label ID="Label10" Text="PROOF OF IDENTITY AND ADDRESS" runat="server"  CssClass="control-label" style="color: blue; font-weight: bold;"></asp:Label>
                  
         </div>
         <div class="col-sm-2" >
-        <span id="btnId" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('menu2','btnId');return false;" style="cursor:pointer; float: right; padding: 1px 10px ! important; font-size: 18px;"></span>
+<%--        <span id="btnId" class="glyphicon glyphicon-collapse-down" onclick="showHideDiv('menu2','btnId');return false;" style="cursor:pointer; float: right; padding: 1px 10px ! important; font-size: 18px;"></span>--%>
         </div>
         </div>
         </div>               
@@ -1629,6 +1851,19 @@
                                         </div>
                                     </div>
                                 </div>
+            <div class="col-sm-10" style="text-align: left">
+                
+                <asp:Label ID="Label19" Text="Current Address Details" runat="server"  Style="color: blue; font-weight: bold; font-size: 2rem;"></asp:Label>
+
+            </div>
+            <div class="col-sm-12" style="text-align: left; display: flex;">
+                <asp:CheckBox ID="CheckBox5" Text="Same as above mentioned details"
+                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+            </div>
+            <div class="col-sm-12" style="text-align: left; display: flex;">
+                <asp:CheckBox ID="CheckBox4" Text="Check this box if any details in this segment has changed and needs to be modified"
+                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+            </div>
                                 <%--<div class="row">
                                     <div class="col-sm-12" style="text-align: left">
                                         <asp:CheckBox ID="chkAddResident" Text="ADDRESS IN THE JURISDICTION DETAILS WHERE APPLICANT IS RESIDENT OUTSIDE INDIA FOR TAX PURPOSES"
@@ -1732,17 +1967,17 @@
                               <%--</div>--%>
                         <%-- Added for Proof of Address end--%>
                         <%--  Added for Contact Details start--%>
-                     <div id="step2" class="panel panel-success step-content" style="margin-left: 0px; margin-right: 0px;display:none">
-                            <div id="Div8" runat="server" class="panel-heading" >
+                     <div id="step2" class="panel panel-success step-content" style="margin-top: -1rem; margin-left: 7px; margin-right: 0px;display:none">
+                            <div id="Div8" runat="server" class="panel-heading" style="background-color: #E1EEFF;">
                                 <div class="row">
                                     <div class="col-sm-10" style="text-align: left">
-                                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                        <%--<span class="glyphicon glyphicon-menu-hamburger"></span>--%>
                                        
                                         <asp:Label ID="lblContactDetails" Text="CONTACT DETAILS (All communication will be sent on provided MobileNo/Email-ID)" 
-                                            runat="server" CssClass="control-label"></asp:Label> <%-- Text added by Rutuja --%>
+                                            runat="server" CssClass="control-label" style="color: blue; font-weight: bold;"></asp:Label> <%-- Text added by Rutuja --%>
                                     </div>
                                     <div class="col-sm-2" >
-                                        <span id="btnTo" class="glyphicon glyphicon-collapse-down" onclick="showHideDivWOCPH('divContactDetails','btnTo');return false;"  style="cursor:pointer; float:right; padding: 1px 10px ! important; font-size: 18px;"></span>
+                                        <%--<span id="btnTo" class="glyphicon glyphicon-collapse-down" onclick="showHideDivWOCPH('divContactDetails','btnTo');return false;"  style="cursor:pointer; float:right; padding: 1px 10px ! important; font-size: 18px;"></span>--%>
                                     </div>
                                 </div>
                             </div>
@@ -1833,6 +2068,11 @@
                                         <asp:TextBox ID="txtemail" runat="server" CssClass="form-control" MaxLength="100"
                                             TabIndex="83"></asp:TextBox>
                                     </div>
+                                    <div class="col-sm-12" style="text-align: left; display: flex;">
+                                        <asp:CheckBox ID="CheckBox3" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+                                    </div>
+
                                     <%--Added By Shubham--%>
                                     <div id="divEmail2" runat="server" style="display:none">
                                 <div class="col-sm-3" style="text-align: left">
@@ -2597,7 +2837,7 @@
              function popupAlert() {
                  $("#myModalPop").modal();
              }
-             </script>
+         </script>
 
 
         <div class="container">
