@@ -915,17 +915,17 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             </div>
 
                                         <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
-                                            <button type="button" id="ckycyes" class="btn btn-lg" style="width: 13rem;border-radius: 5rem; background-color:#1f50a7; color: white; " onclick="hideDiv('CKYCpage1','CKYCpage2')">
-                                               <strong> YES I DO HAVE </strong> 
+                                            <button type="button" id="ckycyes" class="btn btn-lg" style="width: 13rem;border-radius: 5rem; font-weight:600; background-color:#1f50a7; color: white; " onclick="hideDiv('CKYCpage1','CKYCpage2')">
+                                                YES I DO HAVE  
 
                                             </button>
-                                            <button type="button" id="ckycno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid #1f50a7; color:#1f50a7" onclick="hideDiv('CKYCpage1','PANpage1')">
-                                               <strong> NO I DON'T HAVE </strong> 
+                                            <button type="button" id="ckycno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid #1f50a7; font-weight:600; color:#1f50a7" onclick="hideDiv('CKYCpage1','PANpage1')">
+                                                NO I DON'T HAVE  
                                             </button>
                                                 <button type="button" id="bckbutton" class="btn btn-secondary btn-lg"
-                                                style="width: 10rem; border-radius: 5rem;"
+                                                style="width: 10rem; border-radius: 5rem; font-weight:600;"
                                                 onclick="hideDiv('CKYCpage1','onboardpage1')">
-                                                Back
+                                                BACK
                                             </button>
 <%--                                             <button type="button" id="donot"class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="showmodalpopup('ckycModalpopup')">
                                                 I DON'T KNOW
@@ -973,9 +973,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                                 CLEAR
                                             </button>
                                                 <button type="button" id="bckbuttonaadhar2" class="btn btn-secondary btn-lg"
-                                                style="width: 10rem; border-radius: 5rem;"
+                                                style="width: 10rem; border-radius: 5rem;font-weight:600;"
                                                 onclick="hideDiv('CKYCpage2','CKYCpage1')">
-                                                Back
+                                                BACK
                                             </button>
                                         </div>
                                         <div>
@@ -1030,9 +1030,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             NO I DON'T HAVE
                                         </button>
                                             <button type="button" id="bckbuttonpan1" class="btn btn-secondary btn-lg"
-                                            style="width: 10rem; border-radius: 5rem;"
+                                            style="width: 10rem; border-radius: 5rem; font-weight:600;"
                                             onclick="hideDiv('PANpage1','CKYCpage1')">
-                                            Back
+                                            BACK
                                             </button>
                                     </div>
                                 </div>
@@ -1062,17 +1062,17 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                                     id="pansearch"
                                                     type="button"
                                                     class="btn btn-primary btn-lg"
-                                                    style="width: 13rem; border-radius: 5rem; font-weight:600;background-color:#1f50a7; color: white;"
+                                                    style="width: 13rem; border-radius: 5rem; font-weight:bold;background-color:#1f50a7; font-weight:600; color: white;"
                                                     onclick="CKYCPANValidate();">
-                                                    Submit</button>
+                                                    SUBMIT</button>
 
-                                                <button type="button" id="panclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; border: 0.2rem solid blue; color:#1f50a7; font-weight:600;" onclick="resetFields('<%= PanNo.ClientID %>','<%= pandob.ClientID %>')">
-                                                    Clear
+                                                <button type="button" id="panclear" class="btn btn-light btn-lg" style="width: 13rem; border-radius: 5rem; font-weight:600; border: 0.2rem solid blue; color:#1f50a7; " onclick="resetFields('<%= PanNo.ClientID %>','<%= pandob.ClientID %>')">
+                                                    CLEAR
                                                 </button>
                                                 <button type="button" id="bckbuttonpan2" class="btn btn-secondary btn-lg"
-                                                style="width: 10rem; border-radius: 5rem;"
+                                                style="width: 10rem; border-radius: 5rem;font-weight:600;"
                                                 onclick="hideDiv('PANpage2','PANpage1')">
-                                                Back
+                                                BACK
                                                 </button>
                                             </div>
                                         </div>
@@ -1204,17 +1204,17 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                                                                  <div style="display: flex; gap: 20px; justify-content: center; margin: 0px;">
                                         <asp:Button ID="Button3" runat="server" Text="Download"
                                         OnClientClick="return onVerifyClick('<%= lblCKYCRefNo.ClientID %>', '<%= TextBox7.ClientID %>');"
-                                        style="padding: 12px 40px; background-color:#1f50a7;  color:white; border:none; border-radius:5rem; cursor:pointer;" />
+                                        style="padding: 12px 40px; font-weight:600; background-color:#1f50a7;  color:white; border:none; border-radius:5rem; cursor:pointer;" />
 
                                         <button type="button" id="retrytimer" class="btn btn-light btn-lg"
-                                            style="width: 13rem; border-radius: 5rem; border: 0.2rem solid white; background-color: grey; color: white;"
+                                            style="width: 13rem; border-radius: 5rem; border: 0.2rem solid white; font-weight:600; background-color: grey; color: white;"
                                             onclick="startTimer('1'); return false;" disabled="disabled">
                                             RESEND
                                         </button>
                                          <button type="button" id="bckbtndata" class="btn btn-secondary btn-lg"
-                                             style="width: 10rem; border-radius: 5rem;"
+                                             style="width: 10rem; border-radius: 5rem;font-weight:600;"
                                              onclick="goBack();">
-                                             Back
+                                             BACK
                                          </button>
 
                                         </div>
@@ -1240,16 +1240,16 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             </h4>
                                         </div>
                                         <div style="display: flex; justify-content: center; margin-top: 20px;gap:6rem;">
-                                        <button type="button" id="aadharyes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="hideDiv('Aadharpage1','Aadharpage2')">
+                                        <button type="button" id="aadharyes" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;font-weight:600;" onclick="hideDiv('Aadharpage1','Aadharpage2')">
                                                 YES I DO HAVE
                                         </button>
-                                        <button type="button" id="aadharno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="hideDiv('Aadharpage1','OtherDocs')">
+                                        <button type="button" id="aadharno"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;font-weight:600;" onclick="hideDiv('Aadharpage1','OtherDocs')">
                                                 NO, I DON'T HAVE
                                         </button>
                                         <button type="button" class="btn btn-secondary btn-lg"
-                                            style="width: 10rem; border-radius: 5rem;"
+                                            style="width: 10rem; border-radius: 5rem;font-weight:600;"
                                             onclick="hideDiv('Aadharpage1','PANpage1')">
-                                            Back
+                                            BACK
                                         </button>
                                         </div>
 
@@ -1366,16 +1366,16 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
  
                                     </div>
                                     <div style="display: flex; justify-content: center; margin-top: -2rem;gap:6rem;">
-                                    <button type="button" id="searchaadhar" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem;" onclick="validateAadhaar();">
+                                    <button type="button" id="searchaadhar" class="btn btn-primary btn-lg" style="width: 13rem;border-radius: 5rem; font-weight:600;" onclick="validateAadhaar();">
                                             SEARCH
                                     </button>
-                                    <button type="button" id="clearaadhar"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;" onclick="resetFields('aadhaarNumber','fullName','dob','gender')">
+                                    <button type="button" id="clearaadhar"class="btn btn-light btn-lg" style="width: 13rem;border-radius: 5rem;border:0.2rem solid blue;font-weight:600;" onclick="resetFields('aadhaarNumber','fullName','dob','gender')">
                                             CLEAR
                                     </button>
                                         <button type="button" class="btn btn-secondary btn-lg"
-                                        style="width: 10rem; border-radius: 5rem;"
+                                        style="width: 10rem; border-radius: 5rem; font-weight:600;"
                                         onclick="hideDiv('Aadharpage2','Aadharpage1')">
-                                        Back
+                                        BACK
                                     </button>
                                     </div>
 
@@ -1611,9 +1611,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                             NO, I DON'T HAVE
                                         </button>
                                         <button type="button" id="bckbtnotherdoc" class="btn btn-secondary btn-lg"
-                                        style="width: 10rem; border-radius: 5rem;"
+                                        style="width: 10rem; border-radius: 5rem; font-weight:bold;"
                                         onclick="bckotherdoc();">
-                                         Back
+                                         BACK
                                     </button>
                                     </div>
                                 </div>
@@ -1682,9 +1682,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
             SUBMIT
         </button>
             <button type="button" class="btn btn-secondary btn-lg"
-    style="width: 10rem; border-radius: 5rem;"
+    style="width: 10rem; border-radius: 5rem;font-weight:bold;"
     onclick="hideDiv('docsupload','OtherDocs')">
-     Back
+     BACK
 </button>
     </div>
 </div>
