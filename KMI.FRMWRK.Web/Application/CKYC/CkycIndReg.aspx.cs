@@ -6911,7 +6911,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 lblDtlOfRtltpr.Text = "RELATED PERSONS";
                 lblRemarks.Text = "DOCUMENT DETAILS";
                 lblattstn.Text = "KYC VERIFICATION DETAILS";
-                lbldec.Text = olng.GetItemDesc("lbldec");
+               // lbldec.Text = olng.GetItemDesc("lbldec");
                 lblAttesOfc.Text = olng.GetItemDesc("lblAttesOfc");
                 lblOfcuseOnly.Text = "LOAN & APPLICANT DETAILS";
                 lblInsDtls.Text = olng.GetItemDesc("lblInsDtls");

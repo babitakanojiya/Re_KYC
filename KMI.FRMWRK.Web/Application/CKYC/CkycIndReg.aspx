@@ -4,6 +4,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
         <style>
+
+    .nav-tabs .nav-item .active {
+        border: 3px solid !important;
+        color: #8AB5FF !important;
+    }
+ 
+    .nav-tabs .nav-item span {
+        color:grey !important;
+        border: none !important;
+    }
+ 
+    .nav-tabs .nav-item .active span {
+        color: blue !important;
+        border-bottom:0px transparent !important;
+    }
+
+ .panel {
+    border: 2px solid transparent !important;
+}
+
+.panel.panel-success {
+    /*background-color: #B7D2FF !important;  Slightly darker shade of #E1EEFF */
+   border-color: #8AB5FF !important; /* Optional: dark text color for contrast */
+}
+
     .step-label {
         font-size: 19px;
         color: #9c9c9a;
@@ -955,7 +980,7 @@ input.form-control {
             const pasan = document.getElementById("personaldetails");
             const lon = document.getElementById("londeatails");
             if (pasan) pasan.style.display = "block";
-            if (lon) lon.style.display = "block";
+            if (lon) lon.style.display = "none"; // added by rahul on 10 june 25 for removing upper pannel
         } else {
             const currentPanel = document.getElementById(panels[index]);
             if (currentPanel) currentPanel.style.display = "block";
@@ -1446,30 +1471,97 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                 <div class="table-responsive">
                     <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab" role="tablist" style="white-space: nowrap;">
                         <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divDUH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divDU" type="button" role="tab" aria-controls="divDU" aria-selected="false" style="color:#00cccc !important;" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span9" style="background-color: #00cccc !important;">1</span> Document Details
-                            <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                            </button>
+                             
+                            <%--btn modified by rahul 10-06-2025--%>
+                            <button id="ctl00_ContentPlaceHolder1_divDUH"
+                               data-bs-toggle="tab"
+                               data-bs-target="#divDU"
+                               type="button"
+                               role="tab"
+                               aria-controls="divDU"
+                               aria-selected="false"
+                               tabindex="0"
+                               style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                           <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">1</span>
+    
+                           <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                               DOCUMENTS<br />DETAILS
+                           </span>
+                           <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                           </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divRDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divRD" type="button" role="tab" aria-controls="divRD" aria-selected="false" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span3" style="background-color: #8c8c8c !important;">2</span> Personal Details
+                            <button id="ctl00_ContentPlaceHolder1_divRDH"
+                                data-bs-toggle="tab"
+                                data-bs-target="#divDU"
+                                type="button"
+                                role="tab"
+                                aria-controls="divDU"
+                                aria-selected="false"
+                                tabindex="0"
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">2</span>
+    
+                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                Personal <br />Details
+                            </span>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divCDH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divCD" type="button" role="tab" aria-controls="divCD" aria-selected="false" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span2" style="background-color: #8c8c8c !important;">3</span> Contact Details
-                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                                             <button id="ctl00_ContentPlaceHolder1_divCDH"
+                                                 data-bs-toggle="tab"
+                                                 data-bs-target="#divDU"
+                                                 type="button"
+                                                 role="tab"
+                                                 aria-controls="divDU"
+                                                 aria-selected="false"
+                                                 tabindex="0"
+                                                 style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
+    
+                                             <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                                 Contact <br />Details
+                                             </span>
+                                </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divPAH" class="nav-link Strip" data-bs-toggle="tab" data-bs-target="#divPA" type="button" role="tab" aria-controls="divPA" aria-selected="false" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span4" style="background-color: #8c8c8c !important;">4</span> Address Details
-                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                               <button id="ctl00_ContentPlaceHolder1_divPAH"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#divDU"
+                                        type="button"
+                                        role="tab"
+                                        aria-controls="divDU"
+                                        aria-selected="false"
+                                        tabindex="0"
+                                        style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                                    <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
+    
+                                    <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                        Address <br />Details
+                                    </span>
+                                </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <button id="ctl00_ContentPlaceHolder1_divPDH" class="nav-link active Strip" data-bs-toggle="tab" data-bs-target="#divPD" type="button" role="tab" aria-controls="divPD" aria-selected="true" style="color:#8c8c8c !important;" tabindex="0">
-                                <span class="badge bg-secondary numbercircle" id="ctl00_ContentPlaceHolder1_span1" style="background-color: #8c8c8c !important;">5</span> Verification Details
+                            <button id="ctl00_ContentPlaceHolder1_divPDH"
+                                data-bs-toggle="tab"
+                                data-bs-target="#divDU"
+                                type="button"
+                                role="tab"
+                                aria-controls="divDU"
+                                aria-selected="false"
+                                tabindex="0"
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+    
+                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
+    
+                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                Verification <br />Details
+                            </span>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                     </ul>
@@ -1480,16 +1572,16 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 </div>
 
             <%--ended by babita--%>
-            <div   class="container-fluid" style="margin-top: 0px;"> <%--Added by Vikash K for making responsive--%>
+            <div   class="container-fluid" style="margin-top: -1.1rem;"> <%--Added by Vikash K for making responsive--%>
                 
                                 <div id="documentdetails" class="panel panel-success"  >
-                    <div id="Div22" runat="server" class="panel-heading">
+                    <div id="Div22" runat="server" class="panel-heading" style="background-color:#E1EEFF;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
+<%--                                <span class="glyphicon glyphicon-menu-hamburger"></span>--%>
                                 <asp:CheckBox ID="ChkUpdRemark" runat="server" CssClass="standardcheckbox" Text=""
                                     OnCheckedChanged="ChkUpdRemark_Checked" AutoPostBack="true" TabIndex="2" />
-                                <asp:Label ID="lblRemarks" Text="" runat="server" CssClass="control-label">
+                                <asp:Label ID="lblRemarks" Text="" runat="server" style="color:blue; font-weight:bold;"  CssClass="control-label">
                                 </asp:Label>
                             </div>
 <div class="col-sm-2 d-none d-md-block" onclick="showHideDiv('menu5','Span11'); return false;">
@@ -1526,7 +1618,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
             <ContentTemplate>
                 <!-- Document Type -->
                 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <label style="margin-right: 10px; white-space: nowrap;">Document Type:</label>
+                    <label style="margin-right: 10px; white-space: nowrap; font-size:initial;">Document Type:</label>
                     <asp:DropDownList ID="ddlDocType" runat="server"
                         CssClass="form-control"
                         Style="width: 250px;"
@@ -1570,7 +1662,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                 <!-- Add Button -->
 <%--                <asp:Button ID="btnAddDoc" runat="server" Text="Add Document"
                     OnClientClick="return validateAndAddImage();" />--%>
-                                <asp:Button ID="btnAddDoc" runat="server" Text="Add Document" OnClick="btnAddDoc_Click" OnClientClick="return validateAndAddImage();" />
+                                <asp:Button ID="btnAddDoc" style="height=3rem; width:10rem;" runat="server" Text="Add Document" OnClick="btnAddDoc_Click" OnClientClick="return validateAndAddImage();" />
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="ddlDocType" EventName="SelectedIndexChanged" />
@@ -1582,7 +1674,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
     <%--<div style="flex: 1; min-width: 618px;">--%>
                                         <div class="upload-wrapper">
 
-        <div id="dropZone">
+        <div id="dropZone" style="font-size: large;">
     <span>Drag & drop an image here or click to upload</span>
 </div>
         <div id="carousel">
@@ -1609,9 +1701,9 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                    
                 <%--ended for documnet--%>
                 
-                <div id="personaldetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
-                <div id="londeatails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
-                    <div id="Div18" runat="server" class="panel-heading" onclick="showHideDiv('divCKYCdtls','btnCKYCdtls');return false;">
+                <div id="personaldetails" class="panel " style="margin-left: 0px; margin-right: 0px;display:none">
+                <div id="londeatails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px; display:none !important;">
+                    <div id="Div18" runat="server" class="panel-heading" style="display:none !important;" onclick="showHideDiv('divCKYCdtls','btnCKYCdtls');return false;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
                                 <span class="glyphicon glyphicon-menu-hamburger"></span>
@@ -1639,29 +1731,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                         </div>
                     </div>
                     <div id="divCKYCdtls" style="display: block;" class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-3" style="text-align: left">
-                                <asp:Label ID="lblAppType" Text="" runat="server" Font-Bold="false">
-                                </asp:Label>
-                            </div>
-                            <div class="col-sm-3">
-                                <asp:CheckBox ID="cbNew" runat="server" CssClass="standardcheckbox" AutoPostBack="true" Visible="false"
-                                    Enabled="false" TabIndex="20" />
-                                <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox" Visible="false"></asp:Label>
-                                <asp:CheckBox ID="cbUpdate" runat="server" CssClass="standardcheckbox" Text="Update"
-                                    AutoPostBack="true" Visible="false" TabIndex="1" />
-                            </div>
-                            <div class="col-sm-3" style="text-align: left">
-                                <asp:Label ID="lblRefNumber" Text="Loan Number" runat="server" Font-Bold="false"></asp:Label>
-                                <span style="color: red">*</span>
-                            </div>
-                            <div class="col-sm-3" style="text-align: left">
-                                <asp:TextBox ID="txtRefNumber" runat="server" CssClass="form-control" OnTextChanged="txtRefNumber_TextChanged" AutoPostBack="true"
-                                    Font-Bold="false" onChange="javascript:this.value=this.value.toUpperCase();" TabIndex="2" MaxLength="14">
-                                </asp:TextBox>
-                                <span id="spnValidRefNo" runat="server" style="display: none; color: green !important; padding-left: 1% !important;"><u>Valid FI Reference Number </u></span>
-                            </div>
-                        </div>
+                       
                         <div class="row">
                             
 
@@ -1709,13 +1779,12 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
 
                 <div  class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
-                    <div id="Div19" runat="server" class="panel-heading">
+                    <div id="Div19" runat="server" class="panel-heading" style="background-color:#E1EEFF;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
                                 <asp:CheckBox ID="ChkUpdPersonal" runat="server" CssClass="standardcheckbox" Text=""
                                     AutoPostBack="true" TabIndex="1" OnCheckedChanged="ChkUpdPersonal_Checked" />
-                                <asp:Label ID="lblpfPersonal1" Text="" runat="server" CssClass="control-label">
+                                <asp:Label ID="lblpfPersonal1" Text="" runat="server" style="color:blue; font-weight:bold;" CssClass="control-label">
                                 </asp:Label>
                             </div>
                             <div class="col-sm-2" onclick="showHideDiv('menu1','Span8');return false;">
@@ -1755,23 +1824,46 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                         <div id="divPersonal" runat="server" style="display: block; padding: 0px" class="form-group panel-body">
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
-    <asp:Label ID="lblAccountType" Text="" runat="server" Font-Bold="false">
-    </asp:Label>
-    <span id="lblAccountTypeImp" runat="server" style="color: red">*</span>
-</div>
+                                    <asp:Label ID="lblAppType" Text="" runat="server" Font-Bold="false">
+                                    </asp:Label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <asp:CheckBox ID="cbNew" runat="server" CssClass="standardcheckbox" AutoPostBack="true" Visible="false"
+                                        Enabled="false" TabIndex="20" />
+                                    <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox" Visible="false"></asp:Label>
+                                    <asp:CheckBox ID="cbUpdate" runat="server" CssClass="standardcheckbox" Text="Update"
+                                        AutoPostBack="true" Visible="false" TabIndex="1" />
+                                </div>
+                                <div class="col-sm-3" style="text-align: left">
+                                    <asp:Label ID="lblRefNumber" Text="Loan Number" runat="server" Font-Bold="false"></asp:Label>
+                                    <span style="color: red">*</span>
+                                </div>
+                                <div class="col-sm-3" style="text-align: left">
+                                    <asp:TextBox ID="txtRefNumber" runat="server" CssClass="form-control" OnTextChanged="txtRefNumber_TextChanged" AutoPostBack="true"
+                                        Font-Bold="false" onChange="javascript:this.value=this.value.toUpperCase();" TabIndex="2" MaxLength="14">
+                                    </asp:TextBox>
+                                    <span id="spnValidRefNo" runat="server" style="display: none; color: green !important; padding-left: 1% !important;"><u>Valid FI Reference Number </u></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3" style="text-align: left">
+                                    <asp:Label ID="lblAccountType" Text="" runat="server" Font-Bold="false">
+                                    </asp:Label>
+                                    <span id="lblAccountTypeImp" runat="server" style="color: red">*</span>
+                                </div>
 
-<div class="col-sm-3" style="text-align: left; display:flex">
-     <asp:UpdatePanel ID="upcboTitle" runat="server">
-        <ContentTemplate>
-    <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true" CssClass="form-control" TabIndex="2"
-        onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged"  style="width: 220px;">
-    </asp:DropDownList>
-    
-    <div id="ddlAccountTypeLoader"></div>
-            </ContentTemplate>
-         </asp:UpdatePanel>
-</div>
-                                
+                                <div class="col-sm-3" style="text-align: left; display: flex">
+                                    <asp:UpdatePanel ID="upcboTitle" runat="server">
+                                        <ContentTemplate>
+                                            <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true" CssClass="form-control" TabIndex="2"
+                                                onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged" Style="width: 220px;">
+                                            </asp:DropDownList>
+
+                                            <div id="ddlAccountTypeLoader"></div>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </div>
+
                             </div>
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
@@ -2243,14 +2335,13 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                 </div>
                 </div> <%--added by babita--%>
                 <div id="addressdetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none" >
-                    <div id="Div4" runat="server" class="panel-heading">
+                    <div id="Div4" runat="server" class="panel-heading" style="background-color:#E1EEFF">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
                                 <asp:CheckBox ID="ChkUpdID" runat="server" CssClass="standardcheckbox" Text="" AutoPostBack="true"
                                     TabIndex="2" OnCheckedChanged="ChkUpdID_Checked" />
                                 <asp:Label ID="lblProofOfIdentity11" Text="" runat="server"
-                                    CssClass="control-label"></asp:Label>
+                                    CssClass="control-label" style="color:blue; font-weight:bold;"></asp:Label>
                             </div>
                             <div class="col-sm-2" onclick="showHideDiv('menu2','btnProofIdentity');return false;">
                                 <span id="ReqDtlsInfoIcon2" class="glyphicon glyphicon-question-sign" onmouseover="NotificationDivSlide('DivSrcReqDtlsNote2','ReqDtlsInfoIcon2'); 
@@ -2723,14 +2814,13 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                 <%--</div>--%>
 
                 <div id="contactdetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
-                    <div id="Div8" runat="server" class="panel-heading subheader">
+                    <div id="Div8" runat="server" class="panel-heading subheader" style="background-color:#E1EEFF;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
                                 <asp:CheckBox ID="ChkUpdContact" runat="server" CssClass="standardcheckbox" Text=""
                                     OnCheckedChanged="ChkUpdContact_Checked" AutoPostBack="true" TabIndex="2" />
                                 <asp:Label ID="lblContactDetails" Text=""
-                                    runat="server" CssClass="control-label"></asp:Label>
+                                    runat="server" CssClass="control-label" style="color:blue; font-weight:bold;"></asp:Label>
                             </div>
                             <div class="col-sm-2" onclick="showHideDiv('div9','Span3');return false;">
                                 <span id="ReqDtlsInfoIcon3" class="glyphicon glyphicon-question-sign" onmouseover="NotificationDivSlide('DivSrcReqDtlsNote3','ReqDtlsInfoIcon3'); 
@@ -3251,13 +3341,12 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 </div>
                 </div>
                 <div  id="KYCverification" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
-                    <div id="Div23" runat="server" class="panel-heading">
+                    <div id="Div23" runat="server" class="panel-heading" style="background-color:#E1EEFF">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
                                 <asp:CheckBox ID="ChkUpdKYCVrfy" runat="server" CssClass="standardcheckbox" Text=""
                                     OnCheckedChanged="ChkUpdControlPrsn_Checked" AutoPostBack="true" TabIndex="2" />
-                                <asp:Label ID="lblattstn" Text="" runat="server" CssClass="control-label">
+                                <asp:Label ID="lblattstn" Text="" runat="server" CssClass="control-label" style="color:blue; font-weight:bold;">
                                 </asp:Label>
                             </div>
                             <div class="col-sm-2" onclick="showHideDiv('menu6','Span12');return false;">
@@ -3277,25 +3366,25 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             </div>
                         </div>
                     </div>
-                    <div id="menu6" style="display: block;" class="panel-body">
+                    <%--<div id="menu6" style="display: block;" class="panel-body">--%>
                         <%--  Added for Applicant Declaration start--%>
-                        <div class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
-                            <div id="Div14" runat="server" class="panel-heading subheader"
-                                onclick="showHideDiv('div15','Span6');return false;">
+                        <div class="panel " style="margin-left: 0px; margin-right: 0px">
+                            <%--<div id="Div14" runat="server" class="panel-heading subheader"
+                                onclick="showHideDiv('div15','Span6');return false;">--%>
                                 <div class="row">
-                                    <div class="col-sm-10" style="text-align: left">
-                                        <span class="glyphicon glyphicon-menu-hamburger"></span>
-                                        <asp:Label ID="lbldec" Text="" runat="server" CssClass="control-label">
+                                    <%--<div class="col-sm-10" style="text-align: left">
+                                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                         <asp:Label ID="lbldec" Text="" runat="server" CssClass="control-label">
                                         </asp:Label>
-                                    </div>
-                                    <div class="col-sm-2">
+                                    </div>--%>
+                                    <%--<div class="col-sm-2">
                                         <span id="ReqDtlsInfoIcon7" class="glyphicon glyphicon-question-sign" onmouseover="NotificationDivSlide('DivSrcReqDtlsNote7','ReqDtlsInfoIcon7'); 
                                             getHeaderbyID('SrcReqDtlsNote7');"
                                             style="float: left; padding: 1px 10px ! important; font-size: 18px; color: red; margin-left: 90px;"></span>
                                         <span id="Span6" class="glyphicon glyphicon-collapse-down" style="float: right; padding: 1px 10px ! important; font-size: 18px;"></span>
-                                    </div>
+                                    </div>--%>
                                 </div>
-                            </div>
+                            <%--</div>--%>
                             <div style="background-color: #d5d5c3; display: none;" id="DivSrcReqDtlsNote7">
                                 <div class="row">
                                     <div class="col-sm-12" style="margin-left: 17px; margin-top: 10px;">
@@ -3305,7 +3394,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     </div>
                                 </div>
                             </div>
-                            <div id="div15" style="display: block;" class="panel-body">
+                            <%--<div id="div15" style="display: block;" class="panel-body">--%>
                                 <div class="row">
                                     <div class="col-sm-12" style="text-align: left; display: flex;">
                                         <%--  <asp:label cssclass="control-label" text="I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief and I undertake to inform you of any changes therein immediately.In case any of the above information is found to be false or untrue or misleading or misrepresenting. I am aware that I may be held liable for it."
@@ -3369,7 +3458,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     </div>
                                         </div>
                                 </div>
-                            </div>
+                            <%--</div>--%>
                         </div>
                         <%--  Added for Applicant Declaration end--%>
                         <%--  Added for Attestation/For Office Use Only start--%>
@@ -3524,7 +3613,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             </div>
                         </div>
                         <%--  Added for Attestation/For Office Use Only  end--%>
-                    </div>
+                    <%--</div>--%>
                 </div>
 
             </div>

@@ -2549,22 +2549,28 @@
             <%--<button class="btn-animated bg-green has-spinner" id="two" >Approve</button> --%>
 <%--           <asp:Button ID="btnPrev" runat="server" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');"   OnClick="btnPrevious_Click" Text="Previous">
            </asp:Button>--%>
-<asp:Button ID="btnPrev1" runat="server"
-    CssClass="btn-animated bg-green"
-    Text="Previous"
+            <div class="col-sm-3" align="center" >
+             <asp:Button ID="btnPrev1" runat="server"
+    CssClass="btn-animated btn-primary"
+    Text="PREVIOUS"
     UseSubmitBehavior="false"
-    OnClientClick="changeStep(-1); return false;" />
-
-
-        <asp:Button ID="btnUpdate" runat="server" CssClass="btn-animated bg-green"  OnClientClick="ShowProgressBar('Processing...');"  OnClick="btnUpdate_Click"  Text="Approve">
-                        </asp:Button>
-             <asp:Button ID="btnReject" runat="server" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');"   OnClick="btnReject_Click" Text="Reject">
-                        </asp:Button>
-<asp:Button ID="btnNext1" runat="server"
-    CssClass="btn-animated bg-green"
-    Text="Next"
-    UseSubmitBehavior="false"
-    OnClientClick="changeStep(1); return false;" />
+    OnClientClick="changeStep(-1); return false;"
+    style="width: 13rem; font-size: initial; border-radius: 5rem;"/>
+                </div>
+            <div class="col-sm-3" align="center">
+                <asp:Button ID="btnUpdate" runat="server" Style="display: none;" CssClass="btn-animated bg-green" OnClientClick="ShowProgressBar('Processing...');" OnClick="btnUpdate_Click" Text="Approve"></asp:Button>
+            </div>
+             <div class="col-sm-3" align="center" >
+            <asp:Button ID="btnReject" runat="server" Style="display:none;" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');" OnClick="btnReject_Click" Text="Reject"></asp:Button>
+            </div>
+             <div class="col-sm-3" align="center" >
+            <asp:Button ID="btnNext1" runat="server"
+                CssClass="btn-animated btn-primary"
+                Text="NEXT"
+                UseSubmitBehavior="false"
+                OnClientClick="changeStep(1); return false;"
+                Style="width: 13rem; font-size: initial; border-radius: 5rem;" />
+                 </div>
 
         </div>
         </div>
