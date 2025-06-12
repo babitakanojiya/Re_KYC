@@ -1505,7 +1505,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">2</span>
     
                             <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                Personal <br />Details
+                                PERSONAL <br />DETAILS
                             </span>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
@@ -1523,7 +1523,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                              <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
     
                                              <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                                 Contact <br />Details
+                                                 CONTACT<br />DETAILS
                                              </span>
                                 </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
@@ -1541,7 +1541,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
     
                                     <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                        Address <br />Details
+                                        ADDRESS<br />DETAILS
                                     </span>
                                 </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
@@ -1560,7 +1560,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
     
                             <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                Verification <br />Details
+                                VERIFICATION <br />DETAILS
                             </span>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
@@ -1621,7 +1621,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                     <label style="margin-right: 10px; white-space: nowrap; font-size:initial;">Document Type:</label>
                     <asp:DropDownList ID="ddlDocType" runat="server"
                         CssClass="form-control"
-                        Style="width: 250px;"
+                        Style="width: 250px; font-size:small"
                         AutoPostBack="true"
                         OnSelectedIndexChanged="ddlDocType_SelectedIndexChanged">
                         <asp:ListItem Text="Select Document" Value="" />
@@ -1631,7 +1631,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                 <!-- Document Number Section -->
                 <div id="showdoctextbox" runat="server" visible="false" style="margin-bottom: 10px;">
                     <div style="display: flex; align-items: center;">
-                        <label style="margin-right: 10px; white-space: nowrap;">Document No. :</label>
+                        <label style="margin-right: 10px; font-size:initial; white-space: nowrap;">Document No. :</label>
 
                         <!-- Aadhaar Format -->
                         <div id="maskContainer" runat="server" visible="false" style="display: flex;">
@@ -1662,7 +1662,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                 <!-- Add Button -->
 <%--                <asp:Button ID="btnAddDoc" runat="server" Text="Add Document"
                     OnClientClick="return validateAndAddImage();" />--%>
-                                <asp:Button ID="btnAddDoc" style="height=3rem; width:10rem;" runat="server" Text="Add Document" OnClick="btnAddDoc_Click" OnClientClick="return validateAndAddImage();" />
+                                <asp:Button ID="btnAddDoc" style="height:4rem; width:14rem; border: 1px; border-radius:2rem; font-weight:600;" runat="server" Text="ADD DOCUMENT" OnClick="btnAddDoc_Click" OnClientClick="return validateAndAddImage();" />
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="ddlDocType" EventName="SelectedIndexChanged" />
@@ -1824,18 +1824,18 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                         <div id="divPersonal" runat="server" style="display: block; padding: 0px" class="form-group panel-body">
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblAppType" Text="" runat="server" Font-Bold="false">
+                                    <asp:Label ID="lblAppType" class="control-label" Text="" runat="server" Font-Bold="false">
                                     </asp:Label>
                                 </div>
                                 <div class="col-sm-3">
                                     <asp:CheckBox ID="cbNew" runat="server" CssClass="standardcheckbox" AutoPostBack="true" Visible="false"
                                         Enabled="false" TabIndex="20" />
-                                    <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox" Visible="false"></asp:Label>
+                                    <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox control-label" Visible="false"></asp:Label>
                                     <asp:CheckBox ID="cbUpdate" runat="server" CssClass="standardcheckbox" Text="Update"
                                         AutoPostBack="true" Visible="false" TabIndex="1" />
                                 </div>
                                 <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblRefNumber" Text="Loan Number" runat="server" Font-Bold="false"></asp:Label>
+                                    <asp:Label ID="lblRefNumber" Text="Loan Number" runat="server" class="control-label" Font-Bold="false"></asp:Label>
                                     <span style="color: red">*</span>
                                 </div>
                                 <div class="col-sm-3" style="text-align: left">
@@ -1847,7 +1847,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             </div>
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblAccountType" Text="" runat="server" Font-Bold="false">
+                                    <asp:Label ID="lblAccountType" Text="" runat="server" class="control-label" Font-Bold="false">
                                     </asp:Label>
                                     <span id="lblAccountTypeImp" runat="server" style="color: red">*</span>
                                 </div>
@@ -3618,60 +3618,82 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
             </div>
 
-            <div class="row" style="margin-top: 12px;">
+            <div class="row" style="margin-top: 12px;text-align-last: justify;">
                 <center>
-            <div class="col-sm-12" >
-                <asp:LinkButton ID="btnUpdate"  runat="server" CssClass="btn-animated bg-green"
-                    Visible="false" CausesValidation="false" OnClick="btnUpdate_Click" TabIndex="2"> <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"> Update</span> </asp:LinkButton>
-                <asp:LinkButton ID="btnKYCUpdate"  runat="server" CssClass="btn-animated bg-green"
-                    Visible="false" CausesValidation="false" OnClick="btnKYCUpdate_Click" TabIndex="2"> <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"> Update</span> </asp:LinkButton>
-               
-               
-                <asp:LinkButton ID="btnPartialSave"  OnClick="btnPartialSave_Click" style="display:none"
-                    CssClass="btn-animated bg-green" runat="server" TabIndex="2">
+                    <div class="col-sm-12">
+                        <asp:LinkButton ID="btnUpdate" runat="server" CssClass="btn-animated bg-green"
+                            Visible="false" CausesValidation="false" OnClick="btnUpdate_Click" TabIndex="2"> <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"> Update</span> </asp:LinkButton>
+                        <asp:LinkButton ID="btnKYCUpdate" runat="server" CssClass="btn-animated bg-green"
+                            Visible="false" CausesValidation="false" OnClick="btnKYCUpdate_Click" TabIndex="2"> <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"> Update</span> </asp:LinkButton>
+
+
+                        <asp:LinkButton ID="btnPartialSave" OnClick="btnPartialSave_Click" Style="display: none"
+                            CssClass="btn-animated bg-green" runat="server" TabIndex="2">
                    
                     <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Partial Save
-                </asp:LinkButton>
+                        </asp:LinkButton>
 
 
-                <asp:LinkButton ID="btnPartialUpdate"  OnClick="btnPartialUpdate_Click" Visible="false"
-                    CssClass="btn-animated bg-green" runat="server" TabIndex="2">
-                    <asp:HiddenField ID="HiddenField6" runat="server" />
-                    <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Partial Update
-                </asp:LinkButton>
-                <%--added by babita--%>
-<%--                <asp:LinkButton ID="btnprevcd" CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;" OnClick="btnprevcd_Click">
+                        <asp:LinkButton ID="btnPartialUpdate" OnClick="btnPartialUpdate_Click" Visible="false"
+                            CssClass="btn-animated bg-green" runat="server" TabIndex="2">
+                            <asp:HiddenField ID="HiddenField6" runat="server" />
+                            <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span>Partial Update
+                        </asp:LinkButton>
+                        <%--added by babita--%>
+                        <%--                <asp:LinkButton ID="btnprevcd" CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;" OnClick="btnprevcd_Click">
                 <span></span> Previous
 </asp:LinkButton>--%>
-                <asp:LinkButton ID="btnprevcd" CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;" OnClick="btnprevcd_Click">
-    <span></span> Previous
-</asp:LinkButton>
-                <%--ended by babita--%>
+                        
+                        <%--Changes by Rahul for asp link button to asp buttonon 11/06/2025--%>
+                        <asp:Button ID="btnprevcd" runat="server" 
+                            CssClass="btn-animated btn-primary"
+                            Text="PREVIOUS" TabIndex="2" 
+                            UseSubmitBehavior="false"
+                            OnClick="btnprevcd_Click"
+                            Style="width: 13rem; padding-left:2.5rem; font-size: initial; border-radius: 5rem;" />
 
-                <%--<asp:LinkButton ID="btnSave"  OnClick="btnSave_Click"
+                        
+                       <%-- <asp:LinkButton ID="btnprevcd"  CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none; background-color:#1f50a7; " OnClick="btnprevcd_Click">
+                            <span style="align-content:center;">Previous</span> 
+                        </asp:LinkButton>--%>
+
+
+
+
+                        <%--ended by babita--%>  
+
+                        <%--<asp:LinkButton ID="btnSave"  OnClick="btnSave_Click"
                     CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;"> 
                     <asp:HiddenField ID="TabName" runat="server" />
                     <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
                 </asp:LinkButton>--%>
-                <asp:LinkButton ID="btnSave"  OnClick="btnSave_Click_ReKyc"
-    CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;"> 
-    <asp:HiddenField ID="TabName" runat="server" />
-    <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
-</asp:LinkButton>
-                 <asp:LinkButton ID="btnCancel" OnClick="btnCancel_Click" CssClass="btn-animated bg-horrible"
-                    runat="server" TabIndex="2">
+                        <asp:LinkButton ID="btnSave" OnClick="btnSave_Click_ReKyc"
+                            CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none;">
+                            <asp:HiddenField ID="TabName" runat="server" />
+                            <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span>Save
+                        </asp:LinkButton>
+                        <asp:LinkButton ID="btnCancel" OnClick="btnCancel_Click" style="margin-left: 46%; visibility: hidden;" CssClass="btn-animated bg-horrible"
+                            runat="server" TabIndex="2">
                              <span class="glyphicon glyphicon-remove BtnGlyphicon"> </span> Cancel </asp:LinkButton>
-                <div id="divloader" runat="server" style="display: none;">
-                    <%--<img id="Img1" alt="" src="~/images/spinner.gif" runat="server" />--%>
-                    <img id="Img1" alt="" src="Common/Images/spinner.gif" runat="server" />
-                    Loading...
-                </div>
-                
-                <asp:LinkButton ID="btnnextpas" CssClass="btn-animated bg-green" runat="server" TabIndex="2" OnClick="btnnextpas_Click"> 
-    <asp:HiddenField ID="HiddenField5" runat="server" />
-    <span></span> Next
-</asp:LinkButton>
-            </div>
+                        <div id="divloader" runat="server" style="display: none;">
+                            <%--<img id="Img1" alt="" src="~/images/spinner.gif" runat="server" />--%>
+                            <img id="Img1" alt="" src="Common/Images/spinner.gif" runat="server" />
+                            Loading...
+                        </div>
+
+                                <%--Edit by rahul ASP Link button to ASP Buttonon 11/06/2025--%>
+                            <asp:Button ID="btnnextpas" runat="server" 
+                                CssClass="btn-animated btn-primary"
+                                Text="NEXT" TabIndex="2" 
+                                UseSubmitBehavior="false"
+                                OnClick="btnnextpas_Click"
+                                Style="width: 13rem; font-size: initial; padding-left:4.4rem; border-radius: 5rem;" />
+
+                        <%--<asp:LinkButton ID="btnnextpas" CssClass="btn-animated bg-green"  style="background-color:#1f50a7;" runat="server" TabIndex="2" OnClick="btnnextpas_Click">
+                            <asp:HiddenField ID="HiddenField5" runat="server" />
+                            <span></span>Next
+                        </asp:LinkButton>--%>
+                    </div>
                 </center>
             </div>
             <input id="hdnUpdate" type="hidden" runat="server" />
