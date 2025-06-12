@@ -7,6 +7,7 @@
 
 
 
+
     <style>
         .container {
             width: 1300px !important;
