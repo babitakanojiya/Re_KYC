@@ -2685,7 +2685,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnprevcd;
+        protected global::System.Web.UI.WebControls.Button btnprevcd;
 
         /// <summary>
         /// btnSave control.
@@ -2739,17 +2739,9 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnnextpas;
-
-        /// <summary>
-        /// HiddenField5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField5;
-
+        //// Updated line for changing asp link button to asp button on 11-06-2025
+        protected global::System.Web.UI.WebControls.Button btnnextpas;
+        
         /// <summary>
         /// hdnUpdate control.
         /// </summary>

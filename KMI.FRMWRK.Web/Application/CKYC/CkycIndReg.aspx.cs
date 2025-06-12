@@ -1920,6 +1920,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                     htParam.Add("@RelRefNo", dt.Rows[i]["RelRefNo"]);
                                     objDAL.ExecuteNonQuery("prc_updKycRelPrsnDtls", htParam);
 
+
                                 }
 
                                 Session["dsRel"] = null;
@@ -8437,6 +8438,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             if(Session["PanNumber"] != null && !string.IsNullOrEmpty(Session["PanNumber"].ToString()))
             {
                 txtPanNo.Text = Session["PanNumber"].ToString();
+                txtDocNumber.Text = Session["PanNumber"].ToString(); //added by babita on 12 june 2025
             }
 
             // Check validation only if pasanldeatils panel is active
@@ -8661,24 +8663,23 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             catch (Exception ex)
             { }
             }
-
+        //added by babita
         protected void btnAddDoc_Click(object sender, EventArgs e)
         {
             string base64Image = hdnBase64Image.Value;
             string base64Data = base64Image.Contains(",") ? base64Image.Split(',')[1] : base64Image;
 
-
             string docname = string.Empty;
 
             if (ddlDocType.SelectedValue == "E")
             {
-                 docname = "aadhaar";
+                docname = "aadhaar";
             }
-            else if(ddlDocType.SelectedValue == "C")
+            else if (ddlDocType.SelectedValue == "C")
             {
                 docname = "pan";
             }
-            else 
+            else
             {
                 docname = "";
             }
@@ -8688,9 +8689,15 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 try
                 {
                     // Convert Base64 string to byte array
-                    //byte[] imageBytes = Convert.FromBase64String(base64Data);
+                    byte[] imageBytes = Convert.FromBase64String(base64Data);
 
-                    // Prepare request object
+                    string docCode = ddlDocType.SelectedValue;
+                    string docName = ddlDocType.SelectedItem.Text;
+
+                    // Save image in database
+                    SaveDocumentImage(docCode, docName, imageBytes);
+
+                    // Call OCR API
                     var request = new OcrRequest
                     {
                         docType = docname,
@@ -8710,38 +8717,43 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         {
                             string result = response.Content.ReadAsStringAsync().Result;
 
-                            if (ddlDocType.SelectedValue == "E")
-                            {
-                                // Deserialize the JSON response
-                                var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
+                            var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
 
-                                if (ocrResult != null)
+                            if (ocrResult != null)
+                            {
+                                if (ddlDocType.SelectedValue == "E")
                                 {
-                                    // Store in session
                                     Session["Gender"] = ocrResult.Gender;
                                     Session["Name"] = ocrResult.Name;
                                     Session["Dob"] = ocrResult.Dob;
                                     Session["AadharNumber"] = ocrResult.AadharNumber;
                                     Session["Address"] = ocrResult.Address;
+                                    //added by babita for add aadhaar no 
+                                    if (!string.IsNullOrEmpty(ocrResult.AadharNumber))
+                                    {
+                                        string aadhaarNumber = ocrResult.AadharNumber.Replace(" ", "");
+                                        if (aadhaarNumber.Length == 12)
+                                        {
+                                            Session["AadharNumber"] = aadhaarNumber;
+                                            txtmaskadhar.Text = aadhaarNumber.Substring(8, 4);
+                                        }
+                                        else
+                                        {
+                                            txtmaskadhar.Text = "";
+                                        }
+                                    }
+
+                                    //ended by babita
                                 }
                                 else
                                 {
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
+                                    Session["PanNumber"] = ocrResult.PanNumber;
+                                    txtDocNumber.Text = Session["PanNumber"].ToString(); //added by babita on 12 june 2025
                                 }
                             }
                             else
                             {
-                                var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
-
-                                if (ocrResult != null)
-                                {
-                                    Session["PanNumber"] = ocrResult.PanNumber;
-                                }
-                                else
-                                {
-                                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
-                                }
-
+                                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
                             }
                         }
                         else
@@ -8759,8 +8771,108 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Missing image or docname');", true);
             }
-
         }
+        //ended by babita 
+
+        //protected void btnAddDoc_Click(object sender, EventArgs e)
+        //{
+        //    string base64Image = hdnBase64Image.Value;
+        //    string base64Data = base64Image.Contains(",") ? base64Image.Split(',')[1] : base64Image;
+
+
+        //    string docname = string.Empty;
+
+        //    if (ddlDocType.SelectedValue == "E")
+        //    {
+        //         docname = "aadhaar";
+        //    }
+        //    else if(ddlDocType.SelectedValue == "C")
+        //    {
+        //        docname = "pan";
+        //    }
+        //    else 
+        //    {
+        //        docname = "";
+        //    }
+
+        //    if (!string.IsNullOrEmpty(base64Data) && !string.IsNullOrEmpty(docname))
+        //    {
+        //        try
+        //        {
+        //            // Convert Base64 string to byte array
+        //            //byte[] imageBytes = Convert.FromBase64String(base64Data);
+
+        //            // Prepare request object
+        //            var request = new OcrRequest
+        //            {
+        //                docType = docname,
+        //                imageBytes = base64Data
+        //            };
+
+        //            string apiUrl = "http://kmi.centralindia.cloudapp.azure.com/OCRWEBAPI/api/Ocr/process";
+
+        //            using (var client = new HttpClient())
+        //            {
+        //                var json = JsonConvert.SerializeObject(request);
+        //                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        //                HttpResponseMessage response = client.PostAsync(apiUrl, content).Result;
+
+        //                if (response.IsSuccessStatusCode)
+        //                {
+        //                    string result = response.Content.ReadAsStringAsync().Result;
+
+        //                    if (ddlDocType.SelectedValue == "E")
+        //                    {
+        //                        // Deserialize the JSON response
+        //                        var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
+
+        //                        if (ocrResult != null)
+        //                        {
+        //                            // Store in session
+        //                            Session["Gender"] = ocrResult.Gender;
+        //                            Session["Name"] = ocrResult.Name;
+        //                            Session["Dob"] = ocrResult.Dob;
+        //                            Session["AadharNumber"] = ocrResult.AadharNumber;
+        //                            Session["Address"] = ocrResult.Address;
+        //                        }
+        //                        else
+        //                        {
+        //                            ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        var ocrResult = JsonConvert.DeserializeObject<OcrResponse>(result);
+
+        //                        if (ocrResult != null)
+        //                        {
+        //                            Session["PanNumber"] = ocrResult.PanNumber;
+        //                        }
+        //                        else
+        //                        {
+        //                            ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Failed to parse OCR response.');", true);
+        //                        }
+
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Error: {response.StatusCode}');", true);
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Exception: {ex.Message}');", true);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Missing image or docname');", true);
+        //    }
+
+        //}
 
         [System.Web.Services.WebMethod]
         public static string UpdateSessionValue(string key, string value)
@@ -8832,6 +8944,46 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
             return "OK";
         }
+
+        //added for  insert a image 
+        private void SaveDocumentImage(string docCode, string docName, byte[] imageData)
+        {
+            try
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["CKYCConnectionString"].ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("Prc_Insert_Document_Rekyc", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                        cmd.Parameters.AddWithValue("@RegRefNo", Session["RegRefNo"] ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@UniqueID", Session["UniqueID"] ?? (object)DBNull.Value);
+                        //cmd.Parameters.AddWithValue("@ImageName", docName + ".jpg"); 
+                        string docNameFormatted = docName.Replace(" ", "_").ToUpper();
+
+                        // Prepare full image name: Reference number + document name + .jpg
+                        string combinedImageName = (txtRefNumber.Text.Trim() + "_" + docNameFormatted + ".jpg").ToUpper();
+
+                        cmd.Parameters.AddWithValue("@ImageName", combinedImageName);
+                        cmd.Parameters.AddWithValue("@DocCode", docCode);
+                        cmd.Parameters.AddWithValue("@DocName", docName);
+                        cmd.Parameters.AddWithValue("@Image", imageData);
+                        cmd.Parameters.AddWithValue("@Firefno", txtRefNumber.Text.Trim());
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Image Save Error: {ex.Message}');", true);
+            }
+        }
+
 
     }
 
