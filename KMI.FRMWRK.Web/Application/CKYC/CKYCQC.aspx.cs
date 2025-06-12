@@ -14,6 +14,7 @@ using System.Web.UI.WebControls;
 
 namespace KMI.FRMWRK.Web.Application.CKYC
 {
+
     public partial class CKYCQC : System.Web.UI.Page
     {
         #region Declare Veriables

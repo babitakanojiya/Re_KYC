@@ -7,6 +7,7 @@
 
 
 
+
     <style>
         .container {
             width: 1300px !important;
@@ -158,6 +159,13 @@
         /*background-color: #B7D2FF !important;  Slightly darker shade of #E1EEFF */
        border-color: #8AB5FF !important; /* Optional: dark text color for contrast */
     }
+
+    .disabled-btn {
+    background-color: #ccc !important;
+    cursor: not-allowed;
+    pointer-events: none;
+    }
+
 
     /* Base styles for the panel */
 .responsive-panel {
@@ -452,27 +460,88 @@
         // Show/hide "Previous" button based on current step
         const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
         if (currentStep === 0) {
-            prevBtn.style.display = 'none';
+        prevBtn.style.display = 'inline-block';
+        prevBtn.disabled = true;
+        prevBtn.style.backgroundColor = '#ccc'; // Grey color
+        prevBtn.style.cursor = 'not-allowed';
         } else {
-            prevBtn.style.display = 'inline-block';
+        prevBtn.disabled = false;
+        prevBtn.style.display = 'inline-block';
+        prevBtn.style.backgroundColor = ''; // Reset if styled by class
+        prevBtn.style.cursor = '';
         }
+
         const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
         nextBtn.style.display = currentStep === steps.length - 1 ? 'none' : 'inline-block';
+
+        checkAnyBoxSelected(); // Re-evaluate visibility based on step
     }
 
-    // On page load
-    window.onload = function () {
-        document.getElementById(steps[0]).classList.add('active');
-        document.getElementById(contentIds[0]).style.display = 'block';
+        window.onload = function () {
+            document.getElementById(steps[0]).classList.add('active');
+            document.getElementById(contentIds[0]).style.display = 'block';
 
-        // Hide "Previous" on first load
-        const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
-        prevBtn.style.display = 'none';
+            const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
+            prevBtn.style.display = 'inline-block';
+            prevBtn.disabled = true;
+            prevBtn.style.backgroundColor = '#ccc';
+            prevBtn.style.cursor = 'not-allowed';
 
-        // Show "Next" on first load
-        const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
-        nextBtn.style.display = 'inline-block';
+            const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
+            nextBtn.style.display = 'inline-block';
+
+            checkAnyBoxSelected(); // also call this here
+        };
+
+
+        <%--function checkAnyBoxSelected() {
+    const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
+    let anyChecked = checkboxIds.some(id => document.getElementById(id)?.checked);
+
+    if (anyChecked) {
+        // Show Update button
+        document.getElementById('btnUpdChanges').style.display = 'inline-block';
+        document.getElementById('btnConfirm').style.display = 'none';
+    } else {
+        // Show Confirm button
+        document.getElementById('btnConfirm').style.display = 'inline-block';
+        document.getElementById('btnUpdChanges').style.display = 'none';
     }
+}
+
+// On page load
+window.onload = function () {
+    document.getElementById(steps[0]).classList.add('active');
+    document.getElementById(contentIds[0]).style.display = 'block';
+    document.getElementById('<%= btnPrev1.ClientID %>').style.display = 'none';
+    document.getElementById('<%= btnNext1.ClientID %>').style.display = 'inline-block';
+
+    checkAnyBoxSelected(); // Make sure correct button shows initially
+};--%>
+
+        function checkAnyBoxSelected() {
+    const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
+    let anyChecked = checkboxIds.some(id => document.getElementById(id)?.checked);
+
+    // Only show buttons if on step 4
+    if (currentStep === 4) {
+        if (anyChecked) {
+            document.getElementById('btnUpdChanges').style.display = 'inline-block';
+            document.getElementById('btnConfirm').style.display = 'none';
+        } else {
+            document.getElementById('btnConfirm').style.display = 'inline-block';
+            document.getElementById('btnUpdChanges').style.display = 'none';
+        }
+    } else {
+        // Hide both buttons on other steps
+        document.getElementById('btnConfirm').style.display = 'none';
+        document.getElementById('btnUpdChanges').style.display = 'none';
+    }
+}
+
+
+
+    
 </script>
 
 </asp:Content>
@@ -668,8 +737,8 @@
                     </div>
                     <div id="divCKYCdtls" style="display: block;" runat="server" class="panel-body">
                         <div class="col-sm-12" style="text-align: left; display: flex;">
-                            <asp:CheckBox ID="CheckBox7" Text="I confirm that the above information furnished is true and correct and the said details may be updated in my account maintained with the company.<br />In case of any change in the information, the same will be informed to the company. I further hereby authorize the company to obtain necessary details from CKYC Registry."
-                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="margin-top: 1rem; font-size: 1.3rem; margin:1rem 1rem 0rem !important;" />
+                            <asp:CheckBox ID="CheckBox7" ClientIDMode="Static" Text="I confirm that the above information furnished is true and correct and the said details may be updated in my account maintained with the company.<br />In case of any change in the information, the same will be informed to the company. I further hereby authorize the company to obtain necessary details from CKYC Registry."
+                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="margin-top: 1rem; font-size: 1.3rem; margin:1rem 1rem 0rem !important;" onclick="checkAnyBoxSelected();"/>
                         </div>
                      <div class="row" style="margin-top: 8rem;">
                              <div class="col-sm-3" style="text-align: left">
@@ -742,10 +811,10 @@
                                 <%--Added by tushar for--%>
                             </div>
                         </div>
-                      <div class="col-sm-12" style="text-align: left; display: flex;">
-    <asp:CheckBox ID="CheckBox6" Text="Check this box if any details in this segment has changed and needs to be modified"
-        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
-</div>
+                        <div class="col-sm-12" style="text-align: left; display: flex;">
+                            <asp:CheckBox ID="CheckBox6" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
+                        </div>
                     </div>
                 </div>
 
@@ -801,8 +870,8 @@
                                 </asp:Panel>
 
                                 <div class="col-sm-12" style="text-align: left; display: flex;">
-                                    <asp:CheckBox ID="CheckBox1" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" style="color: blue;"/>
+                                    <asp:CheckBox ID="CheckBox1" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" style="color: blue;" onclick="checkAnyBoxSelected();"/>
                                 </div>
 
                                 <%--ended by babita --%>
@@ -1231,8 +1300,8 @@
                                 </div>
 
                                     <div class="col-sm-12" style="text-align: left; display: flex;">
-                                        <asp:CheckBox ID="CheckBox2" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem;" />
+                                        <asp:CheckBox ID="CheckBox2" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem;" onclick="checkAnyBoxSelected();"/>
                                     </div>
                                     <%-- ended by Rutuja --%>
                                    
@@ -1857,12 +1926,12 @@
 
             </div>
             <div class="col-sm-12" style="text-align: left; display: flex;">
-                <asp:CheckBox ID="CheckBox5" Text="Same as above mentioned details"
-                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+                <asp:CheckBox ID="CheckBox5" ClientIDMode="Static" Text="Same as above mentioned details"
+                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
             </div>
             <div class="col-sm-12" style="text-align: left; display: flex;">
-                <asp:CheckBox ID="CheckBox4" Text="Check this box if any details in this segment has changed and needs to be modified"
-                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+                <asp:CheckBox ID="CheckBox4" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
             </div>
                                 <%--<div class="row">
                                     <div class="col-sm-12" style="text-align: left">
@@ -2069,8 +2138,8 @@
                                             TabIndex="83"></asp:TextBox>
                                     </div>
                                     <div class="col-sm-12" style="text-align: left; display: flex;">
-                                        <asp:CheckBox ID="CheckBox3" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" />
+                                        <asp:CheckBox ID="CheckBox3" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
                                     </div>
 
                                     <%--Added By Shubham--%>
@@ -2550,12 +2619,12 @@
 <%--           <asp:Button ID="btnPrev" runat="server" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');"   OnClick="btnPrevious_Click" Text="Previous">
            </asp:Button>--%>
             <div class="col-sm-3" align="center" >
-             <asp:Button ID="btnPrev1" runat="server"
-    CssClass="btn-animated btn-primary"
-    Text="PREVIOUS"
-    UseSubmitBehavior="false"
-    OnClientClick="changeStep(-1); return false;"
-    style="width: 13rem; font-size: initial; border-radius: 5rem;"/>
+                <asp:Button ID="btnPrev1" runat="server" 
+                    CssClass="btn-animated btn-primary"
+                    Text="PREVIOUS"
+                    UseSubmitBehavior="false"
+                    OnClientClick="changeStep(-1); return false;"
+                    Style="width: 13rem; font-size: initial; border-radius: 5rem;" />
                 </div>
             <div class="col-sm-3" align="center">
                 <asp:Button ID="btnUpdate" runat="server" Style="display: none;" CssClass="btn-animated bg-green" OnClientClick="ShowProgressBar('Processing...');" OnClick="btnUpdate_Click" Text="Approve"></asp:Button>
@@ -2563,14 +2632,33 @@
              <div class="col-sm-3" align="center" >
             <asp:Button ID="btnReject" runat="server" Style="display:none;" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');" OnClick="btnReject_Click" Text="Reject"></asp:Button>
             </div>
+
              <div class="col-sm-3" align="center" >
-            <asp:Button ID="btnNext1" runat="server"
+            <asp:Button ID="btnNext1" runat="server" 
                 CssClass="btn-animated btn-primary"
                 Text="NEXT"
                 UseSubmitBehavior="false"
-                OnClientClick="changeStep(1); return false;"
+                OnClientClick="checkAnyBoxSelected(); changeStep(1); return false;"
                 Style="width: 13rem; font-size: initial; border-radius: 5rem;" />
                  </div>
+
+            <div class="col-sm-3" align="center" style="margin-left: 60rem;">
+                <asp:Button ID="btnConfirm" runat="server" ClientIDMode="Static"
+                    CssClass="btn-animated btn-primary"
+                    Text="I CONFIRM ALL IS FINE"
+                    UseSubmitBehavior="false"
+                    OnClientClick="checkAnyBoxSelected(); changeStep(1); return false;"
+                    Style="width: 22rem; display:none; font-size: initial; border-radius: 5rem;" />
+            </div>
+
+            <div class="col-sm-3" align="center">
+                <asp:Button ID="btnUpdChanges" runat="server" ClientIDMode="Static"                 
+                    CssClass="btn-animated btn-primary"
+                    Text="PLEASE UPDATE THE CHANGES"
+                    UseSubmitBehavior="false"
+                    OnClientClick="checkAnyBoxSelected(); changeStep(1); return false;"
+                    Style="margin-left: 55rem; width: 30rem; font-size: initial; border-radius: 5rem; display:none;" />
+            </div>
 
         </div>
         </div>
