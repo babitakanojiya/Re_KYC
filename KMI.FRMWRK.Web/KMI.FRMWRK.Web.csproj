@@ -302,6 +302,12 @@
     <Content Include="Application\CKYC\IdentityCodeMaster.aspx" />
     <Content Include="Application\CKYC\ImageC.aspx" />
     <Content Include="Application\CKYC\ImageCSharp.aspx" />
+    <Content Include="Application\CKYC\Images\CERSAI_Symbol.JPG" />
+    <Content Include="Application\CKYC\Images\CERSAI_Symbol.png" />
+    <Content Include="Application\CKYC\Images\IndianEmblem.JPG" />
+    <Content Include="Application\CKYC\Images\NewCERSAILogo.JPG" />
+    <Content Include="Application\CKYC\Images\NewIndianEmblem.JPG" />
+    <Content Include="Application\CKYC\Images\PANQR.JPG" />
     <Content Include="Application\CKYC\Images\spinner.gif" />
     <Content Include="Application\CKYC\ImgCropped.aspx" />
     <Content Include="Application\CKYC\IndividualRegistration.aspx" />

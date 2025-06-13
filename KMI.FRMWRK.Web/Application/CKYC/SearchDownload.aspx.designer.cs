@@ -105,15 +105,6 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.TextBox pandob;
 
         /// <summary>
-        /// applicantImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage applicantImage;
-
-        /// <summary>
         /// lblCKYCRefNo control.
         /// </summary>
         /// <remarks>
@@ -177,13 +168,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Label lblIdentityDocs;
 
         /// <summary>
-        /// Img4 control.
+        /// applicantImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage Img4;
+        protected global::System.Web.UI.HtmlControls.HtmlImage applicantImage;
 
         /// <summary>
         /// lblAccountName control.
@@ -202,6 +193,24 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAccountNumber;
+
+        /// <summary>
+        /// Img6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Img6;
+
+        /// <summary>
+        /// Img4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Img4;
 
         /// <summary>
         /// TextBox7 control.
