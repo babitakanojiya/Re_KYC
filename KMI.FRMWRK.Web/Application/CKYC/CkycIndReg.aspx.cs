@@ -8708,7 +8708,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
 
-                // Optional: Add success message/logic here
+                
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);

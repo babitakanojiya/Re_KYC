@@ -1822,7 +1822,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
 
                                                 <!-- LEFT PANEL: Form -->
-                                                <div style="flex: 1; min-width: 601px;">
+                                                <div style="flex: 1; max-width: 580px;min-width: 580px;">
                                                     <asp:UpdatePanel runat="server" ID="updDocPanel">
                                                         <ContentTemplate>
 
@@ -1889,10 +1889,6 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                                         </Triggers>
                                                     </asp:UpdatePanel>
                                                 </div>
-
-
-                                                <!-- RIGHT PANEL: Dropzone and Carousel -->
-                                                <%--<div style="flex: 1; min-width: 618px;">--%>
                                                 <div class="upload-wrapper">
 
                                                     <div id="dropZone" style="font-size: large;">
