@@ -1,9 +1,127 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empty.Master" AutoEventWireup="true" CodeBehind="CKYCQC.aspx.cs" Inherits="KMI.FRMWRK.Web.Application.CKYC.CKYCQC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%: Scripts.Render("~/bundles/CKYCValidationjs") %>
-    <%: Styles.Render("~/bundles/CKYCcss") %>
+  
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+ <!--Strt Rahul carousal on 13-06-2025 -->
+<%--<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var carousel = document.getElementById("customCarousel");
+        var imgs = carousel.querySelectorAll(".carousel-item img");
+
+        imgs.forEach(function (img) {
+            img.addEventListener("load", function () {
+                var maxHeight = 0;
+                imgs.forEach(function (im) {
+                    if (im.height > maxHeight) maxHeight = im.height;
+                });
+                carousel.style.height = maxHeight + 20 + "px"; // padding included
+            });
+        });
+    });
+</script>--%>
+
+  <script>
+      $(document).ready(function () {
+          $('#customCarousel').carousel({
+              interval: false
+          });
+      });
+  </script>
+
+
+
+
+
+
+
+
+
+
+    <%-- for adding dots under carousal --%>
+    <style>
+    .carousel-indicators li {
+        background-color: grey; /* Inactive dots */
+    }
+    .carousel-indicators .active {
+        background-color: blue; /* Active dot */
+    }
+</style>
+
+<script>
+    window.onload = function () {
+        debugger;
+        const carouselInner = document.querySelector("#divSearchResult");      // ✅ .carousel-inner from ASPX
+        const items = carouselInner.querySelectorAll(".carousel-item");       // ✅ Dynamically injected images
+
+        if (items.length === 0) return;                                       // ✅ No images → No dots
+
+        const indicatorsContainer = document.createElement("ol");
+        indicatorsContainer.classList.add("carousel-indicators");
+
+        items.forEach((item, index) => {
+            const li = document.createElement("li");
+            li.setAttribute("data-target", "#carouselImages");                // ✅ ID matches ASPX div
+            li.setAttribute("data-slide-to", index);
+            if (index === 0) li.classList.add("active");
+            indicatorsContainer.appendChild(li);
+        });
+
+        const carousel = document.getElementById("carouselImages");
+        carousel.insertBefore(indicatorsContainer, carouselInner);            // ✅ Dots inserted before carousel-inner
+    };
+</script>
+
+  
+
+
+   
+    
+<style>
+
+   .carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
+}
+
+
+
+    /*put test*/
+    .carousel-frame {
+    width: 600px; /* or set max-width: 100%; for responsiveness */
+    margin: 0 auto; /* Center the frame horizontally */
+    border: 2px solid #ccc;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 400px; /* adjust as needed */
+    object-fit: contain; /* Maintain aspect ratio, image fits inside */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Arrows stick to edges */
+}
+
+</style>
+
+
+
+
+
+
+
+
 
 
 
@@ -613,7 +731,7 @@ window.onload = function () {
         <div class="col-12">
             <div class="stripPanelClass">
                 <div class="table-responsive">
-                    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab"  style="white-space: nowrap;">
+                    <ul class="nav nav-tabs flex-nowrap " id="myTab"  style="white-space: nowrap;">
                         <li class="nav-item active" role="presentation">
                             <button id="lbldocument"
                                 data-bs-toggle="tab"
@@ -857,17 +975,56 @@ window.onload = function () {
        
      </div>
  </asp:Panel>--%>
-                                <%--<asp:Panel ID="panel1" runat="server" Style="height: 200px;  margin-left: 40rem;">
+<%--                                <%--<asp:Panel ID="panel1" runat="server" Style="height: 200px;  margin-left: 40rem;">
                                     <div id="divSearchResult" runat="server"
                                         style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; margin-right: 1290px;">
                                     </div>
                                 </asp:Panel>--%>
+                               
+                                <%-- changing PANEL OF Babita  --%>
+                                  <%-- <asp:Panel ID="panel1" runat="server" ClientIDMode="Static" 
+                                       Style="width: 600px; height: 300px; overflow: hidden; margin-left: 33rem;">
+                                <div id="divSearchResult" runat="server"></div>
+                            </asp:Panel>--%>
 
-                                <asp:Panel ID="panel1" runat="server" Style="height: 200px; margin-left: 33rem;">
-                                    <div id="divSearchResult" runat="server"
-                                        style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; margin-right: 1290px;">
-                                    </div>
-                                </asp:Panel>
+                                <!--Start of PAnel CArousal by RAhul on 13-06-2025-->
+                           <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static">
+    <div id="carouselImages" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div id="divSearchResult" runat="server" class="carousel-inner">
+            <%-- Dynamic images from C# will be injected here --%>
+        </div>
+
+        <!-- Navigation arrows -->
+        <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</asp:Panel>
+
+
+
+
+
+
+
+
+
+                              
+
+
+
+                                
+                                <!--END of PAnel CArousal by RAhul on 13-06-2025-->
+
+
+
+
+
 
                                 <div class="col-sm-12" style="text-align: left; display: flex;">
                                     <asp:CheckBox ID="CheckBox1" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
