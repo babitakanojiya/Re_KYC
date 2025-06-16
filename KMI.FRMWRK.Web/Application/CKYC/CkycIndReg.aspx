@@ -2307,6 +2307,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
                                 </div>
 
+
                                 <%--<div class="col-sm-3" style="text-align: left">
 
                                     <asp:Label ID="lbloccupation" Text="Occupation" runat="server" CssClass="control-label"></asp:Label>

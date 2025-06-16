@@ -8704,7 +8704,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 htReKycParam.Add("@IsForm60Flg", (chkPanForm.Checked ? "Y" : "N"));
                 htReKycParam.Add("@uniqueID", obj.ToString());
                 
-                // Database Call
+
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
 
