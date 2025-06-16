@@ -110,7 +110,15 @@
         }--%>
     </script>
 
+    <%--added by babita --%>
+    <style>
+        .center-margin {
+    margin-top: 5px;
+    text-align: center;
+}
 
+    </style>
+    <%--ended by babita --%>
 
     <style>
 /*        .panel-success {
@@ -843,7 +851,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                 </div>--%>
                             <%--</div>--%>
 
-                            <div id="div9" class="panel-body" style="margin-left: 2%; margin-right: 2%; margin-top: 0">
+                            <div id="div9" class="panel-body" style="margin-left: 2%;margin-right: 2%;margin-top: -20px;padding-top: 0px;">
                                 <asp:Button ID="btnend" runat="server" OnClick="btnend_Click" Style="display: none" OnClientClick="ShowProgressBar('Loading Data..Please wait')" />
                                 <div class="panel-body">
                                     <div id="loader" class="loader-overlay" style="display: none;">
@@ -879,7 +887,8 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="onboardpage1">
                                             <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Let's complete your KYC</h1>
                                                 <div style="margin-top: 20px; text-align: center;">
-                                                    <img id="onboardimage" src="Images/Onboardp1.jpg" alt="Onboarding Image" style="max-width: 100%; height: 22rem; display: block; margin: -1.5rem auto;" />
+                                        <%--<div class="center-margin">--%>
+                                                    <img id="onboardimage" src="Images/Onboardp1.jpg" alt="Onboarding Image" style="max-width: 100%; height: 20rem; display: block; margin: -1.5rem auto;" />
     
                                                     <h4 style="line-height: 1.3; margin-top: -2rem;">
                                                     KYC means Know-Your-Customer, which every financial institution<br />
@@ -901,8 +910,8 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <%-- Added by Vikash K on 26May2025 CKYCpage1 --%>
                                     <div id="CKYCpage1" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Do you have a CKYC No.?</h1>
-                                            <div style="margin-top: 20px; text-align: center;">
-                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
+                                            <div style="margin-top: 5px; text-align: center;">
+                                                <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 20rem; display: block; margin: 0 auto;" />
     
                                                  <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;">CKYC number is a unique 14-digit number, assigned by CERSAI, as an identifier across all financial institutions.<br />
                                                 If you already have a CKYC number, Please enter this number to seamlessly complete your verification,<br />
@@ -939,7 +948,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="CKYCpage2" class="page-div" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter CKYC No.</h1>
                                     <div style="margin-top: 0px; text-align: center;">
-                                        <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
+                                        <img src="Images/CKYCSample2.jpg" alt="CKYC Card Image" style="max-width: 100%; height: 20rem; display: block; margin: 0 auto;" />
     
                                      <div>                                  <br />
                                                                                     <h3 style="font: unset;font-size: initial;color: black; margin-top: 7px;">Please enter your 14-digit CKYC number and date of birth.</h3>
@@ -1010,8 +1019,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                     <div id="PANpage1" class="page-div" style="display:none;">
 
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have a PAN No.?</h1>
-                                        <div style="margin-top: 20px; text-align: center;">
-                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
+                                        <%--<div style="margin-top: 20px; text-align: center;">--%>
+                                        <div class="center-margin">
+                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 20rem; display: block; margin: 0 auto;" />
     
                                             <h4 style="line-height: 1.4; margin-top: 0.5rem; font-weight: normal; text-align: center; color: #2b4db0;">Permanent Account Number (PAN) is a 10 character identification number,<br />
                                                 consisting of letters and numbers, issued to all taxpayers, by the Indian Income Tax Department.
@@ -1038,8 +1048,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                                 </div>
                                     <div id="PANpage2" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">Please enter PAN Number</h1>
-                                        <div style="margin-top: 20px; text-align: center;">
-                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
+                                        <%--<div style="margin-top: 20px; text-align: center;">--%>
+                                        <div class="center-margin">
+                                            <img src="Images/PANSample.jpg" alt="PAN Card Image" style="max-width: 100%; height: 20rem; display: block; margin: 0 auto;" />
                                                 <div>
                                             <p style=" font-weight:bold; font-size: 12px; margin-top: 7px; ">Please enter your 10 digit PAN number and Date of Birth</p>
                                             </div>
@@ -1248,8 +1259,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
 
                                     <div id="Aadharpage1" class="page-div" style="display:none;">
                                         <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;">OK, Do you have an AADHAR card?</h1>
-                                        <div style="margin-top: 20px; text-align: center;">
-                                        <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 22rem; display: block; margin: 0 auto;" />
+                                        <%--<div style="margin-top: 20px; text-align: center;">--%>
+                                        <div class="center-margin">
+                                        <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 20rem; display: block; margin: 0 auto;" />
 
                                         <h4 style="line-height: 1.6; margin-top: 1rem; font-weight: unset;">AADHAR is a unique 12 digit number, issued by UIDAI, that is based on your<br />
                                                 biometrics and serves as proof of identity and address. If you have an
@@ -1341,8 +1353,9 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
 
                                     <div id="Aadharpage2" class="page-div" style="display:none;">
                                     <h1 style="color:#1f50a7;font-size:4rem;font-weight:bold;margin-bottom: -2rem;">Please enter  AADHAR details</h1>
-                                    <div style="margin-top: 20px; text-align: center;">
-                                    <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 22rem; display: block; margin: -1rem auto;" />
+                                    <%--<div style="margin-top: 20px; text-align: center;">--%>
+                                        <div class="center-margin">
+                                    <img src="Images/AadharSample.jpg" alt="Aadhar Card Image" style="max-width: 100%; height: 20rem; display: block; margin: -1rem auto;" />
  
                                         </div>
                                                                                 <div style="margin-top:3rem;text-align:center;">

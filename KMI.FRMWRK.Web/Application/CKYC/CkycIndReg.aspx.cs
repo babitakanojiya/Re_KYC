@@ -8702,13 +8702,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 htReKycParam.Add("@CREATEDBY", strUserId.ToString());
                 htReKycParam.Add("@UpdateFlag", "N");
                 htReKycParam.Add("@IsForm60Flg", (chkPanForm.Checked ? "Y" : "N"));
-                htReKycParam.Add("@uniqueID", obj.ToString());
+                
                 
 
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
 
-                // Optional: Add success message/logic here
+                
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);

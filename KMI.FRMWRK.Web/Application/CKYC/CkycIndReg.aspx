@@ -734,8 +734,36 @@ input.form-control {
                 popup("Please enter valid email address");
             }
         }
-
         function validateMobileNumber(obj) {
+            debugger;
+
+            var countryCode = $("#<%=txtMobile.ClientID%>").val().trim(); // Assuming txtMobile is the country code field
+            var mobileNumber = obj.value.trim();
+
+            if (mobileNumber === "") return; // If field is empty, skip validation
+
+            var startWith = ["6", "7", "8", "9"];
+            var firstDigit = mobileNumber.charAt(0);
+
+            if (countryCode === "91") { // India validation
+                if (startWith.indexOf(firstDigit) === -1 || mobileNumber.length !== 10) {
+                    obj.value = "";
+                    popup("Mobile number should start with 6, 7, 8, or 9 and should be 10 digits long.");
+                    return false;
+                }
+            } else {
+                // For other country codes, you can define different validation if needed
+                if (mobileNumber.length < 6 || mobileNumber.length > 15) { // Example: generic validation for international numbers
+                    obj.value = "";
+                    popup("Please enter a valid mobile number.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        <%--function validateMobileNumber(obj) {
             debugger;
             if ($("#<%=txtMobile.ClientID%>").val().trim() == "91") {
                 var startWith = ["6", "7", "8", "9"]
@@ -753,7 +781,7 @@ input.form-control {
                 //    popup("Please Enter Valid Mobile Number");
                 //}
             }
-        }
+        }--%>
 
 
         function popup(msg) {
@@ -1425,120 +1453,6 @@ input.form-control {
             return true; // prevent postback
 
         }
- 
- 
-        <%--function validateAndAddImage() {
-
-            debugger;
-
-            const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
- 
-        // Elements that might be visible depending on doc type
-
-        const normalContainer = document.getElementById("<%= normalContainer.ClientID %>");
-
-        const maskContainer = document.getElementById("<%= maskContainer.ClientID %>");
- 
-// Document number input fields
-
-const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
-
-        const passNoInput = document.getElementById("<%= txtmaskadhar.ClientID %>");
- 
-            let docNumber = "";
- 
-            if (!docType) {
-
-                alert("Please select a Document Type.");
-
-                return false;
-
-            }
- 
-            // Determine which container is visible and use corresponding textbox
-
-            //if (maskContainer && maskContainer.style.display !== "none") {
-
-            //    docNumber = passNoInput.value.trim();
-
-            //    if (!docNumber) {
-
-            //        alert("Please enter aadhaar last 4 digit number.");
-
-            //        passNoInput.focus();
-
-            //        return false;
-
-            //    }
-
-            //} else if (normalContainer && normalContainer.style.display !== "none") {
-
-            //    docNumber = docNumberInput.value.trim();
-
-            //    if (!docNumber) {
-
-            //        alert("Please enter a valid Document Number.");
-
-            //        docNumberInput.focus();
-
-            //        return false;
-
-            //    }
-
-            //} else {
-
-            //    alert("Please enter a valid Document Number.");
-
-            //    return false;
-
-            //}
- 
-            if (!tempImage) {
-
-                alert("Please upload an image.");
-
-                return false;
-
-            }
- 
-            // Store the image along with docType and docNumber (optional enhancement)
-
-            uploadedImages.push({
-
-                image: tempImage,
-
-                type: docType,
-
-                number: docNumber
-
-            });
-
-            document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
-
-            currentIndex = uploadedImages.length - 1;
-
-            tempImage = null;
- 
-            document.getElementById("dropZone").style.display = "none";
- 
-            const carousel = document.getElementById("carousel");
-
-            carousel.style.display = "flex";
-
-            document.getElementById("prevBtn").style.display = "inline-block";
-
-            document.getElementById("nextBtn").style.display = "inline-block";
- 
-            alert("Document added successfully!");
-
-            renderCarouselSlide();
-
-            showNext();
-
-            return true; // prevent postback
-
-        }--%>
-
             function showNext() {
 
                 const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
@@ -1649,6 +1563,9 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
             }
 </script>
+    
+
+
  
  
     
@@ -1822,7 +1739,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
 
                                                 <!-- LEFT PANEL: Form -->
-                                                <div style="flex: 1; min-width: 601px;">
+                                                <div style="flex: 1; max-width: 580px;min-width: 580px;">
                                                     <asp:UpdatePanel runat="server" ID="updDocPanel">
                                                         <ContentTemplate>
 
@@ -1889,10 +1806,6 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                                         </Triggers>
                                                     </asp:UpdatePanel>
                                                 </div>
-
-
-                                                <!-- RIGHT PANEL: Dropzone and Carousel -->
-                                                <%--<div style="flex: 1; min-width: 618px;">--%>
                                                 <div class="upload-wrapper">
 
                                                     <div id="dropZone" style="font-size: large;">
@@ -1904,7 +1817,9 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                                         <button id="nextBtn" class="nav-btn" type="button" onclick="showNext()" style="display: none;">&gt;</button>
                                                     </div>
                                                     <div id="carouselDots" class="carousel-dots"></div>
+                                                    
                                                     <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="fileInputChanged(this)" />
+
                                                 </div>
 
 
@@ -2074,7 +1989,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 </div>
 
                                 <div class="col-sm-2"  style="text-align: left;width: 14rem;margin-left: 0.6rem;">
-                                    <asp:UpdatePanel ID="upcboTitle" runat="server">
+                                 <%--   <asp:UpdatePanel ID="upcboTitle" runat="server">
                                         <ContentTemplate>
                                             <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true" CssClass="form-select custom-dropdown" TabIndex="2"
                                                 onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged" >
@@ -2082,7 +1997,23 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
                                             <div id="ddlAccountTypeLoader"></div>
                                         </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                    </asp:UpdatePanel>--%>
+                                    <asp:UpdatePanel ID="upcboTitle" runat="server" UpdateMode="Conditional">
+    <ContentTemplate>
+        <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true"
+            CssClass="form-select custom-dropdown" TabIndex="2"
+            onchange="AddLoader('ddlAccountTypeLoader');"
+            ClientIDMode="Static"
+            OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged">
+        </asp:DropDownList>
+
+        <div id="ddlAccountTypeLoader"></div>
+    </ContentTemplate>
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="ddlAccountType" EventName="SelectedIndexChanged" />
+    </Triggers>
+</asp:UpdatePanel>
+
                                 </div>
 
                             </div>
@@ -2303,8 +2234,11 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     </asp:Label>
                                 </div>
                                 <div class="col-sm-3" style="text-align: left; display: flex;">
+                                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+        <ContentTemplate>
                                     <asp:TextBox runat="server" ID="txtnameasparpan" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged" />
-
+            </ContentTemplate>
+                                         </asp:UpdatePanel>
                                 </div>
 
 
@@ -2328,14 +2262,21 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span style="color: red">*</span>
                                 </div>
                                 <div class="col-sm-3" style="text-align: left; display: flex;">
+                                                                 <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+<ContentTemplate>
                                     <asp:TextBox runat="server" ID="txtPanNo" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged"
                                         onChange="javascript:AddLoader('txtPanNoLoader');updateSessionFromTextbox(this, 'PanNo');" ClientIDMode="Static" AutoPostBack="true" onblur="return validatePAN(this)" onkeyup="javascript: this.value = this.value.toUpperCase()" TabIndex="2" />
                                     <div id="txtPanNoLoader"></div>
+    </ContentTemplate>
+                                                                     </asp:UpdatePanel>
                                 </div>
                                 <div class="col-sm-3">
+                                     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+        <ContentTemplate>
                                     <asp:CheckBox ID="chkPanForm" Text="Form 60 furnished" OnCheckedChanged="chkPanForm_CheckedChanged" Enabled="true"
                                         AutoPostBack="true" runat="server" CssClass="standardcheckbox" TabIndex="2" />
-
+            </ContentTemplate>
+                                         </asp:UpdatePanel>
                                 </div>
                                 <div class="col-sm-3" style="text-align: left">
 
@@ -3154,13 +3095,21 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
             Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
 
         <!-- Main Mobile Number -->
-        <asp:TextBox ID="txtMobile2" runat="server"
+        <%--<asp:TextBox ID="txtMobile2" runat="server"
             CssClass="form-control"
             MaxLength="20"
             TabIndex="2"
             onkeypress="fncInputNumericValuesOnly();"
             onblur="validateMobileNumber(this);"
-            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>--%>
+        <asp:TextBox ID="txtMobile2" runat="server"
+    CssClass="form-control"
+    MaxLength="10" 
+    TabIndex="2"
+    onkeypress="return fncInputNumericValuesOnly(event);" 
+    onblur="validateMobileNumber(this);"
+    Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+
     </div>
 </div>
 
@@ -3853,7 +3802,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
             <div class="row" style="margin-top: 12px;text-align-last: justify;">
                 <center>
-                    <div class="col-sm-12">
+                    <div class="text-center">
                         <asp:LinkButton ID="btnUpdate" runat="server" CssClass="btn-animated bg-green"
                             Visible="false" CausesValidation="false" OnClick="btnUpdate_Click" TabIndex="2"> <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"> Update</span> </asp:LinkButton>
                         <asp:LinkButton ID="btnKYCUpdate" runat="server" CssClass="btn-animated bg-green"
@@ -3886,26 +3835,13 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
      OnClientClick="reInitializeDropZone();" 
      Style="width: 13rem; padding-left:2.5rem; font-size: initial; border-radius: 5rem;" />
 
-                        
-                       <%-- <asp:LinkButton ID="btnprevcd"  CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none; background-color:#1f50a7; " OnClick="btnprevcd_Click">
-                            <span style="align-content:center;">Previous</span> 
-                        </asp:LinkButton>--%>
-
-
-
 
                         <%--ended by babita--%>  
 
-                        <%--<asp:LinkButton ID="btnSave"  OnClick="btnSave_Click"
-                    CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display:none;"> 
-                    <asp:HiddenField ID="TabName" runat="server" />
-                    <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
-                </asp:LinkButton>--%>
-                        <asp:LinkButton ID="btnSave" OnClick="btnSave_Click_ReKyc"
-                            CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none;">
-                            <asp:HiddenField ID="TabName" runat="server" />
-                            <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span>Save
-                        </asp:LinkButton>
+                                    
+    
+        
+
                         <asp:LinkButton ID="btnCancel" OnClick="btnCancel_Click" style="margin-left: 46%; visibility: hidden;" CssClass="btn-animated bg-horrible"
                             runat="server" TabIndex="2">
                              <span class="glyphicon glyphicon-remove BtnGlyphicon"> </span> Cancel </asp:LinkButton>
@@ -3923,10 +3859,15 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 OnClick="btnnextpas_Click"
                                 Style="width: 13rem; font-size: initial; padding-left:4.4rem; border-radius: 5rem;" />
 
-                        <%--<asp:LinkButton ID="btnnextpas" CssClass="btn-animated bg-green"  style="background-color:#1f50a7;" runat="server" TabIndex="2" OnClick="btnnextpas_Click">
-                            <asp:HiddenField ID="HiddenField5" runat="server" />
-                            <span></span>Next
-                        </asp:LinkButton>--%>
+                                                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+<ContentTemplate>
+                        <asp:LinkButton ID="btnSave" OnClick="btnSave_Click_ReKyc"
+                            CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none;">
+                            <asp:HiddenField ID="TabName" runat="server" />
+                            <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span>Save
+                        </asp:LinkButton>
+                            </ContentTemplate>
+</asp:UpdatePanel>
                     </div>
                 </center>
             </div>
