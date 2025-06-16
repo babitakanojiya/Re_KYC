@@ -2303,7 +2303,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     </asp:Label>
                                 </div>
                                 <div class="col-sm-3" style="text-align: left; display: flex;">
-                                    <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged" />
+                                    <asp:TextBox runat="server" ID="txtnameasparpan" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged" />
 
                                 </div>
 

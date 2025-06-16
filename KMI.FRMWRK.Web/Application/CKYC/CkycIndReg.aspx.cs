@@ -8697,12 +8697,13 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 htReKycParam.Add("@APP_DATE", txtDate.Text.Trim());
                 htReKycParam.Add("@PLACE", txtPlace.Text.Trim());
                 htReKycParam.Add("@PAN", txtPanNo.Text.Trim());
+                htReKycParam.Add("@NameAsPerPan", txtnameasparpan.Text.Trim());
                 htReKycParam.Add("@kycEmpCode", strUserId);
                 htReKycParam.Add("@CREATEDBY", strUserId.ToString());
                 htReKycParam.Add("@UpdateFlag", "N");
                 htReKycParam.Add("@IsForm60Flg", (chkPanForm.Checked ? "Y" : "N"));
                 htReKycParam.Add("@uniqueID", obj.ToString());
-
+                
                 // Database Call
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
