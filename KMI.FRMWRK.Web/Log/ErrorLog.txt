@@ -47260,3 +47260,111 @@ Source: mscorlib
 TargetSite: Void AbortInternal()
 ----------------------------------------------------------------------------------------------------------------------
 
+Time: 16-06-2025 12:07:24 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 01:44:31 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 01:45:04 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 03:14:06 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 04:14:00 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 05:18:32 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 05:51:49 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 06:25:10 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
+Time: 16-06-2025 06:51:19 PM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\16-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
