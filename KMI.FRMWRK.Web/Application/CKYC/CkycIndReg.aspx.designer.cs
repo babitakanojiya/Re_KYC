@@ -735,22 +735,22 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.DropDownList drpresidential;
 
         /// <summary>
-        /// lbloccupation control.
+        /// Label8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbloccupation;
+        protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// drpOccupation control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpOccupation;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// Label1 control.
@@ -805,42 +805,6 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlIsoCountryCodeOthr;
-
-        /// <summary>
-        /// Label8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
-
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
-        /// <summary>
-        /// Label9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-
-        /// <summary>
-        /// TextBox2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
 
         /// <summary>
         /// divDetailOfEntity control.
@@ -2373,24 +2337,6 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.CheckBox chkAppDeclare2;
 
         /// <summary>
-        /// Label10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
-
-        /// <summary>
-        /// TextBox3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
-
-        /// <summary>
         /// lblDate control.
         /// </summary>
         /// <remarks>
@@ -2739,9 +2685,8 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        //// Updated line for changing asp link button to asp button on 11-06-2025
         protected global::System.Web.UI.WebControls.Button btnnextpas;
-        
+
         /// <summary>
         /// hdnUpdate control.
         /// </summary>

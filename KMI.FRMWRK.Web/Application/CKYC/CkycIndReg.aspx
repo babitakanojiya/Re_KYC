@@ -271,6 +271,12 @@ input.form-control {
     width: 100%;
     max-width: 250px;
     padding: 6px;
+    font-size: 1.3rem;
+    font: -webkit-control;
+}
+
+.form-control{
+    font-size: 1.3rem;
 }
 
 /* Primary Button */
@@ -375,7 +381,23 @@ input.form-control {
             input[type=checkbox] + label, input[type=radio] + label {
                 vertical-align: middle !important;
                 margin-right: 3px !important;
+                padding-bottom: 0.5rem;
+                font-size: 1.3rem;
             }
+
+        .custom-dropdown {
+            width: 100% !important;
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 0.375rem;
+        }
+
+        @media (min-width: 768px) {
+            .custom-dropdown {
+                max-width: 250px; /* Optional limit on larger screens */
+            }
+        }
+
     </style>
     <script type="text/javascript">
 
@@ -1201,247 +1223,434 @@ input.form-control {
 </script>
 
         <%--//added for documnet--%>
-    <script type="text/javascript">
-        function showImage(src) {
-            const carouselContent = document.getElementById('carouselContent');
-            carouselContent.innerHTML = ''; // clear existing
-            const img = document.createElement('img');
-            img.src = src;
-            carouselContent.appendChild(img);
-        }
+        <script type="text/javascript">
 
-        debugger
-        let uploadedImages = [];
-        let currentIndex = 0;
-        let tempImage = null; // preview before Add button
+            function showImage(src) {
 
-        window.onload = function () {
-            setupDropZone(document.getElementById("dropZone"));
-            renderCarouselSlide();
-        };
+                const carouselContent = document.getElementById('carouselContent');
 
-        function setupDropZone(dropZone) {
-            dropZone.addEventListener("click", () => {
-                document.getElementById("fileInput").click();
-            });
+                carouselContent.innerHTML = ''; // clear existing
 
-            dropZone.addEventListener("dragover", (e) => {
-                e.preventDefault();
-                dropZone.style.background = "#d0e7ff";
-            });
+                const img = document.createElement('img');
 
-            dropZone.addEventListener("dragleave", (e) => {
-                e.preventDefault();
-                dropZone.style.background = "#f0f8ff";
-            });
+                img.src = src;
 
-            dropZone.addEventListener("drop", (e) => {
-                e.preventDefault();
-                dropZone.style.background = "#f0f8ff";
-                if (e.dataTransfer.files.length > 0) {
-                    previewImageBeforeAdd(e.dataTransfer.files[0]);
-                }
-            });
-        }
+                carouselContent.appendChild(img);
 
-        function previewImageBeforeAdd(file) {
-            if (!file || !file.type.startsWith("image/")) {
-                alert("Please upload a valid image file.");
-                return;
             }
 
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                tempImage = e.target.result;
-                // Show preview in visible drop zone (initial or inside carousel)
-                let dropZone = document.getElementById("dropZone");
-                if (dropZone.style.display === "none") {
-                    dropZone = document.getElementById("dropZoneInner");
-                }
-                if (dropZone) {
-                    dropZone.innerHTML = `<img src="${tempImage}" style="max-width: 100%; max-height: 100%;" />`;
-                }
+            debugger
+
+            let uploadedImages = [];
+
+            let currentIndex = 0;
+
+            let tempImage = null; // preview before Add button
+
+            // 12 june
+
+            //changes
+
+            Sys.Application.add_load(function () {
+
+                setupDropZone(document.getElementById("dropZone"));
+
+                renderCarouselSlide();
+
+            });
+
+            function reInitializeDropZone() {
+
+                setupDropZone(document.getElementById("dropZone"));
+
+                renderCarouselSlide(); // only if you want the carousel refreshed too
+
+            }
+
+
+            window.onload = function () {
+
+                setupDropZone(document.getElementById("dropZone"));
+
+                renderCarouselSlide();
+
             };
-            reader.readAsDataURL(file);
-        }
-        function validateAndAddImage() {
-            const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
+
+            function setupDropZone(dropZone) {
+
+                dropZone.addEventListener("click", () => {
+
+                    document.getElementById("fileInput").click();
+
+                });
+
+                dropZone.addEventListener("dragover", (e) => {
+
+                    e.preventDefault();
+
+                    dropZone.style.background = "#d0e7ff";
+
+                });
+
+                dropZone.addEventListener("dragleave", (e) => {
+
+                    e.preventDefault();
+
+                    dropZone.style.background = "#f0f8ff";
+
+                });
+
+                dropZone.addEventListener("drop", (e) => {
+
+                    e.preventDefault();
+
+                    dropZone.style.background = "#f0f8ff";
+
+                    if (e.dataTransfer.files.length > 0) {
+
+                        previewImageBeforeAdd(e.dataTransfer.files[0]);
+
+                    }
+
+                });
+
+            }
+
+            function previewImageBeforeAdd(file) {
+
+                if (!file || !file.type.startsWith("image/")) {
+
+                    alert("Please upload a valid image file.");
+
+                    return;
+
+                }
+
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    tempImage = e.target.result;
+
+                    // Show preview in visible drop zone (initial or inside carousel)
+
+                    let dropZone = document.getElementById("dropZone");
+
+                    if (dropZone.style.display === "none") {
+
+                        dropZone = document.getElementById("dropZoneInner");
+
+                    }
+
+                    if (dropZone) {
+
+                        dropZone.innerHTML = `<img src="${tempImage}" style="max-width: 100%; max-height: 100%;" />`;
+
+                    }
+
+                };
+
+                reader.readAsDataURL(file);
+
+            }
+
+            function validateAndAddImage() {
+
+                const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
+
             const normalContainer = document.getElementById("<%= normalContainer.ClientID %>");
+
             const maskContainer = document.getElementById("<%= maskContainer.ClientID %>");
-    const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
+
+            const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
+
     const passNoInput = document.getElementById("<%= txtmaskadhar.ClientID %>");
-
+ 
     let docNumber = "";
-
+ 
     if (!docType) {
+
         alert("Please select a Document Type.");
-        return false;
-    }
 
+        return false;
+
+    }
+ 
     if (!tempImage) {
+
         alert("Please upload an image.");
+
         return false;
+
     }
-
+ 
     // Add image to array
+
     uploadedImages.push({
+
         image: tempImage,
+
         type: docType,
+
         number: docNumber
+
     });
-
+ 
     // Store array in hidden field
+
     document.getElementById("hdnUploadedImages").value = JSON.stringify(uploadedImages);
-
+ 
             document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
-
+ 
             currentIndex = uploadedImages.length - 1;
+
             tempImage = null;
-
+ 
             document.getElementById("dropZone").style.display = "none";
-            const carousel = document.getElementById("carousel");
-            carousel.style.display = "flex";
-            document.getElementById("prevBtn").style.display = "inline-block";
-            document.getElementById("nextBtn").style.display = "inline-block";
 
+            const carousel = document.getElementById("carousel");
+
+            carousel.style.display = "flex";
+
+            document.getElementById("prevBtn").style.display = "inline-block";
+
+            document.getElementById("nextBtn").style.display = "inline-block";
+ 
             alert("Document added successfully!");
+
             renderCarouselSlide();
+
             showNext();
+
             return true; // prevent postback
+
         }
-
-
+ 
+ 
         <%--function validateAndAddImage() {
+
             debugger;
+
             const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
-
+ 
         // Elements that might be visible depending on doc type
+
         const normalContainer = document.getElementById("<%= normalContainer.ClientID %>");
+
         const maskContainer = document.getElementById("<%= maskContainer.ClientID %>");
-
+ 
 // Document number input fields
+
 const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
+
         const passNoInput = document.getElementById("<%= txtmaskadhar.ClientID %>");
-
+ 
             let docNumber = "";
-
+ 
             if (!docType) {
+
                 alert("Please select a Document Type.");
-                return false;
-            }
 
+                return false;
+
+            }
+ 
             // Determine which container is visible and use corresponding textbox
+
             //if (maskContainer && maskContainer.style.display !== "none") {
+
             //    docNumber = passNoInput.value.trim();
+
             //    if (!docNumber) {
+
             //        alert("Please enter aadhaar last 4 digit number.");
+
             //        passNoInput.focus();
+
             //        return false;
+
             //    }
+
             //} else if (normalContainer && normalContainer.style.display !== "none") {
+
             //    docNumber = docNumberInput.value.trim();
+
             //    if (!docNumber) {
+
             //        alert("Please enter a valid Document Number.");
+
             //        docNumberInput.focus();
+
             //        return false;
+
             //    }
+
             //} else {
+
             //    alert("Please enter a valid Document Number.");
+
             //    return false;
+
             //}
-
+ 
             if (!tempImage) {
+
                 alert("Please upload an image.");
+
                 return false;
+
             }
-
+ 
             // Store the image along with docType and docNumber (optional enhancement)
+
             uploadedImages.push({
+
                 image: tempImage,
+
                 type: docType,
+
                 number: docNumber
+
             });
-            
+
             document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
+
             currentIndex = uploadedImages.length - 1;
+
             tempImage = null;
-
+ 
             document.getElementById("dropZone").style.display = "none";
-
+ 
             const carousel = document.getElementById("carousel");
-            carousel.style.display = "flex";
-            document.getElementById("prevBtn").style.display = "inline-block";
-            document.getElementById("nextBtn").style.display = "inline-block";
 
+            carousel.style.display = "flex";
+
+            document.getElementById("prevBtn").style.display = "inline-block";
+
+            document.getElementById("nextBtn").style.display = "inline-block";
+ 
             alert("Document added successfully!");
+
             renderCarouselSlide();
+
             showNext();
+
             return true; // prevent postback
+
         }--%>
 
-        function showNext() {
-            const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-                renderCarouselSlide();
-            }
-        }
+            function showNext() {
 
-        function showPrevious() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                renderCarouselSlide();
-            }
-        }
-        function renderCarouselSlide() {
-            const container = document.getElementById("carouselContent");
-            container.innerHTML = "";
+                const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
 
-            if (uploadedImages.length === 0) {
-                // Hide carousel when no image is uploaded
-                document.getElementById("carousel").style.display = "none";
-                return;
+                if (currentIndex < totalSlides - 1) {
+
+                    currentIndex++;
+
+                    renderCarouselSlide();
+
+                }
+
             }
 
-            const totalSlides = uploadedImages.length + 1;
+            function showPrevious() {
 
-            // Show carousel if there is at least 1 image
-            document.getElementById("carousel").style.display = "flex";
+                if (currentIndex > 0) {
 
-            if (currentIndex < uploadedImages.length) {
-                const img = document.createElement("img");
-                img.src = uploadedImages[currentIndex].image;
-                container.appendChild(img);
-            } else {
-                // Only when user clicks "Next" to add new
-                const dropZone = document.createElement("div");
-                dropZone.id = "dropZoneInner";
-                dropZone.textContent = "Drag & drop an image here or click to upload";
-                dropZone.style = "..."; // your styling here
-                container.appendChild(dropZone);
-                setupDropZone(dropZone);
+                    currentIndex--;
+
+                    renderCarouselSlide();
+
+                }
+
             }
 
-            document.getElementById("prevBtn").disabled = currentIndex === 0;
-            document.getElementById("nextBtn").disabled = currentIndex === totalSlides - 1;
-            renderDots(totalSlides);
-        }
-        function renderDots(totalSlides) {
-            const dotsContainer = document.getElementById("carouselDots");
-            dotsContainer.innerHTML = "";
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement("span");
-                dot.className = "dot" + (i === currentIndex ? " active" : "");
-                dotsContainer.appendChild(dot);
-            }
-        }
+            function renderCarouselSlide() {
 
-        function fileInputChanged(input) {
-            if (input.files.length > 0) {
-                previewImageBeforeAdd(input.files[0]);
+                const container = document.getElementById("carouselContent");
+
+                container.innerHTML = "";
+
+                if (uploadedImages.length === 0) {
+
+                    // Hide carousel when no image is uploaded
+
+                    document.getElementById("carousel").style.display = "none";
+
+                    return;
+
+                }
+
+                const totalSlides = uploadedImages.length + 1;
+
+                // Show carousel if there is at least 1 image
+
+                document.getElementById("carousel").style.display = "flex";
+
+                if (currentIndex < uploadedImages.length) {
+
+                    const img = document.createElement("img");
+
+                    img.src = uploadedImages[currentIndex].image;
+
+                    container.appendChild(img);
+
+                } else {
+
+                    // Only when user clicks "Next" to add new
+
+                    const dropZone = document.createElement("div");
+
+                    dropZone.id = "dropZoneInner";
+
+                    dropZone.textContent = "Drag & drop an image here or click to upload";
+
+                    dropZone.style = "..."; // your styling here
+
+                    container.appendChild(dropZone);
+
+                    setupDropZone(dropZone);
+
+                }
+
+                document.getElementById("prevBtn").disabled = currentIndex === 0;
+
+                document.getElementById("nextBtn").disabled = currentIndex === totalSlides - 1;
+
+                renderDots(totalSlides);
+
             }
-        }
-    </script>
+
+            function renderDots(totalSlides) {
+
+                const dotsContainer = document.getElementById("carouselDots");
+
+                dotsContainer.innerHTML = "";
+
+                for (let i = 0; i < totalSlides; i++) {
+
+                    const dot = document.createElement("span");
+
+                    dot.className = "dot" + (i === currentIndex ? " active" : "");
+
+                    dotsContainer.appendChild(dot);
+
+                }
+
+            }
+
+            function fileInputChanged(input) {
+
+                if (input.files.length > 0) {
+
+                    previewImageBeforeAdd(input.files[0]);
+
+                }
+
+            }
+</script>
+ 
+ 
     
 
     <%--//ended by babita--%>
@@ -1481,7 +1690,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                aria-controls="divDU"
                                aria-selected="false"
                                tabindex="0"
-                               style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                               style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 2rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">1</span>
     
@@ -1500,9 +1709,9 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
-                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">2</span>
+                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">2</span>
     
                             <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
                                 PERSONAL <br />DETAILS
@@ -1518,7 +1727,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                                  aria-controls="divDU"
                                                  aria-selected="false"
                                                  tabindex="0"
-                                                 style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                                 style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                                              <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
     
@@ -1536,7 +1745,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                         aria-controls="divDU"
                                         aria-selected="false"
                                         tabindex="0"
-                                        style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                        style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                                     <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
     
@@ -1555,7 +1764,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
     
@@ -1605,96 +1814,108 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                             </div>
                         </div>
                     </div>
-                    <div id="menu5" style="display: block;" class="panel-body">
-                        <%--  Added for Details of Remarks start--%>
-                                <div class="upload-section">
-        
-        
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
-
-    <!-- LEFT PANEL: Form -->
-    <div style="flex: 1; min-width: 601px; max-width: 550px;">
-        <asp:UpdatePanel runat="server" ID="updDocPanel">
-            <ContentTemplate>
-                <!-- Document Type -->
-                <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <label style="margin-right: 10px; white-space: nowrap; font-size:initial;">Document Type:</label>
-                    <asp:DropDownList ID="ddlDocType" runat="server"
-                        CssClass="form-control"
-                        Style="width: 250px; font-size:small"
-                        AutoPostBack="true"
-                        OnSelectedIndexChanged="ddlDocType_SelectedIndexChanged">
-                        <asp:ListItem Text="Select Document" Value="" />
-                    </asp:DropDownList>
-                </div>
-
-                <!-- Document Number Section -->
-                <div id="showdoctextbox" runat="server" visible="false" style="margin-bottom: 10px;">
-                    <div style="display: flex; align-items: center;">
-                        <label style="margin-right: 10px; font-size:initial; white-space: nowrap;">Document No. :</label>
-
-                        <!-- Aadhaar Format -->
-                        <div id="maskContainer" runat="server" visible="false" style="display: flex;">
-                            <asp:TextBox ID="txtMaskCodeno" runat="server" 
-                                CssClass="form-control"
-                                Text="X X X X X X X X"
-                                MaxLength="8"
-                                ReadOnly="true"
-                                Style="width: 140px; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: #e9ecef;" />
-                            <asp:TextBox ID="txtmaskadhar" runat="server" 
-                                CssClass="form-control"
-                                MaxLength="4"
-                                onChange="this.value=this.value.toUpperCase();"
-                                onkeypress="return WebForm_TextBoxKeyHandler(event);"
-                                Style="width: 135px; border-top-left-radius: 0; border-bottom-left-radius: 0;" />
-                        </div>
-
-                        <!-- Normal Format -->
-                        <div id="normalContainer" runat="server" visible="false" style="flex: 1;">
-                            <asp:TextBox ID="txtDocNumber" runat="server"
-                                CssClass="form-control"
-                                Placeholder="Enter document number"
-                                Style="width: 275px;" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add Button -->
-<%--                <asp:Button ID="btnAddDoc" runat="server" Text="Add Document"
-                    OnClientClick="return validateAndAddImage();" />--%>
-                                <asp:Button ID="btnAddDoc" style="height:4rem; width:14rem; border: 1px; border-radius:2rem; font-weight:600;" runat="server" Text="ADD DOCUMENT" OnClick="btnAddDoc_Click" OnClientClick="return validateAndAddImage();" />
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="ddlDocType" EventName="SelectedIndexChanged" />
-            </Triggers>
-        </asp:UpdatePanel>
-    </div>
-
-    <!-- RIGHT PANEL: Dropzone and Carousel -->
-    <%--<div style="flex: 1; min-width: 618px;">--%>
-                                        <div class="upload-wrapper">
-
-        <div id="dropZone" style="font-size: large;">
-    <span>Drag & drop an image here or click to upload</span>
-</div>
-        <div id="carousel">
-    <button id="prevBtn" class="nav-btn" type="button" onclick="showPrevious()" style="display:none;">&lt;</button>
-    <div id="carouselContent"></div>
-    <button id="nextBtn" class="nav-btn" type="button" onclick="showNext()" style="display:none;">&gt;</button>
-</div>
-        <div id="carouselDots" class="carousel-dots"></div>
-        <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="fileInputChanged(this)" />
-            </div>
-    
+                                    <div id="menu5" style="display: block;" class="panel-body">
+                                        <%--  Added for Details of Remarks start--%>
+                                        <div class="upload-section">
 
 
+                                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
+
+                                                <!-- LEFT PANEL: Form -->
+                                                <div style="flex: 1; min-width: 601px;">
+                                                    <asp:UpdatePanel runat="server" ID="updDocPanel">
+                                                        <ContentTemplate>
+
+                                                            <!-- Row Wrapper -->
+                                                            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-bottom: 1rem; font-size: 1.4rem;">
+
+                                                                <!-- Document Type -->
+                                                                <div style="display: flex; align-items: center;">
+                                                                    <label for="<%= ddlDocType.ClientID %>" style="margin-right: 8px; white-space: nowrap;">Document Type</label>
+                                                                    <asp:DropDownList ID="ddlDocType" runat="server"
+                                                                        CssClass="form-control"
+                                                                        Style="width: 200px; height: 38px;"
+                                                                        AutoPostBack="true"
+                                                                        OnSelectedIndexChanged="ddlDocType_SelectedIndexChanged">
+                                                                        <asp:ListItem Text="Select Document" Value="" />
+                                                                    </asp:DropDownList>
+                                                                </div>
+
+                                                                <!-- Identity No. Section -->
+                                                                <div id="showdoctextbox" runat="server" visible="false" style="display: flex; align-items: center;">
+                                                                    <label style="margin-right: 8px; white-space: nowrap;">Identity No.</label>
+
+                                                                    <!-- Aadhaar Format -->
+                                                                    <div id="maskContainer" runat="server" visible="false" style="display: flex;">
+                                                                        <asp:TextBox ID="txtMaskCodeno" runat="server"
+                                                                            CssClass="form-control"
+                                                                            Text="X X X X X X X X"
+                                                                            MaxLength="8"
+                                                                            ReadOnly="true"
+                                                                            Style="width: 130px; height: 38px; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: #e9ecef;" />
+                                                                        <asp:TextBox ID="txtmaskadhar" runat="server"
+                                                                            CssClass="form-control"
+                                                                            MaxLength="4"
+                                                                            onChange="this.value=this.value.toUpperCase();"
+                                                                            onkeypress="return WebForm_TextBoxKeyHandler(event);"
+                                                                            Style="width: 100px; height: 38px; border-top-left-radius: 0; border-bottom-left-radius: 0;" />
+                                                                    </div>
+
+                                                                    <!-- Normal Format -->
+                                                                    <div id="normalContainer" runat="server" visible="false">
+                                                                        <asp:TextBox ID="txtDocNumber" runat="server"
+                                                                            CssClass="form-control"
+                                                                            Placeholder="Enter document number"
+                                                                            Style="width: 200px; height: 38px;" />
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Add Button -->
+
+                                                            </div>
+
+                                                            <div>
+                                                                <asp:Button ID="btnAddDoc"
+                                                                    runat="server"
+                                                                    Text="ADD DOCUMENT"
+                                                                    OnClick="btnAddDoc_Click"
+                                                                    OnClientClick="return validateAndAddImage();"
+                                                                    Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
+                                                            </div>
+
+                                                        </ContentTemplate>
+                                                        <Triggers>
+                                                            <asp:AsyncPostBackTrigger ControlID="ddlDocType" EventName="SelectedIndexChanged" />
+                                                        </Triggers>
+                                                    </asp:UpdatePanel>
+                                                </div>
+
+
+                                                <!-- RIGHT PANEL: Dropzone and Carousel -->
+                                                <%--<div style="flex: 1; min-width: 618px;">--%>
+                                                <div class="upload-wrapper">
+
+                                                    <div id="dropZone" style="font-size: large;">
+                                                        <span>Drag & drop an image here or click to upload</span>
+                                                    </div>
+                                                    <div id="carousel" style="display:none">
+                                                        <button id="prevBtn" class="nav-btn" type="button" onclick="showPrevious()" style="display: none;">&lt;</button>
+                                                        <div id="carouselContent"></div>
+                                                        <button id="nextBtn" class="nav-btn" type="button" onclick="showNext()" style="display: none;">&gt;</button>
+                                                    </div>
+                                                    <div id="carouselDots" class="carousel-dots"></div>
+                                                    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="fileInputChanged(this)" />
+                                                </div>
 
 
 
-</div>
-        
-    </div>
-</div>
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
 
         </div>
                         
@@ -1778,7 +1999,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
 
 
 
-                <div  class="panel panel-success" style="margin-left: 0px; margin-right: 0px">
+                <div  class="panel panel-success" style="margin-left: 0px; margin-right: 0px; margin-top: -0.2rem;">
                     <div id="Div19" runat="server" class="panel-heading" style="background-color:#E1EEFF;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -1830,7 +2051,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <div class="col-sm-3">
                                     <asp:CheckBox ID="cbNew" runat="server" CssClass="standardcheckbox" AutoPostBack="true" Visible="false"
                                         Enabled="false" TabIndex="20" />
-                                    <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox control-label" Visible="false"></asp:Label>
+                                    <asp:Label ID="cbNewtxt" runat="server" Text="New" CssClass="standardcheckbox control-label" Visible="false" style="margin-left: 2rem;"></asp:Label>
                                     <asp:CheckBox ID="cbUpdate" runat="server" CssClass="standardcheckbox" Text="Update"
                                         AutoPostBack="true" Visible="false" TabIndex="1" />
                                 </div>
@@ -1852,11 +2073,11 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span id="lblAccountTypeImp" runat="server" style="color: red">*</span>
                                 </div>
 
-                                <div class="col-sm-3" style="text-align: left; display: flex">
+                                <div class="col-sm-2"  style="text-align: left;width: 14rem;margin-left: 0.6rem;">
                                     <asp:UpdatePanel ID="upcboTitle" runat="server">
                                         <ContentTemplate>
-                                            <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true" CssClass="form-control" TabIndex="2"
-                                                onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged" Style="width: 220px;">
+                                            <asp:DropDownList ID="ddlAccountType" runat="server" AutoPostBack="true" CssClass="form-select custom-dropdown" TabIndex="2"
+                                                onChange="javascript:AddLoader('ddlAccountTypeLoader');" ClientIDMode="Static" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged" >
                                             </asp:DropDownList>
 
                                             <div id="ddlAccountTypeLoader"></div>
@@ -1877,24 +2098,24 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <div class="col-sm-2">
                                          <asp:UpdatePanel ID="upcboTitlep" runat="server">
                                                 <ContentTemplate>
-                                        <asp:DropDownList ID="cboTitle" AutoPostBack="true" runat="server" CssClass="form-control" DataTextField="ParamDesc"
+                                        <asp:DropDownList ID="cboTitle" AutoPostBack="true" runat="server" CssClass="form-select custom-dropdown" DataTextField="ParamDesc"
                                             DataValueField="ParamValue" AppendDataBoundItems="True" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('prefix')" OnSelectedIndexChanged="cboTitle_SelectedIndexChanged">
                                         </asp:DropDownList>
                                          </ContentTemplate>
                                             </asp:UpdatePanel>
                                     </div>
                                     <div class="col-sm-10" style="padding:0">
-                                        <div class="col-sm-4 mt-2">
+                                        <div class="col-sm-4">
                                             <asp:TextBox ID="txtGivenName" runat="server" CssClass="form-control" onkeypress="return lettersOnly();" onchange="javascript:this.value=this.value.toUpperCase();updateSessionFromTextbox(this, 'GivenName');"
                                                 MaxLength="50" TabIndex="2" placeholder="First Name">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4 mt-2">
+                                        <div class="col-sm-4">
                                             <asp:TextBox ID="txtMiddleName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();updateSessionFromTextbox(this, 'MiddleName');" onkeypress="return lettersOnly();"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Middle Name">
                                             </asp:TextBox>
                                         </div>
-                                        <div class="col-sm-4 mt-2">
+                                        <div class="col-sm-4">
                                             <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" onchange="javascript:this.value=this.value.toUpperCase();updateSessionFromTextbox(this, 'LastName');" onkeypress="return lettersOnly()"
                                                 MaxLength="50" TabIndex="2" onblur="CheckSpaces();return false;" placeholder="Last Name">
                                             </asp:TextBox>
@@ -1957,7 +2178,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <div class="col-sm-2">
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
        <ContentTemplate>
-                                        <asp:DropDownList ID="cboTitle2" runat="server" CssClass="form-control" DataTextField="ParamDesc" onchange="CheckFatherSpouce('FatherPrefix')"
+                                        <asp:DropDownList ID="cboTitle2" runat="server" CssClass="form-select custom-dropdown" DataTextField="ParamDesc" onchange="CheckFatherSpouce('FatherPrefix')"
                                             DataValueField="ParamValue" AppendDataBoundItems="True" TabIndex="2" AutoPostBack="false" ClientIDMode="Static">
                                         </asp:DropDownList>
                                         
@@ -2029,14 +2250,23 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span style="color: red">*</span>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="input-group">
+                                    <%--<div class="input-group">
                                         <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" placeholder="dd-mm-yyyy" onchange="ValidateDOB(this.value);" MaxLength="10" TabIndex="2"></asp:TextBox>
                                         <div class="input-btn">
                                             <div class="btn btn-primary btn-lg-kmi" onclick="callCalender('txtDOB')">
                                                 <span class="glyphicon glyphicon-calendar BtnGlyphicon"></span>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--%>
+                                    <div class="input-group">
+    <asp:TextBox CssClass="form-control" runat="server" ID="txtDOB" MaxLength="15" TabIndex="2" />
+    <div class="input-btn">
+        <div class="btn btn-primary btn-lg-kmi" onclick="callCalender('txtDOB')">
+            <span class="glyphicon glyphicon-calendar BtnGlyphicon"></span>
+        </div>
+    </div>
+
+</div>
                                 </div>
 
                                 <div class="col-sm-3" style="text-align: left">
@@ -2048,7 +2278,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <div class="col-sm-3">
                                     <%--<asp:UpdatePanel ID="upcboGender" runat="server">
                                             <ContentTemplate>--%>
-                                    <asp:DropDownList ID="cboGender" runat="server" CssClass="form-control" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('gender')">
+                                    <asp:DropDownList ID="cboGender" runat="server" CssClass="form-select custom-dropdown" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('gender')">
                                     </asp:DropDownList>
                                     <%-- </ContentTemplate>
                                         </asp:UpdatePanel>--%>
@@ -2062,12 +2292,22 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 </div>
                                 <div class="col-sm-3">
 
-                                    <asp:DropDownList ID="drpresidential" runat="server" CssClass="form-control" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('gender')">
+                                    <asp:DropDownList ID="drpresidential" runat="server" CssClass="form-control form-select" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('gender')" style="width: 25rem;">
                                     </asp:DropDownList>
 
                                 </div>
 
                                 <div class="col-sm-3" style="text-align: left">
+                                    <asp:Label ID="Label8" Text="Name As Per PAN" runat="server" CssClass="control-label">
+
+                                    </asp:Label>
+                                </div>
+                                <div class="col-sm-3" style="text-align: left; display: flex;">
+                                    <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged" />
+
+                                </div>
+
+                                <%--<div class="col-sm-3" style="text-align: left">
 
                                     <asp:Label ID="lbloccupation" Text="Occupation" runat="server" CssClass="control-label"></asp:Label>
                                     <span style="color: red">*</span>
@@ -2078,7 +2318,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <asp:DropDownList ID="drpOccupation" runat="server" CssClass="form-control" TabIndex="2" ClientIDMode="Static" onchange="CheckGenderPrefix('gender')">
                                     </asp:DropDownList>
 
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
@@ -2112,16 +2352,8 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="Label8" Text="Name As Per PAN" runat="server" CssClass="control-label">
-
-                                    </asp:Label>
-                                </div>
-                                <div class="col-sm-3" style="text-align: left; display: flex;">
-                                    <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged" />
-
-                                </div>
-                                <div class="col-sm-3">
+                                
+                                <%--<div class="col-sm-3">
 
                                     <asp:Label ID="Label9" Text="DOB(dd-mm-yyyy) As Per PAN" runat="server" CssClass="control-label"></asp:Label>
                                     <span style="color: red">*</span>
@@ -2129,7 +2361,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <div class="col-sm-3" style="text-align: left; display: flex;">
                                     <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" OnTextChanged="txtPanNo_TextChanged" />
 
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
 
@@ -2595,7 +2827,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <span style="color: red">*</span>
                             </div>
                             <div class="col-sm-3">
-                                <asp:DropDownList ID="ddlDistrict" runat="server" CssClass="form-control" Enabled="false"
+                                <asp:DropDownList ID="ddlDistrict" runat="server" CssClass="form-select custom-dropdown" Enabled="false"
                                     TabIndex="2">
                                     <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                 </asp:DropDownList>
@@ -2606,7 +2838,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <span style="color: red">*</span>
                             </div>
                             <div class="col-sm-3" style="display:flex;">
-                                <asp:DropDownList ID="ddlPinCode" runat="server" Enabled="false" CssClass="form-control" OnSelectedIndexChanged="ddlPinCode_SelectedIndexChanged"
+                                <asp:DropDownList ID="ddlPinCode" runat="server" Enabled="false" CssClass="form-select custom-dropdown" OnSelectedIndexChanged="ddlPinCode_SelectedIndexChanged"
                                   onChange="javascript:AddLoader('ddlPinCodeLoader');"  AutoPostBack="True" TabIndex="2">
                                     <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                 </asp:DropDownList>
@@ -2620,7 +2852,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <span style="color: red">*</span>
                             </div>
                             <div class="col-sm-3">
-                                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-control" Enabled="false"
+                                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select custom-dropdown" Enabled="false"
                                     TabIndex="2">
                                     <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                 </asp:DropDownList>
@@ -2631,7 +2863,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <span style="color: red">*</span>
                             </div>
                             <div class="col-sm-3">
-                                <asp:DropDownList ID="ddlCountryCode" runat="server" Enabled="false" CssClass="form-control" AutoPostBack="true"
+                                <asp:DropDownList ID="ddlCountryCode" runat="server" Enabled="false" CssClass="form-select custom-dropdown" AutoPostBack="true"
                                     OnSelectedIndexChanged="ddlCountryCode_SelectedIndexChanged" TabIndex="2">
                                 </asp:DropDownList>
                             </div>
@@ -2760,7 +2992,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span style="color: red">*</span>
                                 </div>
                                 <div class="col-sm-3">
-                                    <asp:DropDownList ID="ddlDistrict1" runat="server" CssClass="form-control"
+                                    <asp:DropDownList ID="ddlDistrict1" runat="server" CssClass="form-select custom-dropdown"
                                         TabIndex="2">
                                         <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                     </asp:DropDownList>
@@ -2771,7 +3003,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span style="color: red">*</span>
                                 </div>
                                 <div class="col-sm-3" style="display:flex;">
-                                    <asp:DropDownList ID="ddlPinCode1" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlPinCode1_SelectedIndexChanged"
+                                    <asp:DropDownList ID="ddlPinCode1" runat="server" CssClass="form-select custom-dropdown" OnSelectedIndexChanged="ddlPinCode1_SelectedIndexChanged"
                                         onChange="javascript:AddLoader('ddlPinCode1Loader');"  AutoPostBack="True" TabIndex="2">
                                         <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                     </asp:DropDownList>
@@ -2785,7 +3017,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <span style="color: red">*</span>
                                 </div>
                                 <div class="col-sm-3">
-                                    <asp:DropDownList ID="ddlState1" runat="server" CssClass="form-control"
+                                    <asp:DropDownList ID="ddlState1" runat="server" CssClass="form-select custom-dropdown"
                                         TabIndex="2">
                                         <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                     </asp:DropDownList>
@@ -2798,7 +3030,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                 <div class="col-sm-3">
                                     <%--  <asp:TextBox CssClass="form-control" onchange="setDateFormat('txtState')" runat="server"
                                                     ID="txtCountryCode1" MaxLength="15" TabIndex="12"  Enabled="false"/>--%>
-                                    <asp:DropDownList ID="ddlCountryCode1" runat="server" CssClass="form-control" AutoPostBack="true"
+                                    <asp:DropDownList ID="ddlCountryCode1" runat="server" CssClass="form-select custom-dropdown" AutoPostBack="true"
                                         OnSelectedIndexChanged="ddlCountryCode1_SelectedIndexChanged"
                                         TabIndex="2">
                                     </asp:DropDownList>
@@ -3421,7 +3653,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                     <br />
                                     <br />
                                     <br />
-                                    <div class="col-sm-12">
+                                    <%--<div class="col-sm-12">
                                         <div class="col-sm-3" style="text-align: left">
                                             <asp:Label ID="Label10" Text="CKYC No." runat="server" CssClass="control-label"></asp:Label>
                                             <span style="color: red">*</span>
@@ -3430,7 +3662,7 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                                             <asp:TextBox CssClass="form-control" runat="server"
                                                 ID="TextBox3" MaxLength="15" TabIndex="2" />
                                         </div>
-                                    </div>
+                                    </div>--%>
                                     <div class="row"></div>
                                     <div class="col-sm-12">
                                     <div class="col-sm-3" style="text-align: left">
@@ -3646,11 +3878,12 @@ const docNumberInput = document.getElementById("<%= txtDocNumber.ClientID %>");
                         
                         <%--Changes by Rahul for asp link button to asp buttonon 11/06/2025--%>
                         <asp:Button ID="btnprevcd" runat="server" 
-                            CssClass="btn-animated btn-primary"
-                            Text="PREVIOUS" TabIndex="2" 
-                            UseSubmitBehavior="false"
-                            OnClick="btnprevcd_Click"
-                            Style="width: 13rem; padding-left:2.5rem; font-size: initial; border-radius: 5rem;" />
+     CssClass="btn-animated btn-primary"
+     Text="PREVIOUS" TabIndex="2" 
+     UseSubmitBehavior="false"
+     OnClick="btnprevcd_Click"
+     OnClientClick="reInitializeDropZone();" 
+     Style="width: 13rem; padding-left:2.5rem; font-size: initial; border-radius: 5rem;" />
 
                         
                        <%-- <asp:LinkButton ID="btnprevcd"  CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none; background-color:#1f50a7; " OnClick="btnprevcd_Click">
