@@ -153,6 +153,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                         subPopulateAccountType();
                         //Added by tushar for Account type
                         subPopulateGender();
+                        FIllresidensialstatus();//added by babita on 13 june 2025
                         subPopulateTitle();
                         PopulateProofIdentiy();
                         PopulatePinCode();
@@ -3213,7 +3214,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
                     #region for Legal Entity Reg
                     if (FlagPageTyp == "Legal")
-                    {
+                    {   
 
                         #region Save Entity Details
                         htParam.Clear();
@@ -3283,7 +3284,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                             }
                             else
                             {
-                                htParam.Add("@SameasPOIAddresFlagP1", "");
+                                //htParam.Add("@SameasPOIAddresFlagP1", "");
                             }
 
                         }
@@ -6914,7 +6915,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 lblattstn.Text = "KYC VERIFICATION DETAILS";
                // lbldec.Text = olng.GetItemDesc("lbldec");
                 lblAttesOfc.Text = olng.GetItemDesc("lblAttesOfc");
-                lblOfcuseOnly.Text = "LOAN & APPLICANT DETAILS";
+                //lblOfcuseOnly.Text = "LOAN & APPLICANT DETAILS";
                 lblInsDtls.Text = olng.GetItemDesc("lblInsDtls");
                 lblContactDetails.Text = olng.GetItemDesc("lblContactDetails");
             }
@@ -8636,33 +8637,142 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 normalContainer.Visible = true;
             }
         }
-
-
+        //
+        private void FIllresidensialstatus()
+        {
+            try
+            {
+                oCommonUtility.GetCKYC(drpresidential, "RStatus");
+                drpresidential.Items.Insert(0, new ListItem("Select", ""));
+            }
+            catch (Exception ex)
+            {
+                if (Session["UserID"].ToString().Trim() == null || Session["UserID"].ToString().Trim() == "")
+                {
+                    Response.Redirect("~/ErrorSession.aspx");
+                }
+                else
+                {
+                    objErr = new ErrorLog();
+                    objErr.LogErr(AppID, "CkycReg.aspx.cs", "subPopulateGender", ex.InnerException == null ? ex.Message.ToString() : ex.Message.ToString() + " | " + ex.InnerException.ToString(), UserID, "CKYC");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmsg", "AlertMsg('Something went wrong, Kindly contact to service provider.');", true);
+                }
+            }
+        }
+        //saving for registration table
         protected void btnSave_Click_ReKyc(object sender, EventArgs e)
         {
             try
             {
-                htParam.Add("@CREATEDBY", strUserId.ToString());
-                htParam.Add("@TKYCNO", "");
-                htParam.Add("@uniqueID", obj.ToString());
-                htParam.Add("@PREFIX", cboTitle.SelectedValue);
-                htParam.Add("@FNAME", txtGivenName.Text.Trim());
-                htParam.Add("@MNAME", txtMiddleName.Text.Trim());
-                htParam.Add("@LNAME", txtLastName.Text.Trim());
-                htParam.Add("@FATHER_PREFIX", cboTitle2.SelectedValue);
-                htParam.Add("@FATHER_PREFIX", cboTitle2.SelectedValue);
-                htParam.Add("@FATHER_FNAME", txtGivenName2.Text.Trim());
-                htParam.Add("@FATHER_MNAME", txtMiddleName2.Text.Trim());
-                htParam.Add("@FATHER_LNAME", txtLastName2.Text.Trim());
-                htParam.Add("@PartialRegRefNo", txtRefNumber.Text.ToString());
+                
+                Hashtable htReKycParam = new Hashtable();
+
+                // Collect all parameters
+                htReKycParam.Add("@Firefno", txtRefNumber.Text.Trim()); 
+                htReKycParam.Add("@AccType", ddlAccountType.SelectedValue);
+                htReKycParam.Add("@PREFIX", cboTitle.SelectedValue);
+                htReKycParam.Add("@FNAME", txtGivenName.Text.Trim());
+                htReKycParam.Add("@MNAME", txtMiddleName.Text.Trim());
+                htReKycParam.Add("@LNAME", txtLastName.Text.Trim());
+                htReKycParam.Add("@FATHER_PREFIX", cboTitle2.SelectedValue);
+                htReKycParam.Add("@FATHER_FNAME", txtGivenName2.Text.Trim());
+                htReKycParam.Add("@FATHER_MNAME", txtMiddleName2.Text.Trim());
+                htReKycParam.Add("@FATHER_LNAME", txtLastName2.Text.Trim());
+
+                if (rbtFS.SelectedValue == "F")
+                    htReKycParam.Add("@fs_flag", "01");
+                else
+                    htReKycParam.Add("@fs_flag", "02");
+
+                htReKycParam.Add("@DOB", txtDOB.Text.Trim());
+                htReKycParam.Add("@GENDER", cboGender.SelectedValue);
+                htReKycParam.Add("@RESI_STATUS", drpresidential.SelectedValue);
+                htReKycParam.Add("@std_officeTele", txtTelOff.Text.Trim());
+                htReKycParam.Add("@OFF_TELE", txtTelOff2.Text.Trim());
+                htReKycParam.Add("@std_resTele", txtTelRes.Text.Trim());
+                htReKycParam.Add("@RES_TEL", txtTelRes2.Text.Trim());
+                htReKycParam.Add("@mobile_countryCode", txtMobile.Text.Trim());
+                htReKycParam.Add("@MOBILE", txtMobile2.Text.Trim());
+                htReKycParam.Add("@EMAILID", txtemail.Text.Trim());
+                htReKycParam.Add("@APP_DATE", txtDate.Text.Trim());
+                htReKycParam.Add("@PLACE", txtPlace.Text.Trim());
+                htReKycParam.Add("@PAN", txtPanNo.Text.Trim());
+                htReKycParam.Add("@kycEmpCode", strUserId);
+                htReKycParam.Add("@CREATEDBY", strUserId.ToString());
+                htReKycParam.Add("@UpdateFlag", "N");
+                htReKycParam.Add("@IsForm60Flg", (chkPanForm.Checked ? "Y" : "N"));
+                htReKycParam.Add("@uniqueID", obj.ToString());
+
+                // Database Call
                 objDAL = new DataAccessLayer("CKYCConnectionString");
-                dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htParam);
+                DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
 
-
+                // Optional: Add success message/logic here
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No data returned. Please verify.');", true);
+                }
             }
             catch (Exception ex)
-            { }
+            {
+                // Recommended: Log the exception
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Error occurred: " + ex.Message.Replace("'", "") + "');", true);
             }
+        }
+
+
+        //protected void btnSave_Click_ReKyc(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        htParam.Add("@Firefno", txtRefNumber.Text.Trim());
+        //        htParam.Add("@AccType", ddlAccountType.SelectedValue);
+        //        htParam.Add("@PREFIX", cboTitle.SelectedValue);
+        //        htParam.Add("@FNAME", txtGivenName.Text.Trim());
+        //        htParam.Add("@MNAME", txtMiddleName.Text.Trim());
+        //        htParam.Add("@LNAME", txtLastName.Text.Trim());
+        //        htParam.Add("@FATHER_PREFIX", cboTitle2.SelectedValue);
+        //        htParam.Add("@FATHER_FNAME", txtGivenName2.Text.Trim());
+        //        htParam.Add("@FATHER_MNAME", txtMiddleName2.Text.Trim());
+        //        htParam.Add("@FATHER_LNAME", txtLastName2.Text.Trim());
+        //        if (rbtFS.SelectedValue == "F")
+        //        {
+        //            htParam.Add("@fs_flag", "01");
+        //        }
+        //        else
+        //        {
+        //            htParam.Add("@fs_flag", "02");
+        //        }
+        //        htParam.Add("@DOB", txtDOB.Text);
+        //        htParam.Add("@GENDER", cboGender.SelectedValue);
+        //        htParam.Add("@RESI_STATUS", drpresidential.SelectedValue);
+        //        htParam.Add("@std_officeTele", txtTelOff.Text.Trim());
+        //        htParam.Add("@OFF_TELE", txtTelOff2.Text);
+        //        htParam.Add("@std_resTele", txtTelRes.Text.Trim());
+        //        htParam.Add("@RES_TEL", txtTelRes2.Text);
+        //        htParam.Add("@mobile_countryCode", txtMobile.Text.Trim());
+        //        htParam.Add("@MOBILE", txtMobile2.Text);
+        //        htParam.Add("@EMAILID", txtemail.Text);
+        //        htParam.Add("@APP_DATE", txtDate.Text.Trim());
+        //        htParam.Add("@PLACE", txtPlace.Text.Trim());
+        //        htParam.Add("@PAN", txtPanNo.Text.Trim());
+        //        htParam.Add("@kycEmpCode", strUserId);
+        //        htParam.Add("@CREATEDBY", strUserId.ToString());
+        //        htParam.Add("@UpdateFlag", "N");
+        //        htParam.Add("@IsForm60Flg", (chkPanForm.Checked == true ? "Y" : "N"));
+        //        htParam.Add("@uniqueID", obj.ToString());
+        //        objDAL = new DataAccessLayer("CKYCConnectionString");
+        //        dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htParam);
+
+
+        //    }
+        //    catch (Exception ex)
+        //    { }
+        //    }
         //added by babita
         protected void btnAddDoc_Click(object sender, EventArgs e)
         {
