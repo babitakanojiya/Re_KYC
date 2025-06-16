@@ -792,13 +792,18 @@ window.onload = function () {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 2rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
 
-                                <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left: 1rem;">1</span>
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
 
-                                <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">DOCUMENTS<br />
-                                    DETAILS
-                                </span>
+
+                                <div style="display: flex; align-items: center;">
+                                    <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left: 0rem;">1</span>
+
+                                    <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">
+                                        DOCUMENTS<br />
+                                        DETAILS
+                                    </span>
+                                </div>
                                 <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                             </button>
                         </li>
@@ -813,13 +818,18 @@ window.onload = function () {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
-    
-                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">2</span>
-    
-                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                PERSONAL <br />DETAILS
-                            </span>
+
+                                style="display: flex;  justify-content:center; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+                                    
+                                <div style="display: flex; align-items: center;">
+                                    <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left: 0rem;">2</span>
+
+                                    <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">PERSONAL
+                                        <br />
+                                        DETAILS
+                                    </span>
+                                </div>
+
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -833,13 +843,17 @@ window.onload = function () {
                                              aria-controls="divDU"
                                              aria-selected="false"
                                              tabindex="0"
-                                             style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
-    
-                                         <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
-    
-                                         <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                             CONTACT <br />DETAILS
-                                         </span>
+
+                                             style="display: flex; justify-content:center; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+                                                 <div style="display: flex; align-items: center;">
+                                                     <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left: 0rem;">3</span>
+
+                                                     <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">CONTACT
+                                                         <br />
+                                                         DETAILS
+                                                     </span>
+                                                 </div>
+
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -853,13 +867,16 @@ window.onload = function () {
                                     aria-controls="divDU"
                                     aria-selected="false"
                                     tabindex="0"
-                                    style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+
+                                    style="display: flex;  justify-content:center; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+                                 <div style="display: flex; align-items: center;">
+                                <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left:0rem;">4</span>
+
     
-                                <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
-    
-                                <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                                <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">
                                     ADDRESS <br />DETAILS
                                 </span>
+                                     </div>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
 
@@ -874,11 +891,13 @@ window.onload = function () {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+
+                                style="display: flex;justify-content:center; align-items: center;   border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+
     
-                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
+                            <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem;margin-left:0rem;">5</span>
     
-                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                            <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">
                                 VERIFICATION <br />DETAILS
                             </span>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
@@ -1009,7 +1028,7 @@ window.onload = function () {
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
                                 <%--<span class="glyphicon glyphicon-menu-hamburger"></span>--%>
-                                <asp:Label ID="lbluploadDoc" Text="UPLOADED DOCUMENTS" runat="server" CssClass="control-label" style="color: blue; font-weight: bold;"></asp:Label>
+                                <asp:Label ID="lbluploadDoc" Text="UPLOADED DOCUMENTS" runat="server" CssClass="control-label" style="color: blue; font-weight: 500;"></asp:Label>
 
                             </div>
                             <div class="col-sm-2">
@@ -1075,6 +1094,7 @@ window.onload = function () {
                                                         CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue;" onclick="checkAnyBoxSelected(); handleCheckboxClick();" />
                                                 </div>
 
+
                                                 <%--ended by babita --%>
                                                 <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
                                                     AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
@@ -1120,6 +1140,7 @@ window.onload = function () {
                                                 </asp:GridView>
                                                 <asp:UpdatePanel runat="server" ID="upnlPrev" style="display: none;">
                                                     <ContentTemplate>
+
 
 
                                                         <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
