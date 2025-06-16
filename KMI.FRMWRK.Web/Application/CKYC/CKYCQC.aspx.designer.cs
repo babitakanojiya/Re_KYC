@@ -258,6 +258,15 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.Panel panel1;
 
         /// <summary>
+        /// carouselIndicators control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl carouselIndicators;
+
+        /// <summary>
         /// divSearchResult control.
         /// </summary>
         /// <remarks>

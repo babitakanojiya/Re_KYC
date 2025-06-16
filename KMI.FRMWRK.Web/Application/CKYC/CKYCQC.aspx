@@ -638,26 +638,77 @@ window.onload = function () {
 };--%>
 
         function checkAnyBoxSelected() {
-    const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
-    let anyChecked = checkboxIds.some(id => document.getElementById(id)?.checked);
+        const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
+        let anyChecked = checkboxIds.some(id => document.getElementById(id)?.checked);
 
-    // Only show buttons if on step 4
-    if (currentStep === 4) {
-        if (anyChecked) {
-            document.getElementById('btnUpdChanges').style.display = 'inline-block';
-            document.getElementById('btnConfirm').style.display = 'none';
+        // Only show buttons if on step 4
+        if (currentStep === 4) {
+            if (anyChecked) {
+                document.getElementById('btnUpdChanges').style.display = 'inline-block';
+                document.getElementById('btnConfirm').style.display = 'none'; 
+
+            } else {
+                document.getElementById('btnConfirm').style.display = 'inline-block';
+                document.getElementById('btnUpdChanges').style.display = 'none';
+            }
         } else {
-            document.getElementById('btnConfirm').style.display = 'inline-block';
+            // Hide both buttons on other steps
+            document.getElementById('btnConfirm').style.display = 'none';
             document.getElementById('btnUpdChanges').style.display = 'none';
         }
-    } else {
-        // Hide both buttons on other steps
-        document.getElementById('btnConfirm').style.display = 'none';
-        document.getElementById('btnUpdChanges').style.display = 'none';
     }
-}
 
+    //Yash
 
+    // Step-to-checkbox mapping
+    const stepCheckboxMap = {
+        0: ['CheckBox1'],
+        1: ['CheckBox2'],
+        2: ['CheckBox3'],
+        3: ['CheckBox4', 'CheckBox5'],
+        4: ['CheckBox6', 'CheckBox7']
+    };
+
+    // Enable/disable only NON-checkbox fields inside a step
+    function setStepFieldsEnabled(stepIndex, enabled) {
+        const stepElement = document.querySelector(`#step${stepIndex}`);
+        if (!stepElement) return;
+
+        const fields = stepElement.querySelectorAll('input:not([type="checkbox"]), select, textarea, button');
+        fields.forEach(field => {
+            if (!field.classList.contains('control-toggle')) {
+                field.disabled = !enabled;
+            }
+        });
+    }
+
+    // Main control function
+    function handleCheckboxClick() {
+        Object.entries(stepCheckboxMap).forEach(([stepIndex, checkboxIds]) => {
+            const anyChecked = checkboxIds.some(id => {
+                const checkbox = document.getElementById(id);
+                return checkbox?.checked;
+            });
+
+            setStepFieldsEnabled(Number(stepIndex), anyChecked);
+        });
+    }
+
+    // Initialize event listeners
+    function bindCheckboxListeners() {
+        const allCheckboxIds = Object.values(stepCheckboxMap).flat();
+        allCheckboxIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (checkbox) {
+                checkbox.addEventListener('change', handleCheckboxClick);
+            }
+        });
+
+        // Initial check on load
+        handleCheckboxClick();
+    }
+
+    document.addEventListener('DOMContentLoaded', bindCheckboxListeners);
 
     
 </script>
@@ -741,7 +792,7 @@ window.onload = function () {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 2rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
 
                                 <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left: 1rem;">1</span>
 
@@ -762,7 +813,7 @@ window.onload = function () {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">2</span>
     
@@ -782,7 +833,7 @@ window.onload = function () {
                                              aria-controls="divDU"
                                              aria-selected="false"
                                              tabindex="0"
-                                             style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                             style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                                          <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
     
@@ -802,7 +853,7 @@ window.onload = function () {
                                     aria-controls="divDU"
                                     aria-selected="false"
                                     tabindex="0"
-                                    style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                    style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                                 <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
     
@@ -823,7 +874,7 @@ window.onload = function () {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
     
                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
     
@@ -856,7 +907,7 @@ window.onload = function () {
                     <div id="divCKYCdtls" style="display: block;" runat="server" class="panel-body">
                         <div class="col-sm-12" style="text-align: left; display: flex;">
                             <asp:CheckBox ID="CheckBox7" ClientIDMode="Static" Text="I confirm that the above information furnished is true and correct and the said details may be updated in my account maintained with the company.<br />In case of any change in the information, the same will be informed to the company. I further hereby authorize the company to obtain necessary details from CKYC Registry."
-                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="margin-top: 1rem; font-size: 1.3rem; margin:1rem 1rem 0rem !important;" onclick="checkAnyBoxSelected();"/>
+                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="margin-top: 1rem; font-size: 1.3rem; margin:1rem 1rem 0rem !important;" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
                         </div>
                      <div class="row" style="margin-top: 8rem;">
                              <div class="col-sm-3" style="text-align: left">
@@ -931,7 +982,7 @@ window.onload = function () {
                         </div>
                         <div class="col-sm-12" style="text-align: left; display: flex;">
                             <asp:CheckBox ID="CheckBox6" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
+                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
                         </div>
                     </div>
                 </div>
@@ -966,213 +1017,206 @@ window.onload = function () {
                             </div>
                         </div>
                     </div>
-                    <div id="divnavigate" style="display: block;" runat="server" class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-12" style="text-align: right;">
-                                <%--added by babita --%>
-                                <%--              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
+
+
+                                    <div id="divnavigate" style="display: block;" runat="server" class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-12" style="text-align: right;">
+                                                <%--added by babita --%>
+                                                <%--              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
      <div id="divSearchResult" runat="server">
        
      </div>
  </asp:Panel>--%>
-<%--                                <%--<asp:Panel ID="panel1" runat="server" Style="height: 200px;  margin-left: 40rem;">
+                                                <%--                                <%--<asp:Panel ID="panel1" runat="server" Style="height: 200px;  margin-left: 40rem;">
                                     <div id="divSearchResult" runat="server"
                                         style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; margin-right: 1290px;">
                                     </div>
                                 </asp:Panel>--%>
-                               
-                                <%-- changing PANEL OF Babita  --%>
-                                  <%-- <asp:Panel ID="panel1" runat="server" ClientIDMode="Static" 
+
+                                                <%-- changing PANEL OF Babita  --%>
+                                                <%-- <asp:Panel ID="panel1" runat="server" ClientIDMode="Static" 
                                        Style="width: 600px; height: 300px; overflow: hidden; margin-left: 33rem;">
                                 <div id="divSearchResult" runat="server"></div>
                             </asp:Panel>--%>
 
-                                <!--Start of PAnel CArousal by RAhul on 13-06-2025-->
-                           <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static">
-    <div id="carouselImages" class="carousel slide" data-ride="carousel" data-interval="false">
-        <div id="divSearchResult" runat="server" class="carousel-inner">
-            <%-- Dynamic images from C# will be injected here --%>
-        </div>
-
-        <!-- Navigation arrows -->
-        <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</asp:Panel>
 
 
+                                                <%--Carousel--%>
+
+                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static">
+                                                    <div id="carouselImages" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                                                        <!-- Dots (Indicators) -->
+                                                        <ol class="carousel-indicators" id="carouselIndicators" runat="server">
+                                                            <%-- Indicators will be injected dynamically in C# --%>
+                                                        </ol>
+
+                                                        <!-- Images Container -->
+                                                        <div id="divSearchResult" runat="server" class="carousel-inner">
+                                                            <%-- Carousel images will be injected dynamically in C# --%>
+                                                        </div>
+
+                                                        <!-- Navigation arrows -->
+                                                        <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev">
+                                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                            <span class="sr-only">Previous</span>
+                                                        </a>
+                                                        <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next">
+                                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                            <span class="sr-only">Next</span>
+                                                        </a>
+                                                    </div>
+                                                </asp:Panel>
 
 
+                                                <div class="col-sm-12" style="text-align: left; display: flex;">
+                                                    <asp:CheckBox ID="CheckBox1" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+                                                        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue;" onclick="checkAnyBoxSelected(); handleCheckboxClick();" />
+                                                </div>
+
+                                                <%--ended by babita --%>
+                                                <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
+                                                    AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
+                                                    <%--<AlternatingRowStyle BackColor="White" />--%>
+                                                    <EditRowStyle BackColor="#7C6F57" />
+                                                    <FooterStyle BackColor="#1C5E55" ForeColor="White" />
+                                                    <HeaderStyle BackColor="#00c5cc" ForeColor="White" Height="35px" CssClass="gridViewHeader" />
+                                                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                                    <RowStyle BackColor="#E3EAEB" />
+                                                    <Columns>
+
+                                                        <asp:TemplateField HeaderText="Document Code" HeaderStyle-CssClass="center" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lbldocCode" runat="server" Text='<%#Bind("DOC_CODE") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle CssClass="center" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Document Name" HeaderStyle-CssClass="center">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lbldocName" runat="server" Text='<%#Bind("DOC_NAME") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle CssClass="left2" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="DocumentName" HeaderStyle-CssClass="center" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lbldocTyp" runat="server" Text='<%#Bind("Image_Name") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle CssClass="left2" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="View Document" HeaderStyle-CssClass="center">
+                                                            <ItemTemplate>
+                                                                <asp:LinkButton ID="btnView" runat="server" class="glyphicon glyphicon-eye-open" Style="color: #337ab7;" OnClientClick="Confirm(this);" OnClick="btnView_Click" CommandName="View"></asp:LinkButton>
+                                                                <%--style="color:black;" OnClientClick="Confirm(this); ShowProgressBarWithOutTimer('Loading Document... Please Wait...');"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>--%>
+                                                            </ItemTemplate>
+                                                            <ItemStyle CssClass="center" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="false" ForeColor="#333333" />
+                                                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                                                </asp:GridView>
+                                                <asp:UpdatePanel runat="server" ID="upnlPrev" style="display: none;">
+                                                    <ContentTemplate>
 
 
-
-
-
-                              
-
-
-
-                                
-                                <!--END of PAnel CArousal by RAhul on 13-06-2025-->
-
-
-
-
-
-
-                                <div class="col-sm-12" style="text-align: left; display: flex;">
-                                    <asp:CheckBox ID="CheckBox1" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" style="color: blue;" onclick="checkAnyBoxSelected();"/>
-                                </div>
-
-                                <%--ended by babita --%>
-                                <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
-                                    AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
-                                    <%--<AlternatingRowStyle BackColor="White" />--%>
-                                    <EditRowStyle BackColor="#7C6F57" />
-                                    <FooterStyle BackColor="#1C5E55" ForeColor="White" />
-                                    <HeaderStyle BackColor="#00c5cc" ForeColor="White" Height="35px" CssClass="gridViewHeader" />
-                                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#E3EAEB" />
-                                    <Columns>
-
-                                        <asp:TemplateField HeaderText="Document Code" HeaderStyle-CssClass="center" Visible="false">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbldocCode" runat="server" Text='<%#Bind("DOC_CODE") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="center" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Document Name" HeaderStyle-CssClass="center">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbldocName" runat="server" Text='<%#Bind("DOC_NAME") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="left2" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="DocumentName" HeaderStyle-CssClass="center" Visible="false">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbldocTyp" runat="server" Text='<%#Bind("Image_Name") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="left2" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="View Document" HeaderStyle-CssClass="center">
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="btnView" runat="server" class="glyphicon glyphicon-eye-open" Style="color: #337ab7;" OnClientClick="Confirm(this);" OnClick="btnView_Click" CommandName="View"></asp:LinkButton>
-                                                <%--style="color:black;" OnClientClick="Confirm(this); ShowProgressBarWithOutTimer('Loading Document... Please Wait...');"  OnClick="btnView_Click" CommandName="View"></asp:LinkButton>--%>
-                                            </ItemTemplate>
-                                            <ItemStyle CssClass="center" />
-                                        </asp:TemplateField>
-                                    </Columns>
-                                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="false" ForeColor="#333333" />
-                                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                                    <SortedAscendingHeaderStyle BackColor="#246B61" />
-                                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                                    <SortedDescendingHeaderStyle BackColor="#15524A" />
-                                </asp:GridView>
-                                <asp:UpdatePanel runat="server" ID="upnlPrev" style="display: none;">
-                                    <ContentTemplate>
-
-
-                                        <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
+                                                        <%--  <asp:LinkButton ID="btnprev" Text="Prev" runat="server" CssClass="btn btn-primary" CausesValidation="false"
  OnClick="btnprev_Click"    TabIndex="244" >
 <span class="glyphicon glyphicon-arrow-left">Prev</span> 
 </asp:LinkButton> --%>
-                                        <%----%>
-                                        <%-- <asp:LinkButton ID="btnnext" Text="Next" runat="server" CssClass="btn btn-primary" CausesValidation="false"
+                                                        <%----%>
+                                                        <%-- <asp:LinkButton ID="btnnext" Text="Next" runat="server" CssClass="btn btn-primary" CausesValidation="false"
    OnClick="btnnext_Click" TabIndex="244" >
 <span class="glyphicon glyphicon-arrow-right">Next</span> 
 </asp:LinkButton> --%>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="col-sm-3" style="text-align: left; display: none">
-
-
-                                <asp:Label ID="lblPageInfo" runat="server" Visible="false"></asp:Label>
-                            </div>
-                            <asp:UpdatePanel runat="server">
-                                <ContentTemplate>
-                                    <div id="divloaderqc" class="col-sm-12" runat="server" style="display: none;">
-                                        <caption>
-                                            <img id="img31" alt="" src="~/images/spinner.gif" runat="server" />
-                                            Loading...
-                                        </caption>
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                            <asp:UpdatePanel runat="server" ID="upnlHeader">
-                                <ContentTemplate>
-                                    <div class="row">
-                                        <div class="col-sm-12" align="center">
-                                            <asp:Label ID="lblpanelheader" runat="server" CssClass="control-label" />
-                                            <asp:HiddenField ID="hdnDocId" runat="server" />
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row">
-
-
-                                        <asp:GridView ID="GridImage" runat="server" AllowSorting="True" CssClass="footable"
-                                            Width="1200px" AutoGenerateColumns="False" PageSize="10" AllowPaging="true" CellPadding="1"
-                                            OnRowDataBound="GridImage_RowDataBound">
-                                            <%--OnPageIndexChanging="GridImage_PageIndexChanging"
-                                            --%>
-                                            <RowStyle CssClass="GridViewRow"></RowStyle>
-                                            <PagerStyle CssClass="disablepage" />
-                                            <HeaderStyle CssClass="gridview th" />
+                                        <div>
+                                            <div class="col-sm-3" style="text-align: left; display: none">
 
 
-                                            <Columns>
-                                                <asp:TemplateField SortExpression="SR_NO" HeaderText="SR_NO" Visible="false">
-                                                    <ItemTemplate>
-                                                        <asp:LinkButton ID="lblCndNo1" runat="server" Text='<%# Eval("SR_NO") %>'></asp:LinkButton>
-                                                        <asp:HiddenField ID="hdnid" runat="server" Value='<%# Eval("SR_NO") %>'></asp:HiddenField>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:ImageField DataImageUrlField="SR_NO" DataImageUrlFormatString="ImageCSharp.aspx?ImageID=ckyc+{0}"
-                                                    HeaderText="Preview Image">
-                                                    <ControlStyle CssClass="left_padding" Width="30%" />
-                                                    <%--Height="100%"--%>
-                                                </asp:ImageField>
-                                            </Columns>
-                                        </asp:GridView>
-                                        <center>
+                                                <asp:Label ID="lblPageInfo" runat="server" Visible="false"></asp:Label>
+                                            </div>
+                                            <asp:UpdatePanel runat="server">
+                                                <ContentTemplate>
+                                                    <div id="divloaderqc" class="col-sm-12" runat="server" style="display: none;">
+                                                        <caption>
+                                                            <img id="img31" alt="" src="~/images/spinner.gif" runat="server" />
+                                                            Loading...
+                                                        </caption>
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                            <asp:UpdatePanel runat="server" ID="upnlHeader">
+                                                <ContentTemplate>
+                                                    <div class="row">
+                                                        <div class="col-sm-12" align="center">
+                                                            <asp:Label ID="lblpanelheader" runat="server" CssClass="control-label" />
+                                                            <asp:HiddenField ID="hdnDocId" runat="server" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
 
 
-                                            <table style="display: none;">
-                                                <tr>
-                                                    <td>
-                                                        <asp:Button ID="btnprev" Text="<" CssClass="form-submit-button" runat="server"
-                                                            Width="40px" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat; background-color: transparent; float: left; margin: 0; height: 30px;"
-                                                            OnClick="btnprev_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
-                                                        <%--  <asp:TextBox runat="server" ID="txtPage" Text="1" Style="width: 35px; border-style: solid;
+                                                        <asp:GridView ID="GridImage" runat="server" AllowSorting="True" CssClass="footable"
+                                                            Width="1200px" AutoGenerateColumns="False" PageSize="10" AllowPaging="true" CellPadding="1"
+                                                            OnRowDataBound="GridImage_RowDataBound">
+                                                            <%--OnPageIndexChanging="GridImage_PageIndexChanging"
+                                                            --%>
+                                                            <RowStyle CssClass="GridViewRow"></RowStyle>
+                                                            <PagerStyle CssClass="disablepage" />
+                                                            <HeaderStyle CssClass="gridview th" />
+
+
+                                                            <Columns>
+                                                                <asp:TemplateField SortExpression="SR_NO" HeaderText="SR_NO" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton ID="lblCndNo1" runat="server" Text='<%# Eval("SR_NO") %>'></asp:LinkButton>
+                                                                        <asp:HiddenField ID="hdnid" runat="server" Value='<%# Eval("SR_NO") %>'></asp:HiddenField>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:ImageField DataImageUrlField="SR_NO" DataImageUrlFormatString="ImageCSharp.aspx?ImageID=ckyc+{0}"
+                                                                    HeaderText="Preview Image">
+                                                                    <ControlStyle CssClass="left_padding" Width="30%" />
+                                                                    <%--Height="100%"--%>
+                                                                </asp:ImageField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                        <center>
+
+
+                                                            <table style="display: none;">
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Button ID="btnprev" Text="<" CssClass="form-submit-button" runat="server"
+                                                                            Width="40px" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat; background-color: transparent; float: left; margin: 0; height: 30px;"
+                                                                            OnClick="btnprev_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
+                                                                        <%--  <asp:TextBox runat="server" ID="txtPage" Text="1" Style="width: 35px; border-style: solid;
                                                                 border-width: 1px; border-color: Gray; height: 30px; float: left; margin: 0;funload();
                                                                 text-align: center;" CssClass="form-control" ReadOnly="true" />--%>
-                                                        <asp:Button ID="btnnext" Text=">" CssClass="form-submit-button" runat="server" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat; background-color: transparent; float: left; margin: 0; height: 30px;"
-                                                            Width="40px" OnClick="btnnext_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </center>
+                                                                        <asp:Button ID="btnnext" Text=">" CssClass="form-submit-button" runat="server" Enabled="false" Style="border-style: solid; border-width: 1px; background-repeat: no-repeat; background-color: transparent; float: left; margin: 0; height: 30px;"
+                                                                            Width="40px" OnClick="btnnext_Click" OnClientClick="ShowProgressBar('Image Loading...');" />
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </center>
 
 
+                                                    </div>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="btnnext" EventName="Click"></asp:AsyncPostBackTrigger>
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+
+
+                                        </div>
                                     </div>
-                                </ContentTemplate>
-                                <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="btnnext" EventName="Click"></asp:AsyncPostBackTrigger>
-                                </Triggers>
-                            </asp:UpdatePanel>
-
-
-                        </div>
-                    </div>
                 </div>
        <%-- <div id="menu1" style="display:block;" runat="server" class="panel-body"> --%>
           <div id="step1"  class="panel panel-success step-content" style="margin-top: -1rem;margin-left: 7px;margin-right: 0px;display: none;">
@@ -1458,7 +1502,7 @@ window.onload = function () {
 
                                     <div class="col-sm-12" style="text-align: left; display: flex;">
                                         <asp:CheckBox ID="CheckBox2" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem;" onclick="checkAnyBoxSelected();"/>
+                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem;" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
                                     </div>
                                     <%-- ended by Rutuja --%>
                                    
@@ -2084,11 +2128,11 @@ window.onload = function () {
             </div>
             <div class="col-sm-12" style="text-align: left; display: flex;">
                 <asp:CheckBox ID="CheckBox5" ClientIDMode="Static" Text="Same as above mentioned details"
-                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
+                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
             </div>
             <div class="col-sm-12" style="text-align: left; display: flex;">
                 <asp:CheckBox ID="CheckBox4" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
-                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
+                    CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
             </div>
                                 <%--<div class="row">
                                     <div class="col-sm-12" style="text-align: left">
@@ -2296,7 +2340,7 @@ window.onload = function () {
                                     </div>
                                     <div class="col-sm-12" style="text-align: left; display: flex;">
                                         <asp:CheckBox ID="CheckBox3" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected();"/>
+                                            CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
                                     </div>
 
                                     <%--Added By Shubham--%>
