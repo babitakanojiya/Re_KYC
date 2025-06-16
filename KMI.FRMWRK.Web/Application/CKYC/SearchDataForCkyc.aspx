@@ -8,11 +8,37 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="EmptyPagePlaceholder" runat="server">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 
     <style type="text/css">
+        /* To make responsive on 10 June 2025*/
+        select.form-control {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+        /*  iframe needed */
+        .dropdown, .form-control {
+                  max-width: 100%;
+                  width: 100%;
+                }
+        body, html {
+  overflow-x: hidden;
+}
+
+
+
+
+
         .container {
-            width: 1300px !important;
-        }
+                width: 100%;
+                max-width: 1300px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
         /*AP*/
         a {
             color: rgba(21, 62, 60, 0.93);
@@ -30,7 +56,7 @@
                     background-color: Silver;
                     color: black;
                     cursor: pointer;
-                    padding: 10px 20px;
+                    padding: 0.625rem 1.25rem;
                     text-decoration: none;
                     border-radius: 4px 4px 0 0;
                 }
@@ -42,6 +68,19 @@
                     ul#menu li a:hover {
                         background-color: #F55856;
                     }
+                    @media (max-width: 768px) {
+                    .container {
+                        padding: 0 0.5rem;
+                    }
+    
+                    ul#menu li a {
+                        padding: 0.5rem;
+                        font-size: 0.9rem;
+                        display: block;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
     </style>
 
     <style type="text/css">
@@ -89,8 +128,16 @@
             padding:5px !important;
         }
 
-    </style>
+        .responsive-form-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
 
+
+    </style>
+    
     <script type="text/javascript">
 
 
@@ -222,7 +269,7 @@
 
 
             </div>
-            <div class="container" style="margin-top: 0px; width: 100%;">
+            <div class="container container-fluid" style="margin-top: 0px; width: 100%;">
                 <div class="page-container" style="margin-top: 0px;">
                     <div class="panel  panel-success" style="margin-left: 2%; margin-right: 2%; margin-top: 0.5%">
 
@@ -259,14 +306,14 @@
         <div class="tab-content">
             <div id="menu1" class="tab-pane fade active in">
                 <div id="div2" class="panel-body" runat="server" style="padding:12px !important;">
-                    <div class="row" id="srchby" style="margin-bottom: 9px" runat="server">
+                    <div class="row responsive-form-container" id="srchby" style="margin-bottom: 9px" runat="server">
                         <div class="col-sm-3" style="text-align: left">
                             <asp:Label ID="lblSrchBy" runat="server" CssClass="control-label" Text="Search By"
                                 Font-Bold="False"></asp:Label>
                             <span id="Span2" runat="server" style="color: red">*</span>
                         </div>
-                        <div class="col-sm-3">
-                            <asp:DropDownList ID="ddlSearchby" runat="server" CssClass="form-control"
+                        <div class="col-12 col-sm-3">
+                            <asp:DropDownList ID="ddlSearchby" runat="server" CssClass="form-control w-100"
                                 AutoPostBack="true" TabIndex="2" OnSelectedIndexChanged="ddlSearchby_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
