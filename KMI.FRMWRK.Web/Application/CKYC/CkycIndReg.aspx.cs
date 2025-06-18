@@ -1980,159 +1980,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 string date;
                 date = DateTime.Today.ToString("dd\\/MM\\/yyyy");
 
-                //if (chkPerAddress.Checked == false)
-                //{
-                //    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please check CURRENT/PERMANENT/OVERSEAS ADDRESS DETAILS')", true);
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please check current/permanent/overseas address details')", true);
-                //    //chkPerAddress.Focus();
-                //    ddlPinCode.SelectedIndex = 0;
-                //    return;
-                //}
-                // Commented By Pratik
-                //if (ddlAddressType.SelectedIndex == 0)
-                //{
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please select address type')", true);
-                //    //ddlAddressType.Focus();
-                //    ddlPinCode.SelectedIndex = 0;
-                //    return;
-                //}
-                //if (ddlProofOfAddress.SelectedIndex == 0)
-                //{
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please select proof of address')", true);
-                //    ddlPinCode.SelectedIndex = 0;
-                //    return;
-                //}
-                //if (ddlProofOfAddress.SelectedIndex != 0)
-                //{
-                //    if (ddlProofOfAddress.SelectedIndex == 1)
-                //    {
-                //        if (txtPassNoAdd.Text == "")
-                //        {
-                //            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter passport number')", true);
-                //            txtPassNoAdd.Focus();
-                //            ddlPinCode.SelectedIndex = 0;
-                //            return;
-                //        }
-                //        //if (txtPassExpDateAdd.Text == "")
-                //        //{
-                //        //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter passport expiry date')", true);
-                //        //    txtPassExpDateAdd.Focus();
-                //        //    ddlPinCode.SelectedIndex = 0;
-                //        //    return;
-                //        //}
-                //        if (txtPassExpDateAdd.Text != "")
-                //        {
-                //            DateTime date1, date2;
-                //            date1 = DateTime.ParseExact(date.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                //            date2 = DateTime.ParseExact(txtPassExpDateAdd.Text.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                //            if (date1 > date2)
-                //            {
-
-                //                //if (Convert.ToDateTime(date) > Convert.ToDateTime(txtPassExpDateAdd.Text))
-                //                //{
-                //                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You cannot select past date as driving license expiry date')", true);
-                //                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('You cannot select past date as driving license expiry date')", true);
-                //                txtPassExpDateAdd.Focus();
-                //                ddlPinCode.SelectedIndex = 0;
-                //                return;
-                //            }
-                //        }
-                //    }
-
-                //    if (ddlProofOfAddress.SelectedIndex == 2)
-                //    {
-                //        if (txtPassNoAdd.Text == "")
-                //        {
-                //            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter driving licence no')", true);
-                //            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter driving licence number')", true);
-                //            txtPassNoAdd.Focus();
-                //            ddlPinCode.SelectedIndex = 0;
-                //            return;
-                //        }
-
-                //        //if (txtPassExpDateAdd.Text == "")
-                //        //{
-                //        //    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter driving licence expiry date')", true);
-                //        //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter driving licence expiry date')", true);
-                //        //    txtPassExpDateAdd.Focus();
-                //        //    ddlPinCode.SelectedIndex = 0;
-                //        //    return;
-                //        //}
-                //        if (txtPassExpDateAdd.Text != "")
-                //        {
-                //            DateTime date1, date2;
-                //            date1 = DateTime.ParseExact(date.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                //            date2 = DateTime.ParseExact(txtPassExpDateAdd.Text.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                //            if (date1 > date2)
-                //            {
-                //                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('You cannot select past date as driving license expiry date')", true);
-                //                ddlPinCode.SelectedIndex = 0;
-                //                return;
-                //            }
-                //        }
-                //    }
-
-                //    if (ddlProofOfAddress.SelectedIndex == 3)
-                //    {
-                //        if (txtPassNoAdd.Text == "")
-                //        {
-                //            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter UID(Aadhaar)')", true);
-                //            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter Proof of Possession of Aadhaar')", true);
-                //            txtPassNoAdd.Focus();
-                //            ddlPinCode.SelectedIndex = 0;
-                //            return;
-                //        }
-                //    }
-                //    if (ddlProofOfAddress.SelectedIndex == 4)
-                //    {
-                //        if (txtPassNoAdd.Text == "")
-                //        {
-                //            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter voter id card')", true);
-                //            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter voter id card')", true);
-                //            txtPassNoAdd.Focus();
-                //            ddlPinCode.SelectedIndex = 0;
-                //            return;
-                //        }
-                //    }
-                //    if (ddlProofOfAddress.SelectedIndex == 5)
-                //    {
-                //        if (txtPassNoAdd.Text == "")
-                //        {
-                //            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter NREGA job card')", true);
-                //            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter NREGA job card')", true);
-                //            txtPassNoAdd.Focus();
-                //            ddlPinCode.SelectedIndex = 0;
-                //            return;
-                //        }
-                //    }
-                //    if (ddlProofOfAddress.SelectedIndex == 6)
-                //    {
-                //        if (txtPassNoAdd.Text == "")
-                //        {
-                //            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter other no of proof of Address')", true);
-                //            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter other no of proof of Address')", true);
-                //            txtPassNoAdd.Focus();
-                //            ddlPinCode.SelectedIndex = 0;
-                //            return;
-                //        }
-                //    }
-                //}
-                //if (txtAddressLine1.Text == "")
-                //{
-                //    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter permanent address line 1')", true);
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter permanent address line 1')", true);
-                //    txtAddressLine1.Focus();
-                //    ddlPinCode.SelectedIndex = 0;
-                //    return;
-                //}
-                //if (txtCity.Text == "")
-                //{
-                //    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter permanent city/Town/Village')", true);
-                //    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage", "AlertMsg('Please enter permanent city/Town/Village')", true);
-                //    txtCity.Focus();
-                //    ddlPinCode.SelectedIndex = 0;
-                //    return;
-                //}
+               
                 if (ddlPinCode.SelectedIndex == 0 && chkTick.Checked == false)
                 {
                     //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please enter permanent Pin/Post Code')", true);
@@ -2568,7 +2416,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
             finally
             {
                 objDAL = null;
-                dt = null;
+                //dt = null;
             }
         }
         #endregion
@@ -8702,8 +8550,46 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 htReKycParam.Add("@CREATEDBY", strUserId.ToString());
                 htReKycParam.Add("@UpdateFlag", "N");
                 htReKycParam.Add("@IsForm60Flg", (chkPanForm.Checked ? "Y" : "N"));
-                
-                
+                //added for addres 
+                htReKycParam.Add("@CnctType1", "P1");
+                htReKycParam.Add("@PER_ADDTYPE", "");
+                htReKycParam.Add("@PER_ADDLINE1", txtAddressLine1.Text.Trim());
+                htReKycParam.Add("@PER_ADDLINE2", txtAddressLine2.Text.Trim());
+                htReKycParam.Add("@PER_ADDLINE3", txtAddressLine3.Text.Trim());
+                htReKycParam.Add("@PER_CITY", txtCity.Text.Trim());
+                if (ddlCountryCode.SelectedValue == "IN")
+                {
+                    htReKycParam.Add("@PER_STATECODE", ddlState.SelectedItem.Text.ToString());
+                    htReKycParam.Add("@PER_DISTRICT", ddlDistrict.SelectedItem.Text.Trim());
+                    htReKycParam.Add("@PER_PIN", ddlPinCode.SelectedItem.Text.Trim());
+                }
+                else
+                {
+                    htReKycParam.Add("@PER_STATECODE", txtddlState.Text.Trim());
+                    htReKycParam.Add("@PER_DISTRICT", txtddlDistrict.Text.Trim());
+                    htReKycParam.Add("@PER_PIN", txtddlPinCode.Text.Trim());
+                }
+                htReKycParam.Add("@PER_COUNTRY_CODE", ddlCountryCode.SelectedValue);
+                htReKycParam.Add("@CnctType2", "M1");
+                htReKycParam.Add("@SameAsPer", (chkCuurentAddress.Checked == true ? "01" : "N"));
+                htReKycParam.Add("@CUR_ADDLINE1", txtLocAddLine1.Text);
+                htReKycParam.Add("@CUR_ADDLINE2", txtLocAddLine2.Text);
+                htReKycParam.Add("@CUR_ADDLINE3", txtLocAddLine3.Text);
+                htReKycParam.Add("@CUR_CITY", txtCity1.Text.Trim());
+                if (ddlCountryCode1.SelectedValue == "IN")
+                {
+                    htReKycParam.Add("@CUR_STATECODE", ddlState1.SelectedItem.Text.ToString());
+                    htReKycParam.Add("@CUR_DISTRICT", ddlDistrict1.SelectedItem.Text.Trim());
+                    htReKycParam.Add("@CUR_PIN", ddlPinCode1.SelectedItem.Text.Trim());
+                }
+                else
+                {
+                    htReKycParam.Add("@CUR_STATECODE", txtddlState1.Text);
+                    htReKycParam.Add("@CUR_DISTRICT", txtddlDistrict1.Text.Trim());
+                    htReKycParam.Add("@CUR_PIN", txtddlPinCode1.Text.Trim());
+                }
+                htReKycParam.Add("@CUR_COUNTRY_CODE", ddlCountryCode1.SelectedValue);
+
 
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);

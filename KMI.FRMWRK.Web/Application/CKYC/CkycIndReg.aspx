@@ -137,6 +137,9 @@
             //}, 4000);
         }
     </script>
+    
+
+
 
     
 </asp:Content>
@@ -602,21 +605,33 @@ input.form-control {
                 return false;
             }
         }
-
         function fnValidateNumber(id, No) {
             debugger;
             var Mobile1 = document.getElementById(id).value;
             if (Mobile1 != "") {
-
-                if (parseInt(Mobile1.length) != parseInt(No)) {
-                    //AlertMsg("Number should be " + No + " digit");
-                    AlertMsg("Number at least " + No + " digit long");
+                if (Mobile1.length < parseInt(No)) { // Check minimum length
+                    AlertMsg("Number must be at least " + No + " digits long.");
                     document.getElementById(id).value = "";
                     document.getElementById(id).focus();
                     return false;
                 }
             }
         }
+
+        //function fnValidateNumber(id, No) {
+        //    debugger;
+        //    var Mobile1 = document.getElementById(id).value;
+        //    if (Mobile1 != "") {
+
+        //        if (parseInt(Mobile1.length) != parseInt(No)) {
+        //            //AlertMsg("Number should be " + No + " digit");
+        //            AlertMsg("Number at least " + No + " digit long");
+        //            document.getElementById(id).value = "";
+        //            document.getElementById(id).focus();
+        //            return false;
+        //        }
+        //    }
+        //}
 
         function lettersOnly() {
             var charCode = event.keyCode;
@@ -2784,7 +2799,68 @@ input.form-control {
                                 </asp:TextBox>
                             </div>
                         </div>
-                        <div class="row">
+                        <asp:UpdatePanel ID="UpdatePanelAddress" runat="server" UpdateMode="Conditional">
+    <ContentTemplate>
+
+        <div class="row">
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblDistrict" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3">
+                <asp:DropDownList ID="ddlDistrict" runat="server" CssClass="form-select custom-dropdown" Enabled="false" TabIndex="2">
+                    <asp:ListItem Value="" Text="Select"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:TextBox ID="txtddlDistrict" Visible="false" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
+            </div>
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblPinCode" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3" style="display:flex;">
+                <asp:DropDownList ID="ddlPinCode" runat="server" Enabled="false"
+                    CssClass="form-select custom-dropdown"
+                    AutoPostBack="True"
+                    OnSelectedIndexChanged="ddlPinCode_SelectedIndexChanged"
+                    onchange="AddLoader('ddlPinCodeLoader');" TabIndex="2">
+                    <asp:ListItem Value="" Text="Select"></asp:ListItem>
+                </asp:DropDownList>
+
+                <asp:TextBox ID="txtddlPinCode" Visible="false" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
+
+                <div id="ddlPinCodeLoader" style="display:inline-block; width:25px; height:25px;"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblState" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3">
+                <asp:DropDownList ID="ddlState" runat="server" CssClass="form-select custom-dropdown" Enabled="false" TabIndex="2">
+                    <asp:ListItem Value="" Text="Select"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:TextBox ID="txtddlState" Visible="false" runat="server" Enabled="false" Text="XX" CssClass="form-control" TabIndex="2"></asp:TextBox>
+            </div>
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblIsoCountryCode" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3">
+                <asp:DropDownList ID="ddlCountryCode" runat="server" Enabled="false" CssClass="form-select custom-dropdown" AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlCountryCode_SelectedIndexChanged" TabIndex="2">
+                </asp:DropDownList>
+            </div>
+        </div>
+
+    </ContentTemplate>
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="ddlPinCode" EventName="SelectedIndexChanged" />
+    </Triggers>
+</asp:UpdatePanel>
+
+                        <%--<div class="row">
                             <div class="col-sm-3" style="text-align: left">
                                 <asp:Label ID="lblDistrict" Text="" runat="server" CssClass="control-label"></asp:Label>
                                 <span style="color: red">*</span>
@@ -2801,12 +2877,15 @@ input.form-control {
                                 <span style="color: red">*</span>
                             </div>
                             <div class="col-sm-3" style="display:flex;">
+                                
                                 <asp:DropDownList ID="ddlPinCode" runat="server" Enabled="false" CssClass="form-select custom-dropdown" OnSelectedIndexChanged="ddlPinCode_SelectedIndexChanged"
                                   onChange="javascript:AddLoader('ddlPinCodeLoader');"  AutoPostBack="True" TabIndex="2">
                                     <asp:ListItem Value="" Text="Select"></asp:ListItem>
                                 </asp:DropDownList>
                                 <asp:TextBox ID="txtddlPinCode" Visible="false" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
-                                <div id="ddlPinCodeLoader"></div>
+                                <div id="ddlPinCodeLoader" ></div>
+                                
+
                             </div>
                         </div>
                         <div class="row">
@@ -2830,7 +2909,7 @@ input.form-control {
                                     OnSelectedIndexChanged="ddlCountryCode_SelectedIndexChanged" TabIndex="2">
                                 </asp:DropDownList>
                             </div>
-                        </div>
+                        </div>--%>
                         <div style="margin-top: 25px; margin-bottom: 25px">
                             <div class="row">
                                 <div class="col-sm-12" style="text-align: left">
@@ -2841,13 +2920,29 @@ input.form-control {
                                     <span style="color: red">*</span>
                                 </div>
                             </div>
-                            <div class="row">
+                            <%--<div class="row">
                                 <div class="col-sm-12" style="text-align: left">
                                     <asp:CheckBox ID="chkCuurentAddress" Text="Same as above mentioned address "
                                         OnCheckedChanged="chkCuurentAddress_Checked" AutoPostBack="true" runat="server" Enabled="true"
                                         CssClass="control-label" TabIndex="2" />
                                 </div>
-                            </div>
+                            </div>--%>
+                            <asp:UpdatePanel ID="UpdatePanel7" runat="server" UpdateMode="Conditional">
+    <ContentTemplate>
+        <div class="row">
+            <div class="col-sm-12" style="text-align: left">
+                <asp:CheckBox ID="chkCuurentAddress" Text="Same as above mentioned address"
+                    OnCheckedChanged="chkCuurentAddress_Checked" AutoPostBack="true" runat="server" Enabled="true"
+                    CssClass="control-label" TabIndex="2" />
+            </div>
+        </div>
+    </ContentTemplate>
+
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="chkCuurentAddress" EventName="CheckedChanged" />
+    </Triggers>
+</asp:UpdatePanel>
+
                             <div class="row" style="display:none">
                                 <div class="col-sm-3" style="text-align: left">
                                     <%--<asp:Label ID="Label5" Text="Proof of Address" runat="server" CssClass="control-label"></asp:Label>--%>
@@ -2916,6 +3011,8 @@ input.form-control {
                                     <%--Tushar multiple Doc--%>
                                 </div>
                             </div>
+                                                    <asp:UpdatePanel ID="UpdatePanelAddress1" runat="server" UpdateMode="Conditional">
+<ContentTemplate>
                             <div class="row">
                                 <div class="col-sm-3" style="text-align: left">
                                     <asp:Label ID="lblLocAddLine1" Text="" runat="server" CssClass="control-label"></asp:Label>
@@ -2949,56 +3046,66 @@ input.form-control {
                                     <asp:TextBox ID="txtCity1" runat="server" CssClass="form-control" Enabled="true" TabIndex="2" MaxLength="50"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblDistrict1" Text="" runat="server" CssClass="control-label"></asp:Label>
-                                    <span style="color: red">*</span>
-                                </div>
-                                <div class="col-sm-3">
-                                    <asp:DropDownList ID="ddlDistrict1" runat="server" CssClass="form-select custom-dropdown"
-                                        TabIndex="2">
-                                        <asp:ListItem Value="" Text="Select"></asp:ListItem>
-                                    </asp:DropDownList>
-                                <asp:TextBox ID="txtddlDistrict1" Visible="false" runat="server" CssClass="form-control" TabIndex="2" ></asp:TextBox>
-                                </div>
-                                <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblPin1" Text="" runat="server" CssClass="control-label"></asp:Label>
-                                    <span style="color: red">*</span>
-                                </div>
-                                <div class="col-sm-3" style="display:flex;">
-                                    <asp:DropDownList ID="ddlPinCode1" runat="server" CssClass="form-select custom-dropdown" OnSelectedIndexChanged="ddlPinCode1_SelectedIndexChanged"
-                                        onChange="javascript:AddLoader('ddlPinCode1Loader');"  AutoPostBack="True" TabIndex="2">
-                                        <asp:ListItem Value="" Text="Select"></asp:ListItem>
-                                    </asp:DropDownList>
-                                <div id="ddlPinCode1Loader"></div>
-                                <asp:TextBox ID="txtddlPinCode1" Visible="false" runat="server" CssClass="form-control" TabIndex="2" ></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblState1" Text="" runat="server" CssClass="control-label"></asp:Label>
-                                    <span style="color: red">*</span>
-                                </div>
-                                <div class="col-sm-3">
-                                    <asp:DropDownList ID="ddlState1" runat="server" CssClass="form-select custom-dropdown"
-                                        TabIndex="2">
-                                        <asp:ListItem Value="" Text="Select"></asp:ListItem>
-                                    </asp:DropDownList>
-                                <asp:TextBox ID="txtddlState1" Visible="false" runat="server" Enabled="false" Text="XX" CssClass="form-control" TabIndex="2" ></asp:TextBox>
-                                </div>
-                                <div class="col-sm-3" style="text-align: left">
-                                    <asp:Label ID="lblCountryCode1" Text="" runat="server" CssClass="control-label"></asp:Label>
-                                    <span style="color: red">*</span>
-                                </div>
-                                <div class="col-sm-3">
-                                    <%--  <asp:TextBox CssClass="form-control" onchange="setDateFormat('txtState')" runat="server"
-                                                    ID="txtCountryCode1" MaxLength="15" TabIndex="12"  Enabled="false"/>--%>
-                                    <asp:DropDownList ID="ddlCountryCode1" runat="server" CssClass="form-select custom-dropdown" AutoPostBack="true"
-                                        OnSelectedIndexChanged="ddlCountryCode1_SelectedIndexChanged"
-                                        TabIndex="2">
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
+    
+
+        <div class="row">
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblDistrict1" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3">
+                <asp:DropDownList ID="ddlDistrict1" runat="server" CssClass="form-select custom-dropdown" TabIndex="2">
+                    <asp:ListItem Value="" Text="Select"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:TextBox ID="txtddlDistrict1" Visible="false" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
+            </div>
+
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblPin1" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3" style="display:flex;">
+                <asp:DropDownList ID="ddlPinCode1" runat="server" CssClass="form-select custom-dropdown"
+                    OnSelectedIndexChanged="ddlPinCode1_SelectedIndexChanged"
+                    onchange="javascript:AddLoader('ddlPinCode1Loader');" AutoPostBack="True" TabIndex="2">
+                    <asp:ListItem Value="" Text="Select"></asp:ListItem>
+                </asp:DropDownList>
+                <div id="ddlPinCode1Loader"></div>
+                <asp:TextBox ID="txtddlPinCode1" Visible="false" runat="server" CssClass="form-control" TabIndex="2"></asp:TextBox>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblState1" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3">
+                <asp:DropDownList ID="ddlState1" runat="server" CssClass="form-select custom-dropdown" TabIndex="2">
+                    <asp:ListItem Value="" Text="Select"></asp:ListItem>
+                </asp:DropDownList>
+                <asp:TextBox ID="txtddlState1" Visible="false" runat="server" Enabled="false" Text="XX" CssClass="form-control" TabIndex="2"></asp:TextBox>
+            </div>
+
+            <div class="col-sm-3" style="text-align: left">
+                <asp:Label ID="lblCountryCode1" Text="" runat="server" CssClass="control-label"></asp:Label>
+                <span style="color: red">*</span>
+            </div>
+            <div class="col-sm-3">
+                <asp:DropDownList ID="ddlCountryCode1" runat="server" CssClass="form-select custom-dropdown" AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlCountryCode1_SelectedIndexChanged" TabIndex="2">
+                </asp:DropDownList>
+            </div>
+        </div>
+
+    </ContentTemplate>
+
+    <Triggers>
+        <asp:AsyncPostBackTrigger ControlID="chkCuurentAddress" EventName="CheckedChanged" />
+        <asp:AsyncPostBackTrigger ControlID="ddlPinCode1" EventName="SelectedIndexChanged" />
+    </Triggers>
+</asp:UpdatePanel>
+
                         </div>
                     </div>
                 </div>
@@ -3040,22 +3147,18 @@ input.form-control {
                                 <asp:Label ID="lblTelOff1" runat="server" Text="" CssClass="control-label"></asp:Label>
                             </div>
                             <div class="col-sm-3">
-                                <%--<div class="input-group">
-                                  
-                                    <span class="input-group-addon input-group-addon-tel">
-                                        <asp:TextBox ID="txtTelOff" runat="server" CssClass="form-control" TabIndex="2" onkeypress="fncInputNumericValuesOnly();" MaxLength="4" Style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></asp:TextBox>
-                                    </span>
-                                    <asp:TextBox ID="txtTelOff2" runat="server" CssClass="form-control" onblur="fnValidateNumber(this.id,'8');" onkeypress="fncInputNumericValuesOnly();"
-                                        MaxLength="10" TabIndex="2"></asp:TextBox>
-                                </div>--%>
                                 <div class="form-group">
     <div class="input-group" style="width: 100%;">
         <asp:TextBox ID="txtTelOff" runat="server" CssClass="form-control" MaxLength="4" onkeypress="fncInputNumericValuesOnly();"
             Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
 
-        <asp:TextBox ID="txtTelOff2" runat="server" CssClass="form-control" MaxLength="10" onblur="fnValidateNumber(this.id,'8');"
-            onkeypress="fncInputNumericValuesOnly();"
-            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+        <asp:TextBox ID="txtTelOff2" runat="server" CssClass="form-control" MaxLength="10" 
+    onblur="fnValidateNumber(this.id,'8');"
+    onkeypress="return fncInputNumericValuesOnly(event);" 
+    Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+
+        
+        
     </div>
 </div>
                             </div>
@@ -3063,13 +3166,6 @@ input.form-control {
                                 <asp:Label ID="lblTelRes" runat="server" CssClass="control-label" Text="Tel.(Res)"></asp:Label>
                             </div>
                             <div class="col-sm-3">
-                                <%--<div class="input-group">
-                                    <span class="input-group-addon input-group-addon-tel">
-                                        <asp:TextBox ID="txtTelRes" runat="server" CssClass="form-control" TabIndex="2" onkeypress="fncInputNumericValuesOnly();" MaxLength="4" Style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;"></asp:TextBox>
-                                    </span>
-                                    <asp:TextBox ID="txtTelRes2" runat="server" CssClass="form-control" onblur="fnValidateNumber(this.id,'8');" MaxLength="10" onkeypress="fncInputNumericValuesOnly();"
-                                        TabIndex="2"></asp:TextBox>
-                                </div>--%>
                                 <div class="form-group">
     <div class="input-group">
         <!-- STD Code -->
@@ -3114,15 +3210,6 @@ input.form-control {
             TabIndex="2"
             onkeypress="fncInputNumericValuesOnly();"
             Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
-
-        <!-- Main Mobile Number -->
-        <%--<asp:TextBox ID="txtMobile2" runat="server"
-            CssClass="form-control"
-            MaxLength="20"
-            TabIndex="2"
-            onkeypress="fncInputNumericValuesOnly();"
-            onblur="validateMobileNumber(this);"
-            Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>--%>
         <asp:TextBox ID="txtMobile2" runat="server"
     CssClass="form-control"
     MaxLength="10" 
