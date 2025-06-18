@@ -5,9 +5,15 @@
 
         <style>
 
-    .nav-tabs .nav-item .active {
+/*    .nav-tabs .nav-item .active {
         border: 3px solid !important;
         color: #8AB5FF !important;
+    }*/
+
+        .nav-tabs .nav-item .active {
+    border: 3px solid !important;
+    border-bottom: none !important; /* Add this */
+    color: #8AB5FF !important;
     }
  
     .nav-tabs .nav-item span {
@@ -529,16 +535,16 @@ input.form-control {
             $("#<%= txtDOB.ClientID%>").focus();
 
         }
-        
+
         function callCalender(id) {
             debugger;
             var control = null;
 
             if (id == "txtDOB") {
                 control = $("#<%=txtDOB.ClientID%>");
-    } else if (id == "txtDateKYCver") {
-        control = $("#<%=txtDateKYCver.ClientID%>");
-    } else if (id == "txtDate") {
+            } else if (id == "txtDateKYCver") {
+                control = $("#<%=txtDateKYCver.ClientID%>");
+            } else if (id == "txtDate") {
                 control = $("#<%=txtDate.ClientID%>");
             }
 
@@ -788,7 +794,7 @@ input.form-control {
             showModal('#myModal', 'Alert', 'alert-warning', '', '', msg);
         }
 
-        function OpenRelatedPersonPage(FiRefNo,FlagPageTyp) {
+        function OpenRelatedPersonPage(FiRefNo, FlagPageTyp) {
             debugger;
             var modal = document.getElementById('myModalRaise');
             var modaliframe = document.getElementById("iframeCFR");
@@ -854,11 +860,11 @@ input.form-control {
 
 
                 },
-                function () {
-                    //This is onMouseOut event
+                    function () {
+                        //This is onMouseOut event
 
-                    $(ID).hide(1000);
-                });
+                        $(ID).hide(1000);
+                    });
             });
         }
 
@@ -1429,30 +1435,30 @@ input.form-control {
     document.getElementById("hdnUploadedImages").value = JSON.stringify(uploadedImages);
  
             document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
- 
-            currentIndex = uploadedImages.length - 1;
 
-            tempImage = null;
- 
-            document.getElementById("dropZone").style.display = "none";
+                currentIndex = uploadedImages.length - 1;
 
-            const carousel = document.getElementById("carousel");
+                tempImage = null;
 
-            carousel.style.display = "flex";
+                document.getElementById("dropZone").style.display = "none";
 
-            document.getElementById("prevBtn").style.display = "inline-block";
+                const carousel = document.getElementById("carousel");
 
-            document.getElementById("nextBtn").style.display = "inline-block";
- 
-            alert("Document added successfully!");
+                carousel.style.display = "flex";
 
-            renderCarouselSlide();
+                document.getElementById("prevBtn").style.display = "inline-block";
 
-            showNext();
+                document.getElementById("nextBtn").style.display = "inline-block";
 
-            return true; // prevent postback
+                alert("Document added successfully!");
 
-        }
+                renderCarouselSlide();
+
+                showNext();
+
+                return true; // prevent postback
+
+            }
             function showNext() {
 
                 const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
@@ -1562,7 +1568,7 @@ input.form-control {
                 }
 
             }
-</script>
+        </script>
     
 
 
@@ -1595,7 +1601,7 @@ input.form-control {
         <div class="col-12">
             <div class="stripPanelClass">
                 <div class="table-responsive">
-                    <ul class="nav nav-tabs flex-nowrap overflow-auto" id="myTab" role="tablist" style="white-space: nowrap;">
+                    <ul class="nav nav-tabs flex-nowrap" id="myTab" role="tablist" style="white-space: nowrap;">
                         <li class="nav-item" role="presentation">
                              
                             <%--btn modified by rahul 10-06-2025--%>
@@ -1607,15 +1613,18 @@ input.form-control {
                                aria-controls="divDU"
                                aria-selected="false"
                                tabindex="0"
-                               style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 2rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
     
-                           <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">1</span>
-    
-                           <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                               DOCUMENTS<br />DETAILS
-                           </span>
-                           <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
-                           </button>
+                                <div style="display: flex; align-items: center;">
+                                    <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left: 0rem;">1</span>
+
+                                    <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">
+                                        DOCUMENTS<br />
+                                        DETAILS
+                                    </span>
+                                </div>
+                                <%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button id="ctl00_ContentPlaceHolder1_divRDH"
@@ -1626,13 +1635,18 @@ input.form-control {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
-    
-                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">2</span>
-    
-                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                PERSONAL <br />DETAILS
-                            </span>
+
+                                style="display: flex;  justify-content:center; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+                                    
+                                <div style="display: flex; align-items: center;">
+                                    <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left: 0rem;">2</span>
+
+                                    <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">PERSONAL
+                                        <br />
+                                        DETAILS
+                                    </span>
+                                </div>
+
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -1644,14 +1658,17 @@ input.form-control {
                                                  aria-controls="divDU"
                                                  aria-selected="false"
                                                  tabindex="0"
-                                                 style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
-    
-                                             <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">3</span>
-    
-                                             <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                                 CONTACT<br />DETAILS
-                                             </span>
-                                </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                                             style="display: flex; justify-content:center; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+                                                 <div style="display: flex; align-items: center;">
+                                                     <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left: 0rem;">3</span>
+
+                                                     <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">CONTACT
+                                                         <br />
+                                                         DETAILS
+                                                     </span>
+                                                 </div>
+
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
                         <li class="nav-item" role="presentation">
                                <button id="ctl00_ContentPlaceHolder1_divPAH"
@@ -1662,14 +1679,16 @@ input.form-control {
                                         aria-controls="divDU"
                                         aria-selected="false"
                                         tabindex="0"
-                                        style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+                                    style="display: flex;  justify-content:center; align-items: center; border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+                                 <div style="display: flex; align-items: center;">
+                                <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem; margin-left:0rem;">4</span>
+
     
-                                    <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem; margin-left:1rem;">4</span>
-    
-                                    <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
-                                        ADDRESS<br />DETAILS
-                                    </span>
-                                </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
+                                <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">
+                                    ADDRESS <br />DETAILS
+                                </span>
+                                     </div>
+                            </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
                         </li>
 
                         <li class="nav-item" role="presentation">
@@ -1681,11 +1700,13 @@ input.form-control {
                                 aria-controls="divDU"
                                 aria-selected="false"
                                 tabindex="0"
-                                style="display: flex; align-items: center; border: 1px solid white; background-color: white; padding: 3rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 200px; height: 80px; box-shadow: 0 0 0 1px white inset;">
+
+                                style="display: flex;justify-content:center; align-items: center;   border: 1px solid white; background-color: white; padding: 1rem; font-family: Arial, sans-serif; color: #0054cc; cursor: pointer; outline: none; width: 132px; height: 61px; box-shadow: 0 0 0 1px white inset;">
+
     
-                            <span style="font-size: 4rem; font-weight: bold; color: #0054cc; margin-right: 1.5rem;margin-left:1rem;">5</span>
+                            <span style="font-size: 3.1rem; font-weight: 500; color: #0054cc; margin-right: 1.5rem;margin-left:0rem;">5</span>
     
-                            <span style="text-align: left; font-size: 1.5rem; font-weight: 600; color: #0054cc; line-height: 1.2;">
+                            <span style="text-align: left; font-size: 1.1rem; font-weight: 500; color: #0054cc; line-height: 1.2;">
                                 VERIFICATION <br />DETAILS
                             </span>
                             </button><%--Added id for badge for highlighting it by Vikash K on 23May2025--%>
