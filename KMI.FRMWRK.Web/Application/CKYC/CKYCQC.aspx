@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
  <!--Strt Rahul carousal on 13-06-2025 -->
@@ -53,42 +54,125 @@
     .carousel-indicators .active {
         background-color: blue; /* Active dot */
     }
+
+
+
+
 </style>
+
+    <%-- For Image rotator by rauhl on 17June 2025 --%>
+    
+    <script>
+        function rotateImage() {
+            const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active'); // support both Bootstrap 3 & 4/5
+            if (!carouselItem) return;
+
+            const img = carouselItem.querySelector('img');
+            if (!img) return;
+
+            let rotation = parseInt(img.getAttribute('data-rotation') || 0);
+            rotation = (rotation + 90) % 360;
+
+            img.setAttribute('data-rotation', rotation);
+            img.style.transform = `rotate(${rotation}deg)`;
+            img.style.transition = 'transform 0.3s ease';
+        }
+    </script>
+
+    <%-- To zoomin out --%>
+    
+ <script>
+     let zoomLevel = 1;
+
+
+
+     function zoomIn() {
+         zoomLevel += 0.1;
+         applyZoom();
+     }
+
+     function zoomOut() {
+         zoomLevel = Math.max(0.1, zoomLevel - 0.1);
+         applyZoom();
+     }
+
+     function resetZoom() {
+         zoomLevel = 1;
+         applyZoom();
+     }
+
+     function applyZoom() {
+         const activeSlide = document.querySelector('#carouselImages .carousel-item.active, #carouselImages .item.active');
+         if (!activeSlide) return;
+
+         const img = activeSlide.querySelector('img');
+         if (!img) return;
+
+         img.style.transform = `scale(${zoomLevel})`;
+     }
+ </script>
+
+
+
 
 <script>
     window.onload = function () {
         debugger;
-        const carouselInner = document.querySelector("#divSearchResult");      // ✅ .carousel-inner from ASPX
-        const items = carouselInner.querySelectorAll(".carousel-item");       // ✅ Dynamically injected images
+        const carouselInner = document.querySelector("#divSearchResult");      //  .carousel-inner from ASPX
+        const items = carouselInner.querySelectorAll(".carousel-item");       //  Dynamically injected images
 
-        if (items.length === 0) return;                                       // ✅ No images → No dots
+        if (items.length === 0) return;                                       //  No images → No dots
 
         const indicatorsContainer = document.createElement("ol");
         indicatorsContainer.classList.add("carousel-indicators");
 
         items.forEach((item, index) => {
             const li = document.createElement("li");
-            li.setAttribute("data-target", "#carouselImages");                // ✅ ID matches ASPX div
+            li.setAttribute("data-target", "#carouselImages");                //ID matches ASPX div
             li.setAttribute("data-slide-to", index);
             if (index === 0) li.classList.add("active");
             indicatorsContainer.appendChild(li);
         });
 
         const carousel = document.getElementById("carouselImages");
-        carousel.insertBefore(indicatorsContainer, carouselInner);            // ✅ Dots inserted before carousel-inner
+        carousel.insertBefore(indicatorsContainer, carouselInner);            //  Dots inserted before carousel-inner
     };
 </script>
 
   
 
+<%--       /*
+       For zoomin out
+   */--%>
 
+   <style>
+    #carouselImages img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+    }
+</style>
    
     
 <style>
+ 
+
 
    .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
+}
+
+
+   .carousel-control-prev {
+    left: 125px;  /* Move 15px inside from the left edge */
+}
+
+.carousel-control-next {
+    right: 125px; /* Move 15px inside from the right edge */
 }
 
 
@@ -97,8 +181,8 @@
     .carousel-frame {
     width: 600px; /* or set max-width: 100%; for responsiveness */
     margin: 0 auto; /* Center the frame horizontally */
-    border: 2px solid #ccc;
     overflow: hidden;
+    border:1px solid blue;
     position: relative;
 }
 
@@ -255,10 +339,18 @@
         display: block;
     }
 
-    .nav-tabs .nav-item .active {
+   /* .nav-tabs .nav-item .active {
     border: 3px solid !important;
     color: #8AB5FF !important;
+    }*/
+
+   /*Added by Yash for fixing border*/
+   .nav-tabs .nav-item .active {
+    border: 3px solid !important;
+    border-bottom: none !important; /* Add this */
+    color: #8AB5FF !important;
     }
+
 
     .nav-tabs .nav-item span {
     color:grey !important;
@@ -325,15 +417,7 @@
                 return true;
             }
         }
-        function rotateImage() {
-            debugger;
-            var options;
-
-            var box = $('#EmptyPagePlaceholder_img3');
-            counter += 90;
-            $('#EmptyPagePlaceholder_hdnRotateValue').val(counter);
-            $('#EmptyPagePlaceholder_img3').css('transform', 'rotate(' + counter + 'deg)')
-        }
+        
 
         function OpenRelatedPersonPageView(RelRefnNo, refno, FIRefNo, FlagPageTyp, Row) {
             debugger;
@@ -726,8 +810,8 @@ window.onload = function () {
                  
 
                 <%--Added by Vikash K on 20May2025--%>
-                <div class="row">
-                              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">
+               <%-- <div class="row">
+                              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">--%>
                               <%--<span id="lblPerdtls" runat="server" class="control-label labelSize HeaderColor" style="font-size:19px;border-bottom: inset;border-bottom-color: #00cccc;">Personal Details</span>
                               <span id="lblContactdtls" runat="server" class="control-label labelSize " style="font-size:19px;;color:#9c9c9a;margin-left:7px;">Contact Details</span>                           
                                
@@ -743,11 +827,11 @@ window.onload = function () {
                         <span id="lblrekycdtls" class="step-label">Verification Details</span>--%>
 
 
-                              </div>
+                              <%--</div>
                               <div class="col-sm-2">
                               
                                </div>
-                             </div>
+                             </div>--%>
 
              
 
@@ -1070,11 +1154,14 @@ window.onload = function () {
                                                         <ol class="carousel-indicators" id="carouselIndicators" runat="server">
                                                             <%-- Indicators will be injected dynamically in C# --%>
                                                         </ol>
+                                                        
+
 
                                                         <!-- Images Container -->
                                                         <div id="divSearchResult" runat="server" class="carousel-inner">
                                                             <%-- Carousel images will be injected dynamically in C# --%>
-                                                        </div>
+                                                            
+                                                            </div>
 
                                                         <!-- Navigation arrows -->
                                                         <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev">
@@ -1085,6 +1172,18 @@ window.onload = function () {
                                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Next</span>
                                                         </a>
+                                                    </div>
+                                                   
+                                                    <%-- For Image Rotate By RahulOn 17 June 2025 --%>
+                                                    <div class="text-center mt-2">
+                                                        <span class="btn btn-default" onclick="rotateImage();">
+                                                            <span class="glyphicon glyphicon-repeat"></span>
+                                                        </span>
+
+
+                                                       <button type="button" class="btn btn-primary" onclick="zoomIn();"><i class="fas fa-search-plus"></i></button>
+                                                        <button type="button" class="btn btn-primary" onclick="zoomOut();"><i class="fas fa-search-minus"></i></button>
+                                                            
                                                     </div>
                                                 </asp:Panel>
 
@@ -2923,7 +3022,6 @@ window.onload = function () {
                             <asp:HiddenField ID="HiddenField14" runat="server" />
                             <asp:HiddenField ID="HiddenField15" runat="server" />
                             
-                            <span class="btn-animated bg-green" onclick="return  rotateImage();">Rotate</span>
                         </div>
 
                         <div class="img-op">
