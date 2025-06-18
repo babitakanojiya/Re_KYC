@@ -76,30 +76,59 @@
             img.setAttribute('data-rotation', rotation);
             img.style.transform = `rotate(${rotation}deg)`;
             img.style.transition = 'transform 0.3s ease';
+            applyTransform(); // ✅ NEW → Apply zoom + rotation TOGETHER
+
+           
+
         }
+        //to apply on rotate
+        function applyTransform() {
+            const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active');
+            if (!carouselItem) return;
+
+            const img = carouselItem.querySelector('img');
+            if (!img) return;
+
+            const rotation = parseInt(img.getAttribute('data-rotation') || 0);
+            img.style.transform = `scale(${zoomLevel}) rotate(${rotation}deg)`; // ✅ BOTH zoom & rotation together
+            img.style.transition = 'transform 0.3s ease';
+        }
+
+
+
+
     </script>
+
+
+
+
+
+
+
 
     <%-- To zoomin out --%>
     
  <script>
      let zoomLevel = 1;
 
-
+     // set limit to zoom
+     const minZoom = 0.7; 
+     const maxZoom = 1.3;
 
      function zoomIn() {
-         zoomLevel += 0.1;
-         applyZoom();
+         zoomLevel = Math.min(maxZoom, zoomLevel + 0.1);
+         applyTransform();
      }
 
      function zoomOut() {
-         zoomLevel = Math.max(0.1, zoomLevel - 0.1);
-         applyZoom();
+         zoomLevel = Math.max(minZoom, zoomLevel - 0.1);
+         applyTransform();
      }
-
-     function resetZoom() {
-         zoomLevel = 1;
-         applyZoom();
-     }
+     //For resetting zoom
+     //function resetZoom() {
+     //    zoomLevel = 1;
+     //    applyTransform();
+     //}
 
      function applyZoom() {
          const activeSlide = document.querySelector('#carouselImages .carousel-item.active, #carouselImages .item.active');
@@ -168,11 +197,11 @@
 
 
    .carousel-control-prev {
-    left: 125px;  /* Move 15px inside from the left edge */
+    left: -6px;  /* Move 15px inside from the left edge */
 }
 
 .carousel-control-next {
-    right: 125px; /* Move 15px inside from the right edge */
+    right: -6px; /* Move 15px inside from the right edge */
 }
 
 
@@ -182,7 +211,6 @@
     width: 600px; /* or set max-width: 100%; for responsiveness */
     margin: 0 auto; /* Center the frame horizontally */
     overflow: hidden;
-    border:1px solid blue;
     position: relative;
 }
 
@@ -1147,45 +1175,64 @@ window.onload = function () {
 
                                                 <%--Carousel--%>
 
-                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static">
-                                                    <div id="carouselImages" class="carousel slide" data-ride="carousel" data-interval="false">
+                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static"
+                                                    Style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
 
-                                                        <!-- Dots (Indicators) -->
-                                                        <ol class="carousel-indicators" id="carouselIndicators" runat="server">
-                                                            <%-- Indicators will be injected dynamically in C# --%>
-                                                        </ol>
-                                                        
+                                                    <!-- Carousel Frame Wrapper -->
+                                                    <div style="position: relative; width: 350px; height: 300px; border: 1px solid blue; overflow: hidden;">
 
+                                                        <!-- Carousel Itself -->
+                                                        <div id="carouselImages" class="carousel slide"
+                                                            data-ride="carousel" data-interval="false"
+                                                            style="width: 100%; height: 100%;">
 
-                                                        <!-- Images Container -->
-                                                        <div id="divSearchResult" runat="server" class="carousel-inner">
-                                                            <%-- Carousel images will be injected dynamically in C# --%>
-                                                            
+                                                            <!-- Indicators (dots, optional) -->
+                                                            <ol class="carousel-indicators" id="carouselIndicators" runat="server">
+                                                                <%-- Dynamic dots from code-behind --%>
+                                                            </ol>
+
+                                                            <!-- Images Container -->
+                                                            <div id="divSearchResult" runat="server" class="carousel-inner"
+                                                                style="width: auto; height:auto; object-fit: contain;">
+                                                                <%-- Carousel images injected from code-behind --%>
                                                             </div>
 
-                                                        <!-- Navigation arrows -->
-                                                        <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev">
+                                                        </div>
+
+                                                        <!-- Left Arrow (absolute to left) -->
+                                                        <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev"
+                                                            style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display:none; ">
                                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Previous</span>
                                                         </a>
-                                                        <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next">
+
+                                                        <!-- Right Arrow (absolute to right) -->
+                                                        <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next"
+                                                            style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display:none;">
                                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Next</span>
                                                         </a>
                                                     </div>
-                                                   
-                                                    <%-- For Image Rotate By RahulOn 17 June 2025 --%>
-                                                    <div class="text-center mt-2">
+
+                                                    <!-- Buttons Below Frame -->
+                                                    <div class="text-center mt-2" style="margin-top: 10px;">
                                                         <span class="btn btn-default" onclick="rotateImage();">
                                                             <span class="glyphicon glyphicon-repeat"></span>
                                                         </span>
 
-
-                                                       <button type="button" class="btn btn-primary" onclick="zoomIn();"><i class="fas fa-search-plus"></i></button>
-                                                        <button type="button" class="btn btn-primary" onclick="zoomOut();"><i class="fas fa-search-minus"></i></button>
-                                                            
+                                                        <button type="button" class="btn btn-primary" onclick="zoomIn();">
+                                                            <i class="fas fa-search-plus"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary" onclick="zoomOut();">
+                                                            <i class="fas fa-search-minus"></i>
+                                                        </button>
+                                                        <%-- Optional Button for resetting zoom  --%>
+                                                        <%--<button type="button" class="btn btn-danger" onclick="resetZoom();">
+                                                            <i class="fas fa-undo-alt"></i>
+                                                        </button>--%>
                                                     </div>
                                                 </asp:Panel>
+
 
 
                                                 <div class="col-sm-12" style="text-align: left; display: flex;">
