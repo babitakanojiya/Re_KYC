@@ -2,6 +2,24 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .loader-content {
+        text-align: center;
+    }
+</style>
 
         <style>
 
@@ -1402,8 +1420,21 @@ input.form-control {
                 reader.readAsDataURL(file);
 
             }
+            
 
-            function validateAndAddImage() {
+            function ShowLoaderAndSubmit(btn) {
+                ShowLoader();
+
+                // Delay the postback to allow loader to render
+                setTimeout(function () {
+                    __doPostBack(btn.name, '');
+                }, 100);
+
+                return false; // Stop immediate postback
+            }
+
+            
+            <%--function validateAndAddImage() {
 
                 const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
 
@@ -1473,7 +1504,44 @@ input.form-control {
 
                 return true; // prevent postback
 
+            }--%>
+            
+            function validateAndAddImage() {
+                const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
+
+    if (!docType) {
+        alert("Please select a Document Type.");
+        return false;
+    }
+
+    if (!tempImage) {
+        alert("Please upload an image.");
+        return false;
+    }
+
+    uploadedImages.push({
+        image: tempImage,
+        type: docType,
+        number: ""
+    });
+
+    document.getElementById("hdnUploadedImages").value = JSON.stringify(uploadedImages);
+                document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
+
+                currentIndex = uploadedImages.length - 1;
+                tempImage = null;
+
+                document.getElementById("dropZone").style.display = "none";
+                document.getElementById("carousel").style.display = "flex";
+                document.getElementById("prevBtn").style.display = "inline-block";
+                document.getElementById("nextBtn").style.display = "inline-block";
+
+                renderCarouselSlide();
+                showNext();
+
+                return true;
             }
+
             function showNext() {
 
                 const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
@@ -1583,6 +1651,46 @@ input.form-control {
                 }
 
             }
+            //added for lodder 
+            function ShowLoaderBeforeSubmit() {
+                ShowLoader();
+                return true; // Allow postback
+            }
+            
+
+            // Validate before Upload
+            function validateBeforeUpload() {
+                if (document.getElementById("<%= hdnBase64Image.ClientID %>").value == "") {
+        alert("Please upload an image before submitting.");
+        return false;
+    }
+    ShowLoader();
+    return true;
+            }
+            function onAddDocumentClick(btn) {
+                // Step 1: Validate input
+                if (!validateAndAddImage()) {
+                    return false; // Stop if validation fails
+                }
+
+                // Step 2: Show loader
+                ShowLoader();
+
+                // Step 3: Small delay to render loader before postback
+                setTimeout(function () {
+                    __doPostBack(btn.name, '');
+                }, 300); // 300ms is enough to show loader properly
+
+                return false; // Prevent immediate postback
+            }
+            function ShowLoader() {
+                document.getElementById('dvProgressBar').style.display = 'flex';
+            }
+
+            function HideLoader() {
+                document.getElementById('dvProgressBar').style.display = 'none';
+            }
+
         </script>
     
 
@@ -1600,17 +1708,16 @@ input.form-control {
             <asp:HiddenField ID="hdnCurrentPanel" runat="server" />
             <%--added by babita--%>
             <asp:HiddenField ID="hdnUploadedImages" runat="server" ClientIDMode="Static" /> 
+            <%--added for lodder --%>
+            <div id="dvProgressBar" class="loader-overlay" style="display: none;">
+    <div class="loader-content">
+        <img src="../../Images/horizonal_loader.gif" height="50px" alt="Loading..." />
+        <p style="margin-top: 1rem;font-size: 1.2rem;font-weight: bold;">OCR Processing...</p>
+    </div>
+</div>
 
             
-<%--<div class="row">
-              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">
-                  <span id="span9" class="step-label active">Document Details</span>
-                  <span id="span3" class="step-label active">Personal Details</span>
-                  <span id="span2" class="step-label active">Contact Details</span>
-                  <span id="span4" class="step-label active">Address Details</span>
-                  <span id="span1" class="step-label active">Verification Details</span>
-                  </div>
-    </div>--%>
+
              <div class="container-fluid"> <%--For making resonsive by Vikash K on 23May2025--%>
     <div class="row">
         <div class="col-12">
@@ -1828,12 +1935,16 @@ input.form-control {
                                                             </div>
 
                                                             <div>
-                                                                <asp:Button ID="btnAddDoc"
-                                                                    runat="server"
-                                                                    Text="ADD DOCUMENT"
-                                                                    OnClick="btnAddDoc_Click"
-                                                                    OnClientClick="return validateAndAddImage();"
-                                                                    Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
+                                                        <asp:Button ID="btnAddDoc"
+    runat="server"
+    Text="ADD DOCUMENT"
+    OnClick="btnAddDoc_Click"
+    OnClientClick="return onAddDocumentClick(this);"
+    Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
+
+
+
+
                                                             </div>
 
                                                         </ContentTemplate>
