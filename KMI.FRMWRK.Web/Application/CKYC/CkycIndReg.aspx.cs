@@ -8725,7 +8725,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                     Session["Dob"] = ocrResult.Dob;
                                     Session["AadharNumber"] = ocrResult.AadharNumber;
                                     Session["Address"] = ocrResult.Address;
-                                    //added by babita for add aadhaar no 
+
                                     if (!string.IsNullOrEmpty(ocrResult.AadharNumber))
                                     {
                                         string aadhaarNumber = ocrResult.AadharNumber.Replace(" ", "");
@@ -8739,13 +8739,11 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                             txtmaskadhar.Text = "";
                                         }
                                     }
-
-                                    //ended by babita
                                 }
                                 else
                                 {
                                     Session["PanNumber"] = ocrResult.PanNumber;
-                                    txtDocNumber.Text = Session["PanNumber"].ToString(); //added by babita on 12 june 2025
+                                    txtDocNumber.Text = Session["PanNumber"].ToString();
                                 }
                             }
                             else
@@ -8758,15 +8756,21 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                             ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Error: {response.StatusCode}');", true);
                         }
                     }
+
+                    // Always hide loader after processing
+                    ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "UploadComplete", "HideLoader(); alert('Document upload done');", true);
                 }
                 catch (Exception ex)
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Exception: {ex.Message}');", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
                 }
             }
             else
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Missing image or docname');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
             }
         }
         //ended by babita 
