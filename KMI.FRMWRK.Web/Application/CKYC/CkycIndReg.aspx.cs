@@ -8594,10 +8594,14 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
 
-                
+
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);
+                    string refNumber = txtRefNumber.Text.Trim();
+                    string message = $"Application number {refNumber} saved successfully.";
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('{message}');", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);
                 }
                 else
                 {
@@ -8758,7 +8762,9 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     }
 
                     // Always hide loader after processing
-                    ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
+
+                    ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true); //commnet by babita
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "UploadComplete", "HideLoader(); alert('Document upload done');", true);
                 }
                 catch (Exception ex)
@@ -8772,8 +8778,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Missing image or docname');", true);
                 ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
             }
-        }
-        //ended by babita 
+        }        //ended by babita 
 
         //protected void btnAddDoc_Click(object sender, EventArgs e)
         //{

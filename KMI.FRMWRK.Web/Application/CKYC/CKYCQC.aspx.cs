@@ -1689,9 +1689,22 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 cbNew.Checked = true;
                 DataAccessLayer objDAL = new DataAccessLayer("CKYCConnectionString");
                 //objht.Add("@RegRefNo", hdnRegRefNo.Value);
-                objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+                //objht.Add("@RegRefNo1", hdnRegRefNo.Value);
                 //objds = objDAL.GetDataSet("getSearchData_Web", objht);
-                objds = objDAL.GetDataSet("getSearchData_Web_newbabita", objht);  //added by babita for qc base on otp
+                /*objds = objDAL.GetDataSet("getSearchData_Web_newbabita", objht);*/  //added by babita for qc base on otp
+
+                //added by babita on 20june 2025
+                if (hdnRegRefNo.Value.Length == 8)
+                {
+                    objht.Add("@RegRefNo", hdnRegRefNo.Value);
+                    objds = objDAL.GetDataSet("getSearchData_Web", objht);
+                }
+                else if (hdnRegRefNo.Value.Length == 14)
+                {
+                    objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+                    objds = objDAL.GetDataSet("getSearchData_Web_newbabita", objht);
+                }
+                //ended by babita on 20 june 2025
 
                 chkAppDeclare1.Checked = true;
                 chkAppDeclare2.Checked = true;
@@ -3152,7 +3165,16 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 cbNew.Checked = true;
 
                 DataAccessLayer objDAL = new DataAccessLayer("CKYCConnectionString");
-                objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+                //objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+                if (hdnRegRefNo.Value.Length == 8)
+                {
+                    objht.Add("@regrefno2", hdnRegRefNo.Value);
+                }
+                else if (hdnRegRefNo.Value.Length == 14)
+                {
+                    objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+
+                }
                 objds = objDAL.GetDataSet("Prc_GetImageforqcpage", objht);
 
                 if (objds != null && objds.Tables.Count > 0 && objds.Tables[0].Rows.Count > 0)
