@@ -8762,7 +8762,9 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     }
 
                     // Always hide loader after processing
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true); //commnet by babita
+
                     ScriptManager.RegisterStartupScript(this, GetType(), "UploadComplete", "HideLoader(); alert('Document upload done');", true);
                 }
                 catch (Exception ex)

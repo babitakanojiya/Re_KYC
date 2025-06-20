@@ -4,6 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
         <style>
 
+
                .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
@@ -22,6 +23,7 @@
 .carousel-control-next {
     width: 5%; /* Arrows stick to edges */
 }
+
 
 
 
@@ -1684,11 +1686,13 @@ input.form-control {
             // Validate before Upload
             function validateBeforeUpload() {
                 if (document.getElementById("<%= hdnBase64Image.ClientID %>").value == "") {
-                    alert("Please upload an image before submitting.");
-                    return false;
-                }
-                ShowLoader();
-                return true;
+
+        alert("Please upload an image before submitting.");
+        return false;
+    }
+    ShowLoader();
+    return true;
+
             }
             function onAddDocumentClick(btn) {
                 // Step 1: Validate input
@@ -1741,8 +1745,10 @@ input.form-control {
 
             
 
+
              <div class="container-fluid" style="padding: 0rem 5rem;">         <%--yash--%>
                  <%--For making resonsive by Vikash K on 23May2025--%>
+
     <div class="row">
         <div class="col-12">
             <div class="stripPanelClass">
@@ -1961,7 +1967,9 @@ input.form-control {
                                                             <div>
                                                         <asp:Button ID="btnAddDoc"
     runat="server"
+
     Text="UPLOAD DOCUMENT"
+
     OnClick="btnAddDoc_Click"
     OnClientClick="return onAddDocumentClick(this);"
     Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
