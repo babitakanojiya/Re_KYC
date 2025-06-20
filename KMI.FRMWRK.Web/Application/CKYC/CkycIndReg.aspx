@@ -2,6 +2,46 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+
+               .carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
+}
+
+
+   .carousel-control-prev {
+    left: -6px;  /* Move 15px inside from the left edge */
+}
+
+.carousel-control-next {
+    right: -6px; /* Move 15px inside from the right edge */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Arrows stick to edges */
+}
+
+
+
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .loader-content {
+        text-align: center;
+    }
+</style>
 
         <style>
 
@@ -170,11 +210,11 @@
 
 /* Upload DropZone */
 #dropZone {
-    width: 100%;
+    width: 492px;
     max-width: 600px;
-    height: 233px;
-    border: 2px dashed blue;
-    background: #f0f8ff;
+    height: 250px;
+    /*border: 2px dashed blue;*/
+    background: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,11 +225,12 @@
     border-radius: 6px;
     padding: 10px;
     transition: background-color 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-#dropZone:hover {
+/*#dropZone:hover {
     background-color: #e0f0ff;
-}
+}*/
 
 /* Carousel Container */
 #carousel {
@@ -198,8 +239,8 @@
     justify-content: center;
     gap: 10px;
     max-width: 644px;
-    margin: 0 auto;
-    border: 2px solid blue;
+    margin: -3rem -5rem;     /*yash*/
+    /*border: 2px solid blue;*/
     padding: 10px;
     border-radius: 6px;
     background-color: #ffffff;
@@ -239,7 +280,7 @@
 
 /* Carousel Navigation Buttons */
 .nav-btn {
-    background-color: #4da6ff;
+    /*background-color: #4da6ff;*/  /*yash*/
     border: none;
     color: white;
     padding: 10px 15px;
@@ -255,7 +296,7 @@
 .carousel-dots {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 3rem;
     gap: 10px;
     flex-wrap: wrap;
 }
@@ -1402,8 +1443,21 @@ input.form-control {
                 reader.readAsDataURL(file);
 
             }
+            
 
-            function validateAndAddImage() {
+            function ShowLoaderAndSubmit(btn) {
+                ShowLoader();
+
+                // Delay the postback to allow loader to render
+                setTimeout(function () {
+                    __doPostBack(btn.name, '');
+                }, 100);
+
+                return false; // Stop immediate postback
+            }
+
+            
+            <%--function validateAndAddImage() {
 
                 const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
 
@@ -1473,7 +1527,44 @@ input.form-control {
 
                 return true; // prevent postback
 
+            }--%>
+            
+            function validateAndAddImage() {
+                const docType = document.getElementById("<%= ddlDocType.ClientID %>").value;
+
+    if (!docType) {
+        alert("Please select a Document Type.");
+        return false;
+    }
+
+    if (!tempImage) {
+        alert("Please upload an image.");
+        return false;
+    }
+
+    uploadedImages.push({
+        image: tempImage,
+        type: docType,
+        number: ""
+    });
+
+    document.getElementById("hdnUploadedImages").value = JSON.stringify(uploadedImages);
+                document.getElementById("<%= hdnBase64Image.ClientID %>").value = tempImage;
+
+                currentIndex = uploadedImages.length - 1;
+                tempImage = null;
+
+                document.getElementById("dropZone").style.display = "none";
+                document.getElementById("carousel").style.display = "flex";
+                document.getElementById("prevBtn").style.display = "inline-block";
+                document.getElementById("nextBtn").style.display = "inline-block";
+
+                renderCarouselSlide();
+                showNext();
+
+                return true;
             }
+
             function showNext() {
 
                 const totalSlides = uploadedImages.length + 1; // +1 for add-new slide
@@ -1583,6 +1674,46 @@ input.form-control {
                 }
 
             }
+            //added for lodder 
+            function ShowLoaderBeforeSubmit() {
+                ShowLoader();
+                return true; // Allow postback
+            }
+            
+
+            // Validate before Upload
+            function validateBeforeUpload() {
+                if (document.getElementById("<%= hdnBase64Image.ClientID %>").value == "") {
+                    alert("Please upload an image before submitting.");
+                    return false;
+                }
+                ShowLoader();
+                return true;
+            }
+            function onAddDocumentClick(btn) {
+                // Step 1: Validate input
+                if (!validateAndAddImage()) {
+                    return false; // Stop if validation fails
+                }
+
+                // Step 2: Show loader
+                ShowLoader();
+
+                // Step 3: Small delay to render loader before postback
+                setTimeout(function () {
+                    __doPostBack(btn.name, '');
+                }, 300); // 300ms is enough to show loader properly
+
+                return false; // Prevent immediate postback
+            }
+            function ShowLoader() {
+                document.getElementById('dvProgressBar').style.display = 'flex';
+            }
+
+            function HideLoader() {
+                document.getElementById('dvProgressBar').style.display = 'none';
+            }
+
         </script>
     
 
@@ -1600,18 +1731,18 @@ input.form-control {
             <asp:HiddenField ID="hdnCurrentPanel" runat="server" />
             <%--added by babita--%>
             <asp:HiddenField ID="hdnUploadedImages" runat="server" ClientIDMode="Static" /> 
+            <%--added for lodder --%>
+            <div id="dvProgressBar" class="loader-overlay" style="display: none;">
+    <div class="loader-content">
+        <img src="../../Images/horizonal_loader.gif" height="50px" alt="Loading..." />
+        <p style="margin-top: 1rem;font-size: 1.2rem;font-weight: bold;">OCR Processing...</p>
+    </div>
+</div>
 
             
-<%--<div class="row">
-              <div class="col-sm-10" style="text-align:left;margin-top: 20px;">
-                  <span id="span9" class="step-label active">Document Details</span>
-                  <span id="span3" class="step-label active">Personal Details</span>
-                  <span id="span2" class="step-label active">Contact Details</span>
-                  <span id="span4" class="step-label active">Address Details</span>
-                  <span id="span1" class="step-label active">Verification Details</span>
-                  </div>
-    </div>--%>
-             <div class="container-fluid"> <%--For making resonsive by Vikash K on 23May2025--%>
+
+             <div class="container-fluid" style="padding: 0rem 5rem;">         <%--yash--%>
+                 <%--For making resonsive by Vikash K on 23May2025--%>
     <div class="row">
         <div class="col-12">
             <div class="stripPanelClass">
@@ -1734,7 +1865,7 @@ input.form-control {
 </div>
 
             <%--ended by babita--%>
-            <div   class="container-fluid" style="margin-top: -1.1rem;"> <%--Added by Vikash K for making responsive--%>
+            <div   class="container-fluid" style="margin-top: -1.1rem; padding: 0rem 5rem 3rem 5rem;"> <%--Added by Vikash K for making responsive--%>
                 
                                 <div id="documentdetails" class="panel panel-success"  >
                     <div id="Div22" runat="server" class="panel-heading" style="background-color:#E1EEFF;">
@@ -1767,7 +1898,7 @@ input.form-control {
                             </div>
                         </div>
                     </div>
-                                    <div id="menu5" style="display: block;" class="panel-body">
+                                    <div id="menu5" style="display: block; padding-bottom: 0rem;" class="panel-body">
                                         <%--  Added for Details of Remarks start--%>
                                         <div class="upload-section">
 
@@ -1828,12 +1959,16 @@ input.form-control {
                                                             </div>
 
                                                             <div>
-                                                                <asp:Button ID="btnAddDoc"
-                                                                    runat="server"
-                                                                    Text="ADD DOCUMENT"
-                                                                    OnClick="btnAddDoc_Click"
-                                                                    OnClientClick="return validateAndAddImage();"
-                                                                    Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
+                                                        <asp:Button ID="btnAddDoc"
+    runat="server"
+    Text="UPLOAD DOCUMENT"
+    OnClick="btnAddDoc_Click"
+    OnClientClick="return onAddDocumentClick(this);"
+    Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
+
+
+
+
                                                             </div>
 
                                                         </ContentTemplate>
@@ -1844,15 +1979,37 @@ input.form-control {
                                                 </div>
                                                 <div class="upload-wrapper">
 
-                                                    <div id="dropZone" style="font-size: large;">
+                                                    <div id="dropZone" style="font-size: large; margin-top: -2rem; margin-right: 8rem;">
                                                         <span>Drag & drop an image here or click to upload</span>
                                                     </div>
-                                                    <div id="carousel" style="display:none">
+                                                    <%--<div id="carousel" style="display:none">
                                                         <button id="prevBtn" class="nav-btn" type="button" onclick="showPrevious()" style="display: none;">&lt;</button>
                                                         <div id="carouselContent"></div>
                                                         <button id="nextBtn" class="nav-btn" type="button" onclick="showNext()" style="display: none;">&gt;</button>
-                                                    </div>
-                                                    <div id="carouselDots" class="carousel-dots"></div>
+                                                    </div>--%>
+
+                                                    <div id="carousel" style="display:none; position: relative;">
+                                                    <!-- Left Arrow (absolute to left) -->
+                                                    <a id="prevBtn" class="carousel-control-prev nav-btn" onclick="showPrevious()" href="#carousel" role="button" data-slide="prev"
+                                                       style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: none;">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true" style="margin-top: 3rem;"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+
+                                                    <!-- Carousel Content -->
+                                                    <div id="carouselContent" style="width: 100%; overflow: hidden;"></div>
+
+                                                    <!-- Right Arrow (absolute to right) -->
+                                                    <a id="nextBtn" class="carousel-control-next nav-btn" onclick="showNext()" href="#carousel" role="button" data-slide="next"
+                                                       style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: none;">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true" style="margin-top: 3rem;"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                </div>
+
+
+
+                                                    <div id="carouselDots" class="carousel-dots" style="margin-left: -5rem;"></div>
                                                     
                                                     <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="fileInputChanged(this)" />
 
@@ -3115,7 +3272,7 @@ input.form-control {
                 <%--</div>--%>
                 <%--</div>--%>
 
-                <div id="contactdetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none">
+                <div id="contactdetails" class="panel panel-success" style="margin-left: 0px; margin-right: 0px;display:none; margin-bottom: 4rem;">
                     <div id="Div8" runat="server" class="panel-heading subheader" style="background-color:#E1EEFF;">
                         <div class="row">
                             <div class="col-sm-10" style="text-align: left">
@@ -3690,12 +3847,12 @@ input.form-control {
                                         <%--  <asp:label cssclass="control-label" text="I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief and I undertake to inform you of any changes therein immediately.In case any of the above information is found to be false or untrue or misleading or misrepresenting. I am aware that I may be held liable for it."
                                     onchange="setDateFormat('txtRemarks')" runat="server" id="lblAppDeclare1" maxlength="15"
                                     tabindex="12" />--%>
-                                        <asp:CheckBox ID="chkAppDeclare1" Text="I confirm that the above information furnished is true and cprrect and the said details may be updated in my account maintained with the company. In case of any change "
+                                        <asp:CheckBox ID="chkAppDeclare1" style="margin-left: 1.5rem;" Text="I confirm that the above information furnished is true and cprrect and the said details may be updated in my account maintained with the company. In case of any change "
                                             CssClass="control-label" AutoPostBack="false" runat="server"
                                             TabIndex="2" />
                                     </div>
                                     <div class="col-sm-12" style="text-align: left; display: flex; font-weight: bold;">
-                                        <asp:Label CssClass="control-label" Text=" in the information the same will be informed to the company.I further hereby authorize CFHL to obtain necessary details from central KYV Registry."
+                                        <asp:Label CssClass="control-label" style="margin-left: 3rem;" Text=" in the information the same will be informed to the company.I further hereby authorize CFHL to obtain necessary details from central KYV Registry."
                                             runat="server" ID="lblAppDeclare1" maxlength="15" />
                                     </div>
                                     <br />
@@ -3908,7 +4065,7 @@ input.form-control {
 
             </div>
 
-            <div class="row" style="margin-top: 12px;text-align-last: justify;">
+            <div class="row" style="margin-top: -5rem;text-align-last: justify; padding: 0rem 7rem;">
                 <center>
                     <div class="text-center">
                         <asp:LinkButton ID="btnUpdate" runat="server" CssClass="btn-animated bg-green"

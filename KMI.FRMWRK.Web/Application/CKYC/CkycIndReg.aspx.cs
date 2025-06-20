@@ -8594,10 +8594,14 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 objDAL = new DataAccessLayer("CKYCConnectionString");
                 DataTable dt = objDAL.GetDataTable("prc_InskycdtlsforKYC_Web", htReKycParam);
 
-                
+
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);
+                    string refNumber = txtRefNumber.Text.Trim();
+                    string message = $"Application number {refNumber} saved successfully.";
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('{message}');", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Record saved successfully.');", true);
                 }
                 else
                 {
@@ -8725,7 +8729,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                     Session["Dob"] = ocrResult.Dob;
                                     Session["AadharNumber"] = ocrResult.AadharNumber;
                                     Session["Address"] = ocrResult.Address;
-                                    //added by babita for add aadhaar no 
+
                                     if (!string.IsNullOrEmpty(ocrResult.AadharNumber))
                                     {
                                         string aadhaarNumber = ocrResult.AadharNumber.Replace(" ", "");
@@ -8739,13 +8743,11 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                                             txtmaskadhar.Text = "";
                                         }
                                     }
-
-                                    //ended by babita
                                 }
                                 else
                                 {
                                     Session["PanNumber"] = ocrResult.PanNumber;
-                                    txtDocNumber.Text = Session["PanNumber"].ToString(); //added by babita on 12 june 2025
+                                    txtDocNumber.Text = Session["PanNumber"].ToString();
                                 }
                             }
                             else
@@ -8758,18 +8760,23 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                             ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Error: {response.StatusCode}');", true);
                         }
                     }
+
+                    // Always hide loader after processing
+                    ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true); //commnet by babita
+                    ScriptManager.RegisterStartupScript(this, GetType(), "UploadComplete", "HideLoader(); alert('Document upload done');", true);
                 }
                 catch (Exception ex)
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "alert", $"alert('Exception: {ex.Message}');", true);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
                 }
             }
             else
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Missing image or docname');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideLoader", "HideLoader();", true);
             }
-        }
-        //ended by babita 
+        }        //ended by babita 
 
         //protected void btnAddDoc_Click(object sender, EventArgs e)
         //{
