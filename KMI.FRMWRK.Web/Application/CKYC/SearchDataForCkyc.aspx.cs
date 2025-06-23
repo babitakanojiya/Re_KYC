@@ -249,9 +249,9 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                     {
                         string ckycRef = row["CKYCReferenceNumber"].ToString();
                         string filePath = ResolveUrl("~/Application/CKYC/DownloadOTPPage.aspx?ckycRef=" + ckycRef + "&showDiv=1");
-
                         row["DownloadUrl"] = filePath;
                     }
+
 
 
                     // Hide column 4 if exists (as per your existing logic)
