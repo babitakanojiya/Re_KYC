@@ -9,6 +9,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Include Cropper.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
 
  <!--Strt Rahul carousal on 13-06-2025 -->
@@ -37,6 +40,39 @@
       });
   </script>
 
+    <%-- For crop --%>
+    <script>
+        let cropper;
+
+        function enableCrop() {
+            const activeImage = document.querySelector('#carouselImages .carousel-item.active img');
+            if (cropper) {
+                cropper.destroy(); // if already initialized, destroy first
+            }
+            cropper = new Cropper(activeImage, {
+                viewMode: 1,
+                aspectRatio: NaN, // Free ratio; set to 1 for square, etc.
+                movable: true,
+                zoomable: true,
+                rotatable: true,
+                scalable: true
+            });
+        }
+
+        function getCroppedImage() {
+            if (!cropper) return alert('Please enable crop first.');
+            const canvas = cropper.getCroppedCanvas({
+                width: 400, // output width
+                height: 400 // output height
+            });
+
+            // Display cropped image
+            document.getElementById('croppedResult').innerHTML = `<img src="${canvas.toDataURL()}" />`;
+            //  Remove cropping grid by destroying cropper
+            cropper.destroy();
+            cropper = null;
+        }
+    </script>
 
 <%--added by babita on 23 june 2025--%>
 
@@ -63,84 +99,14 @@
 
     <%-- For Image rotator by rauhl on 17June 2025 --%>
     
-    <script>
-        function rotateImage() {
-            const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active'); // support both Bootstrap 3 & 4/5
-            if (!carouselItem) return;
-
-            const img = carouselItem.querySelector('img');
-            if (!img) return;
-
-            let rotation = parseInt(img.getAttribute('data-rotation') || 0);
-            rotation = (rotation + 90) % 360;
-
-            img.setAttribute('data-rotation', rotation);
-            img.style.transform = `rotate(${rotation}deg)`;
-            img.style.transition = 'transform 0.3s ease';
-            applyTransform(); // ✅ NEW → Apply zoom + rotation TOGETHER
-
-           
-
-        }
-        //to apply on rotate
-        function applyTransform() {
-            const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active');
-            if (!carouselItem) return;
-
-            const img = carouselItem.querySelector('img');
-            if (!img) return;
-
-            const rotation = parseInt(img.getAttribute('data-rotation') || 0);
-            img.style.transform = `scale(${zoomLevel}) rotate(${rotation}deg)`; // ✅ BOTH zoom & rotation together
-            img.style.transition = 'transform 0.3s ease';
-        }
-
-
-
-
-    </script>
+   
 
 
 
 
 
-
-
-
-    <%-- To zoomin out --%>
     
- <script>
-     let zoomLevel = 1;
 
-     // set limit to zoom
-     const minZoom = 0.7; 
-     const maxZoom = 1.3;
-
-     function zoomIn() {
-         zoomLevel = Math.min(maxZoom, zoomLevel + 0.1);
-         applyTransform();
-     }
-
-     function zoomOut() {
-         zoomLevel = Math.max(minZoom, zoomLevel - 0.1);
-         applyTransform();
-     }
-     //For resetting zoom
-     //function resetZoom() {
-     //    zoomLevel = 1;
-     //    applyTransform();
-     //}
-
-     function applyZoom() {
-         const activeSlide = document.querySelector('#carouselImages .carousel-item.active, #carouselImages .item.active');
-         if (!activeSlide) return;
-
-         const img = activeSlide.querySelector('img');
-         if (!img) return;
-
-         img.style.transform = `scale(${zoomLevel})`;
-     }
- </script>
 
 
 
@@ -171,9 +137,92 @@
 
   
 
-<%--       /*
-       For zoomin out
-   */--%>
+
+
+    <%-- 20-06-2025 For image Rotator zoomIn ZoomOut --%>
+    
+    <script>
+        var ZoutSize = 5000; // Example maximum allowed size (adjust as needed)
+
+        function zoomIn() {
+            var activeImage = $('#carouselImages .carousel-item.active img');
+
+            if (activeImage.length === 0) {
+                console.warn('No active image found to zoom.');
+                return;
+            }
+
+            var imageHeight = activeImage.height();
+            var imageWidth = activeImage.width();
+
+            var ZinSize = (imageHeight * imageWidth) / 1024; // Approximate size in KB
+            var size = ZoutSize / 1024;
+
+            if (ZinSize <= size) {
+                activeImage.css({
+                    height: '+=' + (imageHeight * 0.1),
+                    width: '+=' + (imageWidth * 0.1)
+                });
+
+                // Optional: update hidden fields if you have them in your markup (currently I don’t see them in your uploaded code)
+                // $('#ctl00_ContentPlaceHolder1_hdnHt').val(activeImage.height());
+                // $('#ctl00_ContentPlaceHolder1_hdnWt').val(activeImage.width());
+
+                // Example: enable Save button if needed
+                // $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false);
+            }
+        }
+
+
+    </script>
+    
+    
+    <script>
+        let counter = 0;
+
+        function rotateImage() {
+            debugger;
+            const activeImage = $('#carouselImages .carousel-item.active img');
+            if (activeImage.length) {
+                counter = (counter + 90) ;
+                activeImage.css('transform', 'rotate(' + counter + 'deg)');
+                activeImage.css('margin-top', '5%'); // Optional: adjust margin if needed after rotation
+                $('#ctl00_ContentPlaceHolder1_hdnRotateValue').val(counter); // If you need to track rotation in hidden field
+                $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false); // Enable save button if needed
+            }
+        }
+    </script>         
+
+    <style>
+    #carouselImages img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+    }
+
+    .rotated-image0 { transform: rotate(0deg); }
+    .rotated-image90 { transform: rotate(90deg); }
+    .rotated-image180 { transform: rotate(180deg); }
+    .rotated-image270 { transform: rotate(270deg); }
+    .rotated-image360 { transform: rotate(360deg); }
+
+    /* Optional existing styles you provided - kept if still required */
+    .divBorder {
+        border: 1px solid #3399ff;
+        padding-top: 5px;
+        border-top: 0;
+        vertical-align: top;
+    }
+</style>
+
+
+
+
+
+
 
    <style>
     #carouselImages img {
@@ -188,9 +237,6 @@
    
     
 <style>
- 
-
-
    .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
@@ -227,17 +273,6 @@
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
 
     <style>
         .container {
@@ -1143,7 +1178,14 @@
                     </div>
 
 
-                                    <div id="divnavigate" style="display: block;" runat="server" class="panel-body">
+                                    <div id="divnavigate" style="display: flex;" runat="server" class="panel-body">
+                                        <div>
+                                            
+                                            <button type="button" class="btn btn-primary"    style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9; color:black;"  onclick="getCroppedImage()">
+                                               ADD DOCUMENT
+                                            </button>
+                                        </div>
+                                        
                                         <div class="row">
                                             <div class="col-sm-12" style="text-align: right;">
                                                 <%--added by babita --%>
@@ -1168,8 +1210,12 @@
 
                                                 <%--Carousel--%>
 
-                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static"
+                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame container-fluid p-2 p-md-4"
+                                                    ClientIDMode="Static"
                                                     Style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+
+
+
 
                                                     <!-- Carousel Frame Wrapper -->
                                                     <div style="position: relative; width: 350px; height: 300px; border: 1px solid blue; overflow: hidden;">
@@ -1186,7 +1232,7 @@
 
                                                             <!-- Images Container -->
                                                             <div id="divSearchResult" runat="server" class="carousel-inner"
-                                                                style="width: auto; height:auto; object-fit: contain;">
+                                                                style="width: auto; height: auto; object-fit: contain;">
                                                                 <%-- Carousel images injected from code-behind --%>
                                                             </div>
 
@@ -1194,14 +1240,14 @@
 
                                                         <!-- Left Arrow (absolute to left) -->
                                                         <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev"
-                                                            style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display:none; ">
+                                                            style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: none;">
                                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Previous</span>
                                                         </a>
 
                                                         <!-- Right Arrow (absolute to right) -->
                                                         <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next"
-                                                            style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display:none;">
+                                                            style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: none;">
                                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Next</span>
                                                         </a>
@@ -1213,12 +1259,25 @@
                                                             <span class="glyphicon glyphicon-repeat"></span>
                                                         </span>
 
+
                                                         <button type="button" class="btn btn-primary" onclick="zoomIn();">
                                                             <i class="fas fa-search-plus"></i>
                                                         </button>
                                                         <button type="button" class="btn btn-primary" onclick="zoomOut();">
                                                             <i class="fas fa-search-minus"></i>
                                                         </button>
+                                                        <%-- btn for crop --%>
+
+                                                        <button type="button" class="btn btn-primary" onclick="enableCrop()">
+                                                            <i class="fas fa-crop"></i>
+                                                        </button>
+
+
+                                                        <!-- To display cropped image -->
+                                                        <div id="croppedResult" style="margin-top: 10px;"></div>
+
+
+
                                                         <%-- Optional Button for resetting zoom  --%>
                                                         <%--<button type="button" class="btn btn-danger" onclick="resetZoom();">
                                                             <i class="fas fa-undo-alt"></i>
@@ -1235,7 +1294,7 @@
 
 
                                                 <%--ended by babita --%>
-                                                <asp:GridView ID="gvDocDtls" runat="server" Width="100%" CssClass="footable"
+                                                <asp:GridView ID="gvDocDtls" runat="server" style="display :none;" Width="100%" CssClass="footable"
                                                     AutoGenerateColumns="false" OnRowCommand="gvDocDtls_RowCommand">
                                                     <%--<AlternatingRowStyle BackColor="White" />--%>
                                                     <EditRowStyle BackColor="#7C6F57" />
