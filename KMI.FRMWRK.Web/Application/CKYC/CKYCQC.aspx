@@ -63,49 +63,30 @@
 
     <%-- For Image rotator by rauhl on 17June 2025 --%>
     
-    <script>
+   <%-- <script>
         function rotateImage() {
             const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active'); // support both Bootstrap 3 & 4/5
             if (!carouselItem) return;
-
             const img = carouselItem.querySelector('img');
             if (!img) return;
-
             let rotation = parseInt(img.getAttribute('data-rotation') || 0);
             rotation = (rotation + 90) % 360;
-
             img.setAttribute('data-rotation', rotation);
             img.style.transform = `rotate(${rotation}deg)`;
             img.style.transition = 'transform 0.3s ease';
-            applyTransform(); // ✅ NEW → Apply zoom + rotation TOGETHER
-
-           
-
-        }
-        //to apply on rotate
+            applyTransform(); // Apply zoom + rotation TOGETHER
+        } //to apply on rotate
         function applyTransform() {
             const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active');
             if (!carouselItem) return;
-
             const img = carouselItem.querySelector('img');
             if (!img) return;
-
             const rotation = parseInt(img.getAttribute('data-rotation') || 0);
             img.style.transform = `scale(${zoomLevel}) rotate(${rotation}deg)`; // ✅ BOTH zoom & rotation together
             img.style.transition = 'transform 0.3s ease';
         }
-
-
-
-
-    </script>
-
-
-
-
-
-
-
+    </script<%-->--%>
+        <%-- For Image rotator Ended by rauhl on 17June 2025 --%>
 
     <%-- To zoomin out --%>
     
@@ -140,7 +121,7 @@
 
          img.style.transform = `scale(${zoomLevel})`;
      }
- </script>
+ </script>--%>
 
 
 
@@ -187,16 +168,61 @@
 </style>
    
     
+
+    <%--For Rotaotr added on 23-06-2025 by Rahul--%>
+      
+    <script>
+        let counter = 0;
+
+        function rotateImage() {
+            debugger;
+            const activeImage = $('#carouselImages .carousel-item.active img');
+            if (activeImage.length) {
+                counter = (counter + 90);
+                activeImage.css('transform', 'rotate(' + counter + 'deg)');
+                activeImage.css('margin-top', '5%'); // Optional: adjust margin if needed after rotation
+                $('#ctl00_ContentPlaceHolder1_hdnRotateValue').val(counter); // If you need to track rotation in hidden field
+                $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false); // Enable save button if needed
+            }
+        }
+    </script>
+       
+    
+    <style>
+            #carouselImages img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+                transition: transform 0.3s ease;
+                transform-origin: center center;
+            }
+
+            .rotated-image0 { transform: rotate(0deg); }
+            .rotated-image90 { transform: rotate(90deg); }
+            .rotated-image180 { transform: rotate(180deg); }
+            .rotated-image270 { transform: rotate(270deg); }
+            .rotated-image360 { transform: rotate(360deg); }
+
+            /* Optional existing styles you provided - kept if still required */
+            .divBorder {
+                border: 1px solid #3399ff;
+                padding-top: 5px;
+                border-top: 0;
+                vertical-align: top;
+            }
+       </style>
+
+
+    <%-- ROtator Ended by Rahul --%>
+
+
+
 <style>
- 
-
-
    .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
 }
-
-
    .carousel-control-prev {
     left: -6px;  /* Move 15px inside from the left edge */
 }
@@ -204,9 +230,6 @@
 .carousel-control-next {
     right: -6px; /* Move 15px inside from the right edge */
 }
-
-
-
     /*put test*/
     .carousel-frame {
     width: 600px; /* or set max-width: 100%; for responsiveness */
@@ -214,7 +237,6 @@
     overflow: hidden;
     position: relative;
 }
-
 .carousel-inner img {
     width: 100%;
     height: 400px; /* adjust as needed */
@@ -225,7 +247,6 @@
 .carousel-control-next {
     width: 5%; /* Arrows stick to edges */
 }
-
 </style>
 
 
@@ -1209,7 +1230,7 @@
 
                                                     <!-- Buttons Below Frame -->
                                                     <div class="text-center mt-2" style="margin-top: 10px;">
-                                                        <span class="btn btn-default" onclick="rotateImage();">
+                                                        <span  onclick="rotateImage();">
                                                             <span class="glyphicon glyphicon-repeat"></span>
                                                         </span>
 

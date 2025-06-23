@@ -47368,3 +47368,15 @@ Source: mscorlib
 TargetSite: Void AbortInternal()
 ----------------------------------------------------------------------------------------------------------------------
 
+Time: 23-06-2025 11:37:18 AM
+-----------------------------------------------------------
+Message: Thread was being aborted.
+StackTrace:    at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at KMI.FRMWRK.Web._Default.Page_Load(Object sender, EventArgs e) in D:\1.Krishmark infotech\Rahul\23-06-2025\Re_KYC\KMI.FRMWRK.Web\Default.aspx.cs:line 43
+Source: mscorlib
+TargetSite: Void AbortInternal()
+----------------------------------------------------------------------------------------------------------------------
+
