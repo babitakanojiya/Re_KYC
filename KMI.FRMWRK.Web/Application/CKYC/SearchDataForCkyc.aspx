@@ -29,8 +29,8 @@
         background: white;
         padding: 10px;
         border-radius: 8px;
-        width: 80%;
-        height: 80%;
+        width: 36%;
+        height: 53%;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     }
 
