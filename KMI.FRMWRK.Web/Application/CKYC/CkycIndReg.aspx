@@ -4130,42 +4130,47 @@ Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
                         </asp:LinkButton>
                             </ContentTemplate>
 </asp:UpdatePanel>--%>
-                        <div class="row" style="margin-top: 2rem;">
-    <!-- Left Side: Previous Button -->
-    <div class="col-sm-3" align="left">
-        <asp:Button ID="btnprevcd" runat="server"
-            CssClass="btn-animated btn-primary"
-            Text="PREVIOUS" TabIndex="2"
-            UseSubmitBehavior="false"
-            OnClick="btnprevcd_Click"
-            OnClientClick="reInitializeDropZone();"
-            Style="width: 13rem; padding-left: 2.5rem; font-size: initial; border-radius: 5rem;" />
-    </div>
+  <div class="row" style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
 
-    <!-- Right Side: NEXT/SAVE Buttons in Same Spot -->
-    <div class="col-sm-3" align="right" id="buttonContainer" style="position: relative;margin-left: 603px;">
+      <div class="col-sm-6" align="right">
+    <asp:Button ID="btnprevcd" runat="server"
+        CssClass="btn-animated btn-primary"
+        Text="PREVIOUS" TabIndex="2"
+        UseSubmitBehavior="false"
+        OnClick="btnprevcd_Click"
+        OnClientClick="reInitializeDropZone();"
+        Style="width: 13rem; padding-left: 2.5rem; font-size: initial; border-radius: 5rem;" />
+</div>
+    <!-- Left Side: NEXT/SAVE Buttons -->
+    <div class="col-sm-6" align="left" id="buttonContainer" style="position: relative;">
         <!-- NEXT Button -->
         <asp:Button ID="btnnextpas" runat="server"
             CssClass="btn-animated btn-primary"
             Text="NEXT" TabIndex="2"
             UseSubmitBehavior="false"
             OnClick="btnnextpas_Click"
-            Style="width: 13rem; font-size: initial; padding-left: 4.4rem; border-radius: 5rem;" />
+            Style="width: 13rem; font-size: initial; padding-left: 4.4rem; border-radius: 5rem;margin-left: 464px;" />
 
         <!-- SAVE Button -->
-        <asp:UpdatePanel ID="UpdatePanel3" runat="server" >
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
             <ContentTemplate>
                 <asp:LinkButton ID="btnSave" OnClick="btnSave_Click_ReKyc"
                     CssClass="btn-animated btn-primary"
                     runat="server" TabIndex="2"
-                    Style="width: 13rem; font-size: initial; padding-left: 4.4rem; border-radius: 5rem; display: none;">
+                    Style="width: 13rem; font-size: initial; padding-left: 4.4rem; border-radius: 5rem; display: none;margin-left: 464px;">
                     <asp:HiddenField ID="TabName" runat="server" />
                     <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
                 </asp:LinkButton>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
+
+    
+    
+
 </div>
+
+
 
 
 
