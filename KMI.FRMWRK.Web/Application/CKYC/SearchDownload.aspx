@@ -1104,48 +1104,48 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
         </div>
 
         <!-- Cards + Divider -->
-        <div class="d-flex justify-content-center flex-wrap gap-4 align-items-stretch mt-3">
+        <div class="d-flex justify-content-center flex-wrap gap-4 align-items-stretch mt-0">
             <!-- CKYC Card -->
-            <div id="ckyccard" style="width: 420px;">
+            <div id="ckyccard" style="width: 420px;height: 232px;">
                 <div class="card shadow-lg p-4 bg-white rounded-4 h-100" style="max-width: 45rem;background: linear-gradient(to bottom, #95e6fb, #ccf3fa);">
-                    <div class="row text-center mb-3">
+                    <div class="row text-center mb-0">
                         <div class="col-9">
-                            <div style="font-size: 1.6rem;color: #1f50a7;font-weight: bold;">KYC DETAILS REGISTERED WITH</div>
-                            <div style="font-size: 1.6rem;color: #1f50a7;font-weight: bold;">CENTRAL KYC RECORDS REGISTRY</div>
+                            <div style="font-size: 1.2rem;color: #1f50a7;font-weight: bold;">KYC DETAILS REGISTERED WITH</div>
+                            <div style="font-size: 1.2rem;color: #1f50a7;font-weight: bold;">CENTRAL KYC RECORDS REGISTRY</div>
                         </div>
                         <div class="col-3">
-                            <img src="Images/CERSAI_Symbol.png" alt="CERSAI Symbol" style="height: 63px;">
+                            <img src="Images/CERSAI_Symbol.png" alt="CERSAI Symbol" style="height: 46px;">
                         </div>
                     </div>
 
                     <div class="d-flex align-items-start gap-4">
                         <div class="flex-grow-1">
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>CKYC Ref No:</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>CKYC Ref No:</span>
                                 <span><asp:Label ID="lblCKYCRefNo" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>CKYC No:</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>CKYC No:</span>
                                 <span><asp:Label ID="lblCKYCNo1" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>Full Name:</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>Full Name:</span>
                                 <span><asp:Label ID="lblFullName" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>Father's Name:</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>Father's Name:</span>
                                 <span><asp:Label ID="lblFatherName" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>CKYC Date:</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>CKYC Date:</span>
                                 <span><asp:Label ID="lblCKYCDate" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>Age</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>Age</span>
                                 <span><asp:Label ID="lblage1" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
-                            <div class="d-flex justify-content-between py-1">
-                                <span><strong>ID Document:</strong></span>
+                            <div class="d-flex justify-content-between py-0">
+                                <span>ID Document:</span>
                                 <span><asp:Label ID="lblIdentityDocs" runat="server" ForeColor="#1f50a7" Text="" /></span>
                             </div>
                         </div>
@@ -1162,7 +1162,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
             <div class="d-none d-md-block" style="width: 2px; background-color: lightgrey; margin: 0 10px;"></div>
 
             <!-- PAN Card -->
-            <div id="pancard" style="width: 420px;">
+            <div id="pancard" style="width: 420px;height: 232px;">
                 <div class="card shadow-lg p-4 bg-white rounded-4 h-100 position-relative"
                      style="background: linear-gradient(92deg, #d1a3e4, #85cef7); max-width: 45rem;">
                     <!-- Gov Header -->
@@ -1173,7 +1173,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
                         </div>
                         <div class="col-4">
                             <img src="Images/NewIndianEmblem.JPG" alt="Emblem of India"
-                                 style="height: 50px; mix-blend-mode: color-burn;">
+                                 style="height: 36px; mix-blend-mode: color-burn;">
                         </div>
                         <div class="col-4">
                             <div class="fw-bold" style="font-size: 1.3rem;color:#851792">भारत सरकार</div>
@@ -1183,19 +1183,19 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
 
                     <!-- Details + QR + Photo -->
                     <div class="row">
-                        <div class="col-md-8 col-12 text-start ps-0">
+                        <div class="col-md-8 col-12 text-start ps-4">
                             <div class="mb-3">
-                                <strong style="color:#073b97">NAME</strong><br />
-                                <asp:Label ID="lblAccountName" runat="server" Text="" style="font-weight:bold;"/>
+                                <span style="color:#073b97">NAME</span><br />
+                                <asp:Label ID="lblAccountName" runat="server" Text=""/>
                             </div>
                             <div class="mb-3">
-                                <strong style="color:#073b97">PERMANENT ACCOUNT NUMBER:</strong><br />
-                                <asp:Label ID="lblAccountNumber" runat="server" Text="" style="font-weight:bold;"/>
+                                <span style="color:#073b97">PERMANENT ACCOUNT NUMBER:</span><br />
+                                <asp:Label ID="lblAccountNumber" runat="server" Text="" />
                             </div>
 
                             <!-- Signature -->
-                            <div class="d-none d-md-block position-absolute" style="bottom: 0rem; left: 1rem;">
-                                <strong style="color:#073b97">SIGNATURE</strong>
+                            <div class="d-none d-md-block position-absolute ps-2" style="bottom: 0rem; left: 1rem;">
+                                <span style="color:#073b97">SIGNATURE</span>
                             </div>
 
                         </div>
@@ -1207,7 +1207,7 @@ var otpInput = document.getElementById('<%= TextBox7.ClientID %>').value; // For
 
                             <img runat="server" src="~/application/ckyc/images/PersonSample.JPG" id="Img4"
                                  alt="applicant's photo" class="border border-2 shadow-sm"
-                                 style="margin-top:5rem;width: 80px; height: 80px; object-fit: cover; border-radius: 1rem;" />
+                                 style="margin-top:0rem;width: 80px; height: 80px; object-fit: cover; border-radius: 1rem;" />
                         </div>
                     </div>
                 </div>
