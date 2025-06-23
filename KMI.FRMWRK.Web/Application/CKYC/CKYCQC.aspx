@@ -205,46 +205,125 @@
     };
 </script>
 
-  
+
+        <%-- 20-06-2025 For image Rotator zoomIn ZoomOut --%>
+
+ 
+   <%-- For ZoomIn Added By Rahul on 23-06-2025 --%>
+ 
+<script>
+    var MAX_HEIGHT = 390;   
+    var MAX_WIDTH = 390;    
+    var MIN_HEIGHT = 200;    
+    var MIN_WIDTH = 200;
+ 
+ 
+    function zoomIn() {
+        debugger;
+        var activeImage = $('.carousel-item.active img');
+ 
+        if (activeImage.length === 0) {
+            console.log("No active image found!");
+            return;
+        }
+ 
+        var imageHeight = activeImage.height();
+        var imageWidth = activeImage.width();
+ 
+        var newHeight = imageHeight + imageHeight * 0.1;
+        var newWidth = imageWidth + imageWidth * 0.1;
+ 
+        if (newHeight <= MAX_HEIGHT && newWidth <= MAX_WIDTH) {
+            activeImage.css({
+                height: newHeight + 'px',
+                width: newWidth + 'px'
+            });
+ 
+            $("#ctl00_ContentPlaceHolder1_hdnHt").val(activeImage.height());
+            $("#ctl00_ContentPlaceHolder1_hdnWt").val(activeImage.width());
+            $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false);
+ 
+            console.log("Zoom in applied. New height:", newHeight, " New width:", newWidth);
+        } else {
+            console.log("Reached maximum zoom in limit.");
+        }
+    }
+<%-- For ZoomOut Added By Rahul on 23-06-2025 --%>
+    function zoomOut() {
+        debugger;
+        var activeImage = $('.carousel-item.active img');
+ 
+        if (activeImage.length === 0) {
+            console.log("No active image found!");
+            return;
+        }
+ 
+        var imageHeight = activeImage.height();
+        var imageWidth = activeImage.width();
+ 
+        var newHeight = imageHeight - imageHeight * 0.1;
+        var newWidth = imageWidth - imageWidth * 0.1;
+ 
+        if (newHeight >= MIN_HEIGHT && newWidth >= MIN_WIDTH) {
+            activeImage.css({
+                height: newHeight + 'px',
+                width: newWidth + 'px'
+            });
+ 
+            $("#ctl00_ContentPlaceHolder1_hdnHt").val(activeImage.height());
+            $("#ctl00_ContentPlaceHolder1_hdnWt").val(activeImage.width());
+            $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false);
+ 
+            console.log("Zoom out applied. New height:", newHeight, " New width:", newWidth);
+        } else {
+            console.log("Reached minimum zoom out limit.");
+        }
+    }
+</script>
 
 
-
-    <%-- 20-06-2025 For image Rotator zoomIn ZoomOut --%>
-    
-    <script>
-        var ZoutSize = 5000; // Example maximum allowed size (adjust as needed)
-
-        function zoomIn() {
-            var activeImage = $('#carouselImages .carousel-item.active img');
-
-            if (activeImage.length === 0) {
-                console.warn('No active image found to zoom.');
-                return;
-            }
-
-            var imageHeight = activeImage.height();
-            var imageWidth = activeImage.width();
-
-            var ZinSize = (imageHeight * imageWidth) / 1024; // Approximate size in KB
-            var size = ZoutSize / 1024;
-
-            if (ZinSize <= size) {
-                activeImage.css({
-                    height: '+=' + (imageHeight * 0.1),
-                    width: '+=' + (imageWidth * 0.1)
-                });
-
-                // Optional: update hidden fields if you have them in your markup (currently I don’t see them in your uploaded code)
-                // $('#ctl00_ContentPlaceHolder1_hdnHt').val(activeImage.height());
-                // $('#ctl00_ContentPlaceHolder1_hdnWt').val(activeImage.width());
-
-                // Example: enable Save button if needed
-                // $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false);
+<%-- <%-- For Rotate Added By Rahul on 20-06-2025 --%> 
+<script>
+        let counter = 0;
+ 
+        function rotateImage() {
+            debugger;
+            const activeImage = $('#carouselImages .carousel-item.active img');
+            if (activeImage.length) {
+                counter = (counter + 90) ;
+                activeImage.css('transform', 'rotate(' + counter + 'deg)');
+                activeImage.css('margin-top', '5%'); // Optional: adjust margin if needed after rotation
+                $('#ctl00_ContentPlaceHolder1_hdnRotateValue').val(counter); // If you need to track rotation in hidden field
+                $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false); // Enable save button if needed
             }
         }
-
-
-    </script>
+</script>         
+ 
+    <style>
+    #carouselImages img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+    }
+ 
+    .rotated-image0 { transform: rotate(0deg); }
+    .rotated-image90 { transform: rotate(90deg); }
+    .rotated-image180 { transform: rotate(180deg); }
+    .rotated-image270 { transform: rotate(270deg); }
+    .rotated-image360 { transform: rotate(360deg); }
+ 
+    .divBorder {
+        border: 1px solid #3399ff;
+        padding-top: 5px;
+        border-top: 0;
+        vertical-align: top;
+    }
+</style>
+ 
+    <%-- Ended By Rahul on 23-06-2025 --%>
     
     
     <script>
@@ -317,11 +396,11 @@
 
 
    .carousel-control-prev {
-    left: -6px;  /* Move 15px inside from the left edge */
+    left: -14px;  /* Move 15px inside from the left edge */
 }
 
 .carousel-control-next {
-    right: -6px; /* Move 15px inside from the right edge */
+    right: -14px; /* Move 15px inside from the right edge */
 }
 
 
@@ -1317,20 +1396,24 @@
 
                                                         </div>
 
-                                                        <!-- Left Arrow (absolute to left) -->
+                                                        
+                                                    </div>
+                                                    <!-- Left Arrow (absolute to left) -->
                                                         <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev"
-                                                            style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display:none; ">
+                                                            style="position: absolute; top: 44%; left: 100px; transform: translateY(-50%);  ">
                                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Previous</span>
                                                         </a>
 
                                                         <!-- Right Arrow (absolute to right) -->
                                                         <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next"
-                                                            style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display:none;">
+                                                            style="position: absolute; top: 44%; right: 100px; transform: translateY(-50%); ">
                                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Next</span>
                                                         </a>
-                                                    </div>
+
+
+
 
                                                     <!-- Buttons Below Frame -->
                                                     <div class="text-center mt-2" style="margin-top: 10px;">
