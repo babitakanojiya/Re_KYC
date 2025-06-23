@@ -190,7 +190,7 @@
                 $('#ctl00_ContentPlaceHolder1_btnSaveImage').attr("disabled", false); // Enable save button if needed
             }
         }
-    </script>
+    </script>         
 
     <style>
     #carouselImages img {
