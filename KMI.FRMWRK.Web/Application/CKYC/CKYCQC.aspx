@@ -1228,7 +1228,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <!-- Buttons Below Frame -->
+                                                    <!-- Buttons Below Framefunction change -->
                                                     <div class="text-center mt-2" style="margin-top: 10px;">
                                                         <span  onclick="rotateImage();">
                                                             <span class="glyphicon glyphicon-repeat"></span>
