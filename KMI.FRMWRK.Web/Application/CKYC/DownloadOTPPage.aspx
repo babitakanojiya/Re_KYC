@@ -75,7 +75,8 @@
 
             var refNo = document.getElementById('<%= hdnRegRefNo.ClientID %>').value;
             var pageFlag = "01";
-            window.location.href = "CKYCQC.aspx?RefNo=" + encodeURIComponent(refNo) + "&PageFlag=" + pageFlag + "&Status=QC";
+            /*window.location.href = "CKYCQC.aspx?RefNo=" + encodeURIComponent(refNo) + "&PageFlag=" + pageFlag + "&Status=QC";*/
+            window.top.location.href = "CKYCQC.aspx?RefNo=" + encodeURIComponent(refNo) + "&PageFlag=" + pageFlag + "&Status=QC";
 
             return false;
         }
@@ -103,7 +104,8 @@
         </div>
 
         <!-- OTP UI -->
-        <div style="text-align: center; padding: 30px;">
+        <%--<div style="text-align: center; padding: 30px;">--%>
+        <div style="text-align: center;">
             <h1>Enter OTP</h1>
 
             <p style="color: blue; margin-top: 20px;">
