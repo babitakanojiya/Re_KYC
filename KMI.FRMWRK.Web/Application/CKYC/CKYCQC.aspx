@@ -1148,9 +1148,9 @@
                         </div>
                     </div>
                     <div id="divCKYCdtls" style="display: block;" runat="server" class="panel-body">
-                        <div class="col-sm-12" style="text-align: left; display: flex;">
+                        <div class="col-sm-12" style="text-align: left; display: flex; margin-top: -2rem;">
                             <asp:CheckBox ID="CheckBox7" ClientIDMode="Static" Text="I confirm that the above information furnished is true and correct and the said details may be updated in my account maintained with the company.<br />In case of any change in the information, the same will be informed to the company. I further hereby authorize the company to obtain necessary details from CKYC Registry."
-                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="margin-top: 1rem; font-size: 1.3rem; margin:1rem 1rem 0rem !important;" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
+                                CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="font-size: 1.3rem; margin: 2rem 0rem 1rem -1.5rem;" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>
                         </div>
                      <div class="row" style="margin-top: 8rem;">
                              <div class="col-sm-3" style="text-align: left">
@@ -1334,21 +1334,21 @@
 
                                                     <!-- Buttons Below Frame -->
                                                     <div class="text-center mt-2" style="margin-top: 10px;">
-                                                        <span class="btn btn-default" onclick="rotateImage();">
+                                                        <span id="btnrot" class="btn btn-default" onclick="rotateImage();">
                                                             <span class="glyphicon glyphicon-repeat"></span>
                                                         </span>
 
-                                                        <button type="button" class="btn btn-primary" onclick="zoomIn();">
-                                                            <i class="fas fa-search-plus"></i>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary" onclick="zoomOut();">
+                                                        <span id="btnzoomin" class="btn btn-default"  onclick="zoomIn();">
+                                                            <span class="fas fa-search-plus"></span>
+                                                        </span>
+                                                        <span id="btnzoomout" class="btn btn-default"  onclick="zoomOut();">
                                                             <i class="fas fa-search-minus"></i>
-                                                        </button>
+                                                        </span>
                                                         <%-- btn for crop --%>
 
-                                                        <button type="button" class="btn btn-primary" onclick="enableCrop()">
+                                                        <span id="btncrop" class="btn btn-default"  onclick="enableCrop()">
                                                             <i class="fas fa-crop"></i>
-                                                        </button>
+                                                        </span>
 
 
                                                         <!-- To display cropped image -->
