@@ -38,11 +38,12 @@
   </script>
 
 
+<%--added by babita on 23 june 2025--%>
+
+    
 
 
-
-
-
+    <%--ended by babita--%>
 
 
 
@@ -705,6 +706,7 @@
         nextBtn.style.display = currentStep === steps.length - 1 ? 'none' : 'inline-block';
 
         checkAnyBoxSelected(); // Re-evaluate visibility based on step
+        swapStepButtons(currentStep); //added by babita
     }
 
         window.onload = function () {
@@ -723,31 +725,6 @@
             checkAnyBoxSelected(); // also call this here
         };
 
-
-        <%--function checkAnyBoxSelected() {
-    const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
-    let anyChecked = checkboxIds.some(id => document.getElementById(id)?.checked);
-
-    if (anyChecked) {
-        // Show Update button
-        document.getElementById('btnUpdChanges').style.display = 'inline-block';
-        document.getElementById('btnConfirm').style.display = 'none';
-    } else {
-        // Show Confirm button
-        document.getElementById('btnConfirm').style.display = 'inline-block';
-        document.getElementById('btnUpdChanges').style.display = 'none';
-    }
-}
-
-// On page load
-window.onload = function () {
-    document.getElementById(steps[0]).classList.add('active');
-    document.getElementById(contentIds[0]).style.display = 'block';
-    document.getElementById('<%= btnPrev1.ClientID %>').style.display = 'none';
-    document.getElementById('<%= btnNext1.ClientID %>').style.display = 'inline-block';
-
-    checkAnyBoxSelected(); // Make sure correct button shows initially
-};--%>
 
         function checkAnyBoxSelected() {
         const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
@@ -821,7 +798,23 @@ window.onload = function () {
     }
 
     document.addEventListener('DOMContentLoaded', bindCheckboxListeners);
+    //added by babita
+    function swapStepButtons(step) {
+        const btnNext = document.getElementById('btnNext1');
+        const btnConfirm = document.getElementById('btnConfirm');
+        const btnUpdChanges = document.getElementById('btnUpdChanges');
 
+        btnNext.style.display = 'none';
+        btnConfirm.style.display = 'none';
+        btnUpdChanges.style.display = 'none';
+
+        if (step < 4) {
+            btnNext.style.display = 'inline-block';
+        } else if (step === 4) {
+            checkAnyBoxSelected(); // On final step, button depends on checkbox selection
+        }
+    }
+//ended by babita
     
 </script>
 
@@ -3001,7 +2994,7 @@ window.onload = function () {
             <asp:Button ID="btnReject" runat="server" Style="display:none;" CssClass="btn-animated bg-horrible has-spinner" OnClientClick="ShowProgressBar('Processing...');" OnClick="btnReject_Click" Text="Reject"></asp:Button>
             </div>
 
-             <div class="col-sm-3" align="center" >
+            <%-- <div class="col-sm-3" align="center" >
             <asp:Button ID="btnNext1" runat="server" 
                 CssClass="btn-animated btn-primary"
                 Text="NEXT"
@@ -3026,7 +3019,37 @@ window.onload = function () {
                     UseSubmitBehavior="false"
                     OnClientClick="checkAnyBoxSelected(); changeStep(1); return false;"
                     Style="margin-left: 55rem; width: 30rem; font-size: initial; border-radius: 5rem; display:none;" />
-            </div>
+            </div>--%>
+
+            <%--added by babita on 23 june 2025--%>
+            <div class="col-sm-3" align="center" id="buttonContainer" style="position: relative;">
+    <!-- Button 1: NEXT -->
+    <asp:Button ID="btnNext1" runat="server" ClientIDMode="Static"
+        CssClass="btn-animated btn-primary"
+        Text="NEXT"
+        UseSubmitBehavior="false"
+        OnClientClick="changeStep(1); return false;"
+        Style="width: 13rem; font-size: initial; border-radius: 5rem;" />
+
+    <!-- Button 2: I CONFIRM ALL IS FINE -->
+    <asp:Button ID="btnConfirm" runat="server" ClientIDMode="Static"
+        CssClass="btn-animated btn-primary"
+        Text="I CONFIRM ALL IS FINE"
+        UseSubmitBehavior="false"
+        OnClientClick="changeStep(1); return false;"
+        Style="width: 22rem; display: none; font-size: initial; border-radius: 5rem;" />
+
+    <!-- Button 3: PLEASE UPDATE THE CHANGES -->
+    <asp:Button ID="btnUpdChanges" runat="server" ClientIDMode="Static"
+        CssClass="btn-animated btn-primary"
+        Text="PLEASE UPDATE THE CHANGES"
+        UseSubmitBehavior="false"
+        OnClientClick="changeStep(1); return false;"
+        Style="width: 30rem; display: none; font-size: initial; border-radius: 5rem;" />
+</div>
+
+
+            <%--ended by babita --%>
 
         </div>
         </div>

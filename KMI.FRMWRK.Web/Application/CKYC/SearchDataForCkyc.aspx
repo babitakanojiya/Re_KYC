@@ -10,7 +10,39 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="EmptyPagePlaceholder" runat="server">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+    /* Popup background */
+    .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
 
+    /* Centered iframe */
+    .popup-content {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        width: 80%;
+        height: 80%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Close button */
+    .popup-close {
+        position: absolute;
+        top: 10px; right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
 
     <style type="text/css">
         /* To make responsive on 10 June 2025*/
@@ -252,6 +284,20 @@
 
   </script>
 
+    <script type="text/javascript">
+        // Function to show the iframe in popup
+        function openInIframe(url) {
+            document.getElementById('iframeDownload').src = url;
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('iframeDownload').src = '';
+        }
+    </script>
+
 
 
 
@@ -269,6 +315,14 @@
 
 
             </div>
+             <%--added by babita--%>
+            <div id="popupOverlay" class="popup-overlay">
+    <div class="popup-content">
+        <span class="popup-close" onclick="closePopup()">X</span>
+        <iframe id="iframeDownload" style="width:100%; height:100%; border:none;"></iframe>
+    </div>
+</div> <%--ended by babita--%>
+
             <div class="container container-fluid" style="margin-top: 0px; width: 100%;">
                 <div class="page-container" style="margin-top: 0px;">
                     <div class="panel  panel-success" style="margin-left: 2%; margin-right: 2%; margin-top: 0.5%">
@@ -610,25 +664,22 @@
                                             <ItemStyle CssClass="pad" HorizontalAlign="Center" Width="12%" />
                                         </asp:TemplateField>
 
-                                        <%--<asp:TemplateField HeaderText="Download Data" ItemStyle-Width="20%" HeaderStyle-CssClass="pad">
-    <ItemTemplate>
-        <asp:HyperLink ID="lnkDownload" runat="server" NavigateUrl='<%# Eval("DownloadUrl") %>' Text="Download" Target="_blank" />
-    </ItemTemplate>
-    <ItemStyle CssClass="pad" HorizontalAlign="Center" Width="12%" />
-</asp:TemplateField>--%>
+
 
                                         <asp:TemplateField HeaderText="Download Data" ItemStyle-Width="20%" HeaderStyle-CssClass="pad">
-    <%--<ItemTemplate>
-        <asp:HyperLink ID="lnkDownload" runat="server" NavigateUrl='<%# Eval("DownloadUrl") %>' Text="Download" Target="_blank" />
-        
-    </ItemTemplate>--%>
-<ItemTemplate>
+    
+<%--<ItemTemplate>
     <a href='javascript:void(0);'
        onclick='openPopup("<%# Eval("DownloadUrl").ToString().Replace("'", "\\'") %>"); return false;'>
        Download
     </a>
+</ItemTemplate>--%>
+<ItemTemplate>
+    <a href='javascript:void(0);'
+       onclick='openInIframe("<%# Eval("DownloadUrl").ToString().Replace("'", "\\'") %>"); return false;'>
+       Download
+    </a>
 </ItemTemplate>
-
 
 
 
