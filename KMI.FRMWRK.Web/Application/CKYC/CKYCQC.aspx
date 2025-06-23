@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <!-- Include Cropper.js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
@@ -99,14 +99,84 @@
 
     <%-- For Image rotator by rauhl on 17June 2025 --%>
     
-   
+    <%--<script>
+        function rotateImage() {
+            const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active'); // support both Bootstrap 3 & 4/5
+            if (!carouselItem) return;
+
+            const img = carouselItem.querySelector('img');
+            if (!img) return;
+
+            let rotation = parseInt(img.getAttribute('data-rotation') || 0);
+            rotation = (rotation + 90) % 360;
+
+            img.setAttribute('data-rotation', rotation);
+            img.style.transform = `rotate(${rotation}deg)`;
+            img.style.transition = 'transform 0.3s ease';
+            applyTransform(); // ✅ NEW → Apply zoom + rotation TOGETHER
+
+
+
+        }
+        //to apply on rotate
+        function applyTransform() {
+            const carouselItem = document.querySelector('#carouselImages .item.active, #carouselImages .carousel-item.active');
+            if (!carouselItem) return;
+
+            const img = carouselItem.querySelector('img');
+            if (!img) return;
+
+            const rotation = parseInt(img.getAttribute('data-rotation') || 0);
+            img.style.transform = `scale(${zoomLevel}) rotate(${rotation}deg)`; // ✅ BOTH zoom & rotation together
+            img.style.transition = 'transform 0.3s ease';
+        }
+
+
+
+
+    </script>--%>
 
 
 
 
 
+
+
+
+    <%-- To zoomin out --%>
     
+ <%--<script>
+     let zoomLevel = 1;
 
+     // set limit to zoom
+     const minZoom = 0.7;
+     const maxZoom = 1.3;
+
+     function zoomIn() {
+         zoomLevel = Math.min(maxZoom, zoomLevel + 0.1);
+         applyTransform();
+     }
+
+     function zoomOut() {
+         zoomLevel = Math.max(minZoom, zoomLevel - 0.1);
+         applyTransform();
+     }
+     //For resetting zoom
+     //function resetZoom() {
+     //    zoomLevel = 1;
+     //    applyTransform();
+     //}
+
+     function applyZoom() {
+         const activeSlide = document.querySelector('#carouselImages .carousel-item.active, #carouselImages .item.active');
+         if (!activeSlide) return;
+
+         const img = activeSlide.querySelector('img');
+         if (!img) return;
+
+         img.style.transform = `scale(${zoomLevel})`;
+     }
+ </script>--%>
 
 
 
@@ -184,7 +254,7 @@
             debugger;
             const activeImage = $('#carouselImages .carousel-item.active img');
             if (activeImage.length) {
-                counter = (counter + 90) ;
+                counter = (counter + 90);
                 activeImage.css('transform', 'rotate(' + counter + 'deg)');
                 activeImage.css('margin-top', '5%'); // Optional: adjust margin if needed after rotation
                 $('#ctl00_ContentPlaceHolder1_hdnRotateValue').val(counter); // If you need to track rotation in hidden field
@@ -237,6 +307,9 @@
    
     
 <style>
+ 
+
+
    .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(27%) sepia(100%) saturate(7469%) hue-rotate(205deg) brightness(95%) contrast(102%);
@@ -273,6 +346,17 @@
 }
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
 
     <style>
         .container {
@@ -481,7 +565,7 @@
                 return true;
             }
         }
-        
+
 
         function OpenRelatedPersonPageView(RelRefnNo, refno, FIRefNo, FlagPageTyp, Row) {
             debugger;
@@ -556,7 +640,7 @@
         //function removeLoader() {
         //    $("#dvProgressBar").fadeOut(500, function () {
         //        // fadeOut complete. Remove the loading div
-        //        $("#dvProgressBar").remove(); //makes page more lightweight 
+        //        $("#dvProgressBar").remove(); //makes page more lightweight
         //    });
         //}
 
@@ -706,8 +790,8 @@
 
 <script>
     let currentStep = 0;
-    const steps = ['lbldocument','lblPerdtls', 'lblAdddtls', 'lblContactdtls', 'lblrekycdtls'];
-    const contentIds = ['step0', 'step1', 'step2', 'step3','step4'];
+    const steps = ['lbldocument', 'lblPerdtls', 'lblAdddtls', 'lblContactdtls', 'lblrekycdtls'];
+    const contentIds = ['step0', 'step1', 'step2', 'step3', 'step4'];
 
     function changeStep(direction) {
         // Hide current step
@@ -726,15 +810,15 @@
         // Show/hide "Previous" button based on current step
         const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
         if (currentStep === 0) {
-        prevBtn.style.display = 'inline-block';
-        prevBtn.disabled = true;
-        prevBtn.style.backgroundColor = '#ccc'; // Grey color
-        prevBtn.style.cursor = 'not-allowed';
+            prevBtn.style.display = 'inline-block';
+            prevBtn.disabled = true;
+            prevBtn.style.backgroundColor = '#ccc'; // Grey color
+            prevBtn.style.cursor = 'not-allowed';
         } else {
-        prevBtn.disabled = false;
-        prevBtn.style.display = 'inline-block';
-        prevBtn.style.backgroundColor = ''; // Reset if styled by class
-        prevBtn.style.cursor = '';
+            prevBtn.disabled = false;
+            prevBtn.style.display = 'inline-block';
+            prevBtn.style.backgroundColor = ''; // Reset if styled by class
+            prevBtn.style.cursor = '';
         }
 
         const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
@@ -744,24 +828,24 @@
         swapStepButtons(currentStep); //added by babita
     }
 
-        window.onload = function () {
-            document.getElementById(steps[0]).classList.add('active');
-            document.getElementById(contentIds[0]).style.display = 'block';
+    window.onload = function () {
+        document.getElementById(steps[0]).classList.add('active');
+        document.getElementById(contentIds[0]).style.display = 'block';
 
-            const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
+        const prevBtn = document.getElementById('<%= btnPrev1.ClientID %>');
             prevBtn.style.display = 'inline-block';
             prevBtn.disabled = true;
             prevBtn.style.backgroundColor = '#ccc';
             prevBtn.style.cursor = 'not-allowed';
 
             const nextBtn = document.getElementById('<%= btnNext1.ClientID %>');
-            nextBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'inline-block';
 
-            checkAnyBoxSelected(); // also call this here
-        };
+        checkAnyBoxSelected(); // also call this here
+    };
 
 
-        function checkAnyBoxSelected() {
+    function checkAnyBoxSelected() {
         const checkboxIds = ['CheckBox1', 'CheckBox2', 'CheckBox3', 'CheckBox4', 'CheckBox5', 'CheckBox6', 'CheckBox7'];
         let anyChecked = checkboxIds.some(id => document.getElementById(id)?.checked);
 
@@ -769,7 +853,7 @@
         if (currentStep === 4) {
             if (anyChecked) {
                 document.getElementById('btnUpdChanges').style.display = 'inline-block';
-                document.getElementById('btnConfirm').style.display = 'none'; 
+                document.getElementById('btnConfirm').style.display = 'none';
 
             } else {
                 document.getElementById('btnConfirm').style.display = 'inline-block';
@@ -849,8 +933,8 @@
             checkAnyBoxSelected(); // On final step, button depends on checkbox selection
         }
     }
-//ended by babita
-    
+    //ended by babita
+
 </script>
 
 </asp:Content>
@@ -862,7 +946,7 @@
 
 
     <center>
-            <div class="container-fluid mt-0">
+            <div class="container-fluid mt-0" style="padding: 0rem 4rem;">
                  
 
                 <%--Added by Vikash K on 20May2025--%>
@@ -1178,14 +1262,13 @@
                     </div>
 
 
-                                    <div id="divnavigate" style="display: flex;" runat="server" class="panel-body">
-                                        <div>
-                                            
-                                            <button type="button" class="btn btn-primary"    style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9; color:black;"  onclick="getCroppedImage()">
-                                               ADD DOCUMENT
-                                            </button>
-                                        </div>
-                                        
+                                    <div id="divnavigate" style="display: block;" runat="server" class="panel-body">
+
+                                       <%-- <div>
+<button type="button" class="btn btn-primary"    style="height: 38px; width: 160px; margin: 0rem 2rem -32rem 0rem; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9; color:black;"  onclick="getCroppedImage()">
+          ADD DOCUMENT
+</button>
+</div>--%>
                                         <div class="row">
                                             <div class="col-sm-12" style="text-align: right;">
                                                 <%--added by babita --%>
@@ -1210,15 +1293,11 @@
 
                                                 <%--Carousel--%>
 
-                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame container-fluid p-2 p-md-4"
-                                                    ClientIDMode="Static"
-                                                    Style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
-
-
-
+                                                <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static"
+                                                    Style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5px; margin: 0rem 0rem 0rem 60rem;">
 
                                                     <!-- Carousel Frame Wrapper -->
-                                                    <div style="position: relative; width: 350px; height: 300px; border: 1px solid blue; overflow: hidden;">
+                                                    <div style="position: relative; width: 350px; height: 300px; /*border: 1px solid blue;*/ overflow: hidden;">
 
                                                         <!-- Carousel Itself -->
                                                         <div id="carouselImages" class="carousel slide"
@@ -1232,7 +1311,7 @@
 
                                                             <!-- Images Container -->
                                                             <div id="divSearchResult" runat="server" class="carousel-inner"
-                                                                style="width: auto; height: auto; object-fit: contain;">
+                                                                style="width: auto; height:auto; object-fit: contain;">
                                                                 <%-- Carousel images injected from code-behind --%>
                                                             </div>
 
@@ -1240,14 +1319,14 @@
 
                                                         <!-- Left Arrow (absolute to left) -->
                                                         <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev"
-                                                            style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: none;">
+                                                            style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); display:none; ">
                                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Previous</span>
                                                         </a>
 
                                                         <!-- Right Arrow (absolute to right) -->
                                                         <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next"
-                                                            style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display: none;">
+                                                            style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); display:none;">
                                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                             <span class="sr-only">Next</span>
                                                         </a>
@@ -1258,7 +1337,6 @@
                                                         <span class="btn btn-default" onclick="rotateImage();">
                                                             <span class="glyphicon glyphicon-repeat"></span>
                                                         </span>
-
 
                                                         <button type="button" class="btn btn-primary" onclick="zoomIn();">
                                                             <i class="fas fa-search-plus"></i>
