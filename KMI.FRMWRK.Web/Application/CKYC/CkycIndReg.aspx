@@ -164,6 +164,32 @@
         }
     </style>
     <script type="text/javascript">
+        //Added By Hrutik
+        function showOtpSection(input) {
+            const mobile = input.value.trim();
+            const spinner = document.getElementById("spinner");
+            const otpSection = document.getElementById("otpSection");
+
+            // Reset display
+            spinner.style.display = "none";
+            otpSection.style.display = "none";
+
+            // Validate mobile number (Indian format)
+            if (/^[6-9]\d{9}$/.test(mobile)) {
+                // Show spinner
+                spinner.style.display = "inline-block";
+
+                // Simulate delay (e.g., API call or processing)
+                setTimeout(function () {
+                    spinner.style.display = "none";
+                    otpSection.style.display = "flex"; // Show OTP and Verify
+                }, 2000);
+            } else {
+                console.log("Invalid mobile number format. Spinner not shown.");
+            }
+        }
+        ///End by Hrutik
+
         function AddLoader(id) {
             var div = document.getElementById(id);
             $(div).addClass('spinner-border');
@@ -1145,15 +1171,15 @@ input.form-control {
                 prevBtn.style.display = (index === 0) ? "none" : "inline-block";
             }
 
-            const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
+           <%-- const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
         const saveBtn = document.getElementById("<%= btnSave.ClientID %>");
         if (nextBtn) {
             nextBtn.style.display = (index === panels.length - 1) ? "none" : "inline-block";
         }
         if (saveBtn) {
             saveBtn.style.display = (index === panels.length - 1) ? "inline-block" : "none";
-        }
-
+        }--%>
+        swapNavigationButtons(index === panels.length - 1); //added by babita
         currentPanelIndex = index;
         const hdnCurrentPanel = document.getElementById("hdnCurrentPanel");
         if (hdnCurrentPanel) {
@@ -1161,76 +1187,21 @@ input.form-control {
         }
     }
 
-
-        <%--function showPanelByIndex(index) {
-            debugger
-            if (index < 0 || index >= panels.length) return;
-
-            // Hide all panels
-            panels.forEach(pid => {
-                const panel = document.getElementById(pid);
-                if (panel) panel.style.display = "none";
-            });
-
-            // Special case: first index (pasanldeatils) also shows londeatails
-            if (index === 1) {
-                //Added by Vikash K on 23May2025 for making display loadn when index is 1
-                const pasan = document.getElementById("personaldetails");
-                const lon = document.getElementById("londeatails");
-                if (pasan) pasan.style.display = "block";
-                if (lon) lon.style.display = "block";
-            } else {
-                // Show only the current panel
-                const currentPanel = document.getElementById(panels[index]);
-                if (currentPanel) currentPanel.style.display = "block";
-            }
-
-            // Reset tab styles
-            Object.values(tabMap).forEach(({ tabId, badgeId }) => {
-                const tab = document.getElementById(tabId);
-                const badge = document.getElementById(badgeId);
-                if (tab) {
-                    tab.classList.remove("active");
-                    tab.style.color = "#8c8c8c";
-                }
-                if (badge) badge.style.backgroundColor = "#8c8c8c";
-            });
-
-            // Activate current tab
-            const currentTabInfo = tabMap[panels[index]];
-            if (currentTabInfo) {
-                const tab = document.getElementById(currentTabInfo.tabId);
-                const badge = document.getElementById(currentTabInfo.badgeId);
-                if (tab) {
-                    tab.classList.add("active");
-                    tab.style.color = "#00cccc";
-                }
-                if (badge) badge.style.backgroundColor = "#00cccc";
-            }
-
-            // Toggle Previous button
-            const prevBtn = document.getElementById("<%= btnprevcd.ClientID %>");
-        if (prevBtn) {
-            prevBtn.style.display = (index === 0) ? "none" : "inline-block";
-        }
-
-        // Handle Next and Save buttons
+    //added by babita
+    function swapNavigationButtons(showSave) {
         const nextBtn = document.getElementById("<%= btnnextpas.ClientID %>");
         const saveBtn = document.getElementById("<%= btnSave.ClientID %>");
-        if (nextBtn) {
-            nextBtn.style.display = (index === panels.length - 1) ? "none" : "inline-block";
-        }
-        if (saveBtn) {
-            saveBtn.style.display = (index === panels.length - 1) ? "inline-block" : "none";
-        }
 
-            currentPanelIndex = index;
-            const hdnCurrentPanel = document.getElementById("hdnCurrentPanel");
-            if (hdnCurrentPanel) {
-                hdnCurrentPanel.value = panels[index];
-            }
-            
-    }--%>
+        if (showSave) {
+            nextBtn.style.display = "none";
+            saveBtn.style.display = "inline-block";
+        } else {
+            nextBtn.style.display = "inline-block";
+            saveBtn.style.display = "none";
+        }
+    }
+
+    //ended by babita
 
     function goToNextPanel() {
         if (currentPanelIndex < panels.length - 1) {
@@ -1909,10 +1880,10 @@ input.form-control {
                                         <div class="upload-section">
 
 
-                                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap;">
+                                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0px; flex-wrap: wrap;">
 
                                                 <!-- LEFT PANEL: Form -->
-                                                <div style="flex: 1; max-width: 580px;min-width: 580px;">
+                                                <div style="flex: 1; max-width: 580px;min-width: 490px;">
                                                     <asp:UpdatePanel runat="server" ID="updDocPanel">
                                                         <ContentTemplate>
 
@@ -3375,18 +3346,36 @@ input.form-control {
             TabIndex="2"
             onkeypress="fncInputNumericValuesOnly();"
             Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
-        <asp:TextBox ID="txtMobile2" runat="server"
-    CssClass="form-control"
-    MaxLength="10" 
-    TabIndex="2"
-    onkeypress="return fncInputNumericValuesOnly(event);" 
-    onblur="validateMobileNumber(this);"
-    Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+            <asp:TextBox ID="txtMobile2" runat="server"
+CssClass="form-control"
+MaxLength="10" 
+TabIndex="2"
+onkeypress="return fncInputNumericValuesOnly(event);" 
+onblur="validateMobileNumber(this);showOtpSection(this);"
+Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
 
+              <%--Added By Hrutik--%>
+        <!-- Spinner -->
+<img id="spinner" src="Common/Images/spinner.gif" style="display:none;width: 25px;height: 33px;padding: 3px;" />
     </div>
 </div>
 
                             </div>
+                                        <%--Added By Hrutik--%>
+<div class="col-sm-6">
+
+<!-- OTP Section (Initially Hidden) -->
+    <div id="otpSection"  style="display:none;">
+
+
+             <asp:Label ID="LBL_OTP" runat="server" CssClass="control-label" Text="Enter OTP" style="padding:1rem"></asp:Label>
+            <asp:TextBox ID="txtOtp" runat="server"  Type="text" maxlength="4" class="form-control" />
+            <button type="button" id="btnVerify" class="btn btn-lg" style="background-color:#1f50a7; color: white; width: 13rem;height:4rem;
+            font-size: initial; border-radius: 5rem; font-weight:600;padding:1rem" >VERIFY</button>
+
+    </div>
+
+</div>
                             <%--Added By Shubham--%>
                             <div id="divMob2" runat="server" visible="false">
                                 <div class="col-sm-3" style="text-align: left">
@@ -4073,7 +4062,7 @@ input.form-control {
 
             </div>
 
-            <div class="row" style="margin-top: -5rem;text-align-last: justify; padding: 0rem 7rem;">
+            <div class="row" style="margin-top: -12rem;text-align-last: justify; padding: 0rem 7rem;">
                 <center>
                     <div class="text-center">
                         <asp:LinkButton ID="btnUpdate" runat="server" CssClass="btn-animated bg-green"
@@ -4100,13 +4089,13 @@ input.form-control {
 </asp:LinkButton>--%>
                         
                         <%--Changes by Rahul for asp link button to asp buttonon 11/06/2025--%>
-                        <asp:Button ID="btnprevcd" runat="server" 
+                        <%--<asp:Button ID="btnprevcd" runat="server" 
      CssClass="btn-animated btn-primary"
      Text="PREVIOUS" TabIndex="2" 
      UseSubmitBehavior="false"
      OnClick="btnprevcd_Click"
      OnClientClick="reInitializeDropZone();" 
-     Style="width: 13rem; padding-left:2.5rem; font-size: initial; border-radius: 5rem;" />
+     Style="width: 13rem; padding-left:2.5rem; font-size: initial; border-radius: 5rem;" />--%>
 
 
                         <%--ended by babita--%>  
@@ -4125,7 +4114,7 @@ input.form-control {
                         </div>
 
                                 <%--Edit by rahul ASP Link button to ASP Buttonon 11/06/2025--%>
-                            <asp:Button ID="btnnextpas" runat="server" 
+                            <%--<asp:Button ID="btnnextpas" runat="server" 
                                 CssClass="btn-animated btn-primary"
                                 Text="NEXT" TabIndex="2" 
                                 UseSubmitBehavior="false"
@@ -4135,12 +4124,51 @@ input.form-control {
                                                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
 <ContentTemplate>
                         <asp:LinkButton ID="btnSave" OnClick="btnSave_Click_ReKyc"
-                            CssClass="btn-animated bg-green" runat="server" TabIndex="2" Style="display: none;">
+                            CssClass="btn-animated btn-primary" runat="server" TabIndex="2" Style="display: none;">
                             <asp:HiddenField ID="TabName" runat="server" />
                             <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span>Save
                         </asp:LinkButton>
                             </ContentTemplate>
-</asp:UpdatePanel>
+</asp:UpdatePanel>--%>
+                        <div class="row" style="margin-top: 2rem;">
+    <!-- Left Side: Previous Button -->
+    <div class="col-sm-3" align="left">
+        <asp:Button ID="btnprevcd" runat="server"
+            CssClass="btn-animated btn-primary"
+            Text="PREVIOUS" TabIndex="2"
+            UseSubmitBehavior="false"
+            OnClick="btnprevcd_Click"
+            OnClientClick="reInitializeDropZone();"
+            Style="width: 13rem; padding-left: 2.5rem; font-size: initial; border-radius: 5rem;" />
+    </div>
+
+    <!-- Right Side: NEXT/SAVE Buttons in Same Spot -->
+    <div class="col-sm-3" align="right" id="buttonContainer" style="position: relative;margin-left: 603px;">
+        <!-- NEXT Button -->
+        <asp:Button ID="btnnextpas" runat="server"
+            CssClass="btn-animated btn-primary"
+            Text="NEXT" TabIndex="2"
+            UseSubmitBehavior="false"
+            OnClick="btnnextpas_Click"
+            Style="width: 13rem; font-size: initial; padding-left: 4.4rem; border-radius: 5rem;" />
+
+        <!-- SAVE Button -->
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server" >
+            <ContentTemplate>
+                <asp:LinkButton ID="btnSave" OnClick="btnSave_Click_ReKyc"
+                    CssClass="btn-animated btn-primary"
+                    runat="server" TabIndex="2"
+                    Style="width: 13rem; font-size: initial; padding-left: 4.4rem; border-radius: 5rem; display: none;">
+                    <asp:HiddenField ID="TabName" runat="server" />
+                    <span class="glyphicon glyphicon-floppy-disk BtnGlyphicon"></span> Save
+                </asp:LinkButton>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+</div>
+
+
+
                     </div>
                 </center>
             </div>

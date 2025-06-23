@@ -2067,6 +2067,24 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.TextBox txtMobile2;
 
         /// <summary>
+        /// LBL_OTP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LBL_OTP;
+
+        /// <summary>
+        /// txtOtp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOtp;
+
+        /// <summary>
         /// divMob2 control.
         /// </summary>
         /// <remarks>
@@ -2679,15 +2697,6 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         protected global::System.Web.UI.WebControls.HiddenField HiddenField6;
 
         /// <summary>
-        /// btnprevcd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnprevcd;
-
-        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -2713,6 +2722,15 @@ namespace KMI.FRMWRK.Web.Application.CKYC
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage Img1;
+
+        /// <summary>
+        /// btnprevcd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnprevcd;
 
         /// <summary>
         /// btnnextpas control.
