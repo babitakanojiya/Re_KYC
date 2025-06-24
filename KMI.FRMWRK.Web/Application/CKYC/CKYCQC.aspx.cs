@@ -3156,7 +3156,6 @@ namespace KMI.FRMWRK.Web.Application.CKYC
 
 
         // 13-06-2025 fo showing carousal:
-
         protected void Fillimagedata()
         {
             try
@@ -3165,7 +3164,7 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 cbNew.Checked = true;
 
                 DataAccessLayer objDAL = new DataAccessLayer("CKYCConnectionString");
-                //objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+
                 if (hdnRegRefNo.Value.Length == 8)
                 {
                     objht.Add("@regrefno2", hdnRegRefNo.Value);
@@ -3173,16 +3172,36 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 else if (hdnRegRefNo.Value.Length == 14)
                 {
                     objht.Add("@RegRefNo1", hdnRegRefNo.Value);
-
                 }
-                objds = objDAL.GetDataSet("Prc_GetImageforqcpage", objht);
 
+                //objds = objDAL.GetDataSet("Prc_GetImageforqcpage", objht);
+
+                objds = objDAL.GetDataSet("Prc_Getdocnameandnumber", objht);
+
+                // Bind Dropdown (from second table)
+                if (objds != null && objds.Tables.Count > 1 && objds.Tables[1].Rows.Count > 0)
+                {
+                    foreach (DataRow row in objds.Tables[1].Rows)
+                    {
+                        // ✅ If idname is PHOTO, set idno as empty
+                        if (row["idname"].ToString().Trim().ToUpper() == "PHOTO")
+                        {
+                            row["idno"] = "Null"; // Set ID No to empty if the document is PHOTO
+                        }
+                    }
+                    ddlDocType.DataSource = objds.Tables[1];
+                    ddlDocType.DataTextField = "idname";
+                    ddlDocType.DataValueField = "idno";
+                    ddlDocType.DataBind();
+                    ddlDocType.Items.Insert(0, new ListItem("Select Document", ""));
+                }
+
+
+                // Build Carousel (from first table)
                 if (objds != null && objds.Tables.Count > 0 && objds.Tables[0].Rows.Count > 0)
                 {
                     StringBuilder sb = new StringBuilder();
-
-                    // ✅ Removed data-ride and added data-interval='false' to stop auto-slide
-                    sb.Append("<div id='carouselImages' class='carousel slide' data-interval='false'>");
+                    sb.Append("<div id='carouselImages' class='carousel slide' data-ride='carousel' data-interval='false'>");
                     sb.Append("<div class='carousel-inner'>");
 
                     int index = 0;
@@ -3194,17 +3213,18 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                             string base64Image = Convert.ToBase64String(imageBytes);
                             string imgSrc = "data:image/jpeg;base64," + base64Image;
 
-                            sb.AppendFormat("<div class='carousel-item {0}'>", index == 0 ? "active" : "");
+                            string docId = row["idno"].ToString();
+                            string docName = row["idname"].ToString();
+
+                            sb.AppendFormat("<div class='carousel-item {0}' data-docid='{1}' data-docname='{2}'>", index == 0 ? "active" : "", docId, docName);
                             sb.AppendFormat("<img src='{0}' class='d-block w-100' style='height:300px; object-fit:contain;' />", imgSrc);
                             sb.Append("</div>");
-
                             index++;
                         }
                     }
 
                     sb.Append("</div>"); // Close carousel-inner
 
-                    // ✅ Manual navigation arrows
                     sb.Append(@"
                 <a class='carousel-control-prev' href='#carouselImages' role='button' data-slide='prev'>
                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
@@ -3240,6 +3260,113 @@ namespace KMI.FRMWRK.Web.Application.CKYC
                 }
             }
         }
+        protected void ddlDocType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedDocName = ddlDocType.SelectedItem.Text;
+            string selectedDocID = ddlDocType.SelectedValue;
+
+            // Display Document ID in Textbox
+            txtDocNumber.Text = selectedDocID;
+
+            if (selectedDocName.ToUpper().Contains("AADHAR"))
+            {
+                // Show Aadhaar Mask Format
+                maskContainer.Style["display"] = "flex";
+                normalContainer.Style["display"] = "none";
+
+                txtMaskCodeno.Text = "X X X X X X X X";
+                txtmaskadhar.Text = selectedDocID.Substring(selectedDocID.Length - 4); // Show last 4 digits
+            }
+            else
+            {
+                // Show Normal Textbox
+                maskContainer.Style["display"] = "none";
+                normalContainer.Style["display"] = "block";
+            }
+        }
+        //protected void Fillimagedata()
+        //{
+        //    try
+        //    {
+        //        objht.Clear();
+        //        cbNew.Checked = true;
+
+        //        DataAccessLayer objDAL = new DataAccessLayer("CKYCConnectionString");
+        //        //objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+        //        if (hdnRegRefNo.Value.Length == 8)
+        //        {
+        //            objht.Add("@regrefno2", hdnRegRefNo.Value);
+        //        }
+        //        else if (hdnRegRefNo.Value.Length == 14)
+        //        {
+        //            objht.Add("@RegRefNo1", hdnRegRefNo.Value);
+
+        //        }
+        //        objds = objDAL.GetDataSet("Prc_GetImageforqcpage", objht);
+
+        //        if (objds != null && objds.Tables.Count > 0 && objds.Tables[0].Rows.Count > 0)
+        //        {
+        //            StringBuilder sb = new StringBuilder();
+
+        //            // ✅ Removed data-ride and added data-interval='false' to stop auto-slide
+        //            sb.Append("<div id='carouselImages' class='carousel slide' data-interval='false'>");
+        //            sb.Append("<div class='carousel-inner'>");
+
+        //            int index = 0;
+        //            foreach (DataRow row in objds.Tables[0].Rows)
+        //            {
+        //                if (row["IMAGE"] != DBNull.Value)
+        //                {
+        //                    byte[] imageBytes = (byte[])row["IMAGE"];
+        //                    string base64Image = Convert.ToBase64String(imageBytes);
+        //                    string imgSrc = "data:image/jpeg;base64," + base64Image;
+
+        //                    sb.AppendFormat("<div class='carousel-item {0}'>", index == 0 ? "active" : "");
+        //                    sb.AppendFormat("<img src='{0}' class='d-block w-100' style='height:300px; object-fit:contain;' />", imgSrc);
+        //                    sb.Append("</div>");
+
+        //                    index++;
+        //                }
+        //            }
+
+        //            sb.Append("</div>"); // Close carousel-inner
+
+        //            // ✅ Manual navigation arrows
+        //            sb.Append(@"
+        //        <a class='carousel-control-prev' href='#carouselImages' role='button' data-slide='prev'>
+        //            <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+        //            <span class='sr-only'>Previous</span>
+        //        </a>
+        //        <a class='carousel-control-next' href='#carouselImages' role='button' data-slide='next'>
+        //            <span class='carousel-control-next-icon' aria-hidden='true'></span>
+        //            <span class='sr-only'>Next</span>
+        //        </a>
+        //    ");
+
+        //            sb.Append("</div>"); // Close main carousel
+
+        //            divSearchResult.InnerHtml = sb.ToString();
+        //        }
+        //        else
+        //        {
+        //            divSearchResult.InnerHtml = "<p>No image(s) found.</p>";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (string.IsNullOrWhiteSpace(Convert.ToString(Session["UserID"])))
+        //        {
+        //            Response.Redirect("~/ErrorSession.aspx");
+        //        }
+        //        else
+        //        {
+        //            string currentFile = new System.Diagnostics.StackTrace(true).GetFrame(0).GetFileName();
+        //            System.Reflection.MethodBase method = System.Reflection.MethodBase.GetCurrentMethod();
+        //            objErr.LogErr(AppId, "CKYCQC.aspx.cs", method.Name.ToString(), ex.InnerException == null ? ex.Message : ex.Message + " | " + ex.InnerException.ToString(), strUserId, "USRMGMT");
+        //            throw;
+        //        }
+        //    }
+        //}
 
 
     }
