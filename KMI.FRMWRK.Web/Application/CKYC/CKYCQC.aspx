@@ -12,7 +12,8 @@
     <!-- Include Cropper.js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <%--added by babita--%>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
  <!--Strt Rahul carousal on 13-06-2025 -->
 <%--<script>
@@ -31,7 +32,141 @@
         });
     });
 </script>--%>
+    <%--added by babita--%>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // On page load → Set initial data
+        updateActiveSlideData();
 
+        // ✅ Use 'slid.bs.carousel' to capture when the slide completes
+        $('#carouselImages').on('slid.bs.carousel', function () {
+            updateActiveSlideData();
+        });
+
+        // ✅ Optional: Handle button clicks with slight delay for safety
+        $('#next, #previous').click(function () {
+            setTimeout(function () {
+                updateActiveSlideData();
+            }, 600); // Delay matches carousel slide time (500ms to 600ms)
+        });
+    });
+
+    // ✅ Main function to update data based on active slide
+    function updateActiveSlideData() {
+        debugger;
+        var activeSlide = $('#carouselImages .carousel-item.active');
+
+        if (activeSlide.length > 0) {
+            var docId = activeSlide.attr('data-docid');   // Will be 'Null' for PHOTO
+            var docName = activeSlide.attr('data-docname'); // 'PHOTO'
+
+            // ✅ Always select the document in the dropdown
+            $('#<%= ddlDocType.ClientID %>').val(docId);
+
+            // ✅ Always update the normal textbox
+            if (docName && docName.trim().toUpperCase() === 'PHOTO') {
+                // If image is PHOTO → show 'Null' text
+                $('#<%= txtDocNumber.ClientID %>').val('Null');
+
+        // Hide Aadhaar and Masked fields
+        $('#<%= maskContainer.ClientID %>').hide();
+        $('#<%= normalContainer.ClientID %>').show(); // Show normal field if it's hidden
+    }
+    else {
+        // If image is not PHOTO → show the ID number in the textbox
+        $('#<%= txtDocNumber.ClientID %>').val(docId);
+
+        // Aadhaar Format Check
+        if (docName && docName.toUpperCase().includes('AADHAR')) {
+            $('#<%= maskContainer.ClientID %>').css('display', 'flex');
+            $('#<%= normalContainer.ClientID %>').hide();
+
+            $('#<%= txtMaskCodeno.ClientID %>').val('X X X X X X X X');
+            $('#<%= txtmaskadhar.ClientID %>').val(docId.slice(-4));
+        } else {
+            $('#<%= maskContainer.ClientID %>').hide();
+                    $('#<%= normalContainer.ClientID %>').show();
+                }
+            }
+        }
+    }
+
+
+</script>
+<%--ended by babita--%>
+    <script type="text/javascript">
+        //Added By Hrutik
+
+
+        function onVerifyClick(otpTextboxId, spinnerId, otpSectionId) {
+            debugger;
+            const spinner = document.getElementById(spinnerId);
+            const otpSection = document.getElementById(otpSectionId);
+            var otpInput = document.getElementById(otpTextboxId);
+
+            if (!otpInput) {
+                alert("OTP input not found.");
+                return false;
+            }
+
+            var otp = otpInput.value.trim();
+
+            if (otp === "") {
+                alert("Please enter a valid 4-digit OTP.");
+                otpInput.focus();
+                return false;
+            }
+
+            if (!/^\d{4}$/.test(otp)) {
+                alert("OTP must be exactly 4 digits.");
+                otpInput.focus();
+                return false;
+            }
+
+            // ✅ OTP is valid
+            alert("OTP verified successfully!");
+            // Reset display
+            spinner.style.display = "none";
+            otpSection.style.display = "none";
+            otpInput.value = ""
+            return true; // Allow postback to server
+        }
+
+
+        function showOtpSection(input, spinnerId, otpSectionId) {
+            const value = input.value.trim();
+            const spinner = document.getElementById(spinnerId);
+            const otpSection = document.getElementById(otpSectionId);
+
+            // Reset display
+            spinner.style.display = "none";
+            otpSection.style.display = "none";
+
+            // Validate input (mobile or email) based on passed parameter or input type
+            let isValid = false;
+
+            // If you want to check mobile number validation for the first spinner
+            if (spinnerId === "spinner") {
+                isValid = /^[6-9]\d{9}$/.test(value); // Mobile validation
+            } else if (spinnerId === "spinner1") {
+                // You can add email validation here
+                isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); // Simple email validation regex
+            }
+
+            if (isValid) {
+                spinner.style.display = "inline-block";
+
+                setTimeout(function () {
+                    spinner.style.display = "none";
+                    otpSection.style.display = "flex"; // Show OTP and Verify
+                }, 2000);
+            } else {
+                console.log("Invalid input format. Spinner not shown.");
+            }
+        }
+
+        //Ended By Hrutik
+    </script>
   <script>
       $(document).ready(function () {
           $('#customCarousel').carousel({
@@ -1349,31 +1484,69 @@
 </button>
 </div>--%>
                                         <div class="row">
-                                            <div class="col-sm-12" style="text-align: right;">
-                                                <%--added by babita --%>
-                                                <%--              <asp:Panel ID="panel1" runat="server" Style="height: 200px; overflow: hidden; overflow-x: scroll;">
-     <div id="divSearchResult" runat="server">
-       
-     </div>
- </asp:Panel>--%>
-                                                <%--                                <%--<asp:Panel ID="panel1" runat="server" Style="height: 200px;  margin-left: 40rem;">
-                                    <div id="divSearchResult" runat="server"
-                                        style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; margin-right: 1290px;">
-                                    </div>
-                                </asp:Panel>--%>
+                                                                                        <%--added by babita on 24 june 2025--%>
+                                            <div class="col-sm-6" >
+                                                <div style="flex: 1; max-width: 580px; min-width: 490px;">
+    <asp:UpdatePanel runat="server" ID="updDocPanel">
+        <ContentTemplate>
 
-                                                <%-- changing PANEL OF Babita  --%>
-                                                <%-- <asp:Panel ID="panel1" runat="server" ClientIDMode="Static" 
-                                       Style="width: 600px; height: 300px; overflow: hidden; margin-left: 33rem;">
-                                <div id="divSearchResult" runat="server"></div>
-                            </asp:Panel>--%>
+            <!-- Row Wrapper -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-bottom: 1rem; font-size: 1.4rem;">
+
+                <!-- Document Type -->
+                <div style="display: flex; align-items: center;">
+                    <label for="<%= ddlDocType.ClientID %>" style="margin-right: 8px; white-space: nowrap;">Document Type</label>
+                   <asp:DropDownList ID="ddlDocType" runat="server"
+    CssClass="form-control"
+    Style="width: 296px; height: 38px;">
+    <asp:ListItem Text="Select Document" Value="" />
+</asp:DropDownList>
+
+                </div>
+
+                <!-- Identity No. Section -->
+                <div id="showdoctextbox" runat="server" visible="true" style="display: flex; align-items: center;">
+                    <label style="margin-right: 8px; white-space: nowrap;">Identity No.</label>
+
+                    <!-- Aadhaar Format -->
+                    <div id="maskContainer" runat="server" style="display:none; margin-top: 10px;">
+    <asp:TextBox ID="txtMaskCodeno" runat="server" CssClass="form-control" Text="X X X X X X X X" MaxLength="8" ReadOnly="true" Style="width: 130px;" />
+    <asp:TextBox ID="txtmaskadhar" runat="server" CssClass="form-control" MaxLength="4" Style="width: 100px;" />
+</div>
+
+
+                    <!-- Normal Format -->
+                   <div id="normalContainer" runat="server" style="display:none; margin-top: 10px;">
+    <asp:TextBox ID="txtDocNumber" runat="server" CssClass="form-control" Placeholder="Enter document number" Style="width: 200px;" />
+</div>
+
+                </div>
+
+            </div>
+
+            <!-- Add Button -->
+            <%--<div>
+                <asp:Button ID="btnAddDoc" runat="server"
+                    Text="UPLOAD DOCUMENT"
+                    Style="height: 38px; width: 160px; border: none; border-radius: 2rem; font-weight: 600; background-color: #e9e9e9;" />
+            </div>--%>
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</div>
+
+                                            </div>
+                                            <%--ended by babita--%>
+                                            <div class="col-sm-6" >
+                                                <%--added by babita --%>
+                                                
 
 
 
                                                 <%--Carousel--%>
 
                                                 <asp:Panel ID="panel1" runat="server" CssClass="carousel-frame" ClientIDMode="Static"
-                                                    Style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5px; margin: 0rem 0rem 0rem 60rem;">
+                                                    Style="display: flex; flex-direction: column; align-items: center; justify-content: center; ">
 
                                                     <!-- Carousel Frame Wrapper -->
                                                     <div style="position: relative; width: 350px; height: 300px; /*border: 1px solid blue;*/ overflow: hidden;">
@@ -1396,21 +1569,22 @@
 
                                                         </div>
 
-                                                        
+
+
                                                     </div>
                                                     <!-- Left Arrow (absolute to left) -->
-                                                        <a class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev"
-                                                            style="position: absolute; top: 44%; left: 100px; transform: translateY(-50%);  ">
-                                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
+                                                    <a id="previous" class="carousel-control-prev" href="#carouselImages" role="button" data-slide="prev"
+                                                        style="position: absolute; top: 44%; left: 100px; transform: translateY(-50%);">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
 
-                                                        <!-- Right Arrow (absolute to right) -->
-                                                        <a class="carousel-control-next" href="#carouselImages" role="button" data-slide="next"
-                                                            style="position: absolute; top: 44%; right: 100px; transform: translateY(-50%); ">
-                                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
+                                                    <a id="next" class="carousel-control-next" href="#carouselImages" role="button" data-slide="next"
+                                                        style="position: absolute; top: 44%; right: 100px; transform: translateY(-50%);">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+
 
 
 
@@ -1448,10 +1622,7 @@
 
 
 
-                                                <div class="col-sm-12" style="text-align: left; display: flex;">
-                                                    <asp:CheckBox ID="CheckBox1" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
-                                                        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue;" onclick="checkAnyBoxSelected(); handleCheckboxClick();" />
-                                                </div>
+                                                
 
 
                                                 <%--ended by babita --%>
@@ -1515,6 +1686,10 @@
                                                 </asp:UpdatePanel>
                                             </div>
                                         </div>
+                                        <div class="col-sm-12" style="text-align: left; display: flex;">
+    <asp:CheckBox ID="CheckBox1" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
+        CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue;" onclick="checkAnyBoxSelected(); handleCheckboxClick();" />
+</div>
                                         <div>
                                             <div class="col-sm-3" style="text-align: left; display: none">
 
@@ -2667,11 +2842,41 @@
                                             <span class="input-group-addon input-group-addon-tel" style="padding:0px 0px;">
                                                 <asp:TextBox ID="txtMobile" runat="server" CssClass="form-control" TabIndex="79" onkeypress="fncInputNumericValuesOnly();" MaxLength="3" Style="border-top-left-radius: 4px; border-bottom-left-radius: 4px;  width: 50px;"></asp:TextBox>
                                             </span>
-                                            <asp:TextBox ID="txtMobile2" runat="server" CssClass="form-control" onkeypress="fncInputNumericValuesOnly();"
-                                                MaxLength="10" TabIndex="80"></asp:TextBox>
+                                            <div style="display:flex">
+                                             <asp:TextBox ID="txtMobile2" runat="server" CssClass="form-control" onkeypress="fncInputNumericValuesOnly();"
+     onblur="showOtpSection(this, 'spinner', 'otpSection');"
+     MaxLength="10" TabIndex="80"></asp:TextBox>
+                                                <%--Added By Hrutik--%>
+<!-- Spinner -->
+<img id="spinner" src="Common/Images/spinner.gif" style="display: none; width: 25px; height: 33px; padding: 3px;" />
+<%--Ended By Hrutik--%>
                                         </div>
                                     </div>
-                                
+                                   </div>
+                                    
+                                    <%--Added By Hrutik--%>
+<div class="col-sm-3">
+
+    <!-- OTP Section (Initially Hidden) -->
+    <div id="otpSection" style="display: none;">
+
+
+        <asp:Label ID="LBL_OTP" runat="server" CssClass="control-label" Text="Enter OTP" Style="padding: 1rem;width:22rem;"></asp:Label>
+        <asp:TextBox ID="txtOtp" runat="server" MaxLength="4" class="form-control" />
+        <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+            <ContentTemplate>
+                <asp:Button runat="server" Text="VERIFY" ID="btnVerify" Class="btn btn-lg"
+                    Style="background-color: #007bff; color: white; width: 13rem; height: 3.7rem; font-size: initial; border-radius: 5rem; padding: 0rem 1rem; margin: 0rem 1rem"
+                    OnClientClick="return onVerifyClick('EmptyPagePlaceholder_txtOtp','spinner', 'otpSection');" />
+                <%--OnClientClick="return onVerifyClick('<%= txtOtp.ClientID %>');"/>--%>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+    </div>
+
+</div>
+
+<%--Ended By Hrutik--%>
                                     <%--Added By Shubham--%>
                                     <div id="divMob2" runat="server" style="display:none">
                                     <div class="col-sm-3" style="text-align: left">
@@ -2714,10 +2919,38 @@
                                     <div class="col-sm-3" style="text-align: left">
                                         <asp:Label ID="lblpfemail" runat="server" Text="" CssClass="control-label"></asp:Label>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <asp:TextBox ID="txtemail" runat="server" CssClass="form-control" MaxLength="100"
-                                            TabIndex="83"></asp:TextBox>
-                                    </div>
+                                     <div class="col-sm-3" style="display:flex">
+     <asp:TextBox ID="txtemail" runat="server" CssClass="form-control" MaxLength="100"
+         TabIndex="83"
+         onblur="showOtpSection(this, 'spinner1', 'otpSection1')"></asp:TextBox>
+  <%--Added By Hrutik--%>
+ <!-- Spinner -->
+ <img id="spinner1" src="Common/Images/spinner.gif" style="display: none; width: 25px; height: 33px; padding: 3px;" />
+  <%--Ended By Hrutik--%>
+
+ </div>
+ <%--Added By Hrutik--%>
+<div class="col-sm-3">
+
+    <!-- OTP Section (Initially Hidden) -->
+    <div id="otpSection1" style="display: none;">
+
+
+        <asp:Label ID="LBL_OTP1" runat="server" CssClass="control-label" Text="Enter OTP" Style="padding: 1rem;width:22rem;"></asp:Label>
+        <asp:TextBox ID="txtOtp1" runat="server" MaxLength="4" class="form-control" />
+
+        <asp:UpdatePanel ID="UpdatePanel9" runat="server">
+            <ContentTemplate>
+                <asp:Button runat="server" Text="VERIFY" ID="btnVerify1" class="btn btn-lg"
+                    Style="background-color: #007bff; color: white; width: 13rem; height: 3.7rem; font-size: initial; border-radius: 5rem; padding: 0rem 1rem; margin: 0rem 1rem"
+                    OnClientClick="return onVerifyClick('EmptyPagePlaceholder_txtOtp1', 'spinner1', 'otpSection1');" />
+                <%--VERIFY</asp:Button>--%>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+
+</div>
+<%--Ended By Hrutik--%>
                                     <div class="col-sm-12" style="text-align: left; display: flex;">
                                         <asp:CheckBox ID="CheckBox3" ClientIDMode="Static" Text="Check this box if any details in this segment has changed and needs to be modified"
                                             CssClass="control-label" AutoPostBack="false" runat="server" TabIndex="2" Style="color: blue; margin-top: 1rem" onclick="checkAnyBoxSelected(); handleCheckboxClick();"/>

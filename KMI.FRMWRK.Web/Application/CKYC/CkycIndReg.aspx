@@ -165,30 +165,76 @@
     </style>
     <script type="text/javascript">
         //Added By Hrutik
-        function showOtpSection(input) {
-            const mobile = input.value.trim();
-            const spinner = document.getElementById("spinner");
-            const otpSection = document.getElementById("otpSection");
+
+
+        function onVerifyClick(otpTextboxId, spinnerId, otpSectionId) {
+            debugger;
+            const spinner = document.getElementById(spinnerId);
+            const otpSection = document.getElementById(otpSectionId);
+            var otpInput = document.getElementById(otpTextboxId);
+
+            if (!otpInput) {
+                alert("OTP input not found.");
+                return false;
+            }
+
+            var otp = otpInput.value.trim();
+
+            if (otp === "") {
+                alert("Please enter a valid 4-digit OTP.");
+                otpInput.focus();
+                return false;
+            }
+
+            if (!/^\d{4}$/.test(otp)) {
+                alert("OTP must be exactly 4 digits.");
+                otpInput.focus();
+                return false;
+            }
+
+            // ✅ OTP is valid
+            alert("OTP verified successfully!");
+            // Reset display
+            spinner.style.display = "none";
+            otpSection.style.display = "none";
+            otpInput.value = ""
+            return true; // Allow postback to server
+        }
+
+
+        function showOtpSection(input, spinnerId, otpSectionId) {
+            const value = input.value.trim();
+            const spinner = document.getElementById(spinnerId);
+            const otpSection = document.getElementById(otpSectionId);
 
             // Reset display
             spinner.style.display = "none";
             otpSection.style.display = "none";
 
-            // Validate mobile number (Indian format)
-            if (/^[6-9]\d{9}$/.test(mobile)) {
-                // Show spinner
+            // Validate input (mobile or email) based on passed parameter or input type
+            let isValid = false;
+
+            // If you want to check mobile number validation for the first spinner
+            if (spinnerId === "spinner") {
+                isValid = /^[6-9]\d{9}$/.test(value); // Mobile validation
+            } else if (spinnerId === "spinner1") {
+                // You can add email validation here
+                isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); // Simple email validation regex
+            }
+
+            if (isValid) {
                 spinner.style.display = "inline-block";
 
-                // Simulate delay (e.g., API call or processing)
                 setTimeout(function () {
                     spinner.style.display = "none";
                     otpSection.style.display = "flex"; // Show OTP and Verify
                 }, 2000);
             } else {
-                console.log("Invalid mobile number format. Spinner not shown.");
+                console.log("Invalid input format. Spinner not shown.");
             }
         }
-        ///End by Hrutik
+
+        //Ended By Hrutik
 
         function AddLoader(id) {
             var div = document.getElementById(id);
@@ -3346,36 +3392,45 @@ input.form-control {
             TabIndex="2"
             onkeypress="fncInputNumericValuesOnly();"
             Style="max-width: 70px; border-top-right-radius: 0; border-bottom-right-radius: 0;"></asp:TextBox>
-            <asp:TextBox ID="txtMobile2" runat="server"
-CssClass="form-control"
-MaxLength="10" 
-TabIndex="2"
-onkeypress="return fncInputNumericValuesOnly(event);" 
-onblur="validateMobileNumber(this);showOtpSection(this);"
-Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
+              <asp:TextBox ID="txtMobile2" runat="server"
+      CssClass="form-control"
+      MaxLength="10"
+      TabIndex="2"
+      onkeypress="return fncInputNumericValuesOnly(event);"
+      onblur="validateMobileNumber(this);showOtpSection(this, 'spinner', 'otpSection');"
+      Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
 
               <%--Added By Hrutik--%>
         <!-- Spinner -->
-<img id="spinner" src="Common/Images/spinner.gif" style="display:none;width: 25px;height: 33px;padding: 3px;" />
+ <img id="spinner" src="Common/Images/spinner.gif" style="display: none; width: 25px; height: 33px; padding: 3px;" />
     </div>
 </div>
 
                             </div>
-                                        <%--Added By Hrutik--%>
+<%--Added By Hrutik--%>
 <div class="col-sm-6">
 
-<!-- OTP Section (Initially Hidden) -->
-    <div id="otpSection"  style="display:none;">
+    <!-- OTP Section (Initially Hidden) -->
+    <div id="otpSection" style="display: none;">
 
 
-             <asp:Label ID="LBL_OTP" runat="server" CssClass="control-label" Text="Enter OTP" style="padding:1rem"></asp:Label>
-            <asp:TextBox ID="txtOtp" runat="server"  Type="text" maxlength="4" class="form-control" />
-            <button type="button" id="btnVerify" class="btn btn-lg" style="background-color:#1f50a7; color: white; width: 13rem;height:4rem;
-            font-size: initial; border-radius: 5rem; font-weight:600;padding:1rem" >VERIFY</button>
+        <asp:Label ID="LBL_OTP" runat="server" CssClass="control-label" Text="Enter OTP" Style="padding: 1rem"></asp:Label>
+        <asp:TextBox ID="txtOtp" runat="server" MaxLength="4" class="form-control" />
+        <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+            <ContentTemplate>
+                <asp:Button runat="server" Text="VERIFY" ID="btnVerify" Class="btn btn-lg"
+                    Style="background-color: #007bff; color: white; width: 13rem; height: 3.7rem; font-size: initial; border-radius: 5rem; padding: 0rem 1rem; margin: 0rem 1rem"
+                    OnClientClick="return onVerifyClick('EmptyPagePlaceholder_txtOtp','spinner', 'otpSection');" />
+                <%--OnClientClick="return onVerifyClick('<%= txtOtp.ClientID %>');"/>--%>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
     </div>
 
 </div>
+
+<%--Ended By Hrutik--%>
+
                             <%--Added By Shubham--%>
                             <div id="divMob2" runat="server" visible="false">
                                 <div class="col-sm-3" style="text-align: left">
@@ -3425,10 +3480,15 @@ Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
                             <div class="col-sm-3" style="text-align: left">
                                 <asp:Label ID="lblpfemail" runat="server" Text="" CssClass="control-label"></asp:Label>
                             </div>
-                            <div class="col-sm-3">
-                                <asp:TextBox ID="txtemail" runat="server" CssClass="form-control" MaxLength="100" onblur="validateEmail(this)"
-                                    TabIndex="2"></asp:TextBox>
-                            </div>
+                            <div class="col-sm-3" style="display: flex">
+    <asp:TextBox ID="txtemail" runat="server" CssClass="form-control"
+        MaxLength="100" onblur="validateEmail(this);showOtpSection(this, 'spinner1', 'otpSection1')"
+        TabIndex="2"></asp:TextBox>
+    <%--Added By Hrutik--%>
+    <!-- Spinner -->
+    <img id="spinner1" src="Common/Images/spinner.gif" style="display: none; width: 25px; height: 33px; padding: 3px;" />
+     <%--Ended By Hrutik--%>
+</div>
                             <%--Added By Shubham--%>
                             <div id="divEmail2" runat="server" visible="false">
                                 <div class="col-sm-3" style="text-align: left">
@@ -3441,6 +3501,28 @@ Style="border-top-left-radius: 0; border-bottom-left-radius: 0;"></asp:TextBox>
                                 </div>
                             </div>
                             <%--Ended By Shubham--%>
+                            <%--Added By Hrutik--%>
+<div class="col-sm-6">
+
+    <!-- OTP Section (Initially Hidden) -->
+    <div id="otpSection1" style="display: none;">
+
+
+        <asp:Label ID="LBL_OTP1" runat="server" CssClass="control-label" Text="Enter OTP" Style="padding: 1rem"></asp:Label>
+        <asp:TextBox ID="txtOtp1" runat="server" MaxLength="4" class="form-control" />
+
+        <asp:UpdatePanel ID="UpdatePanel9" runat="server">
+            <ContentTemplate>
+                <asp:Button runat="server" Text="VERIFY" ID="btnVerify1" class="btn btn-lg"
+                    Style="background-color: #007bff; color: white; width: 13rem; height: 3.7rem; font-size: initial; border-radius: 5rem; padding: 0rem 1rem; margin: 0rem 1rem"
+                    OnClientClick="return onVerifyClick('EmptyPagePlaceholder_txtOtp1', 'spinner1', 'otpSection1');" />
+                <%--VERIFY</asp:Button>--%>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+
+</div>
+<%--Ended By Hrutik--%>
                         </div>
                     </div>
 
