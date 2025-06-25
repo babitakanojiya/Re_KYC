@@ -175,6 +175,109 @@
       });
   </script>
 
+
+
+
+    <%-- For Blur Script Start --%>
+    <style>
+    .selection-area {
+    position: fixed;                 /* Use fixed, because JS uses getBoundingClientRect() */
+    border: 2px dashed #000;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: crosshair;
+    display: none;
+    z-index: 9999;                   /* High z-index to show over everything */
+}
+
+.blurred-region {
+    position: fixed;                 /* Also fixed, to align with selection-area */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9998;                   /* Slightly below selection area for visibility */
+    pointer-events: none;            /* Allow clicks to pass through blurred area */
+}
+
+</style>
+   <script>
+       let isSelecting = false;
+       let startX, startY;
+       let selectionArea = document.getElementById('selectionArea');
+
+       function enableBlur() {
+           isSelecting = true;
+           document.getElementById("btnblurOk").style.display = "inline-block";
+           selectionArea.style.display = "none";
+           selectionArea.style.width = 0;
+           selectionArea.style.height = 0;
+
+           let activeImg = document.querySelector('.carousel-item.active img');
+           if (activeImg) {
+               activeImg.addEventListener('mousedown', startSelection);
+               document.addEventListener('mouseup', endSelection);
+               document.addEventListener('mousemove', updateSelection);
+           }
+       }
+
+       function startSelection(e) {
+           if (!isSelecting) return;
+
+           let activeImg = document.querySelector('.carousel-item.active img');
+           const rect = activeImg.getBoundingClientRect();
+           startX = e.clientX - rect.left;
+           startY = e.clientY - rect.top;
+
+           selectionArea.style.left = `${rect.left}px`;
+           selectionArea.style.top = `${rect.top}px`;
+           selectionArea.style.width = '0px';
+           selectionArea.style.height = '0px';
+           selectionArea.style.display = 'block';
+       }
+
+       function updateSelection(e) {
+           if (!isSelecting) return;
+
+           let activeImg = document.querySelector('.carousel-item.active img');
+           const rect = activeImg.getBoundingClientRect();
+           const currentX = e.clientX - rect.left;
+           const currentY = e.clientY - rect.top;
+
+           const width = Math.abs(currentX - startX);
+           const height = Math.abs(currentY - startY);
+
+           selectionArea.style.left = `${Math.min(currentX + rect.left, startX + rect.left)}px`;
+           selectionArea.style.top = `${Math.min(currentY + rect.top, startY + rect.top)}px`;
+           selectionArea.style.width = `${width}px`;
+           selectionArea.style.height = `${height}px`;
+       }
+
+       function endSelection() {
+           if (!isSelecting) return;
+           document.removeEventListener('mousemove', updateSelection);
+           document.removeEventListener('mouseup', endSelection);
+       }
+
+       function applyBlur() {
+           isSelecting = false;
+           document.getElementById("btnblurOk").style.display = "none";
+
+           const blurredDiv = document.createElement('div');
+           blurredDiv.classList.add('blurred-region');
+
+           blurredDiv.style.position = 'fixed'; // absolute relative to viewport for matching selectionArea position
+           blurredDiv.style.left = selectionArea.style.left;
+           blurredDiv.style.top = selectionArea.style.top;
+           blurredDiv.style.width = selectionArea.style.width;
+           blurredDiv.style.height = selectionArea.style.height;
+
+           document.body.appendChild(blurredDiv);
+
+           selectionArea.style.display = "none";
+       }
+   </script>
+   <%-- For Blur Script End --%>
+
+
+
     <%-- For crop --%>
     <script>
         let cropper;
@@ -1606,6 +1709,15 @@
                                                         <span id="btncrop" class="btn btn-default"  onclick="enableCrop()">
                                                             <i class="fas fa-crop"></i>
                                                         </span>
+
+                                                        <%-- For blur --%>
+                                                        <span id="btnblur" class="btn btn-default" onclick="enableBlur();">
+                                                                <i class="fas fa-adjust"></i> Blur
+                                                            </span>
+                                                            <span id="btnblurOk" class="btn btn-success" onclick="applyBlur();" style="display:none;">
+                                                                OK
+                                                            </span>
+
 
 
                                                         <!-- To display cropped image -->
